@@ -126,7 +126,7 @@ static MPManager *_instance = nil;
     if ([statusString isEqualToString:@"Joined"]){
         if (![[GameManager sharedInstance].googleUserName isEqualToString:participant.displayName]){
         [GameManager sharedInstance].opponentName=participant.displayName;
-        [GameManager sharedInstance].opponentImage=participant.avatarUrl.absoluteString;
+        [GameManager sharedInstance].opponentImage=participant.avatarUrl;
         }
     }
     if ([statusString isEqualToString:@"Left"])

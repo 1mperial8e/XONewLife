@@ -7,6 +7,8 @@
 //
 
 #import "XOGameViewController.h"
+#import "GameManager.h"
+#import "MPManager.h"
 
 @interface XOGameViewController ()
 @property (weak, nonatomic) IBOutlet UIView *gameFieldContainerView;
@@ -70,27 +72,26 @@
                                                                        multiplier:1.0
                                                                          constant:0]];
     [self addChildViewController:_gameFieldViewController];
+    [self setOnlinePlayersInfo];
     
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void) viewWillDisappear:(BOOL)animated{
+    [[MPManager sharedInstance].roomToTrack leave];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void) setOnlinePlayersInfo{
+    self.myPhoto.layer.cornerRadius=33;
+    self.opponentPhoto.layer.cornerRadius=33;
+    self.myName.text=[GameManager sharedInstance].googleUserName;
+    self.opponentName.text=[GameManager sharedInstance].opponentName;
+    self.myPhoto.image=[UIImage imageWithData:[NSData  dataWithContentsOfURL:[NSURL URLWithString:[GameManager sharedInstance].googleUserImage]]];
+    self.opponentPhoto.image=[UIImage imageWithData:[NSData  dataWithContentsOfURL:[GameManager sharedInstance].opponentImage]];
+    self.myPhoto.clipsToBounds=YES;
+    self.opponentPhoto.clipsToBounds=YES;
 }
 @end
