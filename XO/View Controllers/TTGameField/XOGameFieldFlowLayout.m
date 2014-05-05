@@ -15,6 +15,7 @@
 {
     _squareColumn = (int)sqrt([self.collectionView numberOfItemsInSection:0]);
     CGSize size = CGSizeMake(self.collectionView.bounds.size.width-(10*_squareColumn), self.collectionView.bounds.size.height-(10*_squareColumn));
-    return CGSizeMake(size.width/_squareColumn, size.height/_squareColumn);
+    CGSize itemSize = CGSizeMake(size.width/_squareColumn, size.height/_squareColumn);
+    return itemSize;
 }
 @end

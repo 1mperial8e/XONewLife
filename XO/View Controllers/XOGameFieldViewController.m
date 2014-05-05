@@ -76,17 +76,17 @@
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    
     return nil;
 }
 #pragma mark - CollectionView Delegate
 - (BOOL) collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (player2) {
-        ((XOCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath]).mode = 1;
+    XOCollectionViewCell *cell = (XOCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    if (player2 && !cell.mode) {
+        cell.mode = 1;
         player2 = NO;
-    } else {
-        [collectionView cellForItemAtIndexPath:indexPath].backgroundColor = [UIColor redColor];
+    } else if (!cell.mode) {
+        cell.mode = -1;
         player2 = YES;
     }
     return YES;
@@ -95,5 +95,9 @@
 {
     return NO;
 }
-
+#pragma mark - Private
+- (void)clearGameField
+{
+    [_collectionView reloadData];
+}
 @end
