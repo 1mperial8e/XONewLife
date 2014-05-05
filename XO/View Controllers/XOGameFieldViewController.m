@@ -8,12 +8,14 @@
 
 #import "XOGameFieldViewController.h"
 #import "TTBananasView.h"
+#import "XOCollectionViewCell.h"
 @interface XOGameFieldViewController ()
-
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (nonatomic) BOOL player2;
 @end
 
 @implementation XOGameFieldViewController
-
+@synthesize player2;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -54,5 +56,44 @@
     // Pass the selected object to the new view controller.
 }
 */
+#pragma mark - CollectionView Data Sourse
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 9;
+}
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    CGRect bounds = cell.bounds;
+    bounds.size = CGSizeMake(collectionView.frame.size.width/3, collectionView.frame.size.height/3);
+    cell.bounds = bounds;
+    //NSLog(@"%@", NSStringFromCGRect(cell.frame));
+    return cell;
+}
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    
+    return nil;
+}
+#pragma mark - CollectionView Delegate
+- (BOOL) collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (player2) {
+        ((XOCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath]).mode = 1;
+        player2 = NO;
+    } else {
+        [collectionView cellForItemAtIndexPath:indexPath].backgroundColor = [UIColor redColor];
+        player2 = YES;
+    }
+    return YES;
+}
+- (BOOL) collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return NO;
+}
 
 @end

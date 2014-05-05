@@ -9,6 +9,8 @@
 #import "XOGameViewController.h"
 
 @interface XOGameViewController ()
+@property (weak, nonatomic) IBOutlet UIView *gameFieldContainerView;
+@property (weak, nonatomic) UIViewController *gameFieldViewController;
 
 - (IBAction)back:(id)sender;
 
@@ -29,6 +31,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _gameFieldViewController = [[UIStoryboard storyboardWithName:@"GameField" bundle:nil] instantiateViewControllerWithIdentifier:@"gameField"];
+    //_gameFieldContainerView = _gameFieldViewController.view;
+    [_gameFieldContainerView addSubview:_gameFieldViewController.view];
+    [self addChildViewController:_gameFieldViewController];
+    
 }
 
 - (void)didReceiveMemoryWarning

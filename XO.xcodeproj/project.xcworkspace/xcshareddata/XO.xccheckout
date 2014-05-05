@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>59D9FB9F-1AC5-407F-ACAC-96E3C07672DA</string>
+	<string>C0D309D0-12E9-4904-B768-601CCCACC014</string>
 	<key>IDESourceControlProjectName</key>
 	<string>XO</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>D943C95A-68CE-4C14-ABF3-1F4214DD461D</key>
-		<string>https://github.com/1mperial8e/Tic-tac-toe.git</string>
+		<key>B3CDF76E-A9CD-4523-9E89-C7D0BB5EF31C</key>
+		<string>https://github.com/YourTradingSystems/XO_iOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>XO.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>D943C95A-68CE-4C14-ABF3-1F4214DD461D</key>
+		<key>B3CDF76E-A9CD-4523-9E89-C7D0BB5EF31C</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/1mperial8e/Tic-tac-toe.git</string>
+	<string>https://github.com/YourTradingSystems/XO_iOS.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>D943C95A-68CE-4C14-ABF3-1F4214DD461D</string>
+	<string>B3CDF76E-A9CD-4523-9E89-C7D0BB5EF31C</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>D943C95A-68CE-4C14-ABF3-1F4214DD461D</string>
+			<string>B3CDF76E-A9CD-4523-9E89-C7D0BB5EF31C</string>
 			<key>IDESourceControlWCCName</key>
-			<string>XO</string>
+			<string>XO_iOS</string>
 		</dict>
 	</array>
 </dict>

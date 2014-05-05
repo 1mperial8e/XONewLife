@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="AOf-JE-2Y1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="AOf-JE-2Y1">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -8,7 +8,7 @@
         <!--Game Field View Controller-->
         <scene sceneID="t7C-0b-QRe">
             <objects>
-                <viewController id="AOf-JE-2Y1" customClass="XOGameFieldViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="gameField" id="AOf-JE-2Y1" customClass="XOGameFieldViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ocl-BZ-Bjq"/>
                         <viewControllerLayoutGuide type="bottom" id="im7-3T-mZB"/>
@@ -17,95 +17,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BNN-J0-7OI" customClass="TTBananasView">
-                                <rect key="frame" x="20" y="20" width="80" height="80"/>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YTz-h8-Fde">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
-                            <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BSQ-nA-jXE" customClass="TTBananasView">
-                                <rect key="frame" x="120" y="20" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
-                            <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="krr-EH-hxr" customClass="TTBananasView">
-                                <rect key="frame" x="220" y="20" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
-                            <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8PK-JA-Lqg" customClass="TTBananasView">
-                                <rect key="frame" x="20" y="120" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
-                            <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="APg-JX-8gb" customClass="TTBananasView">
-                                <rect key="frame" x="120" y="120" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
-                            <view tag="5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jWl-US-haa" customClass="TTBananasView">
-                                <rect key="frame" x="220" y="120" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
-                            <view tag="6" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ttR-8C-2pq" customClass="TTBananasView">
-                                <rect key="frame" x="20" y="220" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
-                            <view tag="7" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="age-Vh-YZO" customClass="TTBananasView">
-                                <rect key="frame" x="120" y="220" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
-                            <view tag="8" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hxz-vB-KjL" customClass="TTBananasView">
-                                <rect key="frame" x="220" y="220" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dNU-nG-jbT" customClass="XOGameFieldFlowLayout">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="elo-QR-Lp3">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="AQZ-og-o9x">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="72"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="AQZ-og-o9x" firstAttribute="leading" secondItem="elo-QR-Lp3" secondAttribute="leading" id="7tU-eF-5Aa"/>
+                                            <constraint firstItem="AQZ-og-o9x" firstAttribute="top" secondItem="elo-QR-Lp3" secondAttribute="top" id="Cov-fj-IuT"/>
+                                            <constraint firstAttribute="trailing" secondItem="AQZ-og-o9x" secondAttribute="trailing" id="eBb-v6-fNm"/>
+                                            <constraint firstAttribute="bottom" secondItem="AQZ-og-o9x" secondAttribute="bottom" id="yfk-mu-E9E"/>
+                                        </constraints>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="AOf-JE-2Y1" id="pug-qs-RWe"/>
+                                    <outlet property="delegate" destination="AOf-JE-2Y1" id="20o-aL-uy6"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="BSQ-nA-jXE" firstAttribute="leading" secondItem="age-Vh-YZO" secondAttribute="leading" id="1cc-9m-k1r"/>
-                            <constraint firstItem="Hxz-vB-KjL" firstAttribute="bottom" secondItem="age-Vh-YZO" secondAttribute="bottom" id="21R-Ts-bh1"/>
-                            <constraint firstItem="BSQ-nA-jXE" firstAttribute="trailing" secondItem="APg-JX-8gb" secondAttribute="trailing" id="28b-70-Z0L"/>
-                            <constraint firstItem="Hxz-vB-KjL" firstAttribute="leading" secondItem="krr-EH-hxr" secondAttribute="leading" id="3Qy-8k-odS"/>
-                            <constraint firstItem="krr-EH-hxr" firstAttribute="top" secondItem="ocl-BZ-Bjq" secondAttribute="bottom" constant="20" id="6lD-ov-QqH"/>
-                            <constraint firstItem="8PK-JA-Lqg" firstAttribute="centerY" secondItem="0fe-Ah-bl5" secondAttribute="centerY" id="ABE-Ka-9iC"/>
-                            <constraint firstItem="BSQ-nA-jXE" firstAttribute="trailing" secondItem="age-Vh-YZO" secondAttribute="trailing" id="D9a-jY-5AB"/>
-                            <constraint firstItem="Hxz-vB-KjL" firstAttribute="trailing" secondItem="jWl-US-haa" secondAttribute="trailing" id="Dlf-3B-rqQ"/>
-                            <constraint firstItem="BSQ-nA-jXE" firstAttribute="centerX" secondItem="0fe-Ah-bl5" secondAttribute="centerX" id="Gw9-xK-ptt"/>
-                            <constraint firstItem="age-Vh-YZO" firstAttribute="top" secondItem="APg-JX-8gb" secondAttribute="bottom" constant="20" id="I3k-PE-v2q"/>
-                            <constraint firstItem="BNN-J0-7OI" firstAttribute="top" secondItem="ocl-BZ-Bjq" secondAttribute="bottom" constant="20" id="ILe-bk-aJg"/>
-                            <constraint firstItem="8PK-JA-Lqg" firstAttribute="leading" secondItem="0fe-Ah-bl5" secondAttribute="leading" constant="20" symbolic="YES" id="Lzb-i0-AAb"/>
-                            <constraint firstItem="8PK-JA-Lqg" firstAttribute="leading" secondItem="ttR-8C-2pq" secondAttribute="leading" id="MJW-wY-I2h"/>
-                            <constraint firstItem="8PK-JA-Lqg" firstAttribute="bottom" secondItem="jWl-US-haa" secondAttribute="bottom" id="Nbb-GY-p92"/>
-                            <constraint firstItem="8PK-JA-Lqg" firstAttribute="top" secondItem="BNN-J0-7OI" secondAttribute="bottom" constant="20" id="Sm7-AL-ujo"/>
-                            <constraint firstItem="8PK-JA-Lqg" firstAttribute="top" secondItem="jWl-US-haa" secondAttribute="top" id="TAz-QS-pnx"/>
-                            <constraint firstItem="BSQ-nA-jXE" firstAttribute="leading" secondItem="APg-JX-8gb" secondAttribute="leading" id="TEE-Al-m1D"/>
-                            <constraint firstItem="APg-JX-8gb" firstAttribute="leading" secondItem="8PK-JA-Lqg" secondAttribute="trailing" constant="20" id="TFZ-P6-AVc"/>
-                            <constraint firstItem="krr-EH-hxr" firstAttribute="leading" secondItem="BSQ-nA-jXE" secondAttribute="trailing" constant="20" id="TYY-Ob-aDQ"/>
-                            <constraint firstItem="Hxz-vB-KjL" firstAttribute="top" secondItem="jWl-US-haa" secondAttribute="bottom" constant="20" id="UKb-aa-qj2"/>
-                            <constraint firstItem="Hxz-vB-KjL" firstAttribute="trailing" secondItem="krr-EH-hxr" secondAttribute="trailing" id="Voe-QH-CCX"/>
-                            <constraint firstItem="BSQ-nA-jXE" firstAttribute="top" secondItem="ocl-BZ-Bjq" secondAttribute="bottom" constant="20" id="XO5-dn-Qt5"/>
-                            <constraint firstItem="8PK-JA-Lqg" firstAttribute="trailing" secondItem="BNN-J0-7OI" secondAttribute="trailing" id="bBb-n0-mfT"/>
-                            <constraint firstItem="8PK-JA-Lqg" firstAttribute="top" secondItem="0fe-Ah-bl5" secondAttribute="top" constant="120" id="ePN-mQ-2tK"/>
-                            <constraint firstItem="APg-JX-8gb" firstAttribute="top" secondItem="BSQ-nA-jXE" secondAttribute="bottom" constant="20" id="edc-H8-Gwd"/>
-                            <constraint firstItem="8PK-JA-Lqg" firstAttribute="top" secondItem="APg-JX-8gb" secondAttribute="top" id="fTS-jC-hpT"/>
-                            <constraint firstAttribute="trailing" secondItem="Hxz-vB-KjL" secondAttribute="trailing" constant="20" symbolic="YES" id="fmh-id-GD4"/>
-                            <constraint firstAttribute="trailing" secondItem="8PK-JA-Lqg" secondAttribute="trailing" constant="220" id="gId-p5-gSS"/>
-                            <constraint firstItem="8PK-JA-Lqg" firstAttribute="bottom" secondItem="APg-JX-8gb" secondAttribute="bottom" id="hoG-ts-rm3"/>
-                            <constraint firstItem="8PK-JA-Lqg" firstAttribute="leading" secondItem="BNN-J0-7OI" secondAttribute="leading" id="nQH-X0-jxe"/>
-                            <constraint firstItem="jWl-US-haa" firstAttribute="top" secondItem="krr-EH-hxr" secondAttribute="bottom" constant="20" id="npN-YN-YWm"/>
-                            <constraint firstItem="Hxz-vB-KjL" firstAttribute="leading" secondItem="jWl-US-haa" secondAttribute="leading" id="se6-cb-6pH"/>
-                            <constraint firstItem="Hxz-vB-KjL" firstAttribute="bottom" secondItem="ttR-8C-2pq" secondAttribute="bottom" id="tOd-pZ-LSf"/>
-                            <constraint firstItem="ttR-8C-2pq" firstAttribute="top" secondItem="8PK-JA-Lqg" secondAttribute="bottom" constant="20" id="tVd-qJ-V3b"/>
-                            <constraint firstAttribute="bottom" secondItem="Hxz-vB-KjL" secondAttribute="bottom" constant="20" symbolic="YES" id="uoX-0m-DQW"/>
-                            <constraint firstItem="8PK-JA-Lqg" firstAttribute="trailing" secondItem="ttR-8C-2pq" secondAttribute="trailing" id="wen-td-Bhm"/>
+                            <constraint firstItem="YTz-h8-Fde" firstAttribute="height" secondItem="0fe-Ah-bl5" secondAttribute="height" id="jd7-MW-hPs"/>
+                            <constraint firstItem="YTz-h8-Fde" firstAttribute="top" secondItem="ocl-BZ-Bjq" secondAttribute="bottom" id="oL9-Kd-cQu"/>
+                            <constraint firstItem="YTz-h8-Fde" firstAttribute="leading" secondItem="0fe-Ah-bl5" secondAttribute="leading" id="rV1-ps-OBd"/>
+                            <constraint firstItem="YTz-h8-Fde" firstAttribute="width" secondItem="0fe-Ah-bl5" secondAttribute="width" id="wef-GU-CA7"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="320"/>
+                    <connections>
+                        <outlet property="collectionView" destination="YTz-h8-Fde" id="SBj-fM-wtL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OiV-WV-Wg1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

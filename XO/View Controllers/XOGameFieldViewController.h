@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XOGameFieldViewController : UIViewController
+@interface XOGameFieldViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @end
