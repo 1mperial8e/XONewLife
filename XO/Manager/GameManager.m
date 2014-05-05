@@ -29,4 +29,8 @@ static GameManager* _instance=nil;
     [GameManager sharedInstance].push=[userDefaults boolForKey:@"push"];
 }
 
+- (void)dealloc{
+    _player=nil;
+}
+
 @end

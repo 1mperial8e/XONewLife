@@ -71,6 +71,9 @@
         [userDefaults setBool:YES forKey:settings];
     }else{
         [userDefaults setBool:NO forKey:settings];
+        if ([settings isEqualToString:@"music"]) {
+            [[GameManager sharedInstance].player stop];
+        }
     }
     [userDefaults synchronize];
     [[GameManager sharedInstance] setSettings];

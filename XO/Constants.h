@@ -12,6 +12,9 @@
 #define EASY_MODE @"easy"
 #define MEDIUM_MODE @"medium"
 #define HARD_MODE @"hard"
+#define SINGLE_PLAYER @"single"
+#define TWO_PLAYERS @"two"
+#define ONLINE_PLAYERS @"online"
 
 
 #endif

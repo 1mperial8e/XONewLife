@@ -37,6 +37,7 @@
 		84D667711917882A000DA569 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D667701917882A000DA569 /* AVFoundation.framework */; };
 		84D6677319178838000DA569 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D6677219178838000DA569 /* AudioToolbox.framework */; };
 		84D6677819178B49000DA569 /* step.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84D6677719178B49000DA569 /* step.wav */; };
+		84D6677A1917DE1E000DA569 /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84D667791917DE1E000DA569 /* music.mp3 */; };
 		FCBA6849B3044F72B6B90560 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE32FFD0F7604EB6BEFAF60C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +100,7 @@
 		84D667701917882A000DA569 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		84D6677219178838000DA569 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		84D6677719178B49000DA569 /* step.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = step.wav; sourceTree = "<group>"; };
+		84D667791917DE1E000DA569 /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
 		DE32FFD0F7604EB6BEFAF60C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -299,6 +301,7 @@
 		84D6677619178B49000DA569 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				84D667791917DE1E000DA569 /* music.mp3 */,
 				84D6677719178B49000DA569 /* step.wav */,
 				7FEAED2C1917D84E0065CC57 /* Images.xcassets */,
 			);
@@ -385,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84D6677819178B49000DA569 /* step.wav in Resources */,
+				84D6677A1917DE1E000DA569 /* music.mp3 in Resources */,
 				8481FC5A1915273E00D9F0EB /* Main_iPad.storyboard in Resources */,
 				8481FC4E1915273E00D9F0EB /* InfoPlist.strings in Resources */,
 				7FEAED2D1917D84E0065CC57 /* Images.xcassets in Resources */,
@@ -630,6 +634,7 @@
 					"-framework",
 					AVFoundation,
 				);
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -686,6 +691,7 @@
 					"-framework",
 					AVFoundation,
 				);
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

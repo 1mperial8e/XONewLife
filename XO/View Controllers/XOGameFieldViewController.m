@@ -100,6 +100,7 @@
 {
     return nil;
 }
+
 #pragma mark - CollectionView Delegate
 - (BOOL) collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -110,7 +111,8 @@
     } else if (!cell.mode) {
         cell.mode = -1;
         [XOGameModel sharedInstance].xTurn = YES;
-    }    
+    }
+    [[MPManager sharedInstance] sendPlayerMyMessage:[NSString stringWithFormat:@"x%i", (int)indexPath]];
     [self playSound];
     return YES;
 }

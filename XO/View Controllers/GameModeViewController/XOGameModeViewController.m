@@ -28,15 +28,15 @@
 }
 
 - (IBAction)easyMode:(id)sender{
-    [GameManager sharedInstance].gameMode=EASY_MODE;
+    [GameManager sharedInstance].difficulty=EASY_MODE;
 }
 
 - (IBAction)mediumMode:(id)sender{
-    [GameManager sharedInstance].gameMode=MEDIUM_MODE;
+    [GameManager sharedInstance].difficulty=MEDIUM_MODE;
 }
 
 - (IBAction)hardMode:(id)sender{
-    [GameManager sharedInstance].gameMode=HARD_MODE;
+    [GameManager sharedInstance].difficulty=HARD_MODE;
 }
 
 - (IBAction)back:(id)sender {
