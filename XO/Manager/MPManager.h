@@ -13,14 +13,14 @@
 - (void)showInviteViewController:(UIViewController *)vcToShow;
 @end
 
-@protocol TTMyDelegate <NSObject>
+@protocol MyDelegate <NSObject>
 - (void)didReceiveMessage:(NSString *)symbol :(NSString*)coords;
 @end
 
 @interface MPManager : NSObject <GPGRealTimeRoomDelegate>
 @property (nonatomic, weak) id<MPLobbyDelegate> lobbyDelegate;
 @property (nonatomic, readonly) GPGRealTimeRoom *roomToTrack;
-@property (weak) id<TTMyDelegate> delegate;
+@property (weak) id<MyDelegate> delegate;
 @property (nonatomic, strong) GPGScore *myScore;
 
 /**

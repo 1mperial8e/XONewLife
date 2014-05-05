@@ -10,8 +10,13 @@
 #import "TTBananasView.h"
 #import "XOCollectionViewCell.h"
 #import "XOGameModel.h"
+#import <AudioToolbox/AudioToolbox.h>
+#import "MPManager.h"
 
-@interface XOGameFieldViewController ()
+@interface XOGameFieldViewController () <MyDelegate>
+{
+    SystemSoundID mySound;
+}
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic) BOOL player2;
 @end
@@ -35,7 +40,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"step" ofType:@"wav"];
+    NSURL *fileURL = [NSURL URLWithString:soundPath];
+    if (fileURL != nil)
+    {
+        AudioServicesCreateSystemSoundID((__bridge CFURLRef)fileURL, &mySound);
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,16 +58,12 @@
     TTBananasView *view = (TTBananasView *)tap.view;
     NSLog(@"%i", view.tag);
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)dealloc
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    AudioServicesDisposeSystemSoundID(mySound);
 }
-*/
+
 #pragma mark - CollectionView Data Sourse
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -90,7 +96,8 @@
     } else if (!cell.mode) {
         cell.mode = -1;
         [XOGameModel sharedInstance].xTurn = YES;
-    }
+    }    
+    AudioServicesPlaySystemSound(mySound);
     return YES;
 }
 - (BOOL) collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath
