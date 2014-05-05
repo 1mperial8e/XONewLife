@@ -31,6 +31,8 @@
         [alert show];
     }
     [MPManager sharedInstance].lobbyDelegate = self;
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
+
 }
 
 - (IBAction)backButton:(id)sender {
