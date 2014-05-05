@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface XOGameViewController : UIViewController
-
+@property (nonatomic) int fieldColumn;
+- (void)setXO:(BOOL)xo forPoint: (CGPoint) point;
 @end
