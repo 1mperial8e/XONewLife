@@ -11,6 +11,7 @@
 		7FEAECD7191783FB0065CC57 /* XOCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEAECD6191783FB0065CC57 /* XOCollectionViewCell.m */; };
 		7FEAECDA1917ADF80065CC57 /* XOGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEAECD91917ADF80065CC57 /* XOGameViewController.m */; };
 		7FEAECDD1917B7580065CC57 /* XOGameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEAECDC1917B7580065CC57 /* XOGameModel.m */; };
+		7FEAED2D1917D84E0065CC57 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FEAED2C1917D84E0065CC57 /* Images.xcassets */; };
 		8481FC441915273E00D9F0EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481FC431915273E00D9F0EB /* Foundation.framework */; };
 		8481FC461915273E00D9F0EB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481FC451915273E00D9F0EB /* CoreGraphics.framework */; };
 		8481FC481915273E00D9F0EB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481FC471915273E00D9F0EB /* UIKit.framework */; };
@@ -18,7 +19,6 @@
 		8481FC501915273E00D9F0EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC4F1915273E00D9F0EB /* main.m */; };
 		8481FC541915273E00D9F0EB /* XOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC531915273E00D9F0EB /* XOAppDelegate.m */; };
 		8481FC5A1915273E00D9F0EB /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8481FC581915273E00D9F0EB /* Main_iPad.storyboard */; };
-		8481FC5F1915273E00D9F0EB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8481FC5E1915273E00D9F0EB /* Images.xcassets */; };
 		8481FC661915273E00D9F0EB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481FC651915273E00D9F0EB /* XCTest.framework */; };
 		8481FC671915273E00D9F0EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481FC431915273E00D9F0EB /* Foundation.framework */; };
 		8481FC681915273E00D9F0EB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481FC471915273E00D9F0EB /* UIKit.framework */; };
@@ -60,6 +60,7 @@
 		7FEAECD91917ADF80065CC57 /* XOGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOGameViewController.m; sourceTree = "<group>"; };
 		7FEAECDB1917B7580065CC57 /* XOGameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XOGameModel.h; sourceTree = "<group>"; };
 		7FEAECDC1917B7580065CC57 /* XOGameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOGameModel.m; sourceTree = "<group>"; };
+		7FEAED2C1917D84E0065CC57 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8481FC401915273E00D9F0EB /* XO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8481FC431915273E00D9F0EB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8481FC451915273E00D9F0EB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -71,7 +72,6 @@
 		8481FC521915273E00D9F0EB /* XOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XOAppDelegate.h; sourceTree = "<group>"; };
 		8481FC531915273E00D9F0EB /* XOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XOAppDelegate.m; sourceTree = "<group>"; };
 		8481FC591915273E00D9F0EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		8481FC5E1915273E00D9F0EB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8481FC641915273E00D9F0EB /* XOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8481FC651915273E00D9F0EB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		8481FC6D1915273E00D9F0EB /* XOTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "XOTests-Info.plist"; sourceTree = "<group>"; };
@@ -173,7 +173,6 @@
 				8481FC531915273E00D9F0EB /* XOAppDelegate.m */,
 				8481FC7B1915293400D9F0EB /* iPhone.storyboard */,
 				8481FC581915273E00D9F0EB /* Main_iPad.storyboard */,
-				8481FC5E1915273E00D9F0EB /* Images.xcassets */,
 				8481FC4A1915273E00D9F0EB /* Supporting Files */,
 				8481FCA5191664D000D9F0EB /* Constants.h */,
 			);
@@ -301,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				84D6677719178B49000DA569 /* step.wav */,
+				7FEAED2C1917D84E0065CC57 /* Images.xcassets */,
 			);
 			path = Resources;
 			sourceTree = SOURCE_ROOT;
@@ -386,8 +386,8 @@
 			files = (
 				84D6677819178B49000DA569 /* step.wav in Resources */,
 				8481FC5A1915273E00D9F0EB /* Main_iPad.storyboard in Resources */,
-				8481FC5F1915273E00D9F0EB /* Images.xcassets in Resources */,
 				8481FC4E1915273E00D9F0EB /* InfoPlist.strings in Resources */,
+				7FEAED2D1917D84E0065CC57 /* Images.xcassets in Resources */,
 				8481FC7C1915293400D9F0EB /* iPhone.storyboard in Resources */,
 				8481FC9719152A2D00D9F0EB /* GameField.storyboard in Resources */,
 			);
