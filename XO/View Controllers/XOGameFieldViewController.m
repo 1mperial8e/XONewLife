@@ -12,8 +12,9 @@
 #import "XOGameModel.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import "MPManager.h"
+#import "GameManager.h"
 
-@interface XOGameFieldViewController () <MyDelegate>
+@interface XOGameFieldViewController () <GameDelegate>
 {
     SystemSoundID mySound;
 }
@@ -46,6 +47,7 @@
     {
         AudioServicesCreateSystemSoundID((__bridge CFURLRef)fileURL, &mySound);
     }
+    [MPManager sharedInstance].delegate=self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,6 +64,18 @@
 - (void)dealloc
 {
     AudioServicesDisposeSystemSoundID(mySound);
+}
+
+- (void) playSound{
+    if ([GameManager sharedInstance].sound==YES) {
+        AudioServicesPlaySystemSound(mySound);
+    }
+}
+
+#pragma mark - GameDelegate methods
+
+- (void)didReceiveMessage:(NSString *)symbol :(NSString *)coords{
+    [self playSound];
 }
 
 #pragma mark - CollectionView Data Sourse
@@ -97,7 +111,7 @@
         cell.mode = -1;
         [XOGameModel sharedInstance].xTurn = YES;
     }    
-    AudioServicesPlaySystemSound(mySound);
+    [self playSound];
     return YES;
 }
 - (BOOL) collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath
