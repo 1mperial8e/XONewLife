@@ -7,7 +7,6 @@
 //
 
 #import "XOGameViewController.h"
-
 @interface XOGameViewController ()
 @property (weak, nonatomic) IBOutlet UIView *gameFieldContainerView;
 @property (weak, nonatomic) UIViewController *gameFieldViewController;
@@ -22,11 +21,13 @@
 
 @implementation XOGameViewController
 
+#pragma mark - Lifecicle
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
     }
     return self;
 }
@@ -35,17 +36,28 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self configGameField];
+    
+    
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)configGameField
+{
     _gameFieldViewController = [[UIStoryboard storyboardWithName:@"GameField" bundle:nil] instantiateViewControllerWithIdentifier:@"gameField"];
-    //_gameFieldContainerView = _gameFieldViewController.view;
     [_gameFieldContainerView addSubview:_gameFieldViewController.view];
-    NSLog(@"%@", NSStringFromCGRect( _gameFieldViewController.view.frame));
     _gameFieldViewController.view.translatesAutoresizingMaskIntoConstraints = NO;
     [_gameFieldContainerView addConstraint:[NSLayoutConstraint constraintWithItem:_gameFieldContainerView
-                                                                       attribute:NSLayoutAttributeHeight
-                                                                       relatedBy:NSLayoutRelationEqual
-                                                                          toItem:_gameFieldViewController.view
-                                                                       attribute:NSLayoutAttributeHeight
-                                                                      multiplier:1.0
+                                                                        attribute:NSLayoutAttributeHeight
+                                                                        relatedBy:NSLayoutRelationEqual
+                                                                           toItem:_gameFieldViewController.view
+                                                                        attribute:NSLayoutAttributeHeight
+                                                                       multiplier:1.0
                                                                          constant:0]];
     
     [_gameFieldContainerView addConstraint:[NSLayoutConstraint constraintWithItem:_gameFieldContainerView
@@ -70,13 +82,6 @@
                                                                        multiplier:1.0
                                                                          constant:0]];
     [self addChildViewController:_gameFieldViewController];
-    
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 /*
@@ -89,7 +94,6 @@
     // Pass the selected object to the new view controller.
 }
 */
-
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }

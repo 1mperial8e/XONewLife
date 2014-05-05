@@ -9,6 +9,8 @@
 #import "XOGameFieldViewController.h"
 #import "TTBananasView.h"
 #import "XOCollectionViewCell.h"
+#import "XOGameModel.h"
+
 @interface XOGameFieldViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic) BOOL player2;
@@ -59,7 +61,7 @@
 #pragma mark - CollectionView Data Sourse
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 9;
+    return [self exp2:[XOGameModel sharedInstance].gameColumns];
 }
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
@@ -82,12 +84,12 @@
 - (BOOL) collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     XOCollectionViewCell *cell = (XOCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    if (player2 && !cell.mode) {
+    if ([XOGameModel sharedInstance].xTurn && !cell.mode) {
         cell.mode = 1;
-        player2 = NO;
+        [XOGameModel sharedInstance].xTurn = NO;
     } else if (!cell.mode) {
         cell.mode = -1;
-        player2 = YES;
+        [XOGameModel sharedInstance].xTurn = YES;
     }
     return YES;
 }
@@ -99,5 +101,9 @@
 - (void)clearGameField
 {
     [_collectionView reloadData];
+}
+- (int)exp2:(int)integer
+{
+    return integer*integer;
 }
 @end
