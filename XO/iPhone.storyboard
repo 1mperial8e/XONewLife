@@ -349,10 +349,10 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="gameFieldContainerView" destination="thm-ej-W6q" id="see-vx-Afp"/>
-                        <outlet property="myName" destination="FYN-Ii-4fX" id="N2e-XV-zhz"/>
-                        <outlet property="myPhoto" destination="Njc-29-WPx" id="xUg-bv-eKa"/>
-                        <outlet property="opponentName" destination="qna-UE-joM" id="GtG-np-u51"/>
-                        <outlet property="opponentPhoto" destination="QWB-5A-0yn" id="ozq-87-5ox"/>
+                        <outlet property="myName" destination="FYN-Ii-4fX" id="Ux4-FX-3yP"/>
+                        <outlet property="myPhoto" destination="Njc-29-WPx" id="BcH-bK-J28"/>
+                        <outlet property="opponentName" destination="qna-UE-joM" id="oKH-eg-ILS"/>
+                        <outlet property="opponentPhoto" destination="QWB-5A-0yn" id="NjT-P9-Fp4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a6u-6e-1vV" userLabel="First Responder" sceneMemberID="firstResponder"/>

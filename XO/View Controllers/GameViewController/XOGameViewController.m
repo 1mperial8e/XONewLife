@@ -11,6 +11,10 @@
 @interface XOGameViewController ()
 @property (weak, nonatomic) IBOutlet UIView *gameFieldContainerView;
 @property (weak, nonatomic) UIViewController *gameFieldViewController;
+@property (weak, nonatomic) IBOutlet UILabel *myName;
+@property (weak, nonatomic) IBOutlet UILabel *opponentName;
+@property (weak, nonatomic) IBOutlet UIImageView *myPhoto;
+@property (weak, nonatomic) IBOutlet UIImageView *opponentPhoto;
 
 - (IBAction)back:(id)sender;
 
