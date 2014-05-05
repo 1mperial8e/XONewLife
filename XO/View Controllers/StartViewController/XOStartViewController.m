@@ -39,7 +39,8 @@ static NSString * const kClientID = @"111039763950-dj91993gmav7o5dn26v65ga1lavlt
     signIn.delegate = self;
     signIn.shouldFetchGoogleUserID =YES;
     [signIn trySilentAuthentication];
-    [self getDefaultSettings];    
+    [self getDefaultSettings];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
 
 }
 

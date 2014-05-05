@@ -33,6 +33,8 @@
 {
     [super viewDidLoad];
     [self setControlState];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
+
 }
 
 
