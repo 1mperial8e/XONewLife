@@ -41,8 +41,7 @@
     [self configGameField];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
 
-    
-    
+
 }
 
 - (void)didReceiveMemoryWarning
