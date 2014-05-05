@@ -17,8 +17,8 @@
 @property (nonatomic) BOOL googleAnalitics;
 @property (nonatomic, weak) NSString *googleUserName;
 @property (nonatomic, weak) NSString *googleUserImage;
-@property (nonatomic, weak) NSString *opponentName;
-@property (nonatomic, weak) NSString *opponentImage;
+@property (nonatomic, strong) NSString *opponentName;
+@property (nonatomic, strong) NSURL *opponentImage;
 
 + (GameManager*)sharedInstance;
 - (void) setSettings;

@@ -97,4 +97,15 @@
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+- (void) setOnlinePlayersInfo{
+    self.myPhoto.layer.cornerRadius=33;
+    self.opponentPhoto.layer.cornerRadius=33;
+    self.myName.text=[GameManager sharedInstance].googleUserName;
+    self.opponentName.text=[GameManager sharedInstance].opponentName;
+    self.myPhoto.image=[UIImage imageWithData:[NSData  dataWithContentsOfURL:[NSURL URLWithString:[GameManager sharedInstance].googleUserImage]]];
+    self.opponentPhoto.image=[UIImage imageWithData:[NSData  dataWithContentsOfURL:[GameManager sharedInstance].opponentImage]];
+    self.myPhoto.clipsToBounds=YES;
+    self.opponentPhoto.clipsToBounds=YES;
+}
 @end
