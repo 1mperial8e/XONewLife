@@ -10,6 +10,7 @@
 #import "GameManager.h"
 
 @interface XOGameModeViewController ()
+
 - (IBAction)back:(id)sender;
 - (IBAction)easyMode:(id)sender;
 - (IBAction)mediumMode:(id)sender;
@@ -22,7 +23,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (IBAction)easyMode:(id)sender{
@@ -40,4 +40,5 @@
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 @end

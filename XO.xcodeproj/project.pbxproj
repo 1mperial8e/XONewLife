@@ -33,6 +33,9 @@
 		8481FC9A19152A2D00D9F0EB /* XOGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC9219152A2D00D9F0EB /* XOGameViewController.m */; };
 		8481FC9D19165DF100D9F0EB /* XOGameModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC9C19165DF100D9F0EB /* XOGameModeViewController.m */; };
 		8481FCA1191661A000D9F0EB /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FCA0191661A000D9F0EB /* GameManager.m */; };
+		84D667711917882A000DA569 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D667701917882A000DA569 /* AVFoundation.framework */; };
+		84D6677319178838000DA569 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D6677219178838000DA569 /* AudioToolbox.framework */; };
+		84D6677819178B49000DA569 /* step.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84D6677719178B49000DA569 /* step.wav */; };
 		FCBA6849B3044F72B6B90560 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE32FFD0F7604EB6BEFAF60C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +93,9 @@
 		8481FC9F191661A000D9F0EB /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
 		8481FCA0191661A000D9F0EB /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
 		8481FCA5191664D000D9F0EB /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		84D667701917882A000DA569 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		84D6677219178838000DA569 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		84D6677719178B49000DA569 /* step.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = step.wav; sourceTree = "<group>"; };
 		DE32FFD0F7604EB6BEFAF60C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -98,6 +104,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D6677319178838000DA569 /* AudioToolbox.framework in Frameworks */,
+				84D667711917882A000DA569 /* AVFoundation.framework in Frameworks */,
 				8481FC461915273E00D9F0EB /* CoreGraphics.framework in Frameworks */,
 				8481FC481915273E00D9F0EB /* UIKit.framework in Frameworks */,
 				8481FC441915273E00D9F0EB /* Foundation.framework in Frameworks */,
@@ -141,6 +149,8 @@
 		8481FC421915273E00D9F0EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84D6677219178838000DA569 /* AudioToolbox.framework */,
+				84D667701917882A000DA569 /* AVFoundation.framework */,
 				8481FC431915273E00D9F0EB /* Foundation.framework */,
 				8481FC451915273E00D9F0EB /* CoreGraphics.framework */,
 				8481FC471915273E00D9F0EB /* UIKit.framework */,
@@ -153,6 +163,7 @@
 		8481FC491915273E00D9F0EB /* XO */ = {
 			isa = PBXGroup;
 			children = (
+				84D6677619178B49000DA569 /* Resources */,
 				8481FC7D19152A2D00D9F0EB /* Manager */,
 				8481FC8019152A2D00D9F0EB /* View Controllers */,
 				8481FC521915273E00D9F0EB /* XOAppDelegate.h */,
@@ -281,6 +292,14 @@
 			name = GameModeViewController;
 			sourceTree = "<group>";
 		};
+		84D6677619178B49000DA569 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				84D6677719178B49000DA569 /* step.wav */,
+			);
+			path = Resources;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -360,6 +379,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D6677819178B49000DA569 /* step.wav in Resources */,
 				8481FC5A1915273E00D9F0EB /* Main_iPad.storyboard in Resources */,
 				8481FC5F1915273E00D9F0EB /* Images.xcassets in Resources */,
 				8481FC4E1915273E00D9F0EB /* InfoPlist.strings in Resources */,
@@ -494,6 +514,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alexander Sokhanych (U5HL738569)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -512,6 +533,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "82B0C230-C08B-4A2F-BC17-0F8342AE3CA2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -533,6 +555,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alexander Sokhanych (U5HL738569)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -544,6 +567,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PROVISIONING_PROFILE = "82B0C230-C08B-4A2F-BC17-0F8342AE3CA2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -560,6 +584,46 @@
 				GCC_PREFIX_HEADER = "XO/XO-Prefix.pch";
 				INFOPLIST_FILE = "XO/XO-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+					"-framework",
+					AddressBook,
+					"-framework",
+					AssetsLibrary,
+					"-framework",
+					CoreData,
+					"-framework",
+					CoreGraphics,
+					"-framework",
+					CoreLocation,
+					"-framework",
+					CoreMotion,
+					"-framework",
+					CoreText,
+					"-framework",
+					Foundation,
+					"-framework",
+					GoogleOpenSource,
+					"-framework",
+					GooglePlayGames,
+					"-framework",
+					GooglePlus,
+					"-framework",
+					MediaPlayer,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					Security,
+					"-framework",
+					SystemConfiguration,
+					"-framework",
+					UIKit,
+					"-framework",
+					AudioToolbox,
+					"-framework",
+					AVFoundation,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -576,6 +640,46 @@
 				GCC_PREFIX_HEADER = "XO/XO-Prefix.pch";
 				INFOPLIST_FILE = "XO/XO-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+					"-framework",
+					AddressBook,
+					"-framework",
+					AssetsLibrary,
+					"-framework",
+					CoreData,
+					"-framework",
+					CoreGraphics,
+					"-framework",
+					CoreLocation,
+					"-framework",
+					CoreMotion,
+					"-framework",
+					CoreText,
+					"-framework",
+					Foundation,
+					"-framework",
+					GoogleOpenSource,
+					"-framework",
+					GooglePlayGames,
+					"-framework",
+					GooglePlus,
+					"-framework",
+					MediaPlayer,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					Security,
+					"-framework",
+					SystemConfiguration,
+					"-framework",
+					UIKit,
+					"-framework",
+					AudioToolbox,
+					"-framework",
+					AVFoundation,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

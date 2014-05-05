@@ -7,10 +7,19 @@
 //
 
 #import "XOGameViewController.h"
+#import <AudioToolbox/AudioToolbox.h>
+#import "GameManager.h"
 
-@interface XOGameViewController ()
+@interface XOGameViewController (){
+    SystemSoundID mySound;
+}
+
 @property (weak, nonatomic) IBOutlet UIView *gameFieldContainerView;
 @property (weak, nonatomic) UIViewController *gameFieldViewController;
+@property (weak, nonatomic) IBOutlet UIImageView *myPhoto;
+@property (weak, nonatomic) IBOutlet UIImageView *opponentPhoto;
+@property (weak, nonatomic) IBOutlet UILabel *myName;
+@property (weak, nonatomic) IBOutlet UILabel *opponentName;
 
 - (IBAction)back:(id)sender;
 
@@ -33,29 +42,38 @@
     // Do any additional setup after loading the view.
     _gameFieldViewController = [[UIStoryboard storyboardWithName:@"GameField" bundle:nil] instantiateViewControllerWithIdentifier:@"gameField"];
     //_gameFieldContainerView = _gameFieldViewController.view;
-    [_gameFieldContainerView addSubview:_gameFieldViewController.view];
+    //[_gameFieldContainerView addSubview:_gameFieldViewController.view];
     [self addChildViewController:_gameFieldViewController];
-    
+    NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"step" ofType:@"wav"];
+    NSURL *fileURL = [NSURL URLWithString:soundPath];
+    if (fileURL != nil)
+    {
+        AudioServicesCreateSystemSoundID((__bridge CFURLRef)fileURL, &mySound);
+    }
+    [[self.myPhoto layer] setCornerRadius:32.0];
+    self.myPhoto.clipsToBounds=YES;
+    self.myPhoto.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[GameManager sharedInstance].googleUserImage]]];
+    self.myName.text=[GameManager sharedInstance].googleUserName;
+    [[self.opponentPhoto layer] setCornerRadius:32.0];
+    self.opponentPhoto.clipsToBounds=YES;
+    self.opponentPhoto.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[GameManager sharedInstance].opponentImage]]];
+    self.opponentName.text=[GameManager sharedInstance].opponentName;
 }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+- (void)playSoud{
+    if ([GameManager sharedInstance].sound==YES) {
+         AudioServicesPlaySystemSound(mySound);
+    }    
+}
+
+- (void)dealloc
+{
+    AudioServicesDisposeSystemSoundID(mySound);
+}
+
+
 @end

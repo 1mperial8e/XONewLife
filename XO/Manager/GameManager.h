@@ -15,6 +15,10 @@
 @property (nonatomic) BOOL music;
 @property (nonatomic) BOOL push;
 @property (nonatomic) BOOL googleAnalitics;
+@property (nonatomic, weak) NSString *googleUserName;
+@property (nonatomic, weak) NSString *googleUserImage;
+@property (nonatomic, weak) NSString *opponentName;
+@property (nonatomic, weak) NSString *opponentImage;
 
 + (GameManager*)sharedInstance;
 - (void) setSettings;

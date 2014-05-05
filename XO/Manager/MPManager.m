@@ -8,6 +8,7 @@
 
 #import "XOAppDelegate.h"
 #import "MPManager.h"
+#import "GameManager.h"
 
 @implementation MPManager
 
@@ -122,6 +123,12 @@ static MPManager *_instance = nil;
 {
       NSString *statusString = @[ @"Invited", @"Joined", @"Declined", @"Left", @"Connection Made" ][status];
     NSLog(@"Room %@ participant %@ (%@) status changed to %@", room.roomDescription, participant.displayName, participant.participantId, statusString);
+    if ([statusString isEqualToString:@"Joined"]){
+        if (![[GameManager sharedInstance].googleUserName isEqualToString:participant.displayName]){
+        [GameManager sharedInstance].opponentName=participant.displayName;
+        [GameManager sharedInstance].opponentImage=participant.avatarUrl.absoluteString;
+        }
+    }
     if ([statusString isEqualToString:@"Left"])
     {
         [self.roomToTrack leave];

@@ -9,6 +9,7 @@
 #import "XOOnlineLobbyViewController.h"
 #import "GooglePlus.h"
 #import "MPManager.h"
+#import "XOGameViewController.h"
 
 @interface XOOnlineLobbyViewController () <UIAlertViewDelegate, MPLobbyDelegate>
 
@@ -74,6 +75,8 @@
     if (self.presentedViewController != nil) {
         [self dismissViewControllerAnimated:YES completion:^{
         }];
+        XOGameViewController *gameView=[[UIStoryboard storyboardWithName:@"iPhone" bundle:Nil] instantiateViewControllerWithIdentifier:@"game"];
+        [self.navigationController pushViewController:gameView animated:YES];
     }
 }
 

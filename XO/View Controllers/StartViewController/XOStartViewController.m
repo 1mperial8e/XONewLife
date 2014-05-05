@@ -10,6 +10,7 @@
 #import "XOGameViewController.h"
 #import "XOSettingsViewController.h"
 #import "GameManager.h"
+#import "GTLPlusPerson.h"
 
 @interface XOStartViewController ()
 
@@ -34,10 +35,11 @@ static NSString * const kClientID = @"111039763950-dj91993gmav7o5dn26v65ga1lavlt
                      @"https://www.googleapis.com/auth/appstate",
                      nil];
     signIn.language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    signIn.shouldFetchGooglePlusUser=YES;
     signIn.delegate = self;
     signIn.shouldFetchGoogleUserID =YES;
     [signIn trySilentAuthentication];
-    [self getDefaultSettings];
+    [self getDefaultSettings];    
 
 }
 
@@ -62,6 +64,9 @@ static NSString * const kClientID = @"111039763950-dj91993gmav7o5dn26v65ga1lavlt
     if (error == nil && auth) {
         NSLog(@"Success signing in to Google! Auth object is %@", auth);
         [self startGoogleGamesSignIn];
+        GTLPlusPerson *me=[GPPSignIn sharedInstance].googlePlusUser;
+        [GameManager sharedInstance].googleUserName=me.displayName;
+        [GameManager sharedInstance].googleUserImage=me.image.url;
     } else {
         NSLog(@"Failed to log into Google!\n\tError=%@\n\tAuthObj=%@",error,auth);
     }
