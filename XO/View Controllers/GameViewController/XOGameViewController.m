@@ -7,6 +7,9 @@
 //
 
 #import "XOGameViewController.h"
+#import "GameManager.h"
+#import "MPManager.h"
+
 @interface XOGameViewController ()
 @property (weak, nonatomic) IBOutlet UIView *gameFieldContainerView;
 @property (weak, nonatomic) UIViewController *gameFieldViewController;
@@ -82,18 +85,14 @@
                                                                        multiplier:1.0
                                                                          constant:0]];
     [self addChildViewController:_gameFieldViewController];
+    [self setOnlinePlayersInfo];
+    
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void) viewWillDisappear:(BOOL)animated{
+    [[MPManager sharedInstance].roomToTrack leave];
 }
-*/
+
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
