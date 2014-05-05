@@ -13,15 +13,25 @@
 		8481FC4E1915273E00D9F0EB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8481FC4C1915273E00D9F0EB /* InfoPlist.strings */; };
 		8481FC501915273E00D9F0EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC4F1915273E00D9F0EB /* main.m */; };
 		8481FC541915273E00D9F0EB /* XOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC531915273E00D9F0EB /* XOAppDelegate.m */; };
-		8481FC571915273E00D9F0EB /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8481FC551915273E00D9F0EB /* Main_iPhone.storyboard */; };
 		8481FC5A1915273E00D9F0EB /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8481FC581915273E00D9F0EB /* Main_iPad.storyboard */; };
-		8481FC5D1915273E00D9F0EB /* XOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC5C1915273E00D9F0EB /* XOViewController.m */; };
 		8481FC5F1915273E00D9F0EB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8481FC5E1915273E00D9F0EB /* Images.xcassets */; };
 		8481FC661915273E00D9F0EB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481FC651915273E00D9F0EB /* XCTest.framework */; };
 		8481FC671915273E00D9F0EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481FC431915273E00D9F0EB /* Foundation.framework */; };
 		8481FC681915273E00D9F0EB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481FC471915273E00D9F0EB /* UIKit.framework */; };
 		8481FC701915273E00D9F0EB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8481FC6E1915273E00D9F0EB /* InfoPlist.strings */; };
 		8481FC721915273E00D9F0EB /* XOTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC711915273E00D9F0EB /* XOTests.m */; };
+		8481FC7C1915293400D9F0EB /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8481FC7B1915293400D9F0EB /* iPhone.storyboard */; };
+		8481FC9319152A2D00D9F0EB /* MPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC7F19152A2D00D9F0EB /* MPManager.m */; };
+		8481FC9419152A2D00D9F0EB /* XOOnlineLobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC8419152A2D00D9F0EB /* XOOnlineLobbyViewController.m */; };
+		8481FC9519152A2D00D9F0EB /* XOSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC8719152A2D00D9F0EB /* XOSettingsViewController.m */; };
+		8481FC9619152A2D00D9F0EB /* XOStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC8A19152A2D00D9F0EB /* XOStartViewController.m */; };
+		8481FC9719152A2D00D9F0EB /* GameField.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8481FC8C19152A2D00D9F0EB /* GameField.storyboard */; };
+		8481FC9819152A2D00D9F0EB /* TTBananasView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC8E19152A2D00D9F0EB /* TTBananasView.m */; };
+		8481FC9919152A2D00D9F0EB /* XOGameFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC9019152A2D00D9F0EB /* XOGameFieldViewController.m */; };
+		8481FC9A19152A2D00D9F0EB /* XOGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC9219152A2D00D9F0EB /* XOGameViewController.m */; };
+		8481FC9D19165DF100D9F0EB /* XOGameModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC9C19165DF100D9F0EB /* XOGameModeViewController.m */; };
+		8481FCA1191661A000D9F0EB /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FCA0191661A000D9F0EB /* GameManager.m */; };
+		FCBA6849B3044F72B6B90560 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE32FFD0F7604EB6BEFAF60C /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13E03152E7E4493380648031 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		8481FC401915273E00D9F0EB /* XO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8481FC431915273E00D9F0EB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8481FC451915273E00D9F0EB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -45,16 +56,35 @@
 		8481FC511915273E00D9F0EB /* XO-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XO-Prefix.pch"; sourceTree = "<group>"; };
 		8481FC521915273E00D9F0EB /* XOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XOAppDelegate.h; sourceTree = "<group>"; };
 		8481FC531915273E00D9F0EB /* XOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XOAppDelegate.m; sourceTree = "<group>"; };
-		8481FC561915273E00D9F0EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		8481FC591915273E00D9F0EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		8481FC5B1915273E00D9F0EB /* XOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XOViewController.h; sourceTree = "<group>"; };
-		8481FC5C1915273E00D9F0EB /* XOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XOViewController.m; sourceTree = "<group>"; };
 		8481FC5E1915273E00D9F0EB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8481FC641915273E00D9F0EB /* XOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8481FC651915273E00D9F0EB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		8481FC6D1915273E00D9F0EB /* XOTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "XOTests-Info.plist"; sourceTree = "<group>"; };
 		8481FC6F1915273E00D9F0EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8481FC711915273E00D9F0EB /* XOTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XOTests.m; sourceTree = "<group>"; };
+		8481FC7B1915293400D9F0EB /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
+		8481FC7E19152A2D00D9F0EB /* MPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPManager.h; sourceTree = "<group>"; };
+		8481FC7F19152A2D00D9F0EB /* MPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPManager.m; sourceTree = "<group>"; };
+		8481FC8319152A2D00D9F0EB /* XOOnlineLobbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XOOnlineLobbyViewController.h; sourceTree = "<group>"; };
+		8481FC8419152A2D00D9F0EB /* XOOnlineLobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOOnlineLobbyViewController.m; sourceTree = "<group>"; };
+		8481FC8619152A2D00D9F0EB /* XOSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XOSettingsViewController.h; sourceTree = "<group>"; };
+		8481FC8719152A2D00D9F0EB /* XOSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOSettingsViewController.m; sourceTree = "<group>"; };
+		8481FC8919152A2D00D9F0EB /* XOStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XOStartViewController.h; sourceTree = "<group>"; };
+		8481FC8A19152A2D00D9F0EB /* XOStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOStartViewController.m; sourceTree = "<group>"; };
+		8481FC8C19152A2D00D9F0EB /* GameField.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GameField.storyboard; sourceTree = "<group>"; };
+		8481FC8D19152A2D00D9F0EB /* TTBananasView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBananasView.h; sourceTree = "<group>"; };
+		8481FC8E19152A2D00D9F0EB /* TTBananasView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBananasView.m; sourceTree = "<group>"; };
+		8481FC8F19152A2D00D9F0EB /* XOGameFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XOGameFieldViewController.h; path = ../XOGameFieldViewController.h; sourceTree = "<group>"; };
+		8481FC9019152A2D00D9F0EB /* XOGameFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XOGameFieldViewController.m; path = ../XOGameFieldViewController.m; sourceTree = "<group>"; };
+		8481FC9119152A2D00D9F0EB /* XOGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XOGameViewController.h; path = ../XOGameViewController.h; sourceTree = "<group>"; };
+		8481FC9219152A2D00D9F0EB /* XOGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XOGameViewController.m; path = ../XOGameViewController.m; sourceTree = "<group>"; };
+		8481FC9B19165DF100D9F0EB /* XOGameModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XOGameModeViewController.h; path = GameModeViewController/XOGameModeViewController.h; sourceTree = "<group>"; };
+		8481FC9C19165DF100D9F0EB /* XOGameModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XOGameModeViewController.m; path = GameModeViewController/XOGameModeViewController.m; sourceTree = "<group>"; };
+		8481FC9F191661A000D9F0EB /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
+		8481FCA0191661A000D9F0EB /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
+		8481FCA5191664D000D9F0EB /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		DE32FFD0F7604EB6BEFAF60C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +95,7 @@
 				8481FC461915273E00D9F0EB /* CoreGraphics.framework in Frameworks */,
 				8481FC481915273E00D9F0EB /* UIKit.framework in Frameworks */,
 				8481FC441915273E00D9F0EB /* Foundation.framework in Frameworks */,
+				FCBA6849B3044F72B6B90560 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +119,7 @@
 				8481FC6B1915273E00D9F0EB /* XOTests */,
 				8481FC421915273E00D9F0EB /* Frameworks */,
 				8481FC411915273E00D9F0EB /* Products */,
+				13E03152E7E4493380648031 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +139,7 @@
 				8481FC451915273E00D9F0EB /* CoreGraphics.framework */,
 				8481FC471915273E00D9F0EB /* UIKit.framework */,
 				8481FC651915273E00D9F0EB /* XCTest.framework */,
+				DE32FFD0F7604EB6BEFAF60C /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -114,14 +147,15 @@
 		8481FC491915273E00D9F0EB /* XO */ = {
 			isa = PBXGroup;
 			children = (
+				8481FC7D19152A2D00D9F0EB /* Manager */,
+				8481FC8019152A2D00D9F0EB /* View Controllers */,
 				8481FC521915273E00D9F0EB /* XOAppDelegate.h */,
 				8481FC531915273E00D9F0EB /* XOAppDelegate.m */,
-				8481FC551915273E00D9F0EB /* Main_iPhone.storyboard */,
+				8481FC7B1915293400D9F0EB /* iPhone.storyboard */,
 				8481FC581915273E00D9F0EB /* Main_iPad.storyboard */,
-				8481FC5B1915273E00D9F0EB /* XOViewController.h */,
-				8481FC5C1915273E00D9F0EB /* XOViewController.m */,
 				8481FC5E1915273E00D9F0EB /* Images.xcassets */,
 				8481FC4A1915273E00D9F0EB /* Supporting Files */,
+				8481FCA5191664D000D9F0EB /* Constants.h */,
 			);
 			path = XO;
 			sourceTree = "<group>";
@@ -155,6 +189,88 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		8481FC7D19152A2D00D9F0EB /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				8481FC7E19152A2D00D9F0EB /* MPManager.h */,
+				8481FC7F19152A2D00D9F0EB /* MPManager.m */,
+				8481FC9F191661A000D9F0EB /* GameManager.h */,
+				8481FCA0191661A000D9F0EB /* GameManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		8481FC8019152A2D00D9F0EB /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8481FC8119152A2D00D9F0EB /* GameViewController */,
+				8481FC8219152A2D00D9F0EB /* OnlineLobbyViewController */,
+				8481FC8519152A2D00D9F0EB /* SettingsViewController */,
+				8481FC9E19165DF600D9F0EB /* GameModeViewController */,
+				8481FC8819152A2D00D9F0EB /* StartViewController */,
+				8481FC8B19152A2D00D9F0EB /* GameField */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		8481FC8119152A2D00D9F0EB /* GameViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = GameViewController;
+			sourceTree = "<group>";
+		};
+		8481FC8219152A2D00D9F0EB /* OnlineLobbyViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8481FC8319152A2D00D9F0EB /* XOOnlineLobbyViewController.h */,
+				8481FC8419152A2D00D9F0EB /* XOOnlineLobbyViewController.m */,
+			);
+			path = OnlineLobbyViewController;
+			sourceTree = "<group>";
+		};
+		8481FC8519152A2D00D9F0EB /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8481FC8619152A2D00D9F0EB /* XOSettingsViewController.h */,
+				8481FC8719152A2D00D9F0EB /* XOSettingsViewController.m */,
+			);
+			path = SettingsViewController;
+			sourceTree = "<group>";
+		};
+		8481FC8819152A2D00D9F0EB /* StartViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8481FC8919152A2D00D9F0EB /* XOStartViewController.h */,
+				8481FC8A19152A2D00D9F0EB /* XOStartViewController.m */,
+			);
+			path = StartViewController;
+			sourceTree = "<group>";
+		};
+		8481FC8B19152A2D00D9F0EB /* GameField */ = {
+			isa = PBXGroup;
+			children = (
+				8481FC8F19152A2D00D9F0EB /* XOGameFieldViewController.h */,
+				8481FC9019152A2D00D9F0EB /* XOGameFieldViewController.m */,
+				8481FC9119152A2D00D9F0EB /* XOGameViewController.h */,
+				8481FC9219152A2D00D9F0EB /* XOGameViewController.m */,
+				8481FC8C19152A2D00D9F0EB /* GameField.storyboard */,
+				8481FC8D19152A2D00D9F0EB /* TTBananasView.h */,
+				8481FC8E19152A2D00D9F0EB /* TTBananasView.m */,
+			);
+			name = GameField;
+			path = TTGameField;
+			sourceTree = "<group>";
+		};
+		8481FC9E19165DF600D9F0EB /* GameModeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8481FC9B19165DF100D9F0EB /* XOGameModeViewController.h */,
+				8481FC9C19165DF100D9F0EB /* XOGameModeViewController.m */,
+			);
+			name = GameModeViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -162,9 +278,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8481FC751915273E00D9F0EB /* Build configuration list for PBXNativeTarget "XO" */;
 			buildPhases = (
+				75D2CF821F604D7DA13A6909 /* Check Pods Manifest.lock */,
 				8481FC3C1915273E00D9F0EB /* Sources */,
 				8481FC3D1915273E00D9F0EB /* Frameworks */,
 				8481FC3E1915273E00D9F0EB /* Resources */,
+				907D1F8A2DF94A1097AF5EF4 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -234,8 +352,9 @@
 			files = (
 				8481FC5A1915273E00D9F0EB /* Main_iPad.storyboard in Resources */,
 				8481FC5F1915273E00D9F0EB /* Images.xcassets in Resources */,
-				8481FC571915273E00D9F0EB /* Main_iPhone.storyboard in Resources */,
 				8481FC4E1915273E00D9F0EB /* InfoPlist.strings in Resources */,
+				8481FC7C1915293400D9F0EB /* iPhone.storyboard in Resources */,
+				8481FC9719152A2D00D9F0EB /* GameField.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,13 +368,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		75D2CF821F604D7DA13A6909 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		907D1F8A2DF94A1097AF5EF4 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8481FC3C1915273E00D9F0EB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8481FCA1191661A000D9F0EB /* GameManager.m in Sources */,
+				8481FC9D19165DF100D9F0EB /* XOGameModeViewController.m in Sources */,
+				8481FC9419152A2D00D9F0EB /* XOOnlineLobbyViewController.m in Sources */,
 				8481FC501915273E00D9F0EB /* main.m in Sources */,
-				8481FC5D1915273E00D9F0EB /* XOViewController.m in Sources */,
+				8481FC9519152A2D00D9F0EB /* XOSettingsViewController.m in Sources */,
+				8481FC9919152A2D00D9F0EB /* XOGameFieldViewController.m in Sources */,
+				8481FC9A19152A2D00D9F0EB /* XOGameViewController.m in Sources */,
+				8481FC9819152A2D00D9F0EB /* TTBananasView.m in Sources */,
+				8481FC9619152A2D00D9F0EB /* XOStartViewController.m in Sources */,
+				8481FC9319152A2D00D9F0EB /* MPManager.m in Sources */,
 				8481FC541915273E00D9F0EB /* XOAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,14 +445,6 @@
 				8481FC4D1915273E00D9F0EB /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		8481FC551915273E00D9F0EB /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8481FC561915273E00D9F0EB /* Base */,
-			);
-			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 		8481FC581915273E00D9F0EB /* Main_iPad.storyboard */ = {
@@ -388,26 +540,32 @@
 		};
 		8481FC761915273E00D9F0EB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13E03152E7E4493380648031 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XO/XO-Prefix.pch";
 				INFOPLIST_FILE = "XO/XO-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		8481FC771915273E00D9F0EB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13E03152E7E4493380648031 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XO/XO-Prefix.pch";
 				INFOPLIST_FILE = "XO/XO-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -471,6 +629,7 @@
 				8481FC771915273E00D9F0EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8481FC781915273E00D9F0EB /* Build configuration list for PBXNativeTarget "XOTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +638,7 @@
 				8481FC7A1915273E00D9F0EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,40 +7,61 @@
 //
 
 #import "XOAppDelegate.h"
+#import "Manager/MPManager.h"
+#import <GooglePlus/GooglePlus.h>
 
 @implementation XOAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    //implemented GPG
+    [GPGManager sharedInstance].realTimeRoomDelegate = [MPManager sharedInstance];
+    
+    //register notification
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert)];
+    NSDictionary *remoteNotification =
+    [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    
+    if (remoteNotification) {
+        if ([[GPGManager sharedInstance] tryHandleRemoteNotification:remoteNotification]) {
+            NSLog(@"Handling notification %@ after sign-in is complete", remoteNotification);
+            // Looks like we got a Google Play match invite! No other action is requied. Our
+            // invite delegate will receive a didReceiveRealTimeInviteForRoon just as soon
+            // as sign-in is finished.
+        } else {
+            // You probably want to do other notification checking here.
+        }
+    }
     return YES;
-}
-							
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    return [GPPURLHandler handleURL:url sourceApplication:sourceApplication annotation:annotation];
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    NSLog(@"Got deviceToken from APNS! %@", deviceToken);
+    [[GPGManager sharedInstance] registerDeviceToken:deviceToken forEnvironment:GPGPushNotificationEnvironmentSandbox];
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    NSLog(@"Received remote notification! %@", userInfo);
+    
+    if ([[GPGManager sharedInstance] tryHandleRemoteNotification:userInfo]) {
+        UIViewController *lastCont = [(UINavigationController *)self.window.rootViewController viewControllers].lastObject;
+        if ([lastCont isKindOfClass:NSClassFromString(@"ATStartViewController")]) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Incoming invite!" message:@"Do you want start game?" delegate:lastCont cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
+            [alert show];
+        }
+    } else {
+        // Call other methods that might want to handle this
+        // remote notification
+    }
 }
 
 @end
