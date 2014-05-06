@@ -28,11 +28,11 @@
 {
     //NSLog(@"%@", NSStringFromCGRect(self.sizeToFit));
     if (!_mode && mode>0) {
-        self.backgroundColor = [UIColor redColor];
+        //self.backgroundColor = [UIColor redColor];
         _mode = mode;
         self.label.text = @"X";
     } else if (!_mode && mode<0) {
-        self.backgroundColor = [UIColor greenColor];
+        //self.backgroundColor = [UIColor greenColor];
         _mode = mode;
         self.label.text = @"O";
     }

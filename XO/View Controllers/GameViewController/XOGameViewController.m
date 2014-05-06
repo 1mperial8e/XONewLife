@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *opponentName;
 @property (weak, nonatomic) IBOutlet UIImageView *myPhoto;
 @property (weak, nonatomic) IBOutlet UIImageView *opponentPhoto;
+@property (weak, nonatomic) IBOutlet UIView *myPhotoFrame;
+@property (weak, nonatomic) IBOutlet UIView *opponentPhotoFrame;
 
 - (IBAction)back:(id)sender;
 
@@ -116,8 +118,12 @@
         self.myPhoto.image=[UIImage imageWithData:[NSData  dataWithContentsOfURL:[NSURL URLWithString:[GameManager sharedInstance].googleUserImage]]];
         self.opponentPhoto.image=[UIImage imageNamed:@"apple"];
     }
+    self.myName.layer.cornerRadius=6;
+    self.opponentName.layer.cornerRadius=6;
     self.myPhoto.layer.cornerRadius=33;
     self.opponentPhoto.layer.cornerRadius=33;
+    self.myPhotoFrame.layer.cornerRadius=36;
+    self.opponentPhotoFrame.layer.cornerRadius=36;
     self.myPhoto.clipsToBounds=YES;
     self.opponentPhoto.clipsToBounds=YES;
 }
