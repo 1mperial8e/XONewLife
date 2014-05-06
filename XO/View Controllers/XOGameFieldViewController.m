@@ -111,6 +111,8 @@
     if ([_delegate respondsToSelector:@selector(willChangeValueForIndexPath:)]) {
         [_delegate willChangeValueForIndexPath:indexPath];
     }
+    [[MPManager sharedInstance] sendPlayerMyMessage:[NSString stringWithFormat:@"x%i", (int)indexPath]];
+    [self playSound];
     return NO;
 }
 - (BOOL) collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath
