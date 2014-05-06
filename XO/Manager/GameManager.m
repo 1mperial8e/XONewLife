@@ -72,4 +72,24 @@ static GameManager* _instance=nil;
     _player=nil;
 }
 
+#pragma mark - CloudSaving
+
+//- (void)saveData{
+//    GPGAppStateModel *model = [GPGManager sharedInstance].applicationModel.appState;
+//    NSNumber *playerAvatarKey = [NSNumber numberWithInt:2];
+//    [model setStateData:newAvatarData forKey:playerAvatarKey];
+//    [model updateForKey:playerAvatarKey completionHandler:^(GPGAppStateWriteStatus status, NSError *error) {
+//        if (status == GPGAppStateWriteStatusSuccess) {
+//            NSLog(@"Hooray! Cloud update is complete");
+//            [self refreshAvatarWithPotentiallyUpdatedData:[model stateDataForKey:playerAvatarKey]];
+//        }
+//        // Check for errors and other status flags here
+//    } conflictHandler:^NSData *(NSNumber *key, NSData *localState, NSData *remoteState) {
+//        // Uh oh. I need to resolve these two versions.
+//        // localState = State you are attempting to upload
+//        // remoteState = State currently saved in the cloud
+//        return resolvedState;
+//    }];
+//}
+
 @end
