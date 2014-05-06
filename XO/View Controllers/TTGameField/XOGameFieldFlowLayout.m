@@ -7,15 +7,17 @@
 //
 
 #import "XOGameFieldFlowLayout.h"
+#import "XOGameModel.h"
 @interface XOGameFieldFlowLayout ()
 @property (nonatomic) int squareColumn;
 @end
 @implementation XOGameFieldFlowLayout
 - (CGSize)itemSize
 {
-    _squareColumn = (int)sqrt([self.collectionView numberOfItemsInSection:0]);
+    _squareColumn = [XOGameModel sharedInstance].gameColumns;//(int)sqrt([self.collectionView numberOfItemsInSection:0]);
     CGSize size = CGSizeMake(self.collectionView.bounds.size.width-(10*_squareColumn), self.collectionView.bounds.size.height-(10*_squareColumn));
     CGSize itemSize = CGSizeMake(size.width/_squareColumn, size.height/_squareColumn);
+     [self setSectionInset:UIEdgeInsetsMake(10, 0, 0, 0)];
     return itemSize;
 }
 @end
