@@ -27,23 +27,16 @@
 @implementation XOGameViewController
 
 #pragma mark - Lifecicle
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     [self configGameField];
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];    
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
+    if ([[GameManager sharedInstance].mode isEqualToString:ONLINE_PLAYERS]){
+    [[GameManager sharedInstance] loadData];
+    }
 }
-
 - (void)configGameField
 {
     _gameFieldViewController = [[UIStoryboard storyboardWithName:@"GameField" bundle:nil] instantiateViewControllerWithIdentifier:@"gameField"];
@@ -84,7 +77,9 @@
 }
 
 - (void) viewWillDisappear:(BOOL)animated{
+    if ([[GameManager sharedInstance].mode isEqualToString:ONLINE_PLAYERS]){
     [[MPManager sharedInstance].roomToTrack leave];
+    }
 }
 
 - (IBAction)back:(id)sender {
@@ -118,6 +113,5 @@
     self.opponentPhotoFrame.layer.cornerRadius=36;
     self.myPhoto.clipsToBounds=YES;
     self.opponentPhoto.clipsToBounds=YES;
-    [[GameManager sharedInstance] updateProgress];
 }
 @end
