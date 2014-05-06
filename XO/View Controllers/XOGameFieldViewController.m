@@ -49,11 +49,6 @@
     _delegate = [XOGameModel sharedInstance];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 - (void)tap:(UITapGestureRecognizer *)tap
 {
     TTBananasView *view = (TTBananasView *)tap.view;
@@ -100,6 +95,7 @@
 {
     return nil;
 }
+
 #pragma mark - CollectionView Delegate
 - (BOOL) collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {

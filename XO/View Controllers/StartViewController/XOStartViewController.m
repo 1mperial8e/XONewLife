@@ -12,10 +12,13 @@
 #import "GameManager.h"
 #import "GTLPlusPerson.h"
 
-@interface XOStartViewController ()
+@interface XOStartViewController () <GPGAchievementControllerDelegate, GPGLeaderboardControllerDelegate>
 
 - (IBAction)leaderboardButton:(id)sender;
 - (IBAction)achievementsButton:(id)sender;
+- (IBAction)singlePlayer:(id)sender;
+- (IBAction)twoPlayers:(id)sender;
+- (IBAction)playOnline:(id)sender;
 
 
 @end
@@ -41,7 +44,14 @@ static NSString * const kClientID = @"111039763950-dj91993gmav7o5dn26v65ga1lavlt
     [signIn trySilentAuthentication];
     [self getDefaultSettings];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
-
+    NSError *error;
+    NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"music" ofType:@"mp3"];
+    NSURL *fileURL = [NSURL URLWithString:soundPath];
+   [GameManager sharedInstance].player = [[AVAudioPlayer alloc]
+                                  initWithContentsOfURL:fileURL error:&error];
+    [[GameManager sharedInstance].player prepareToPlay];
+    [GameManager sharedInstance].player.numberOfLoops=-1;
+    [self playMusic];
 }
 
 - (void) viewWillAppear:(BOOL)animated{
@@ -52,10 +62,32 @@ static NSString * const kClientID = @"111039763950-dj91993gmav7o5dn26v65ga1lavlt
 #pragma mark - UIActions
 
 - (IBAction)leaderboardButton:(id)sender{
-    
+    GPGLeaderboardController *leadController=[[GPGLeaderboardController alloc] initWithLeaderboardId:@"CgkI7qvx050DEAIQBQ"];
+    leadController.leaderboardDelegate=self;
+    leadController.timeScope=GPGLeaderboardTimeScopeThisWeek;
+    [self presentViewController:leadController animated:YES completion:nil];
 }
 - (IBAction)achievementsButton:(id)sender{
-    
+    GPGAchievementController *achController = [[GPGAchievementController alloc] init];
+    achController.achievementDelegate = self;
+    [self presentViewController:achController animated:YES completion:nil];
+}
+
+- (IBAction)singlePlayer:(id)sender {
+    [GameManager sharedInstance].mode=SINGLE_PLAYER;
+}
+
+- (IBAction)twoPlayers:(id)sender {
+    [GameManager sharedInstance].mode=TWO_PLAYERS;
+}
+
+- (IBAction)playOnline:(id)sender {
+    [GameManager sharedInstance].mode=ONLINE_PLAYERS;
+}
+#pragma mark - GPGLeaderboardDelegate
+
+- (void) leaderboardViewControllerDidFinish:(GPGLeaderboardController *)viewController{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - GPPSignIn delegate
@@ -83,18 +115,39 @@ static NSString * const kClientID = @"111039763950-dj91993gmav7o5dn26v65ga1lavlt
     }];
 }
 
-#pragma mark - Otjer Methds
+#pragma mark - AchievmentDelegate
+
+- (void)achievementViewControllerDidFinish: (GPGAchievementController *)viewController {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Other Methods
 
 - (void) getDefaultSettings{
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    if ([userDefaults objectForKey:@"sound"]==nil) {
+    if ([userDefaults objectForKey:@"easyVictory"]==nil) {
         [userDefaults setBool:YES forKey:@"sound"];
         [userDefaults setBool:YES forKey:@"music"];
         [userDefaults setBool:YES forKey:@"googleAnalitics"];
         [userDefaults setBool:YES forKey:@"push"];
+        [userDefaults setInteger:0 forKey:@"easyVictory"];
+        [userDefaults setInteger:0 forKey:@"mediumVictory"];
+        [userDefaults setInteger:0 forKey:@"hardVictory"];
+        [userDefaults setInteger:0 forKey:@"onlineVictory"];
         [userDefaults synchronize];
     }
     [[GameManager sharedInstance] setSettings];
+}
+
+- (void)playMusic{
+    if ([GameManager sharedInstance].music==YES){
+        [[GameManager sharedInstance].player play];
+    }
+    else{
+        if ([GameManager sharedInstance].player.isPlaying==YES){
+        [[GameManager sharedInstance].player stop];
+        }
+    }
 }
 
 @end

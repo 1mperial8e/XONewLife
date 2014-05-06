@@ -32,7 +32,6 @@
     }
     [MPManager sharedInstance].lobbyDelegate = self;
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
-
 }
 
 - (IBAction)backButton:(id)sender {
@@ -96,9 +95,7 @@
     if (![[self.navigationController.viewControllers lastObject] isEqual:self])
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"End game!" message:@"Opponent has left the game :-(" delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];
-        [alert show];
-        
-        [self.navigationController popViewControllerAnimated:YES];
+        [alert show];        
     }
 }
 

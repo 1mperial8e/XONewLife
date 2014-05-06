@@ -12,6 +12,12 @@
 #define EASY_MODE @"easy"
 #define MEDIUM_MODE @"medium"
 #define HARD_MODE @"hard"
-
+#define SINGLE_PLAYER @"single"
+#define TWO_PLAYERS @"two"
+#define ONLINE_PLAYERS @"online"
+#define EASY_VICTORY @"easyVictory"
+#define MEDIUM_VICTORY @"mediumVictory"
+#define HARD_VICTORY @"hardVictory"
+#define ONLINE_VICTORY @"onlineVictory"
 
 #endif

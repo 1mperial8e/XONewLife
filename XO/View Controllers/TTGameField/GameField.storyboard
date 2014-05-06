@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="AOf-JE-2Y1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="AOf-JE-2Y1">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -40,7 +40,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="AQZ-og-o9x" firstAttribute="leading" secondItem="elo-QR-Lp3" secondAttribute="leading" id="7tU-eF-5Aa"/>
                                             <constraint firstItem="AQZ-og-o9x" firstAttribute="top" secondItem="elo-QR-Lp3" secondAttribute="top" id="Cov-fj-IuT"/>
@@ -58,7 +58,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="YTz-h8-Fde" firstAttribute="height" secondItem="0fe-Ah-bl5" secondAttribute="height" id="jd7-MW-hPs"/>
                             <constraint firstItem="YTz-h8-Fde" firstAttribute="top" secondItem="ocl-BZ-Bjq" secondAttribute="bottom" id="oL9-Kd-cQu"/>

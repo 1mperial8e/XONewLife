@@ -69,8 +69,14 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if ([userDefaults boolForKey:settings]==NO){
         [userDefaults setBool:YES forKey:settings];
+        if ([settings isEqualToString:@"music"]) {
+            [[GameManager sharedInstance].player play];
+        }
     }else{
         [userDefaults setBool:NO forKey:settings];
+        if ([settings isEqualToString:@"music"]) {
+            [[GameManager sharedInstance].player stop];
+        }
     }
     [userDefaults synchronize];
     [[GameManager sharedInstance] setSettings];

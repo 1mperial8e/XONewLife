@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *opponentName;
 @property (weak, nonatomic) IBOutlet UIImageView *myPhoto;
 @property (weak, nonatomic) IBOutlet UIImageView *opponentPhoto;
+@property (weak, nonatomic) IBOutlet UIView *myPhotoFrame;
+@property (weak, nonatomic) IBOutlet UIView *opponentPhotoFrame;
 
 - (IBAction)back:(id)sender;
 
@@ -40,12 +42,6 @@
     // Do any additional setup after loading the view.
     [self configGameField];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];    
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)configGameField
@@ -83,7 +79,7 @@
                                                                        multiplier:1.0
                                                                          constant:0]];
     [self addChildViewController:_gameFieldViewController];
-    [self setOnlinePlayersInfo];
+    [self setPlayersInfo];
     
 }
 
@@ -95,14 +91,33 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void) setOnlinePlayersInfo{
-    self.myPhoto.layer.cornerRadius=33;
-    self.opponentPhoto.layer.cornerRadius=33;
+- (void) setPlayersInfo{
+    if ([[GameManager sharedInstance].mode isEqualToString:ONLINE_PLAYERS]){
     self.myName.text=[GameManager sharedInstance].googleUserName;
     self.opponentName.text=[GameManager sharedInstance].opponentName;
     self.myPhoto.image=[UIImage imageWithData:[NSData  dataWithContentsOfURL:[NSURL URLWithString:[GameManager sharedInstance].googleUserImage]]];
     self.opponentPhoto.image=[UIImage imageWithData:[NSData  dataWithContentsOfURL:[GameManager sharedInstance].opponentImage]];
+    }
+    else if ([[GameManager sharedInstance].mode isEqualToString:TWO_PLAYERS]){
+        self.myName.text=@"Player1";
+        self.opponentName.text=@"Player2";
+        self.myPhoto.image=[UIImage imageNamed:@"cross_1"];
+        self.opponentPhoto.image=[UIImage imageNamed:@"zero_4"];
+    }
+    else if ([[GameManager sharedInstance].mode isEqualToString:SINGLE_PLAYER]){
+        self.myName.text=@"Me";
+        self.opponentName.text=@"iPhone";
+        self.myPhoto.image=[UIImage imageWithData:[NSData  dataWithContentsOfURL:[NSURL URLWithString:[GameManager sharedInstance].googleUserImage]]];
+        self.opponentPhoto.image=[UIImage imageNamed:@"apple"];
+    }
+    self.myName.layer.cornerRadius=6;
+    self.opponentName.layer.cornerRadius=6;
+    self.myPhoto.layer.cornerRadius=33;
+    self.opponentPhoto.layer.cornerRadius=33;
+    self.myPhotoFrame.layer.cornerRadius=36;
+    self.opponentPhotoFrame.layer.cornerRadius=36;
     self.myPhoto.clipsToBounds=YES;
     self.opponentPhoto.clipsToBounds=YES;
+    [[GameManager sharedInstance] updateProgress];
 }
 @end
