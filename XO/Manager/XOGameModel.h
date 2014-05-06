@@ -6,14 +6,39 @@
 //  Copyright (c) 2014 mobilez365. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+//@interface XOPlayer : NSObject
+//@property (nonatomic, weak) NSString *name;
+//@property (nonatomic, weak) NSString *avatar;
+//@property (nonatomic) int index;
+//@property (nonatomic) BOOL turn;
+//@end
 
-@interface XOGameModel : NSObject
-@property (nonatomic) int gameColumns;
-@property (nonatomic, weak) NSDate *endGameTime;
+#import <Foundation/Foundation.h>
+#import "XOMatrix.h"
+#import "XOGameFieldViewController.h"
+typedef enum
+{
+    XOGameModeSingle,
+    XOGameModeMultiplayer,
+    XOGameModeOnline
+} XOGameMode;
+
+@protocol XOGameModelDelegate <NSObject>
+@optional
+- (void)gameOver;
+- (void)changeValue:(int)value forPoint:(CGPoint)point;
+- (void)playerWin:(int)player;
+- (void)willChangeValue:(int)value forIndexPath:(NSIndexPath *)indexPath;
+- (void)didChangeValue:(int)value forIndexPath:(NSIndexPath *)indexPath;
+@end
+
+@interface XOGameModel : NSObject <XOGameFieldViewControllerDelegate>
+@property (nonatomic, assign) int gameColumns;
+@property (nonatomic, strong) NSDate *endGameTime;
 @property (nonatomic) BOOL xTurn;
-@property (nonatomic, weak) NSString *gameMode;
-@property (nonatomic) int gameFieldValue;
+@property (nonatomic) XOGameMode gameMode;
+@property (nonatomic, strong) XOMatrix *gameFieldMatrix;
+@property (nonatomic, weak) id <XOGameModelDelegate> delegate;
 
 + (XOGameModel *)sharedInstance;
 @end

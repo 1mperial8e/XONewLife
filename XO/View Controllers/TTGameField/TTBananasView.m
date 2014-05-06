@@ -28,6 +28,12 @@
         self.backgroundColor = [UIColor clearColor];
     }
 }
+- (void) select:(id)sender
+{
+    self.layer.borderColor = [[UIColor grayColor] CGColor];
+    self.layer.borderWidth = 2;
+}
+//- (void)
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

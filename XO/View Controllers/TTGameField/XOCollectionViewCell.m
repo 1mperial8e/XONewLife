@@ -16,10 +16,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
-        //self.clipsToBounds = YES;
-        [self sizeToFit];
-        NSLog(@"%@", NSStringFromCGRect(self.frame));
+        
     }
     return self;
 }
@@ -35,6 +32,18 @@
         //self.backgroundColor = [UIColor greenColor];
         _mode = mode;
         self.label.text = @"O";
+    }
+}
+- (void)select:(id)sender
+{
+    self.layer.borderColor = [[UIColor grayColor] CGColor];
+    self.layer.borderWidth = 2;
+}
+- (void)setSelected:(BOOL)selected
+{
+    if (selected) {
+        self.layer.borderColor = [[UIColor grayColor] CGColor];
+        self.layer.borderWidth = 2;
     }
 }
 /*

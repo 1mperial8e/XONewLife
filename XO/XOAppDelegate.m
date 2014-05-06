@@ -9,11 +9,12 @@
 #import "XOAppDelegate.h"
 #import "Manager/MPManager.h"
 #import <GooglePlus/GooglePlus.h>
-
+#import "XOMatrix.h"
 @implementation XOAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+
     //implemented GPG
     [GPGManager sharedInstance].realTimeRoomDelegate = [MPManager sharedInstance];
     
@@ -33,6 +34,12 @@
             // You probably want to do other notification checking here.
         }
     }
+    XOMatrix *matrix = [XOMatrix matrixWithDimension:3];
+    NSLog(@"%@", matrix);
+
+    //int a[] = {0,0,0,1,1,1,-1,-1,-1};
+    //matrix.vectorValue = a;
+    //NSLog(@"%@", matrix);
     return YES;
     
 }

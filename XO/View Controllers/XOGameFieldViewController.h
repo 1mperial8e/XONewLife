@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol XOGameFieldViewControllerDelegate <NSObject>
+- (void)willChangeValueForIndexPath:(NSIndexPath *)indexPath;
+
+@end
+
+
 @interface XOGameFieldViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@property (nonatomic, weak) id <XOGameFieldViewControllerDelegate> delegate;
+
 - (void)clearGameField;
 
 @end

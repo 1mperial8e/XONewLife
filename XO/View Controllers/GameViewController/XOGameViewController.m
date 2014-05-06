@@ -41,9 +41,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self configGameField];
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
-
-
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];    
 }
 
 - (void)configGameField
