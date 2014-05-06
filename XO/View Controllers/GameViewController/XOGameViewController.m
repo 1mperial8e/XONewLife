@@ -46,12 +46,6 @@
 
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)configGameField
 {
     _gameFieldViewController = [[UIStoryboard storyboardWithName:@"GameField" bundle:nil] instantiateViewControllerWithIdentifier:@"gameField"];
@@ -126,5 +120,6 @@
     self.opponentPhotoFrame.layer.cornerRadius=36;
     self.myPhoto.clipsToBounds=YES;
     self.opponentPhoto.clipsToBounds=YES;
+    [[GameManager sharedInstance] updateProgress];
 }
 @end

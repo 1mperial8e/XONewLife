@@ -12,7 +12,7 @@
 #import "GameManager.h"
 #import "GTLPlusPerson.h"
 
-@interface XOStartViewController ()
+@interface XOStartViewController () <GPGAchievementControllerDelegate, GPGLeaderboardControllerDelegate>
 
 - (IBAction)leaderboardButton:(id)sender;
 - (IBAction)achievementsButton:(id)sender;
@@ -62,10 +62,15 @@ static NSString * const kClientID = @"111039763950-dj91993gmav7o5dn26v65ga1lavlt
 #pragma mark - UIActions
 
 - (IBAction)leaderboardButton:(id)sender{
-    
+    GPGLeaderboardController *leadController=[[GPGLeaderboardController alloc] initWithLeaderboardId:@"CgkI7qvx050DEAIQBQ"];
+    leadController.leaderboardDelegate=self;
+    leadController.timeScope=GPGLeaderboardTimeScopeThisWeek;
+    [self presentViewController:leadController animated:YES completion:nil];
 }
 - (IBAction)achievementsButton:(id)sender{
-    
+    GPGAchievementController *achController = [[GPGAchievementController alloc] init];
+    achController.achievementDelegate = self;
+    [self presentViewController:achController animated:YES completion:nil];
 }
 
 - (IBAction)singlePlayer:(id)sender {
@@ -78,6 +83,11 @@ static NSString * const kClientID = @"111039763950-dj91993gmav7o5dn26v65ga1lavlt
 
 - (IBAction)playOnline:(id)sender {
     [GameManager sharedInstance].mode=ONLINE_PLAYERS;
+}
+#pragma mark - GPGLeaderboardDelegate
+
+- (void) leaderboardViewControllerDidFinish:(GPGLeaderboardController *)viewController{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - GPPSignIn delegate
@@ -105,15 +115,25 @@ static NSString * const kClientID = @"111039763950-dj91993gmav7o5dn26v65ga1lavlt
     }];
 }
 
+#pragma mark - AchievmentDelegate
+
+- (void)achievementViewControllerDidFinish: (GPGAchievementController *)viewController {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma mark - Other Methods
 
 - (void) getDefaultSettings{
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    if ([userDefaults objectForKey:@"sound"]==nil) {
+    if ([userDefaults objectForKey:@"easyVictory"]==nil) {
         [userDefaults setBool:YES forKey:@"sound"];
         [userDefaults setBool:YES forKey:@"music"];
         [userDefaults setBool:YES forKey:@"googleAnalitics"];
         [userDefaults setBool:YES forKey:@"push"];
+        [userDefaults setInteger:0 forKey:@"easyVictory"];
+        [userDefaults setInteger:0 forKey:@"mediumVictory"];
+        [userDefaults setInteger:0 forKey:@"hardVictory"];
+        [userDefaults setInteger:0 forKey:@"onlineVictory"];
         [userDefaults synchronize];
     }
     [[GameManager sharedInstance] setSettings];

@@ -22,8 +22,13 @@
 @property (nonatomic, strong) NSURL *opponentImage;
 @property (nonatomic, strong) AVAudioPlayer *player;
 @property (nonatomic, weak) NSString *mode;
+@property (nonatomic) int easyVictory;
+@property (nonatomic) int mediumVictory;
+@property (nonatomic) int hardVictory;
+@property (nonatomic) int onlineVictory;
 
 + (GameManager*)sharedInstance;
 - (void) setSettings;
+- (void) updateProgress;
 
 @end

@@ -50,11 +50,6 @@
     [MPManager sharedInstance].delegate=self;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 - (void)tap:(UITapGestureRecognizer *)tap
 {
     TTBananasView *view = (TTBananasView *)tap.view;
