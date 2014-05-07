@@ -10,7 +10,6 @@
 		7FEAECD4191772A70065CC57 /* XOGameFieldFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEAECD3191772A70065CC57 /* XOGameFieldFlowLayout.m */; };
 		7FEAECD7191783FB0065CC57 /* XOCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEAECD6191783FB0065CC57 /* XOCollectionViewCell.m */; };
 		7FEAECDA1917ADF80065CC57 /* XOGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEAECD91917ADF80065CC57 /* XOGameViewController.m */; };
-		7FEAECDD1917B7580065CC57 /* XOGameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEAECDC1917B7580065CC57 /* XOGameModel.m */; };
 		7FEAED2D1917D84E0065CC57 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FEAED2C1917D84E0065CC57 /* Images.xcassets */; };
 		7FEAED3019181BC30065CC57 /* XOMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEAED2F19181BC30065CC57 /* XOMatrix.m */; };
 		7FF96E581919162300EDB431 /* XOOMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF96E571919162300EDB431 /* XOOMatrix.m */; };
@@ -60,8 +59,6 @@
 		7FEAECD6191783FB0065CC57 /* XOCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOCollectionViewCell.m; sourceTree = "<group>"; };
 		7FEAECD81917ADF80065CC57 /* XOGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XOGameViewController.h; sourceTree = "<group>"; };
 		7FEAECD91917ADF80065CC57 /* XOGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOGameViewController.m; sourceTree = "<group>"; };
-		7FEAECDB1917B7580065CC57 /* XOGameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XOGameModel.h; sourceTree = "<group>"; };
-		7FEAECDC1917B7580065CC57 /* XOGameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOGameModel.m; sourceTree = "<group>"; };
 		7FEAED2C1917D84E0065CC57 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7FEAED2E19181BC30065CC57 /* XOMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XOMatrix.h; path = "XO/Oser Classes/Matrix/XOMatrix.h"; sourceTree = SOURCE_ROOT; };
 		7FEAED2F19181BC30065CC57 /* XOMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XOMatrix.m; path = "XO/Oser Classes/Matrix/XOMatrix.m"; sourceTree = SOURCE_ROOT; };
@@ -134,7 +131,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7FEAED3119181BCA0065CC57 /* Matrix */ = {
+		84742D7919197C54007B868E /* Other Classes */ = {
 			isa = PBXGroup;
 			children = (
 				7FEAED2E19181BC30065CC57 /* XOMatrix.h */,
@@ -142,16 +139,25 @@
 				7FF96E561919162300EDB431 /* XOOMatrix.h */,
 				7FF96E571919162300EDB431 /* XOOMatrix.m */,
 			);
-			name = Matrix;
+			path = "Other Classes";
 			sourceTree = "<group>";
 		};
-		7FEAED3219181BD70065CC57 /* Oser Classes */ = {
+		84742D7A19197C54007B868E /* Matrix */ = {
 			isa = PBXGroup;
 			children = (
-				7FEAED3119181BCA0065CC57 /* Matrix */,
+				84742D7B19197C54007B868E /* XOMatrix.h */,
+				84742D7C19197C54007B868E /* XOMatrix.m */,
 			);
-			name = "Oser Classes";
-			path = "View Controllers";
+			path = Matrix;
+			sourceTree = "<group>";
+		};
+		84742D7E19197C88007B868E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84742D7F19197CF3007B868E /* XOGameModel.h */,
+				84742D8019197CF3007B868E /* XOGameModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		8481FC371915273E00D9F0EB = {
@@ -191,9 +197,10 @@
 		8481FC491915273E00D9F0EB /* XO */ = {
 			isa = PBXGroup;
 			children = (
+				84742D7E19197C88007B868E /* Model */,
 				84D6677619178B49000DA569 /* Resources */,
 				8481FC7D19152A2D00D9F0EB /* Manager */,
-				7FEAED3219181BD70065CC57 /* Oser Classes */,
+				84742D7919197C54007B868E /* Other Classes */,
 				8481FC8019152A2D00D9F0EB /* View Controllers */,
 				8481FC521915273E00D9F0EB /* XOAppDelegate.h */,
 				8481FC531915273E00D9F0EB /* XOAppDelegate.m */,
@@ -241,8 +248,6 @@
 				8481FC7F19152A2D00D9F0EB /* MPManager.m */,
 				8481FC9F191661A000D9F0EB /* GameManager.h */,
 				8481FCA0191661A000D9F0EB /* GameManager.m */,
-				7FEAECDB1917B7580065CC57 /* XOGameModel.h */,
-				7FEAECDC1917B7580065CC57 /* XOGameModel.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -471,7 +476,7 @@
 				7FF96E581919162300EDB431 /* XOOMatrix.m in Sources */,
 				7FEAECD4191772A70065CC57 /* XOGameFieldFlowLayout.m in Sources */,
 				8481FC9D19165DF100D9F0EB /* XOGameModeViewController.m in Sources */,
-				7FEAED3019181BC30065CC57 /* XOMatrix.m in Sources */,
+				84742D7D19197C54007B868E /* XOMatrix.m in Sources */,
 				8481FC9419152A2D00D9F0EB /* XOOnlineLobbyViewController.m in Sources */,
 				8481FC501915273E00D9F0EB /* main.m in Sources */,
 				8481FC9519152A2D00D9F0EB /* XOSettingsViewController.m in Sources */,
@@ -480,8 +485,8 @@
 				8481FC9319152A2D00D9F0EB /* MPManager.m in Sources */,
 				7FEAECD7191783FB0065CC57 /* XOCollectionViewCell.m in Sources */,
 				8481FC541915273E00D9F0EB /* XOAppDelegate.m in Sources */,
-				7FEAECDD1917B7580065CC57 /* XOGameModel.m in Sources */,
 				7FEAECDA1917ADF80065CC57 /* XOGameViewController.m in Sources */,
+				84742D8119197CF3007B868E /* XOGameModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

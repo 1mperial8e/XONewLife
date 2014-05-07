@@ -30,7 +30,7 @@ static NSString * const kClientID = @"111039763950-dj91993gmav7o5dn26v65ga1lavlt
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+    [super viewDidLoad];    
 	GPPSignIn *signIn = [GPPSignIn sharedInstance];
     // You set kClientID in a previous step
     signIn.clientID = kClientID;
@@ -138,7 +138,6 @@ static NSString * const kClientID = @"111039763950-dj91993gmav7o5dn26v65ga1lavlt
         [userDefaults setInteger:0 forKey:@"easyVictory"];
         [userDefaults setInteger:0 forKey:@"mediumVictory"];
         [userDefaults setInteger:0 forKey:@"hardVictory"];
-        [userDefaults setInteger:0 forKey:@"onlineVictory"];
         [userDefaults synchronize];
     }
     [[GameManager sharedInstance] setSettings];

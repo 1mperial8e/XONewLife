@@ -30,5 +30,7 @@
 + (GameManager*)sharedInstance;
 - (void) setSettings;
 - (void) updateProgress;
+- (void)saveData:(NSString*)dataSTR;
+- (void) loadData;
 
 @end
