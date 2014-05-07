@@ -31,7 +31,7 @@ static XOGameModel *_instance=Nil;
 {
     _gameColumns = [self gameColumns];
      _gameFieldMatrix = [XOMatrix matrixWithDimension:_gameColumns];
-    _xTurn = YES;
+    _player = XOPlayerFirst;
 }
 
 #pragma mark - Custom Accsesors
@@ -77,7 +77,7 @@ static XOGameModel *_instance=Nil;
     }
     else if (_gameMode == XOGameModeOnline)
     {
-        if (!_player) {
+        if (_player == XOPlayerFirst) {
             if ([_gameFieldMatrix setValue:1 forIndexPath:indexPath]) {
                 if ([_delegate respondsToSelector:@selector(didChangeValue:forIndexPath:)]) {
                     [_delegate didChangeValue:1 forIndexPath:indexPath];

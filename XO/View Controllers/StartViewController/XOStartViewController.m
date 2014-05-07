@@ -87,7 +87,7 @@ static NSString * const kClientID = @"111039763950-dj91993gmav7o5dn26v65ga1lavlt
 - (IBAction)playOnline:(id)sender {
     [GameManager sharedInstance].mode=ONLINE_PLAYERS;
     [XOGameModel sharedInstance].gameMode = XOGameModeOnline;
-
+    [XOGameModel sharedInstance].player = XOPlayerNone;
 }
 #pragma mark - GPGLeaderboardDelegate
 

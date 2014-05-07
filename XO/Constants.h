@@ -18,5 +18,18 @@
 #define EASY_VICTORY @"easyVictory"
 #define MEDIUM_VICTORY @"mediumVictory"
 #define HARD_VICTORY @"hardVictory"
-
 #endif
+
+#pragma mark - Enums
+typedef enum
+{
+    XOGameModeSingle,
+    XOGameModeMultiplayer,
+    XOGameModeOnline
+} XOGameMode;
+
+typedef enum {
+    XOPlayerFirst,
+    XOPlayerSecond,
+    XOPlayerNone
+} XOPlayer;
