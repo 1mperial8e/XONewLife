@@ -8,16 +8,34 @@
 
 #import "XOGameFieldFlowLayout.h"
 #import "XOGameModel.h"
+struct itemAtr
+{
+    int size;
+    int space;
+};
+struct XOItemAttributes
+{
+    float size;
+    float space;
+};
 @interface XOGameFieldFlowLayout ()
 @property (nonatomic) int squareColumn;
+@property (nonatomic) struct itemAtr atr;
+@property (nonatomic) struct XOItemAttributes attrib;
+
 @end
 @implementation XOGameFieldFlowLayout
+@synthesize attrib;
 - (CGSize)itemSize
 {
-    _squareColumn = [XOGameModel sharedInstance].gameColumns;//(int)sqrt([self.collectionView numberOfItemsInSection:0]);
-    CGSize size = CGSizeMake(self.collectionView.bounds.size.width-(10*_squareColumn), self.collectionView.bounds.size.height-(10*_squareColumn));
-    CGSize itemSize = CGSizeMake(size.width/_squareColumn, size.height/_squareColumn);
-     [self setSectionInset:UIEdgeInsetsMake(10, 0, 0, 0)];
-    return itemSize;
+    if (!attrib.space&&!attrib.size) {
+        float fullSize = self.collectionView.bounds.size.width/[XOGameModel sharedInstance].dimension;
+        attrib.space = fullSize*0.1;
+        attrib.size = fullSize-attrib.space;
+        self.sectionInset = UIEdgeInsetsMake(attrib.space, 0, 0, 0);
+    }
+    //NSLog(@"%f, %f, %f, %f", attrib.size, attrib.space, self.collectionView.bounds.size.width, fullSize);
+    return CGSizeMake(attrib.size, attrib.size);
 }
+
 @end

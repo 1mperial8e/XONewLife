@@ -16,46 +16,8 @@
 }
 - (BOOL)checkMatrixForIndexPath:(NSIndexPath *)indexPath
 {
-    return ![self checkRow:indexPath];
+    return NO;
 }
-- (int)checkRow:(NSIndexPath *)indexPath
-{
-    int result = 0;
-//    int x0 = _dimension-_minComb-indexPath.row;
-//    int length = (_dimension-(_minComb*2)-1);
-//    int xn = x0+length;
-//    
-//    int *searchField = calloc(xn-x0, sizeof(int));
-//    for (int i = x0; i<length; i++) {
-//        searchField[i] = _value[indexPath.section][i];
-//    }
-//    int pointer = 0;
-//    for (int i = pointer; i<_minComb+pointer; i++) {
-//        result+=searchField[i];
-//        if (fabs(result)>=_minComb) {
-//            return result;
-//        }
-//        if (i+1==_minComb+pointer && pointer+_minComb<length)
-//        {
-//            pointer++;
-//            result = 0;
-//        }
-//    }
-    
-    return result;
-}
-- (int)sumSection:(int **)matrix sect:(int)sect
-{
-    int result;
-    for (int i = 0; i < _dimension; i++) {
-        result+=matrix[i][sect];
-    }
-    return result;
-}
-/*- (int)sumDiag3r:(int **)matrix
-{
-    
-}*/
 - (id) initWithDimension:(int)dimension
 {
     self = [super init];
@@ -83,9 +45,9 @@
     _value = calloc(_dimension, sizeof(int));//(_dimension*sizeof(int));
     for(int i = 0; i < _dimension; i++) {
         _value[i] = calloc(_dimension , sizeof(int));
-        /*for (int j = 0; j<_dimension; j++) {
-            _matrix[i][j] = 0;
-        }*/
+        for (int j = 0; j<_dimension; j++) {
+            _aValue[i][j] = [NSNumber numberWithInt:0];
+        }
     }
 }
 - (NSString *)description
@@ -101,16 +63,9 @@
     return result;
 }
 #pragma mark - Public
-- (void) setValue:(int)value forPoint:(CGPoint)point
-{
-    _value[(int)point.x][(int)point.y] = value;
-}
-- (void)setValue:(int)value forAbscys:(int)abscys andOrdinat:(int)ordinat
-{
-    _value[abscys][ordinat] = value;
-}
 - (BOOL)setValue:(int)value forIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"%@", indexPath);
     if (![self valueForIndexPath:indexPath]) {
         _value[indexPath.section][indexPath.row] = value;
         return YES;

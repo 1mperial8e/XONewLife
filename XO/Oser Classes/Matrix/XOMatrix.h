@@ -20,11 +20,11 @@ typedef enum
 @property (nonatomic) int *vectorValue;
 @property (nonatomic, assign) int **value;
 @property (nonatomic) int minComb;
+@property (nonatomic, strong) NSArray *aValue;
+
 
 - (int)checkMatrix;
 - (id)initWithDimension:(int)dimension;
-- (void)setValue:(int)value forAbscys:(int)abscys andOrdinat:(int)ordinat;
-- (void)setValue:(int)value forPoint:(CGPoint)point;
 - (BOOL)setValue:(int)value forIndexPath:(NSIndexPath *)indexPath;
 - (int)valueForIndexPath:(NSIndexPath *)indexPath;
 - (BOOL)checkMatrixForIndexPath:(NSIndexPath *)indexPath;

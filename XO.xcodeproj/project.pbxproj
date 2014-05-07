@@ -13,6 +13,7 @@
 		7FEAECDD1917B7580065CC57 /* XOGameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEAECDC1917B7580065CC57 /* XOGameModel.m */; };
 		7FEAED2D1917D84E0065CC57 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FEAED2C1917D84E0065CC57 /* Images.xcassets */; };
 		7FEAED3019181BC30065CC57 /* XOMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEAED2F19181BC30065CC57 /* XOMatrix.m */; };
+		7FF96E581919162300EDB431 /* XOOMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF96E571919162300EDB431 /* XOOMatrix.m */; };
 		8481FC441915273E00D9F0EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481FC431915273E00D9F0EB /* Foundation.framework */; };
 		8481FC461915273E00D9F0EB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481FC451915273E00D9F0EB /* CoreGraphics.framework */; };
 		8481FC481915273E00D9F0EB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481FC471915273E00D9F0EB /* UIKit.framework */; };
@@ -31,7 +32,6 @@
 		8481FC9519152A2D00D9F0EB /* XOSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC8719152A2D00D9F0EB /* XOSettingsViewController.m */; };
 		8481FC9619152A2D00D9F0EB /* XOStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC8A19152A2D00D9F0EB /* XOStartViewController.m */; };
 		8481FC9719152A2D00D9F0EB /* GameField.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8481FC8C19152A2D00D9F0EB /* GameField.storyboard */; };
-		8481FC9819152A2D00D9F0EB /* TTBananasView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC8E19152A2D00D9F0EB /* TTBananasView.m */; };
 		8481FC9919152A2D00D9F0EB /* XOGameFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC9019152A2D00D9F0EB /* XOGameFieldViewController.m */; };
 		8481FC9D19165DF100D9F0EB /* XOGameModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC9C19165DF100D9F0EB /* XOGameModeViewController.m */; };
 		8481FCA1191661A000D9F0EB /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FCA0191661A000D9F0EB /* GameManager.m */; };
@@ -65,6 +65,8 @@
 		7FEAED2C1917D84E0065CC57 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7FEAED2E19181BC30065CC57 /* XOMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XOMatrix.h; path = "XO/Oser Classes/Matrix/XOMatrix.h"; sourceTree = SOURCE_ROOT; };
 		7FEAED2F19181BC30065CC57 /* XOMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XOMatrix.m; path = "XO/Oser Classes/Matrix/XOMatrix.m"; sourceTree = SOURCE_ROOT; };
+		7FF96E561919162300EDB431 /* XOOMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XOOMatrix.h; sourceTree = "<group>"; };
+		7FF96E571919162300EDB431 /* XOOMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOOMatrix.m; sourceTree = "<group>"; };
 		8481FC401915273E00D9F0EB /* XO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8481FC431915273E00D9F0EB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8481FC451915273E00D9F0EB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -91,8 +93,6 @@
 		8481FC8919152A2D00D9F0EB /* XOStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XOStartViewController.h; sourceTree = "<group>"; };
 		8481FC8A19152A2D00D9F0EB /* XOStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOStartViewController.m; sourceTree = "<group>"; };
 		8481FC8C19152A2D00D9F0EB /* GameField.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GameField.storyboard; sourceTree = "<group>"; };
-		8481FC8D19152A2D00D9F0EB /* TTBananasView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBananasView.h; sourceTree = "<group>"; };
-		8481FC8E19152A2D00D9F0EB /* TTBananasView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBananasView.m; sourceTree = "<group>"; };
 		8481FC8F19152A2D00D9F0EB /* XOGameFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XOGameFieldViewController.h; path = ../XOGameFieldViewController.h; sourceTree = "<group>"; };
 		8481FC9019152A2D00D9F0EB /* XOGameFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XOGameFieldViewController.m; path = ../XOGameFieldViewController.m; sourceTree = "<group>"; };
 		8481FC9B19165DF100D9F0EB /* XOGameModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XOGameModeViewController.h; path = GameModeViewController/XOGameModeViewController.h; sourceTree = "<group>"; };
@@ -139,6 +139,8 @@
 			children = (
 				7FEAED2E19181BC30065CC57 /* XOMatrix.h */,
 				7FEAED2F19181BC30065CC57 /* XOMatrix.m */,
+				7FF96E561919162300EDB431 /* XOOMatrix.h */,
+				7FF96E571919162300EDB431 /* XOOMatrix.m */,
 			);
 			name = Matrix;
 			sourceTree = "<group>";
@@ -304,8 +306,6 @@
 				7FEAECD6191783FB0065CC57 /* XOCollectionViewCell.m */,
 				7FEAECD2191772A70065CC57 /* XOGameFieldFlowLayout.h */,
 				7FEAECD3191772A70065CC57 /* XOGameFieldFlowLayout.m */,
-				8481FC8D19152A2D00D9F0EB /* TTBananasView.h */,
-				8481FC8E19152A2D00D9F0EB /* TTBananasView.m */,
 			);
 			name = GameField;
 			path = TTGameField;
@@ -468,6 +468,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8481FCA1191661A000D9F0EB /* GameManager.m in Sources */,
+				7FF96E581919162300EDB431 /* XOOMatrix.m in Sources */,
 				7FEAECD4191772A70065CC57 /* XOGameFieldFlowLayout.m in Sources */,
 				8481FC9D19165DF100D9F0EB /* XOGameModeViewController.m in Sources */,
 				7FEAED3019181BC30065CC57 /* XOMatrix.m in Sources */,
@@ -475,7 +476,6 @@
 				8481FC501915273E00D9F0EB /* main.m in Sources */,
 				8481FC9519152A2D00D9F0EB /* XOSettingsViewController.m in Sources */,
 				8481FC9919152A2D00D9F0EB /* XOGameFieldViewController.m in Sources */,
-				8481FC9819152A2D00D9F0EB /* TTBananasView.m in Sources */,
 				8481FC9619152A2D00D9F0EB /* XOStartViewController.m in Sources */,
 				8481FC9319152A2D00D9F0EB /* MPManager.m in Sources */,
 				7FEAECD7191783FB0065CC57 /* XOCollectionViewCell.m in Sources */,

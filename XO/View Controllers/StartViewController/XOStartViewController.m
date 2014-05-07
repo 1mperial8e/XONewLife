@@ -11,6 +11,7 @@
 #import "XOSettingsViewController.h"
 #import "GameManager.h"
 #import "GTLPlusPerson.h"
+#import "XOGameModel.h"
 
 @interface XOStartViewController () <GPGAchievementControllerDelegate, GPGLeaderboardControllerDelegate>
 
@@ -75,14 +76,18 @@ static NSString * const kClientID = @"111039763950-dj91993gmav7o5dn26v65ga1lavlt
 
 - (IBAction)singlePlayer:(id)sender {
     [GameManager sharedInstance].mode=SINGLE_PLAYER;
+    [XOGameModel sharedInstance].gameMode = XOGameModeSingle;
 }
 
 - (IBAction)twoPlayers:(id)sender {
     [GameManager sharedInstance].mode=TWO_PLAYERS;
+    [XOGameModel sharedInstance].gameMode = XOGameModeMultiplayer;
 }
 
 - (IBAction)playOnline:(id)sender {
     [GameManager sharedInstance].mode=ONLINE_PLAYERS;
+    [XOGameModel sharedInstance].gameMode = XOGameModeOnline;
+
 }
 #pragma mark - GPGLeaderboardDelegate
 

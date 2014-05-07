@@ -8,7 +8,9 @@
 
 #import "XOCollectionViewCell.h"
 @interface XOCollectionViewCell ()
-@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (strong, nonatomic) NSArray *cross;
+@property (strong, nonatomic) NSArray *zeros;
 @end
 @implementation XOCollectionViewCell
 
@@ -20,31 +22,36 @@
     }
     return self;
 }
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        _cross = @[[UIImage imageNamed:@"cross_1"],[UIImage imageNamed:@"cross_2"],[UIImage imageNamed:@"cross_3"],[UIImage imageNamed:@"cross_4"],[UIImage imageNamed:@"cross_5"]];
+        _zeros = @[[UIImage imageNamed:@"zero_1"],[UIImage imageNamed:@"zero_2"],[UIImage imageNamed:@"zero_3"],[UIImage imageNamed:@"zero_4"],[UIImage imageNamed:@"zero_5"]];
+    }
+    return self;
+}
 
 - (void)setMode:(int)mode
 {
     //NSLog(@"%@", NSStringFromCGRect(self.sizeToFit));
-    if (!_mode && mode>0) {
-        //self.backgroundColor = [UIColor redColor];
+    if (mode>0) {
         _mode = mode;
-        self.label.text = @"X";
-    } else if (!_mode && mode<0) {
-        //self.backgroundColor = [UIColor greenColor];
+        _image.image = _cross[arc4random() % _cross.count];
+    } else if (mode<0) {
         _mode = mode;
-        self.label.text = @"O";
+        _image.image = _zeros[arc4random() % _cross.count];
     }
-}
-- (void)select:(id)sender
-{
-    self.layer.borderColor = [[UIColor grayColor] CGColor];
-    self.layer.borderWidth = 2;
 }
 - (void)setSelected:(BOOL)selected
 {
     if (selected) {
-        self.layer.borderColor = [[UIColor grayColor] CGColor];
-        self.layer.borderWidth = 2;
+        //Тут буде анімаціяж
     }
+}
+-(void) dealloc
+{
+    
 }
 /*
 // Only override drawRect: if you perform custom drawing.

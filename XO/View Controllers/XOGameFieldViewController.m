@@ -7,7 +7,6 @@
 //
 
 #import "XOGameFieldViewController.h"
-#import "TTBananasView.h"
 #import "XOCollectionViewCell.h"
 #import "XOGameModel.h"
 #import <AudioToolbox/AudioToolbox.h>
@@ -48,11 +47,9 @@
     [XOGameModel sharedInstance].delegate = self;
     _delegate = [XOGameModel sharedInstance];
 }
-
-- (void)tap:(UITapGestureRecognizer *)tap
+- (void)viewDidAppear:(BOOL)animated
 {
-    TTBananasView *view = (TTBananasView *)tap.view;
-    NSLog(@"%i", view.tag);
+    [[XOGameModel sharedInstance] clear];
 }
 
 - (void)dealloc
@@ -75,7 +72,6 @@
 #pragma mark - CollectionView Data Sourse
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    //return [self exp2:[XOGameModel sharedInstance].gameColumns];
     return [XOGameModel sharedInstance].gameColumns;
 }
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -85,10 +81,6 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-//    CGRect bounds = cell.bounds;
-//    bounds.size = CGSizeMake(collectionView.frame.size.width/3, collectionView.frame.size.height/3);
-//    cell.bounds = bounds;
-    //NSLog(@"%@", NSStringFromCGRect(cell.frame));
     return cell;
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
@@ -99,15 +91,6 @@
 #pragma mark - CollectionView Delegate
 - (BOOL) collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-//    XOCollectionViewCell *cell = (XOCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-//    if ([XOGameModel sharedInstance].xTurn && !cell.mode) {
-//        cell.mode = 1;
-//        [XOGameModel sharedInstance].xTurn = NO;
-//    } else if (!cell.mode) {
-//        cell.mode = -1;
-//        [XOGameModel sharedInstance].xTurn = YES;
-//    }    
-//    [self playSound];
     if ([_delegate respondsToSelector:@selector(willChangeValueForIndexPath:)]) {
         [_delegate willChangeValueForIndexPath:indexPath];
     }
@@ -124,12 +107,8 @@
 {
     [_collectionView reloadData];
 }
-- (int)exp2:(int)integer
-{
-    return integer*integer;
-}
 #pragma mark - GameModel Delegate
-- (void)playerWin:(int)player
+- (void)playerWin:(XOPlayer)player
 {
     
 }
