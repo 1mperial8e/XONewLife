@@ -15,6 +15,7 @@
 
 @protocol GameDelegate <NSObject>
 - (void)didReceiveMessage:(NSString *)symbol :(NSString*)coords;
+- (void)whoTurnFirst:(int)opponentRoll;
 @end
 
 @interface MPManager : NSObject <GPGRealTimeRoomDelegate>

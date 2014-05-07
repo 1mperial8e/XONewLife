@@ -34,8 +34,10 @@
     [self configGameField];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
     if ([[GameManager sharedInstance].mode isEqualToString:ONLINE_PLAYERS]){
-    [[GameManager sharedInstance] loadData];
+        [[GameManager sharedInstance] loadData];
+        [[GameManager sharedInstance] tryToBeFirst];
     }
+    
 }
 - (void)configGameField
 {
@@ -114,4 +116,5 @@
     self.myPhoto.clipsToBounds=YES;
     self.opponentPhoto.clipsToBounds=YES;
 }
+
 @end

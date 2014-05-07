@@ -26,11 +26,14 @@
 @property (nonatomic) int mediumVictory;
 @property (nonatomic) int hardVictory;
 @property (nonatomic) int onlineVictory;
+@property (nonatomic) int myRoll;
+@property (nonatomic) BOOL iTurnFirst;
 
 + (GameManager*)sharedInstance;
 - (void) setSettings;
 - (void) updateProgress;
 - (void)saveData:(NSString*)dataSTR;
 - (void) loadData;
+- (void)tryToBeFirst;
 
 @end

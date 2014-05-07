@@ -149,6 +149,14 @@ static MPManager *_instance = nil;
 {
     NSString * symbol;
     symbol = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] substringToIndex:1];
+    if ([symbol isEqualToString:@"r"]) {
+        NSString *roll= [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] substringFromIndex:1];
+        if(_delegate && [_delegate respondsToSelector:@selector(whoTurnFirst:)])
+        {
+            [_delegate whoTurnFirst:[roll intValue]];
+        }
+        return;
+    }
     NSString * coords = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] substringFromIndex:1];
     if(_delegate && [_delegate respondsToSelector:@selector(didReceiveMessage::)])
     {

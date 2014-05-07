@@ -7,6 +7,7 @@
 //
 
 #import "GameManager.h"
+#import "MPManager.h"
 
 @implementation GameManager
 
@@ -69,6 +70,12 @@ static GameManager* _instance=nil;
     userDefaults=[NSUserDefaults standardUserDefaults];
     [userDefaults setInteger:(int)value forKey:key];
     [userDefaults synchronize];
+}
+
+- (void)tryToBeFirst{
+    int roll=rand()%365;
+    self.myRoll=roll;
+    [[MPManager sharedInstance] sendPlayerMyMessage:[NSString stringWithFormat:@"r%i",roll]];
 }
 
 - (void)dealloc{

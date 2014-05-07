@@ -7,6 +7,7 @@
 //
 
 #import "XOGameModel.h"
+#import "GameManager.h"
 
 @interface XOGameModel ()
 @end
@@ -117,6 +118,19 @@ static XOGameModel *_instance=Nil;
     int row = [[coords substringToIndex:1] intValue];
     int section = [[coords substringFromIndex:1] intValue];
     [self setMoveForIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
+}
+
+- (void)whoTurnFirst:(int)opponentRoll{
+    if (opponentRoll==[GameManager sharedInstance].myRoll) {
+        [[GameManager sharedInstance] tryToBeFirst];
+        return;
+    }
+    else if (opponentRoll>[GameManager sharedInstance].myRoll) {
+        self.player=XOPlayerSecond;
+    }
+    else{
+        self.player=XOPlayerFirst;
+    }
 }
 
 @end
