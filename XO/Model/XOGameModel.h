@@ -17,16 +17,8 @@
 #import "XOMatrix.h"
 #import "XOGameFieldViewController.h"
 #import "MPManager.h"
-typedef enum
-{
-    XOGameModeSingle,
-    XOGameModeMultiplayer,
-    XOGameModeOnline
-} XOGameMode;
-typedef enum {
-    XOPlayerFirst,
-    XOPlayerSecond
-} XOPlayer;
+#import "Constants.h"
+
 @protocol XOGameModelDelegate <NSObject>
 @optional
 - (void)gameOver;

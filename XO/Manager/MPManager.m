@@ -9,6 +9,7 @@
 #import "XOAppDelegate.h"
 #import "MPManager.h"
 #import "GameManager.h"
+#import "XOGameModel.h"
 
 @implementation MPManager
 
@@ -63,6 +64,7 @@ static MPManager *_instance = nil;
 {
     if (self.roomToTrack && self.roomToTrack.status != GPGRealTimeRoomStatusDeleted) {
         [self.roomToTrack leave];
+        [XOGameModel sharedInstance].player = XOPlayerNone;
     }
 }
 
