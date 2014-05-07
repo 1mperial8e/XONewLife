@@ -82,6 +82,7 @@ static XOGameModel *_instance=Nil;
                     [_delegate didChangeValue:1 forIndexPath:indexPath];
                 }
                 _player=XOPlayerSecond;
+                [[MPManager sharedInstance] sendPlayerMyMessage:[NSString stringWithFormat:@"X%i%i", indexPath.row, indexPath.section]];
             }
         }
     }
@@ -104,7 +105,6 @@ static XOGameModel *_instance=Nil;
             [_delegate didChangeValue:-1 forIndexPath:indexPath];
         }
         _player=XOPlayerFirst;
-        [[MPManager sharedInstance] sendPlayerMyMessage:[NSString stringWithFormat:@"X%i%i", indexPath.row, indexPath.section]];
     }
 }
 - (void)willChangeValueforIndexPath:(NSIndexPath *)indexPath
