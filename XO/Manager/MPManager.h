@@ -14,7 +14,7 @@
 @end
 
 @protocol GameDelegate <NSObject>
-- (void)didReceiveMessage:(NSString *)symbol :(NSString*)coords;
+- (void)didReceiveMessage:(NSString*)coords;
 - (void)whoTurnFirst:(int)opponentRoll;
 @end
 
@@ -23,6 +23,7 @@
 @property (nonatomic, readonly) GPGRealTimeRoom *roomToTrack;
 @property (weak) id<GameDelegate> delegate;
 @property (nonatomic, strong) GPGScore *myScore;
+@property (nonatomic) BOOL firstMessage;
 
 /**
  * Accessor method for the singleton instance

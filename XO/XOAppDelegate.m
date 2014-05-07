@@ -34,14 +34,7 @@
             // You probably want to do other notification checking here.
         }
     }
-    XOMatrix *matrix = [XOMatrix matrixWithDimension:3];
-    NSLog(@"%@", matrix);
-
-    //int a[] = {0,0,0,1,1,1,-1,-1,-1};
-    //matrix.vectorValue = a;
-    //NSLog(@"%@", matrix);
-    return YES;
-    
+   return YES;    
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation

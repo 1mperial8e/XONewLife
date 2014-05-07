@@ -9,6 +9,7 @@
 #import "XOGameViewController.h"
 #import "GameManager.h"
 #import "MPManager.h"
+#import "XOGameModel.h"
 
 @interface XOGameViewController ()
 @property (weak, nonatomic) IBOutlet UIView *gameFieldContainerView;
@@ -82,6 +83,7 @@
     if ([[GameManager sharedInstance].mode isEqualToString:ONLINE_PLAYERS]){
     [[MPManager sharedInstance].roomToTrack leave];
     }
+    [[XOGameModel sharedInstance] clear];
 }
 
 - (IBAction)back:(id)sender {

@@ -46,10 +46,6 @@
     [XOGameModel sharedInstance].delegate = self;
     _delegate = [XOGameModel sharedInstance];
 }
-- (void)viewDidAppear:(BOOL)animated
-{
-    [[XOGameModel sharedInstance] clear];
-}
 
 - (void)dealloc
 {
