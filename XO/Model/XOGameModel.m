@@ -22,6 +22,7 @@ static XOGameModel *_instance=Nil;
         _gameColumns = [self gameColumns];
         _xTurn = YES;
         _dimension = 3;
+        [MPManager sharedInstance].delegate = self;
     }
     return self;
 }
@@ -103,12 +104,19 @@ static XOGameModel *_instance=Nil;
             [_delegate didChangeValue:-1 forIndexPath:indexPath];
         }
         _player=XOPlayerFirst;
+        [[MPManager sharedInstance] sendPlayerMyMessage:[NSString stringWithFormat:@"X%i%i", indexPath.row, indexPath.section]];
     }
 }
 - (void)willChangeValueforIndexPath:(NSIndexPath *)indexPath
 {
     
 }
-#pragma mark - Protocol Methods
+#pragma mark - Game Delegate
+- (void)didReceiveMessage:(NSString *)symbol :(NSString *)coords
+{
+    int section = [[coords substringToIndex:1] intValue];
+    int row = [[coords substringFromIndex:1] intValue];
+    [self setMoveForIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
+}
 
 @end

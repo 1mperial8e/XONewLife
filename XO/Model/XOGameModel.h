@@ -16,6 +16,7 @@
 #import <Foundation/Foundation.h>
 #import "XOMatrix.h"
 #import "XOGameFieldViewController.h"
+#import "MPManager.h"
 typedef enum
 {
     XOGameModeSingle,
@@ -35,7 +36,7 @@ typedef enum {
 - (void)didChangeValue:(int)value forIndexPath:(NSIndexPath *)indexPath;
 @end
 
-@interface XOGameModel : NSObject <XOGameFieldViewControllerDelegate>
+@interface XOGameModel : NSObject <XOGameFieldViewControllerDelegate, GameDelegate>
 @property (nonatomic, assign) int gameColumns;
 @property (nonatomic, strong) NSDate *endGameTime;
 @property (nonatomic) BOOL xTurn;
@@ -44,6 +45,7 @@ typedef enum {
 @property (nonatomic) XOGameMode gameMode;
 @property (nonatomic, strong) XOMatrix *gameFieldMatrix;
 @property (nonatomic, weak) id <XOGameModelDelegate> delegate;
+
 - (void)clear;
 - (void)setMoveForIndexPath:(NSIndexPath *)indexPath;
 + (XOGameModel *)sharedInstance;
