@@ -445,16 +445,16 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="field_bg" translatesAutoresizingMaskIntoConstraints="NO" id="nJO-pD-n75">
-                                        <rect key="frame" x="21" y="32" width="278" height="277"/>
+                                        <rect key="frame" x="17" y="32" width="286" height="286"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="nJO-pD-n75" secondAttribute="height" multiplier="278:277" id="iSS-Bn-ZG4"/>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="278" id="mCp-RI-tBn"/>
-                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="278" id="oM5-eI-MaS"/>
+                                            <constraint firstAttribute="width" secondItem="nJO-pD-n75" secondAttribute="height" multiplier="1:1" id="iSS-Bn-ZG4"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="286" id="mCp-RI-tBn"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="286" id="oM5-eI-MaS"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="thm-ej-W6q">
-                                        <rect key="frame" x="43" y="54" width="234" height="233"/>
+                                        <rect key="frame" x="39" y="54" width="242" height="242"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
