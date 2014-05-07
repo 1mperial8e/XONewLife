@@ -14,7 +14,7 @@
 #import "GameManager.h"
 #import "XOGameModel.h"
 
-@interface XOGameFieldViewController () <GameDelegate, XOGameModelDelegate>
+@interface XOGameFieldViewController () <XOGameModelDelegate>
 {
     SystemSoundID mySound;
 }
@@ -23,7 +23,7 @@
 @end
 
 @implementation XOGameFieldViewController
-@synthesize player2;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -42,8 +42,7 @@
     if (fileURL != nil)
     {
         AudioServicesCreateSystemSoundID((__bridge CFURLRef)fileURL, &mySound);
-    }
-    [MPManager sharedInstance].delegate=self;
+    }    
     [XOGameModel sharedInstance].delegate = self;
     _delegate = [XOGameModel sharedInstance];
 }
@@ -61,12 +60,6 @@
     if ([GameManager sharedInstance].sound==YES) {
         AudioServicesPlaySystemSound(mySound);
     }
-}
-
-#pragma mark - GameDelegate methods
-
-- (void)didReceiveMessage:(NSString *)symbol :(NSString *)coords{
-    [self playSound];
 }
 
 #pragma mark - CollectionView Data Sourse
