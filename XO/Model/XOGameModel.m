@@ -114,8 +114,8 @@ static XOGameModel *_instance=Nil;
 #pragma mark - Game Delegate
 - (void)didReceiveMessage:(NSString *)symbol :(NSString *)coords
 {
-    int section = [[coords substringToIndex:1] intValue];
-    int row = [[coords substringFromIndex:1] intValue];
+    int row = [[coords substringToIndex:1] intValue];
+    int section = [[coords substringFromIndex:1] intValue];
     [self setMoveForIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
 }
 
