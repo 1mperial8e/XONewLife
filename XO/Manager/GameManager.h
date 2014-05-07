@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AVFoundation/AVFoundation.h>
 
 @interface GameManager : NSObject
 
@@ -20,7 +19,6 @@
 @property (nonatomic, weak) NSString *googleUserImage;
 @property (nonatomic, strong) NSString *opponentName;
 @property (nonatomic, strong) NSURL *opponentImage;
-@property (nonatomic, strong) AVAudioPlayer *player;
 @property (nonatomic, weak) NSString *mode;
 @property (nonatomic) int easyVictory;
 @property (nonatomic) int mediumVictory;

@@ -78,9 +78,6 @@ static GameManager* _instance=nil;
     [[MPManager sharedInstance] sendPlayerMyMessage:[NSString stringWithFormat:@"%i",roll]];
 }
 
-- (void)dealloc{
-    _player=nil;
-}
 
 #pragma mark - CloudSaving
 

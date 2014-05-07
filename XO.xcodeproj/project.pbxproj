@@ -35,9 +35,14 @@
 		8481FC9919152A2D00D9F0EB /* XOGameFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC9019152A2D00D9F0EB /* XOGameFieldViewController.m */; };
 		8481FC9D19165DF100D9F0EB /* XOGameModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC9C19165DF100D9F0EB /* XOGameModeViewController.m */; };
 		8481FCA1191661A000D9F0EB /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FCA0191661A000D9F0EB /* GameManager.m */; };
+		84AAC882191AAA92001C0B94 /* sound_click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84AAC87D191AAA92001C0B94 /* sound_click.mp3 */; };
+		84AAC883191AAA92001C0B94 /* sound_goes_o.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84AAC87E191AAA92001C0B94 /* sound_goes_o.mp3 */; };
+		84AAC884191AAA92001C0B94 /* sound_goes_x.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84AAC87F191AAA92001C0B94 /* sound_goes_x.mp3 */; };
+		84AAC885191AAA92001C0B94 /* sound_lose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84AAC880191AAA92001C0B94 /* sound_lose.mp3 */; };
+		84AAC886191AAA92001C0B94 /* sound_win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84AAC881191AAA92001C0B94 /* sound_win.mp3 */; };
+		84AAC889191AAB0E001C0B94 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AAC888191AAB0E001C0B94 /* SoundManager.m */; };
 		84D667711917882A000DA569 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D667701917882A000DA569 /* AVFoundation.framework */; };
 		84D6677319178838000DA569 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D6677219178838000DA569 /* AudioToolbox.framework */; };
-		84D6677819178B49000DA569 /* step.wav in Resources */ = {isa = PBXBuildFile; fileRef = 84D6677719178B49000DA569 /* step.wav */; };
 		FCBA6849B3044F72B6B90560 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE32FFD0F7604EB6BEFAF60C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -98,9 +103,15 @@
 		8481FC9F191661A000D9F0EB /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
 		8481FCA0191661A000D9F0EB /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
 		8481FCA5191664D000D9F0EB /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		84AAC87D191AAA92001C0B94 /* sound_click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_click.mp3; sourceTree = "<group>"; };
+		84AAC87E191AAA92001C0B94 /* sound_goes_o.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_goes_o.mp3; sourceTree = "<group>"; };
+		84AAC87F191AAA92001C0B94 /* sound_goes_x.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_goes_x.mp3; sourceTree = "<group>"; };
+		84AAC880191AAA92001C0B94 /* sound_lose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_lose.mp3; sourceTree = "<group>"; };
+		84AAC881191AAA92001C0B94 /* sound_win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_win.mp3; sourceTree = "<group>"; };
+		84AAC887191AAB0E001C0B94 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
+		84AAC888191AAB0E001C0B94 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
 		84D667701917882A000DA569 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		84D6677219178838000DA569 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		84D6677719178B49000DA569 /* step.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = step.wav; sourceTree = "<group>"; };
 		DE32FFD0F7604EB6BEFAF60C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -196,7 +207,7 @@
 			children = (
 				84742D7E19197C88007B868E /* Model */,
 				84D6677619178B49000DA569 /* Resources */,
-				8481FC7D19152A2D00D9F0EB /* Manager */,
+				8481FC7D19152A2D00D9F0EB /* Managers */,
 				84742D7919197C54007B868E /* Other Classes */,
 				8481FC8019152A2D00D9F0EB /* View Controllers */,
 				8481FC521915273E00D9F0EB /* XOAppDelegate.h */,
@@ -238,14 +249,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		8481FC7D19152A2D00D9F0EB /* Manager */ = {
+		8481FC7D19152A2D00D9F0EB /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				8481FC7E19152A2D00D9F0EB /* MPManager.h */,
 				8481FC7F19152A2D00D9F0EB /* MPManager.m */,
 				8481FC9F191661A000D9F0EB /* GameManager.h */,
 				8481FCA0191661A000D9F0EB /* GameManager.m */,
+				84AAC887191AAB0E001C0B94 /* SoundManager.h */,
+				84AAC888191AAB0E001C0B94 /* SoundManager.m */,
 			);
+			name = Managers;
 			path = Manager;
 			sourceTree = "<group>";
 		};
@@ -325,7 +339,11 @@
 		84D6677619178B49000DA569 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				84D6677719178B49000DA569 /* step.wav */,
+				84AAC87D191AAA92001C0B94 /* sound_click.mp3 */,
+				84AAC87E191AAA92001C0B94 /* sound_goes_o.mp3 */,
+				84AAC87F191AAA92001C0B94 /* sound_goes_x.mp3 */,
+				84AAC880191AAA92001C0B94 /* sound_lose.mp3 */,
+				84AAC881191AAA92001C0B94 /* sound_win.mp3 */,
 				7FF96EA2191A4B5C00EDB431 /* music.mp3 */,
 				7FEAED2C1917D84E0065CC57 /* Images.xcassets */,
 			);
@@ -411,11 +429,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84D6677819178B49000DA569 /* step.wav in Resources */,
+				84AAC886191AAA92001C0B94 /* sound_win.mp3 in Resources */,
+				84AAC883191AAA92001C0B94 /* sound_goes_o.mp3 in Resources */,
 				8481FC5A1915273E00D9F0EB /* Main_iPad.storyboard in Resources */,
+				84AAC884191AAA92001C0B94 /* sound_goes_x.mp3 in Resources */,
 				8481FC4E1915273E00D9F0EB /* InfoPlist.strings in Resources */,
+				84AAC882191AAA92001C0B94 /* sound_click.mp3 in Resources */,
 				7FEAED2D1917D84E0065CC57 /* Images.xcassets in Resources */,
 				8481FC7C1915293400D9F0EB /* iPhone.storyboard in Resources */,
+				84AAC885191AAA92001C0B94 /* sound_lose.mp3 in Resources */,
 				7FF96EA3191A4B5C00EDB431 /* music.mp3 in Resources */,
 				8481FC9719152A2D00D9F0EB /* GameField.storyboard in Resources */,
 			);
@@ -472,6 +494,7 @@
 				8481FCA1191661A000D9F0EB /* GameManager.m in Sources */,
 				7FEAECD4191772A70065CC57 /* XOGameFieldFlowLayout.m in Sources */,
 				8481FC9D19165DF100D9F0EB /* XOGameModeViewController.m in Sources */,
+				84AAC889191AAB0E001C0B94 /* SoundManager.m in Sources */,
 				84742D7D19197C54007B868E /* XOMatrix.m in Sources */,
 				8481FC9419152A2D00D9F0EB /* XOOnlineLobbyViewController.m in Sources */,
 				8481FC501915273E00D9F0EB /* main.m in Sources */,

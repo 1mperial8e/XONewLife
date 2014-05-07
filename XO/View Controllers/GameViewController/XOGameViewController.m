@@ -10,6 +10,7 @@
 #import "GameManager.h"
 #import "MPManager.h"
 #import "XOGameModel.h"
+#import "SoundManager.h"
 
 @interface XOGameViewController ()
 @property (weak, nonatomic) IBOutlet UIView *gameFieldContainerView;
@@ -88,6 +89,7 @@
 
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+    [[SoundManager sharedInstance] playClickSound];
 }
 
 - (void) setPlayersInfo{
@@ -109,12 +111,12 @@
         self.myPhoto.image=[UIImage imageWithData:[NSData  dataWithContentsOfURL:[NSURL URLWithString:[GameManager sharedInstance].googleUserImage]]];
         self.opponentPhoto.image=[UIImage imageNamed:@"apple"];
     }
-    self.myName.layer.cornerRadius=6;
-    self.opponentName.layer.cornerRadius=6;
-    self.myPhoto.layer.cornerRadius=33;
-    self.opponentPhoto.layer.cornerRadius=33;
-    self.myPhotoFrame.layer.cornerRadius=36;
-    self.opponentPhotoFrame.layer.cornerRadius=36;
+    self.myName.layer.cornerRadius=4;
+    self.opponentName.layer.cornerRadius=4;
+    self.myPhoto.layer.cornerRadius=27.5;
+    self.opponentPhoto.layer.cornerRadius=27.5;
+    self.myPhotoFrame.layer.cornerRadius=32.5;
+    self.opponentPhotoFrame.layer.cornerRadius=32.5;
     self.myPhoto.clipsToBounds=YES;
     self.opponentPhoto.clipsToBounds=YES;
 }

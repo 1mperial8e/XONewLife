@@ -10,6 +10,7 @@
 #import "GooglePlus.h"
 #import "MPManager.h"
 #import "XOGameViewController.h"
+#import "SoundManager.h"
 
 @interface XOOnlineLobbyViewController () <UIAlertViewDelegate, MPLobbyDelegate>
 
@@ -36,18 +37,22 @@
 
 - (IBAction)backButton:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+    [[SoundManager sharedInstance] playClickSound];
 }
 
 - (IBAction)checkInvites:(id)sender {
     [[MPManager sharedInstance] showIncomingInvitesScreen];
+    [[SoundManager sharedInstance] playClickSound];
 }
 
 - (IBAction)quickGame:(id)sender {
     [self startQuickMatchGameWithTotalPlayers:2];
+    [[SoundManager sharedInstance] playClickSound];
 }
 
 - (IBAction)inviteFriend:(id)sender {
     [[MPManager sharedInstance] startInvitationGameWithMinPlayers:2 maxPlayers:2];
+    [[SoundManager sharedInstance] playClickSound];
 }
 
 #pragma mark - UIAlertViewDelegate methods
@@ -62,6 +67,7 @@
             [[GPPSignIn sharedInstance] authenticate];
         }
     }
+    [[SoundManager sharedInstance] playClickSound];
 }
 
 #pragma mark - MPLobbyDelegate methods
@@ -91,6 +97,7 @@
 {
     if (self.presentedViewController != nil) {
         [self dismissViewControllerAnimated:YES completion:nil];
+        [[SoundManager sharedInstance] playClickSound];
     }
     if (![[self.navigationController.viewControllers lastObject] isEqual:self])
     {
