@@ -34,7 +34,7 @@ static GameManager* _instance=nil;
 
 - (void) updateProgress{
     NSString *key=[[NSString alloc] init];
-    NSInteger *value;
+    NSInteger value = 0;
     if ([self.mode isEqualToString:ONLINE_PLAYERS]) {
         self.onlineVictory++;
         [self saveData:[NSString stringWithFormat:@"%i", self.onlineVictory]];
@@ -43,24 +43,28 @@ static GameManager* _instance=nil;
     else if ([self.mode isEqualToString:SINGLE_PLAYER]) {
         if ([self.difficulty isEqualToString:EASY_MODE]){
             self.easyVictory++;
-            value=&self->_easyVictory;
+            value=self->_easyVictory;
              key=EASY_VICTORY;
         }
         if ([self.difficulty isEqualToString:MEDIUM_MODE]){
             self.mediumVictory++;
-            value=&self->_mediumVictory;
+            value=self->_mediumVictory;
              key=MEDIUM_VICTORY;
         }
         if ([self.difficulty isEqualToString:HARD_MODE]){
             self.hardVictory++;
-            value=&self->_hardVictory;
+            value=self->_hardVictory;
              key=HARD_VICTORY;
         }
     }
+    if ([self.mode isEqualToString:TWO_PLAYERS]){
+        return;
+    }
+
     [self saveProgress:key:value];
 }
 
-- (void)saveProgress:(NSString*)key :(NSInteger*)value{
+- (void)saveProgress:(NSString*)key :(NSInteger)value{
     NSUserDefaults *userDefaults=[[NSUserDefaults alloc] init];
     userDefaults=[NSUserDefaults standardUserDefaults];
     [userDefaults setInteger:(int)value forKey:key];
