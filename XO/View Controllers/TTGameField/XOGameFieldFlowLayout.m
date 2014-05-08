@@ -31,7 +31,7 @@ struct XOItemAttributes
     if (!attrib.space&&!attrib.size) {
         float fullSize = self.collectionView.bounds.size.width/[XOGameModel sharedInstance].dimension;
         attrib.space = fullSize*0.1;
-        attrib.size = fullSize-attrib.space-2;
+        attrib.size = fullSize-attrib.space-1;
         self.sectionInset = UIEdgeInsetsMake(attrib.space, 0, 0, 0);
     }
     //NSLog(@"%f, %f, %f, %f", attrib.size, attrib.space, self.collectionView.bounds.size.width, fullSize);

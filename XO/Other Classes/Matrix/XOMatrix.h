@@ -14,13 +14,19 @@ typedef enum
     XOMatrixSecondWin = -3,
     XOMatrixNoWinners = 0
 } XOResult;
-
+typedef enum {
+    MatrixValueFirst = 1,
+    MatrixValueSecond = -1,
+    MatrixValueNon = 0
+}MatrixValue;
 @interface XOMatrix : NSObject
 @property (nonatomic) int dimension;
 @property (nonatomic) int *vectorValue;
 @property (nonatomic, assign) int **value;
 @property (nonatomic) int minComb;
 @property (nonatomic, strong) NSArray *aValue;
+@property (nonatomic) XOPlayer winner;
+@property (nonatomic) XOVectorType vectorType;
 
 
 - (int)checkMatrix;

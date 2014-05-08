@@ -16,7 +16,7 @@
 @interface XOGameFieldViewController () <XOGameModelDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (nonatomic) BOOL player2;
+@property (nonatomic) BOOL color;
 @end
 
 @implementation XOGameFieldViewController
@@ -36,6 +36,17 @@
     [super viewDidLoad];
     [XOGameModel sharedInstance].delegate = self;
     _delegate = [XOGameModel sharedInstance];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(win:) name:@"Win" object:nil];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"Win" object:nil];
+}
+
+- (void) playSound{
+    if ([GameManager sharedInstance].sound==YES) {
+    }
 }
 
 #pragma mark - CollectionView Data Sourse
@@ -84,5 +95,28 @@
     cell.mode = value;
     cell.selected = YES;
 
+}
+- (void)win:(NSNotification *)notification
+{
+    NSDictionary *info = [notification object];
+    XOVectorType vT = [[info valueForKey:@"type"] intValue];
+    
+    switch (vT) {
+        case XOVectorTypeHorisontal:
+            [_collectionView reloadSections:[[NSIndexSet alloc] initWithIndex:[[info valueForKey:@"s"] intValue]]];
+            _color = YES;
+            break;
+        case XOVectorTypeVertical:
+            [_collectionView reloadSections:[[NSIndexSet alloc] initWithIndex:[[info valueForKey:@"r"] intValue]]];
+            _color = YES;
+            break;
+        case XOVectorTypeDiagonalLeft:
+            break;
+        case XOVectorTypeDiagonalRight:
+            break;
+        default:
+            break;
+    }
+    
 }
 @end

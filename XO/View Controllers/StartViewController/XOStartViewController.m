@@ -80,6 +80,7 @@ static NSString * const kClientID = @"111039763950-dj91993gmav7o5dn26v65ga1lavlt
 - (IBAction)twoPlayers:(id)sender {
     [GameManager sharedInstance].mode=TWO_PLAYERS;
     [XOGameModel sharedInstance].gameMode = XOGameModeMultiplayer;
+    [XOGameModel sharedInstance].player = XOPlayerFirst;
     [[SoundManager sharedInstance] playClickSound];
 }
 

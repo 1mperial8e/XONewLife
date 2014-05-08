@@ -51,7 +51,15 @@ static XOGameModel *_instance=Nil;
 - (void)setGameMode:(XOGameMode)gameMode
 {
     _gameMode = gameMode;
-    
+}
+- (void)setWinner:(XOPlayer)winner
+{
+    _player = XOPlayerNone;
+    _winner = winner;
+    if ([_timerDelegate respondsToSelector:@selector(stopTimer)])
+    {
+        [_timerDelegate stopTimer];
+    }
 }
 #pragma mark - Class Methods
 + (XOGameModel*)sharedInstance{
@@ -67,17 +75,25 @@ static XOGameModel *_instance=Nil;
 {
     if (_gameMode == XOGameModeMultiplayer)
     {
-            int value = _player?-1:1;
-            if ([_gameFieldMatrix setValue:value forIndexPath:indexPath]) {
+            //int value = _player?-1:1;
+            if ([_gameFieldMatrix setValue:_player forIndexPath:indexPath]) {
                 if ([_timerDelegate respondsToSelector:@selector(resetTimer)]) {
                     [_timerDelegate resetTimer];
                 }
                 if ([_delegate respondsToSelector:@selector(didChangeValue:forIndexPath:)]) {
-                    [_delegate didChangeValue:value forIndexPath:indexPath];
+                    [_delegate didChangeValue:_player forIndexPath:indexPath];
                 }
-                _player= _player ? XOPlayerFirst : XOPlayerSecond;
-                if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowTurn:)])) {
-                [_playersTurnDelegate nowTurn:_player];
+                _player= _player *-1;
+                if (_gameFieldMatrix.winner) {
+                    if ([_victoryDelegate respondsToSelector:@selector(drawVector:atLine:)]) {
+                        [_victoryDelegate drawVector:_gameFieldMatrix.vectorType atLine:indexPath.row];
+                        self.winner = _gameFieldMatrix.winner;
+                        _gameFieldMatrix.winner =XOPlayerNone;
+                        _player = XOPlayerNone;
+                    }
+                    if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowTurn:)])) {
+                        [_playersTurnDelegate nowTurn:_player];
+                    }
                 }
                 if (_player==XOPlayerFirst) {
                     [[SoundManager sharedInstance] playOTurnSound];
@@ -86,12 +102,12 @@ static XOGameModel *_instance=Nil;
                     [[SoundManager sharedInstance] playXTurnSound];
                 }
             }
-        NSLog(@"%@", _gameFieldMatrix);
+        //NSLog(@"%@", _gameFieldMatrix);
     }
     else if (_gameMode == XOGameModeOnline)
     {
         if (_player == XOPlayerFirst) {
-            if ([_gameFieldMatrix setValue:1 forIndexPath:indexPath]) {
+            if ([_gameFieldMatrix setValue:-1 forIndexPath:indexPath]) {
                 if ([_timerDelegate respondsToSelector:@selector(resetTimer)]) {
                     [_timerDelegate resetTimer];
                 }
@@ -142,6 +158,10 @@ static XOGameModel *_instance=Nil;
 - (void)willChangeValueforIndexPath:(NSIndexPath *)indexPath
 {
     
+}
+- (void) victory
+{
+    NSLog(@"victory");
 }
 #pragma mark - Game Delegate
 - (void)didReceiveMessage:(NSString *)coords

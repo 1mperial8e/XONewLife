@@ -7,100 +7,8 @@
 //
 
 #import "XOMatrix.h"
-@interface Vector : NSObject
-@property (nonatomic) int **matrix;
-@property (nonatomic, readonly) int *horisontalVector;
-@property (nonatomic) int *verticalVector;
-@property (nonatomic) int *leftDiagonalVector;
-@property (nonatomic) int *rightDiagonalVector;
-@property (nonatomic, strong) NSIndexPath *indexPath;
-@property (nonatomic, readonly) int dimension;
+#import "Constants.h"
 
-+ (Vector *)vectorWithMatrix:(int **)matrix indexPath:(NSIndexPath *)indexPath;
-@end
-@implementation Vector
-@synthesize dimension;
-@synthesize horisontalVector = _horisontalVector;
-@synthesize verticalVector = _verticalVector;
-@synthesize leftDiagonalVector = _leftDiagonalVector;
-@synthesize rightDiagonalVector = _rightDiagonalVector;
-
-#pragma mark - Custom Accsessors
-
-- (id)initWithMatrix:(int **)matrix andIndexPath:(NSIndexPath *)indexPath
-{
-    self = [super init];
-    if (self) {
-        _matrix = matrix;
-        _indexPath = indexPath;
-        _horisontalVector = [self horisontalVector];
-        _verticalVector = [self verticalVector];
-    }
-    return self;
-}
-- (int *)horisontalVector
-{
-    if (!_horisontalVector) {
-    _horisontalVector = calloc(dimension, sizeof(int));
-    for (int i=0; i<dimension; i++) {
-        _horisontalVector[i] = _matrix[_indexPath.row][i];
-    }
-    }
-    return _horisontalVector;
-}
-- (int *)verticalVector
-{
-    _verticalVector = calloc(dimension, sizeof(int));
-    for (int i=0; i<dimension; i++) {
-        _verticalVector[i] = _matrix[i][_indexPath.section];
-    }
-    return _verticalVector;
-}
-- (int)dimension
-{
-    return sizeof(_matrix)/sizeof(_matrix[0]);
-}
-- (int)count:(XOVectorType)type
-{
-    int result = 0;
-    switch (type) {
-        case XOVectorTypeHorisontal:
-            result = sizeof(_horisontalVector)/sizeof(_horisontalVector[0]);
-            break;
-        case XOVectorTypeVertical:
-            result = sizeof(_verticalVector)/sizeof(_verticalVector[0]);
-            break;
-        case XOVectorTypeDiagonalLeft:
-            result = sizeof(_leftDiagonalVector)/sizeof(_leftDiagonalVector[0]);
-            break;
-        case XOVectorTypeDiagonalRight:
-            result = sizeof(_rightDiagonalVector)/sizeof(_rightDiagonalVector[0]);
-        default:
-            result = NSNotFound;
-            break;
-    }
-    return result;
-}
-- (NSString *)description
-{
-    NSMutableString *result = [[NSMutableString alloc] initWithString:@"Horisontal: ┃\t"];
-    for (int i=0; i<[self count:XOVectorTypeHorisontal]; i++) {
-        [result appendString:[NSString stringWithFormat:@"%i\t", _horisontalVector[i]]];
-    }
-    [result appendString:@"┃\nVertical: ┃\t"];
-    for (int i=0; i<[self count:XOVectorTypeVertical]; i++) {
-        [result appendString:[NSString stringWithFormat:@"%i\t", _verticalVector[i]]];
-    }
-    [result appendString:@"┃"];
-    return result;
-}
-#pragma mark - Class Methods
-+ (Vector *)vectorWithMatrix:(int **)matrix indexPath:(NSIndexPath *)indexPath
-{
-    Vector *vector = [[Vector alloc] initWithMatrix:matrix andIndexPath:indexPath];
-    return vector;
-}
-@end
 
 #pragma mark - Matrix
 @implementation XOMatrix
@@ -136,7 +44,7 @@
     self->_vectorValue = vectorValue;
     for (int i = 0; i<_dimension; i++) {
         for (int j = 0; j<_dimension; j++) {
-            _value[i][j] = vectorValue[(_dimension*i)+j];
+            _value[i][j] = vectorValue[(_dimension*i)+j]? vectorValue[(_dimension*i)+j]: MatrixValueNon;
         }
     }
 }
@@ -146,6 +54,7 @@
     for(int i = 0; i < _dimension; i++) {
         _value[i] = calloc(_dimension , sizeof(int));
         for (int j = 0; j<_dimension; j++) {
+            _value[i][j] = MatrixValueNon;
             _aValue[i][j] = [NSNumber numberWithInt:0];
         }
     }
@@ -165,18 +74,92 @@
 #pragma mark - Public
 - (BOOL)setValue:(int)value forIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"%@", indexPath);
-    if (![self valueForIndexPath:indexPath]) {
-        _value[indexPath.section][indexPath.row] = value;
-        //Vector *v = [Vector vectorWithMatrix:_value indexPath:indexPath];
-        //NSLog(@"%@", v);
+    //NSLog(@"%@", indexPath);
+    
+
+    if ([self valueForIndexPath:indexPath]==MatrixValueNon) {
+         _value[indexPath.section][indexPath.row] = value;
+        if (fabs([self sum:XOVectorTypeHorisontal indexPath:indexPath])>2) {
+            self.winner = [self sum:XOVectorTypeHorisontal indexPath:indexPath]/3;
+            self.vectorType = XOVectorTypeHorisontal;
+            NSLog(@"XOVectorTypeVertical");
+        } else if  (fabs([self sum:XOVectorTypeVertical indexPath:indexPath])>2) {
+            self.winner = [self sum:XOVectorTypeVertical indexPath:indexPath]/3;
+            self.vectorType = XOVectorTypeVertical;
+            NSLog(@"XOVectorTypeHorisontal");
+        } else if (fabs([self sum:XOVectorTypeDiagonalLeft indexPath:indexPath])>2) {
+            self.winner = [self sum:XOVectorTypeDiagonalLeft indexPath:indexPath]/3;
+            self.vectorType = XOVectorTypeDiagonalLeft;
+            NSLog(@"XOVectorTypeDiagonalLeft");
+        } else if (fabs([self sum:XOVectorTypeDiagonalRight indexPath:indexPath])>2) {
+            self.winner = [self sum:XOVectorTypeDiagonalRight indexPath:indexPath]/3;
+            self.vectorType = XOVectorTypeDiagonalRight;
+            NSLog(@"XOVectorTypeDiagonalRight");
+        }
         return YES;
     }
     return NO;
 }
+- (NSDictionary *)setTurnValue:(int)value forIndexPath:(NSIndexPath *)indexPath
+{
+    NSMutableDictionary *result;
+    if ([self valueForIndexPath:indexPath]==MatrixValueNon) {
+        _value[indexPath.section][indexPath.row] = value;
+        if (fabs([self sum:XOVectorTypeHorisontal indexPath:indexPath])>2) {
+            [result setValue:[NSNumber numberWithInt:[self sum:XOVectorTypeHorisontal indexPath:indexPath]/3] forKey:@"win"];
+            [result setValue:[NSNumber numberWithInt:XOVectorTypeHorisontal] forKey:@"vType"];
+        } else if  (fabs([self sum:XOVectorTypeVertical indexPath:indexPath])>2) {
+            [result setValue:[NSNumber numberWithInt:[self sum:XOVectorTypeVertical indexPath:indexPath]/3] forKey:@"win"];
+            [result setValue:[NSNumber numberWithInt:XOVectorTypeVertical] forKey:@"vType"];
+        } else if (fabs([self sum:XOVectorTypeDiagonalLeft indexPath:indexPath])>2) {
+            [result setValue:[NSNumber numberWithInt:[self sum:XOVectorTypeDiagonalLeft indexPath:indexPath]/3] forKey:@"win"];
+            [result setValue:[NSNumber numberWithInt:XOVectorTypeDiagonalLeft] forKey:@"vType"];
+        } else if (fabs([self sum:XOVectorTypeDiagonalRight indexPath:indexPath])>2) {
+            [result setValue:[NSNumber numberWithInt:[self sum:XOVectorTypeDiagonalRight indexPath:indexPath]/3] forKey:@"win"];
+            [result setValue:[NSNumber numberWithInt:XOVectorTypeDiagonalRight] forKey:@"vType"];
+        }
+    }
+    return [NSDictionary dictionaryWithDictionary: result];
+}
+- (int)sum:(XOVectorType)type indexPath:(NSIndexPath *)indexPath
+{
+    int result = 0;
+    switch (type) {
+        case XOVectorTypeHorisontal:
+            for (int i = 0; i<3; i++) {
+                result+= _value[indexPath.section][i];
+            }
+            break;
+        case XOVectorTypeVertical:
+            for (int i = 0; i<3; i++) {
+                result+= _value[i][indexPath.row];
+            }
+            break;
+        case XOVectorTypeDiagonalLeft:
+            for (int i = 0; i<3; i++) {
+                    result+=_value[i][i];
+            }
+            break;
+        case XOVectorTypeDiagonalRight:
+            for (int i = 0; i<3; i++) {
+                result+=_value[i][2-i];
+            }
+            break;
+        default:
+            result = NSNotFound;
+            break;
+    }
+    return result;
+}
 - (int)valueForIndexPath:(NSIndexPath *)indexPath
 {
     return _value[indexPath.section][indexPath.row];
+}
+- (void) dealloc
+{
+    free(_value);
+    free(_vectorValue);
+    
 }
 #pragma mark - Class Methods
 + (XOMatrix *)matrixWithDimension:(int)dimension
