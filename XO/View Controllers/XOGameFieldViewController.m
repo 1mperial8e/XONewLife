@@ -19,7 +19,7 @@
     SystemSoundID mySound;
 }
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (nonatomic) BOOL player2;
+@property (nonatomic) BOOL color;
 @end
 
 @implementation XOGameFieldViewController
@@ -45,6 +45,7 @@
     }    
     [XOGameModel sharedInstance].delegate = self;
     _delegate = [XOGameModel sharedInstance];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(win:) name:@"Win" object:nil];
 }
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -53,6 +54,7 @@
 
 - (void)dealloc
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"Win" object:nil];
     AudioServicesDisposeSystemSoundID(mySound);
 }
 
@@ -74,6 +76,9 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    if (_color) {
+        cell.backgroundColor = [UIColor redColor];
+    }
     return cell;
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
@@ -110,5 +115,28 @@
     cell.mode = value;
     cell.selected = YES;
 
+}
+- (void)win:(NSNotification *)notification
+{
+    NSDictionary *info = [notification object];
+    XOVectorType vT = [[info valueForKey:@"type"] intValue];
+    
+    switch (vT) {
+        case XOVectorTypeHorisontal:
+            [_collectionView reloadSections:[[NSIndexSet alloc] initWithIndex:[[info valueForKey:@"s"] intValue]]];
+            _color = YES;
+            break;
+        case XOVectorTypeVertical:
+            [_collectionView reloadSections:[[NSIndexSet alloc] initWithIndex:[[info valueForKey:@"r"] intValue]]];
+            _color = YES;
+            break;
+        case XOVectorTypeDiagonalLeft:
+            break;
+        case XOVectorTypeDiagonalRight:
+            break;
+        default:
+            break;
+    }
+    
 }
 @end

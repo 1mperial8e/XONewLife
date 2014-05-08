@@ -73,7 +73,7 @@ static XOGameModel *_instance=Nil;
                 }
                 _player= _player ? XOPlayerFirst : XOPlayerSecond;
             }
-        NSLog(@"%@", _gameFieldMatrix);
+        //NSLog(@"%@", _gameFieldMatrix);
     }
     else if (_gameMode == XOGameModeOnline)
     {

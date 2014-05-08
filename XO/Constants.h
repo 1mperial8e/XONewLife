@@ -33,3 +33,11 @@ typedef enum {
     XOPlayerSecond,
     XOPlayerNone
 } XOPlayer;
+
+typedef enum {
+    XOVectorTypeHorisontal,
+    XOVectorTypeVertical,
+    XOVectorTypeDiagonalLeft,
+    XOVectorTypeDiagonalRight
+    
+} XOVectorType;
