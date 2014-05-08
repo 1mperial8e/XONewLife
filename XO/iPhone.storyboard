@@ -510,10 +510,10 @@
                         <outlet property="gameFieldContainerView" destination="thm-ej-W6q" id="see-vx-Afp"/>
                         <outlet property="myName" destination="FYN-Ii-4fX" id="Ux4-FX-3yP"/>
                         <outlet property="myPhoto" destination="Njc-29-WPx" id="BcH-bK-J28"/>
-                        <outlet property="myPhotoFrame" destination="ZZV-Y1-OYe" id="xFv-Pp-6aX"/>
+                        <outlet property="myPhotoFrame" destination="1Xd-bV-7Dx" id="p68-7q-3yh"/>
                         <outlet property="opponentName" destination="qna-UE-joM" id="oKH-eg-ILS"/>
                         <outlet property="opponentPhoto" destination="QWB-5A-0yn" id="NjT-P9-Fp4"/>
-                        <outlet property="opponentPhotoFrame" destination="1Xd-bV-7Dx" id="8bD-Wv-9xL"/>
+                        <outlet property="opponentPhotoFrame" destination="ZZV-Y1-OYe" id="Rp1-ns-OwW"/>
                         <outlet property="timerLabel" destination="gxM-D7-TB0" id="0PD-e0-XKW"/>
                     </connections>
                 </viewController>

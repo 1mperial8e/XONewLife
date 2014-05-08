@@ -104,7 +104,9 @@ static XOGameModel *_instance=Nil;
                 if ([_delegate respondsToSelector:@selector(didChangeValue:forIndexPath:)]) {
                     [_delegate didChangeValue:1 forIndexPath:indexPath];
                 }
-                _player=XOPlayerSecond;
+                _player=XOPlayerSecond;if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowTurn:)])) {
+                [_playersTurnDelegate nowTurn:XOPlayerSecond];
+                }
                 [[MPManager sharedInstance] sendPlayerMyMessage:[NSString stringWithFormat:@"%i%i", indexPath.row, indexPath.section]];
             }
         }
@@ -115,6 +117,9 @@ static XOGameModel *_instance=Nil;
             if ([_gameFieldMatrix setValue:1 forIndexPath:indexPath]) {
                 if ([_delegate respondsToSelector:@selector(didChangeValue:forIndexPath:)]) {
                     [_delegate didChangeValue:1 forIndexPath:indexPath];
+                }
+                if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowTurn:)])) {
+                [_playersTurnDelegate nowTurn:XOPlayerSecond];
                 }
                 _player=XOPlayerSecond;
             }
@@ -130,7 +135,10 @@ static XOGameModel *_instance=Nil;
         if ([_delegate respondsToSelector:@selector(didChangeValue:forIndexPath:)]) {
             [_delegate didChangeValue:-1 forIndexPath:indexPath];
         }
+        if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowTurn:)])) {
         _player=XOPlayerFirst;
+        }
+        [_playersTurnDelegate nowTurn:XOPlayerFirst];
     }
 }
 - (void)willChangeValueforIndexPath:(NSIndexPath *)indexPath
@@ -157,9 +165,15 @@ static XOGameModel *_instance=Nil;
     }
     else if (opponentRoll>[GameManager sharedInstance].myRoll) {
         self.player=XOPlayerSecond;
+        if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowTurn:)])) {
+            [_playersTurnDelegate nowTurn:XOPlayerSecond];
+        }
     }
     else{
         self.player=XOPlayerFirst;
+        if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowTurn:)])) {
+            [_playersTurnDelegate nowTurn:XOPlayerFirst];
+        }
     }
 }
 
