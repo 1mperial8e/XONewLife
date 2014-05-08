@@ -95,12 +95,11 @@ static XOGameModel *_instance=Nil;
                     [[SoundManager sharedInstance] playXTurnSound];
                 }
             }
-        //NSLog(@"%@", _gameFieldMatrix);
     }
     else if (_gameMode == XOGameModeOnline)
     {
         if (_player == XOPlayerFirst) {
-            if ([_gameFieldMatrix setValue:-1 forIndexPath:indexPath]) {
+            if ([_gameFieldMatrix setValue:_player forIndexPath:indexPath]) {
                 if ([_timerDelegate respondsToSelector:@selector(resetTimer)]) {
                     [_timerDelegate resetTimer];
                 }
@@ -159,6 +158,18 @@ static XOGameModel *_instance=Nil;
        _player=XOPlayerFirst;
         [[SoundManager sharedInstance] playOTurnSound];
     }
+    if (_gameFieldMatrix.winner) {
+        if ([_victoryDelegate respondsToSelector:@selector(drawVector:atLine:)]) {
+            
+            if (_gameFieldMatrix.vectorType == XOVectorTypeVertical)
+                [_victoryDelegate drawVector:_gameFieldMatrix.vectorType atLine:indexPath.row];
+            else
+                [_victoryDelegate drawVector:_gameFieldMatrix.vectorType atLine:indexPath.section];
+            self.winner = _gameFieldMatrix.winner;
+            _gameFieldMatrix.winner =XOPlayerNone;
+            _player = XOPlayerNone;
+        }
+    }
 }
 - (void)willChangeValueforIndexPath:(NSIndexPath *)indexPath
 {
@@ -179,8 +190,6 @@ static XOGameModel *_instance=Nil;
 }
 
 - (void)whoTurnFirst:(int)opponentRoll{
-    NSLog(@"%i",opponentRoll);
-    NSLog(@"%i",[GameManager sharedInstance].myRoll);
     if (opponentRoll==[GameManager sharedInstance].myRoll) {
         [MPManager sharedInstance].firstMessage=YES;
         [[GameManager sharedInstance] tryToBeFirst];
