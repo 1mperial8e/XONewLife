@@ -28,6 +28,11 @@
 - (void)didChangeValue:(int)value forIndexPath:(NSIndexPath *)indexPath;
 @end
 
+@protocol XOStepTimerDelegate <NSObject>
+@optional
+- (void)resetTimer;
+@end
+
 @interface XOGameModel : NSObject <XOGameFieldViewControllerDelegate, GameDelegate>
 @property (nonatomic, assign) int gameColumns;
 @property (nonatomic, strong) NSDate *endGameTime;
@@ -37,6 +42,7 @@
 @property (nonatomic) XOGameMode gameMode;
 @property (nonatomic, strong) XOMatrix *gameFieldMatrix;
 @property (nonatomic, weak) id <XOGameModelDelegate> delegate;
+@property (nonatomic, weak) id <XOStepTimerDelegate> timerDelegate;
 
 - (void)clear;
 - (void)setMoveForIndexPath:(NSIndexPath *)indexPath;

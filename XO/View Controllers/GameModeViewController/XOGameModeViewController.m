@@ -45,6 +45,7 @@
 
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+    [[SoundManager sharedInstance] playClickSound];
 }
 
 @end

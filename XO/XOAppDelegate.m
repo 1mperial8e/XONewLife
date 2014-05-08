@@ -54,7 +54,7 @@
     
     if ([[GPGManager sharedInstance] tryHandleRemoteNotification:userInfo]) {
         UIViewController *lastCont = [(UINavigationController *)self.window.rootViewController viewControllers].lastObject;
-        if ([lastCont isKindOfClass:NSClassFromString(@"ATStartViewController")]) {
+        if (![lastCont isKindOfClass:NSClassFromString(@"XOGameViewController")]) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Incoming invite!" message:@"Do you want start game?" delegate:lastCont cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
             [alert show];
         }

@@ -12,7 +12,11 @@
 #import "XOGameModel.h"
 #import "SoundManager.h"
 
-@interface XOGameViewController ()
+@interface XOGameViewController () <XOStepTimerDelegate>{
+    NSTimer *stepTimer;
+    int time;
+}
+
 @property (weak, nonatomic) IBOutlet UIView *gameFieldContainerView;
 @property (weak, nonatomic) UIViewController *gameFieldViewController;
 @property (weak, nonatomic) IBOutlet UILabel *myName;
@@ -21,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *opponentPhoto;
 @property (weak, nonatomic) IBOutlet UIView *myPhotoFrame;
 @property (weak, nonatomic) IBOutlet UIView *opponentPhotoFrame;
+@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 
 - (IBAction)back:(id)sender;
 
@@ -34,12 +39,19 @@
 {
     [super viewDidLoad];
     [self configGameField];
+    [XOGameModel sharedInstance].timerDelegate = self;
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
     if ([[GameManager sharedInstance].mode isEqualToString:ONLINE_PLAYERS]){
         [[GameManager sharedInstance] loadData];
         [[GameManager sharedInstance] tryToBeFirst];
     }
-    
+    time=30;
+    stepTimer=[NSTimer scheduledTimerWithTimeInterval:1.0
+                                               target:self
+                                             selector:@selector(onTick:)
+                                             userInfo:nil
+                                              repeats:YES];
+
 }
 - (void)configGameField
 {
@@ -119,6 +131,23 @@
     self.opponentPhotoFrame.layer.cornerRadius=32.5;
     self.myPhoto.clipsToBounds=YES;
     self.opponentPhoto.clipsToBounds=YES;
+}
+
+- (void)onTick:(NSTimer *)timer{
+    time--;
+    self.timerLabel.text=[NSString stringWithFormat:@"%i",time];
+    if (time==0) {
+        [stepTimer invalidate];
+        time=30;
+    }
+}
+
+
+
+#pragma mark - XOStepTimerDelegate
+
+- (void) resetTimer{
+    time=30;
 }
 
 @end

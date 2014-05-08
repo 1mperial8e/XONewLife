@@ -46,7 +46,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXF-2A-saR">
-                                <rect key="frame" x="106" y="39" width="109" height="30"/>
+                                <rect key="frame" x="106" y="40" width="109" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
@@ -74,7 +74,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6A-R5-2a6">
-                                <rect key="frame" x="96" y="126" width="128" height="30"/>
+                                <rect key="frame" x="96" y="120" width="128" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
@@ -86,6 +86,16 @@
                                     <action selector="playOnline:" destination="YxK-UW-oVt" eventType="touchUpInside" id="EH7-VT-fzW"/>
                                     <segue destination="tFQ-E5-nof" kind="push" id="UEW-cF-UgQ"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxp-Sb-ING">
+                                <rect key="frame" x="96" y="160" width="128" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="ABOUT">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.56470588239999997" green="0.015686274510000001" blue="0.1333333333" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
+                                </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5v-08-xuZ">
                                 <rect key="frame" x="7" y="479" width="100" height="30"/>
@@ -418,7 +428,7 @@
                                     <constraint firstAttribute="width" constant="320" id="LhV-c3-Vym"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="140-3x-xl1">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="140-3x-xl1">
                                 <rect key="frame" x="0.0" y="0.0" width="86" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -504,6 +514,7 @@
                         <outlet property="opponentName" destination="qna-UE-joM" id="oKH-eg-ILS"/>
                         <outlet property="opponentPhoto" destination="QWB-5A-0yn" id="NjT-P9-Fp4"/>
                         <outlet property="opponentPhotoFrame" destination="1Xd-bV-7Dx" id="8bD-Wv-9xL"/>
+                        <outlet property="timerLabel" destination="gxM-D7-TB0" id="0PD-e0-XKW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a6u-6e-1vV" userLabel="First Responder" sceneMemberID="firstResponder"/>

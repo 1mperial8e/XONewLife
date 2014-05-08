@@ -100,7 +100,7 @@
 		8481FC9019152A2D00D9F0EB /* XOGameFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XOGameFieldViewController.m; path = ../XOGameFieldViewController.m; sourceTree = "<group>"; };
 		8481FC9B19165DF100D9F0EB /* XOGameModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XOGameModeViewController.h; path = GameModeViewController/XOGameModeViewController.h; sourceTree = "<group>"; };
 		8481FC9C19165DF100D9F0EB /* XOGameModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XOGameModeViewController.m; path = GameModeViewController/XOGameModeViewController.m; sourceTree = "<group>"; };
-		8481FC9F191661A000D9F0EB /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
+		8481FC9F191661A000D9F0EB /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameManager.h; path = Manager/GameManager.h; sourceTree = "<group>"; };
 		8481FCA0191661A000D9F0EB /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
 		8481FCA5191664D000D9F0EB /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		84AAC87D191AAA92001C0B94 /* sound_click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_click.mp3; sourceTree = "<group>"; };
@@ -207,6 +207,7 @@
 			children = (
 				84742D7E19197C88007B868E /* Model */,
 				84D6677619178B49000DA569 /* Resources */,
+				8481FC9F191661A000D9F0EB /* GameManager.h */,
 				8481FC7D19152A2D00D9F0EB /* Managers */,
 				84742D7919197C54007B868E /* Other Classes */,
 				8481FC8019152A2D00D9F0EB /* View Controllers */,
@@ -254,7 +255,6 @@
 			children = (
 				8481FC7E19152A2D00D9F0EB /* MPManager.h */,
 				8481FC7F19152A2D00D9F0EB /* MPManager.m */,
-				8481FC9F191661A000D9F0EB /* GameManager.h */,
 				8481FCA0191661A000D9F0EB /* GameManager.m */,
 				84AAC887191AAB0E001C0B94 /* SoundManager.h */,
 				84AAC888191AAB0E001C0B94 /* SoundManager.m */,

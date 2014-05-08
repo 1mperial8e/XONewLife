@@ -68,6 +68,9 @@ static XOGameModel *_instance=Nil;
     {
             int value = _player?-1:1;
             if ([_gameFieldMatrix setValue:value forIndexPath:indexPath]) {
+                if ([_timerDelegate respondsToSelector:@selector(resetTimer)]) {
+                    [_timerDelegate resetTimer];
+                }
                 if ([_delegate respondsToSelector:@selector(didChangeValue:forIndexPath:)]) {
                     [_delegate didChangeValue:value forIndexPath:indexPath];
                 }
@@ -79,6 +82,9 @@ static XOGameModel *_instance=Nil;
     {
         if (_player == XOPlayerFirst) {
             if ([_gameFieldMatrix setValue:1 forIndexPath:indexPath]) {
+                if ([_timerDelegate respondsToSelector:@selector(resetTimer)]) {
+                    [_timerDelegate resetTimer];
+                }
                 if ([_delegate respondsToSelector:@selector(didChangeValue:forIndexPath:)]) {
                     [_delegate didChangeValue:1 forIndexPath:indexPath];
                 }
@@ -102,6 +108,9 @@ static XOGameModel *_instance=Nil;
 - (void)setMoveForIndexPath:(NSIndexPath *)indexPath
 {
     if ([_gameFieldMatrix setValue:-1 forIndexPath:indexPath]) {
+        if ([_timerDelegate respondsToSelector:@selector(resetTimer)]) {
+            [_timerDelegate resetTimer];
+        }
         if ([_delegate respondsToSelector:@selector(didChangeValue:forIndexPath:)]) {
             [_delegate didChangeValue:-1 forIndexPath:indexPath];
         }
