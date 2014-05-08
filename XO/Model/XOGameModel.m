@@ -90,6 +90,9 @@ static XOGameModel *_instance=Nil;
                         _gameFieldMatrix.winner =XOPlayerNone;
                         _player = XOPlayerNone;
                     }
+                    if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowTurn:)])) {
+                        [_playersTurnDelegate nowTurn:_player];
+                    }
                 }
             }
         //NSLog(@"%@", _gameFieldMatrix);

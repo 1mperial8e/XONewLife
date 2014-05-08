@@ -154,6 +154,26 @@
 {
     [stepTimer invalidate];
 }
+#pragma mark - playersTurnDelegate
+- (void) nowTurn:(XOPlayer)player{
+    switch (player) {
+        case XOPlayerSecond:{
+            self.opponentPhotoFrame.backgroundColor=[UIColor colorWithRed:(50.0/255.0) green:(190.0/255.0) blue:(70.0/255.0) alpha:1];
+            self.myPhotoFrame.backgroundColor=[UIColor colorWithRed:(50.0/255.0) green:(25.0/255.0) blue:(0.0/255.0) alpha:1];
+        }
+            break;
+        case XOPlayerFirst:{
+            self.myPhotoFrame.backgroundColor=[UIColor colorWithRed:(50.0/255.0) green:(190.0/255.0) blue:(70.0/255.0) alpha:1];
+            self.opponentPhotoFrame.backgroundColor=[UIColor colorWithRed:(50.0/255.0) green:(25.0/255.0) blue:(0.0/255.0) alpha:1];
+        }
+            break;
+        case XOPlayerNone:{
+            
+        }
+    }
+}
+
+
 #pragma mark - victoryDelegate
 
 - (void) drawVector:(XOVectorType)vectorType atLine:(int)line{
