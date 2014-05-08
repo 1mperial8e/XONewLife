@@ -53,8 +53,9 @@
                                              selector:@selector(onTick:)
                                              userInfo:nil
                                               repeats:YES];
-
+    [MPManager sharedInstance].firstMessage = YES;
 }
+
 - (void)configGameField
 {
     _gameFieldViewController = [[UIStoryboard storyboardWithName:@"GameField" bundle:nil] instantiateViewControllerWithIdentifier:@"gameField"];

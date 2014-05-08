@@ -172,6 +172,8 @@ static XOGameModel *_instance=Nil;
 }
 
 - (void)whoTurnFirst:(int)opponentRoll{
+    NSLog(@"%i",opponentRoll);
+    NSLog(@"%i",[GameManager sharedInstance].myRoll);
     if (opponentRoll==[GameManager sharedInstance].myRoll) {
         [MPManager sharedInstance].firstMessage=YES;
         [[GameManager sharedInstance] tryToBeFirst];
