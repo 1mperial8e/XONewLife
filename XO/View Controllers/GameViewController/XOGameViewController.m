@@ -12,7 +12,7 @@
 #import "XOGameModel.h"
 #import "SoundManager.h"
 
-@interface XOGameViewController () <XOStepTimerDelegate>{
+@interface XOGameViewController () <XOStepTimerDelegate, weHaveVictory>{
     NSTimer *stepTimer;
     int time;
 }
@@ -40,6 +40,7 @@
     [super viewDidLoad];
     [self configGameField];
     [XOGameModel sharedInstance].timerDelegate = self;
+    [XOGameModel sharedInstance].victoryDelegate = self;
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
     if ([[GameManager sharedInstance].mode isEqualToString:ONLINE_PLAYERS]){
         [[GameManager sharedInstance] loadData];
@@ -142,12 +143,45 @@
     }
 }
 
-
-
 #pragma mark - XOStepTimerDelegate
 
 - (void) resetTimer{
     time=30;
 }
+
+#pragma mark - victoryDelegate
+
+- (void) drawVector:(XOVectorType)vectorType atLine:(int)line{
+    UIImage *lineIMG = [[UIImage alloc] init];
+    CGRect frame;
+       switch (vectorType) {
+        case XOVectorTypeDiagonalLeft:{
+            lineIMG=[UIImage imageNamed:@"left"];
+            frame=CGRectMake(0,0,self.gameFieldContainerView.frame.size.width,self.gameFieldContainerView.frame.size.height);
+        }
+        break;
+        case XOVectorTypeDiagonalRight:{
+            lineIMG=[UIImage imageNamed:@"right"];
+            frame=CGRectMake(0,0,self.gameFieldContainerView.frame.size.width,self.gameFieldContainerView.frame.size.height);
+        }
+        break;
+        case XOVectorTypeHorisontal:{
+            lineIMG=[UIImage imageNamed:@"horizontal"];
+            line*=self.gameFieldContainerView.frame.size.height/3;
+            frame=CGRectMake(0, ((self.gameFieldContainerView.frame.size.height/3)/4)+line, self.gameFieldContainerView.frame.size.width, self.gameFieldContainerView.frame.size.height/10);
+        }
+        break;
+        case XOVectorTypeVertical:{
+            lineIMG=[UIImage imageNamed:@"vertical"];
+            line*=self.gameFieldContainerView.frame.size.width/3;
+            frame=CGRectMake(((self.gameFieldContainerView.frame.size.width/3)/3)+line, 0, self.gameFieldContainerView.frame.size.width/10, self.gameFieldContainerView.frame.size.height);
+        }
+        break;
+    }
+    UIImageView *lineView=[[UIImageView alloc] initWithImage:lineIMG];
+    lineView.frame=frame;
+    [self.gameFieldContainerView addSubview:lineView];
+}
+
 
 @end

@@ -5,13 +5,7 @@
 //  Created by Misha on 05.05.14.
 //  Copyright (c) 2014 mobilez365. All rights reserved.
 //
-typedef enum {
-    XOVectorTypeHorisontal,
-    XOVectorTypeVertical,
-    XOVectorTypeDiagonalLeft,
-    XOVectorTypeDiagonalRight
-    
-} XOVectorType;
+
 #import "XOMatrix.h"
 @interface Vector : NSObject
 @property (nonatomic) int **matrix;

@@ -33,6 +33,11 @@
 - (void)resetTimer;
 @end
 
+@protocol weHaveVictory <NSObject>
+@optional
+- (void)drawVector:(XOVectorType)vectorType atLine:(int)line;
+@end
+
 @interface XOGameModel : NSObject <XOGameFieldViewControllerDelegate, GameDelegate>
 @property (nonatomic, assign) int gameColumns;
 @property (nonatomic, strong) NSDate *endGameTime;
@@ -43,6 +48,7 @@
 @property (nonatomic, strong) XOMatrix *gameFieldMatrix;
 @property (nonatomic, weak) id <XOGameModelDelegate> delegate;
 @property (nonatomic, weak) id <XOStepTimerDelegate> timerDelegate;
+@property (nonatomic, weak) id <weHaveVictory> victoryDelegate;
 
 - (void)clear;
 - (void)setMoveForIndexPath:(NSIndexPath *)indexPath;
