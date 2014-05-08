@@ -31,6 +31,7 @@
 @protocol XOStepTimerDelegate <NSObject>
 @optional
 - (void)resetTimer;
+- (void)stopTimer;
 @end
 
 @protocol weHaveVictory <NSObject>
@@ -43,6 +44,7 @@
 @property (nonatomic, strong) NSDate *endGameTime;
 @property (nonatomic) BOOL xTurn;
 @property (nonatomic) XOPlayer player;
+@property (nonatomic) XOPlayer winner;
 @property (nonatomic) int dimension;
 @property (nonatomic) XOGameMode gameMode;
 @property (nonatomic, strong) XOMatrix *gameFieldMatrix;

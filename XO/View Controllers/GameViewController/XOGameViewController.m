@@ -148,7 +148,10 @@
 - (void) resetTimer{
     time=30;
 }
-
+- (void) stopTimer
+{
+    [stepTimer invalidate];
+}
 #pragma mark - victoryDelegate
 
 - (void) drawVector:(XOVectorType)vectorType atLine:(int)line{

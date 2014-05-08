@@ -29,15 +29,14 @@ typedef enum
 } XOGameMode;
 
 typedef enum {
-    XOPlayerFirst,
-    XOPlayerSecond,
-    XOPlayerNone
+    XOPlayerFirst = 1,
+    XOPlayerSecond = -1,
+    XOPlayerNone = 0
 } XOPlayer;
 
 typedef enum {
     XOVectorTypeHorisontal,
     XOVectorTypeVertical,
     XOVectorTypeDiagonalLeft,
-    XOVectorTypeDiagonalRight
-    
+    XOVectorTypeDiagonalRight    
 } XOVectorType;

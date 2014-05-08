@@ -38,20 +38,14 @@
     _delegate = [XOGameModel sharedInstance];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(win:) name:@"Win" object:nil];
 }
-- (void)viewDidAppear:(BOOL)animated
-{
-    [[XOGameModel sharedInstance] clear];
-}
 
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"Win" object:nil];
-    AudioServicesDisposeSystemSoundID(mySound);
 }
 
 - (void) playSound{
     if ([GameManager sharedInstance].sound==YES) {
-        AudioServicesPlaySystemSound(mySound);
     }
 }
 
@@ -66,11 +60,7 @@
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-    if (_color) {
-        cell.backgroundColor = [UIColor redColor];
-    }
-    return cell;
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];    return cell;
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
