@@ -84,16 +84,9 @@ static XOGameModel *_instance=Nil;
                     [_delegate didChangeValue:_player forIndexPath:indexPath];
                 }
                 _player= _player *-1;
-                if (_gameFieldMatrix.winner) {
-                    if ([_victoryDelegate respondsToSelector:@selector(drawVector:atLine:)]) {
-                        [_victoryDelegate drawVector:_gameFieldMatrix.vectorType atLine:indexPath.row];
-                        self.winner = _gameFieldMatrix.winner;
-                        _gameFieldMatrix.winner =XOPlayerNone;
-                        _player = XOPlayerNone;
-                    }
-                    if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowTurn:)])) {
-                        [_playersTurnDelegate nowTurn:_player];
-                    }
+                
+                if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowTurn:)])) {
+                    [_playersTurnDelegate nowTurn:_player];
                 }
                 if (_player==XOPlayerFirst) {
                     [[SoundManager sharedInstance] playOTurnSound];
@@ -138,6 +131,18 @@ static XOGameModel *_instance=Nil;
             }
         }
     }
+    if (_gameFieldMatrix.winner) {
+        if ([_victoryDelegate respondsToSelector:@selector(drawVector:atLine:)]) {
+            
+            if (_gameFieldMatrix.vectorType == XOVectorTypeVertical)
+                [_victoryDelegate drawVector:_gameFieldMatrix.vectorType atLine:indexPath.row];
+            else
+                [_victoryDelegate drawVector:_gameFieldMatrix.vectorType atLine:indexPath.section];
+            self.winner = _gameFieldMatrix.winner;
+            _gameFieldMatrix.winner =XOPlayerNone;
+            _player = XOPlayerNone;
+        }
+    }
 }
 - (void)setMoveForIndexPath:(NSIndexPath *)indexPath
 {
@@ -166,9 +171,11 @@ static XOGameModel *_instance=Nil;
 #pragma mark - Game Delegate
 - (void)didReceiveMessage:(NSString *)coords
 {
+    if (![MPManager sharedInstance].firstMessage) {
     int row = [[coords substringToIndex:1] intValue];
     int section = [[coords substringFromIndex:1] intValue];
     [self setMoveForIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
+    }
 }
 
 - (void)whoTurnFirst:(int)opponentRoll{

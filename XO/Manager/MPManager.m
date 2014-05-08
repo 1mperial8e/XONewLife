@@ -158,7 +158,7 @@ static MPManager *_instance = nil;
         }
         return;
     }
-    NSString * coords = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] substringFromIndex:1];
+    NSString * coords = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     if(_delegate && [_delegate respondsToSelector:@selector(didReceiveMessage:)])
     {
         [_delegate didReceiveMessage: coords];

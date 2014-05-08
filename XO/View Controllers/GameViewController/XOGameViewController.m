@@ -53,6 +53,7 @@
                                              selector:@selector(onTick:)
                                              userInfo:nil
                                               repeats:YES];
+    [MPManager sharedInstance].firstMessage = YES;
 
 }
 - (void)configGameField
