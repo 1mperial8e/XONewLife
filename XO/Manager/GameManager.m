@@ -73,14 +73,11 @@ static GameManager* _instance=nil;
 }
 
 - (void)tryToBeFirst{
-    int roll=rand()%365;
+    int roll=arc4random()%365;
     self.myRoll=roll;
-    [[MPManager sharedInstance] sendPlayerMyMessage:[NSString stringWithFormat:@"r%i",roll]];
+    [[MPManager sharedInstance] sendPlayerMyMessage:[NSString stringWithFormat:@"%i",roll]];
 }
 
-- (void)dealloc{
-    _player=nil;
-}
 
 #pragma mark - CloudSaving
 

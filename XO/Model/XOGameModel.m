@@ -31,7 +31,7 @@ static XOGameModel *_instance=Nil;
 {
     _gameColumns = [self gameColumns];
      _gameFieldMatrix = [XOMatrix matrixWithDimension:_gameColumns];
-    _player = XOPlayerFirst;
+    _player = XOPlayerNone;
 }
 
 #pragma mark - Custom Accsesors
@@ -50,7 +50,7 @@ static XOGameModel *_instance=Nil;
 - (void)setGameMode:(XOGameMode)gameMode
 {
     _gameMode = gameMode;
-    _player = XOPlayerFirst;
+    
 }
 #pragma mark - Class Methods
 + (XOGameModel*)sharedInstance{
@@ -68,6 +68,9 @@ static XOGameModel *_instance=Nil;
     {
             int value = _player?-1:1;
             if ([_gameFieldMatrix setValue:value forIndexPath:indexPath]) {
+                if ([_timerDelegate respondsToSelector:@selector(resetTimer)]) {
+                    [_timerDelegate resetTimer];
+                }
                 if ([_delegate respondsToSelector:@selector(didChangeValue:forIndexPath:)]) {
                     [_delegate didChangeValue:value forIndexPath:indexPath];
                 }
@@ -79,11 +82,14 @@ static XOGameModel *_instance=Nil;
     {
         if (_player == XOPlayerFirst) {
             if ([_gameFieldMatrix setValue:1 forIndexPath:indexPath]) {
+                if ([_timerDelegate respondsToSelector:@selector(resetTimer)]) {
+                    [_timerDelegate resetTimer];
+                }
                 if ([_delegate respondsToSelector:@selector(didChangeValue:forIndexPath:)]) {
                     [_delegate didChangeValue:1 forIndexPath:indexPath];
                 }
                 _player=XOPlayerSecond;
-                [[MPManager sharedInstance] sendPlayerMyMessage:[NSString stringWithFormat:@"X%i%i", indexPath.row, indexPath.section]];
+                [[MPManager sharedInstance] sendPlayerMyMessage:[NSString stringWithFormat:@"%i%i", indexPath.row, indexPath.section]];
             }
         }
     }
@@ -102,6 +108,9 @@ static XOGameModel *_instance=Nil;
 - (void)setMoveForIndexPath:(NSIndexPath *)indexPath
 {
     if ([_gameFieldMatrix setValue:-1 forIndexPath:indexPath]) {
+        if ([_timerDelegate respondsToSelector:@selector(resetTimer)]) {
+            [_timerDelegate resetTimer];
+        }
         if ([_delegate respondsToSelector:@selector(didChangeValue:forIndexPath:)]) {
             [_delegate didChangeValue:-1 forIndexPath:indexPath];
         }
@@ -113,7 +122,7 @@ static XOGameModel *_instance=Nil;
     
 }
 #pragma mark - Game Delegate
-- (void)didReceiveMessage:(NSString *)symbol :(NSString *)coords
+- (void)didReceiveMessage:(NSString *)coords
 {
     int row = [[coords substringToIndex:1] intValue];
     int section = [[coords substringFromIndex:1] intValue];
@@ -122,6 +131,7 @@ static XOGameModel *_instance=Nil;
 
 - (void)whoTurnFirst:(int)opponentRoll{
     if (opponentRoll==[GameManager sharedInstance].myRoll) {
+        [MPManager sharedInstance].firstMessage=YES;
         [[GameManager sharedInstance] tryToBeFirst];
         return;
     }

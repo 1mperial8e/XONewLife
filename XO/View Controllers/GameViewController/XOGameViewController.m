@@ -9,8 +9,14 @@
 #import "XOGameViewController.h"
 #import "GameManager.h"
 #import "MPManager.h"
+#import "XOGameModel.h"
+#import "SoundManager.h"
 
-@interface XOGameViewController ()
+@interface XOGameViewController () <XOStepTimerDelegate, weHaveVictory>{
+    NSTimer *stepTimer;
+    int time;
+}
+
 @property (weak, nonatomic) IBOutlet UIView *gameFieldContainerView;
 @property (weak, nonatomic) UIViewController *gameFieldViewController;
 @property (weak, nonatomic) IBOutlet UILabel *myName;
@@ -19,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *opponentPhoto;
 @property (weak, nonatomic) IBOutlet UIView *myPhotoFrame;
 @property (weak, nonatomic) IBOutlet UIView *opponentPhotoFrame;
+@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 
 - (IBAction)back:(id)sender;
 
@@ -32,12 +39,20 @@
 {
     [super viewDidLoad];
     [self configGameField];
+    [XOGameModel sharedInstance].timerDelegate = self;
+    [XOGameModel sharedInstance].victoryDelegate = self;
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
     if ([[GameManager sharedInstance].mode isEqualToString:ONLINE_PLAYERS]){
         [[GameManager sharedInstance] loadData];
         [[GameManager sharedInstance] tryToBeFirst];
     }
-    
+    time=30;
+    stepTimer=[NSTimer scheduledTimerWithTimeInterval:1.0
+                                               target:self
+                                             selector:@selector(onTick:)
+                                             userInfo:nil
+                                              repeats:YES];
+
 }
 - (void)configGameField
 {
@@ -82,10 +97,12 @@
     if ([[GameManager sharedInstance].mode isEqualToString:ONLINE_PLAYERS]){
     [[MPManager sharedInstance].roomToTrack leave];
     }
+    [[XOGameModel sharedInstance] clear];
 }
 
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+    [[SoundManager sharedInstance] playClickSound];
 }
 
 - (void) setPlayersInfo{
@@ -107,14 +124,64 @@
         self.myPhoto.image=[UIImage imageWithData:[NSData  dataWithContentsOfURL:[NSURL URLWithString:[GameManager sharedInstance].googleUserImage]]];
         self.opponentPhoto.image=[UIImage imageNamed:@"apple"];
     }
-    self.myName.layer.cornerRadius=6;
-    self.opponentName.layer.cornerRadius=6;
-    self.myPhoto.layer.cornerRadius=33;
-    self.opponentPhoto.layer.cornerRadius=33;
-    self.myPhotoFrame.layer.cornerRadius=36;
-    self.opponentPhotoFrame.layer.cornerRadius=36;
+    self.myName.layer.cornerRadius=4;
+    self.opponentName.layer.cornerRadius=4;
+    self.myPhoto.layer.cornerRadius=27.5;
+    self.opponentPhoto.layer.cornerRadius=27.5;
+    self.myPhotoFrame.layer.cornerRadius=32.5;
+    self.opponentPhotoFrame.layer.cornerRadius=32.5;
     self.myPhoto.clipsToBounds=YES;
     self.opponentPhoto.clipsToBounds=YES;
 }
+
+- (void)onTick:(NSTimer *)timer{
+    time--;
+    self.timerLabel.text=[NSString stringWithFormat:@"%i",time];
+    if (time==0) {
+        [stepTimer invalidate];
+        time=30;
+    }
+}
+
+#pragma mark - XOStepTimerDelegate
+
+- (void) resetTimer{
+    time=30;
+}
+
+#pragma mark - victoryDelegate
+
+- (void) drawVector:(XOVectorType)vectorType atLine:(int)line{
+    UIImage *lineIMG = [[UIImage alloc] init];
+    CGRect frame;
+       switch (vectorType) {
+        case XOVectorTypeDiagonalLeft:{
+            lineIMG=[UIImage imageNamed:@"left"];
+            frame=CGRectMake(0,0,self.gameFieldContainerView.frame.size.width,self.gameFieldContainerView.frame.size.height);
+        }
+        break;
+        case XOVectorTypeDiagonalRight:{
+            lineIMG=[UIImage imageNamed:@"right"];
+            frame=CGRectMake(0,0,self.gameFieldContainerView.frame.size.width,self.gameFieldContainerView.frame.size.height);
+        }
+        break;
+        case XOVectorTypeHorisontal:{
+            lineIMG=[UIImage imageNamed:@"horizontal"];
+            line*=self.gameFieldContainerView.frame.size.height/3;
+            frame=CGRectMake(0, ((self.gameFieldContainerView.frame.size.height/3)/4)+line, self.gameFieldContainerView.frame.size.width, self.gameFieldContainerView.frame.size.height/10);
+        }
+        break;
+        case XOVectorTypeVertical:{
+            lineIMG=[UIImage imageNamed:@"vertical"];
+            line*=self.gameFieldContainerView.frame.size.width/3;
+            frame=CGRectMake(((self.gameFieldContainerView.frame.size.width/3)/3)+line, 0, self.gameFieldContainerView.frame.size.width/10, self.gameFieldContainerView.frame.size.height);
+        }
+        break;
+    }
+    UIImageView *lineView=[[UIImageView alloc] initWithImage:lineIMG];
+    lineView.frame=frame;
+    [self.gameFieldContainerView addSubview:lineView];
+}
+
 
 @end

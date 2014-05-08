@@ -20,6 +20,7 @@ static MPManager *_instance = nil;
   @synchronized(self) {
     if (nil == _instance) {
       _instance = [[self alloc] init];
+      _instance.firstMessage=YES;
     }
   }
   return _instance;
@@ -64,7 +65,6 @@ static MPManager *_instance = nil;
 {
     if (self.roomToTrack && self.roomToTrack.status != GPGRealTimeRoomStatusDeleted) {
         [self.roomToTrack leave];
-        [XOGameModel sharedInstance].player = XOPlayerNone;
     }
 }
 
@@ -149,20 +149,19 @@ static MPManager *_instance = nil;
 
 - (void)room:(GPGRealTimeRoom *)room didReceiveData:(NSData *)data fromParticipant:(GPGRealTimeParticipant *)participant dataMode:(GPGRealTimeDataMode)dataMode
 {
-    NSString * symbol;
-    symbol = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] substringToIndex:1];
-    if ([symbol isEqualToString:@"r"]) {
-        NSString *roll= [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] substringFromIndex:1];
+    if (self.firstMessage==YES){
+        NSString *roll= [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         if(_delegate && [_delegate respondsToSelector:@selector(whoTurnFirst:)])
         {
+            self.firstMessage=NO;
             [_delegate whoTurnFirst:[roll intValue]];
         }
         return;
     }
     NSString * coords = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] substringFromIndex:1];
-    if(_delegate && [_delegate respondsToSelector:@selector(didReceiveMessage::)])
+    if(_delegate && [_delegate respondsToSelector:@selector(didReceiveMessage:)])
     {
-        [_delegate didReceiveMessage:symbol: coords];
+        [_delegate didReceiveMessage: coords];
     }
 }
 

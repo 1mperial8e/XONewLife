@@ -9,15 +9,12 @@
 #import "XOGameFieldViewController.h"
 #import "XOCollectionViewCell.h"
 #import "XOGameModel.h"
-#import <AudioToolbox/AudioToolbox.h>
 #import "MPManager.h"
 #import "GameManager.h"
 #import "XOGameModel.h"
 
 @interface XOGameFieldViewController () <XOGameModelDelegate>
-{
-    SystemSoundID mySound;
-}
+
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic) BOOL color;
 @end
@@ -37,12 +34,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"step" ofType:@"wav"];
-    NSURL *fileURL = [NSURL URLWithString:soundPath];
-    if (fileURL != nil)
-    {
-        AudioServicesCreateSystemSoundID((__bridge CFURLRef)fileURL, &mySound);
-    }    
     [XOGameModel sharedInstance].delegate = self;
     _delegate = [XOGameModel sharedInstance];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(win:) name:@"Win" object:nil];
@@ -92,7 +83,6 @@
     if ([_delegate respondsToSelector:@selector(willChangeValueForIndexPath:)]) {
         [_delegate willChangeValueForIndexPath:indexPath];
     }
-    [self playSound];
     return NO;
 }
 - (BOOL) collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath

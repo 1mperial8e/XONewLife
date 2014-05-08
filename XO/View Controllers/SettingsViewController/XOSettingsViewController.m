@@ -9,6 +9,7 @@
 #import "XOSettingsViewController.h"
 #import "XOStartViewController.h"
 #import "GameManager.h"
+#import "SoundManager.h"
 
 @interface XOSettingsViewController ()
 
@@ -51,18 +52,23 @@
 
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+    [[SoundManager sharedInstance] playClickSound];
 }
 - (IBAction)enableSound:(id)sender{
     [self changeSettings:@"sound"];
+    [[SoundManager sharedInstance] playClickSound];
 }
 - (IBAction)enableMusic:(id)sender{
     [self changeSettings:@"music"];
+    [[SoundManager sharedInstance] playClickSound];
 }
 - (IBAction)enablePush:(id)sender{
     [self changeSettings:@"push"];
+    [[SoundManager sharedInstance] playClickSound];
 }
 - (IBAction)enableGoogleAnalitics:(id)sender{
     [self changeSettings:@"googleAnalitics"];
+    [[SoundManager sharedInstance] playClickSound];
 }
 
 - (void)changeSettings:(NSString*)settings{
@@ -70,12 +76,12 @@
     if ([userDefaults boolForKey:settings]==NO){
         [userDefaults setBool:YES forKey:settings];
         if ([settings isEqualToString:@"music"]) {
-            [[GameManager sharedInstance].player play];
+            [[SoundManager sharedInstance] playMusic];
         }
     }else{
         [userDefaults setBool:NO forKey:settings];
         if ([settings isEqualToString:@"music"]) {
-            [[GameManager sharedInstance].player stop];
+            [[SoundManager sharedInstance] stopMusic];
         }
     }
     [userDefaults synchronize];

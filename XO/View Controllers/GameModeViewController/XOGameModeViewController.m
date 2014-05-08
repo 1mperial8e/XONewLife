@@ -8,6 +8,7 @@
 
 #import "XOGameModeViewController.h"
 #import "GameManager.h"
+#import "SoundManager.h"
 
 @interface XOGameModeViewController ()
 
@@ -29,18 +30,22 @@
 
 - (IBAction)easyMode:(id)sender{
     [GameManager sharedInstance].difficulty=EASY_MODE;
+    [[SoundManager sharedInstance] playClickSound];
 }
 
 - (IBAction)mediumMode:(id)sender{
     [GameManager sharedInstance].difficulty=MEDIUM_MODE;
+    [[SoundManager sharedInstance] playClickSound];
 }
 
 - (IBAction)hardMode:(id)sender{
     [GameManager sharedInstance].difficulty=HARD_MODE;
+    [[SoundManager sharedInstance] playClickSound];
 }
 
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+    [[SoundManager sharedInstance] playClickSound];
 }
 
 @end
