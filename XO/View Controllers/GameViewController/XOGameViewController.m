@@ -12,7 +12,7 @@
 #import "XOGameModel.h"
 #import "SoundManager.h"
 
-@interface XOGameViewController () <XOStepTimerDelegate, weHaveVictory>{
+@interface XOGameViewController () <XOStepTimerDelegate, weHaveVictory, playersTurn>{
     NSTimer *stepTimer;
     int time;
 }
@@ -41,6 +41,7 @@
     [self configGameField];
     [XOGameModel sharedInstance].timerDelegate = self;
     [XOGameModel sharedInstance].victoryDelegate = self;
+    [XOGameModel sharedInstance].playersTurnDelegate = self;
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
     if ([[GameManager sharedInstance].mode isEqualToString:ONLINE_PLAYERS]){
         [[GameManager sharedInstance] loadData];
@@ -117,6 +118,7 @@
         self.opponentName.text=@"Player2";
         self.myPhoto.image=[UIImage imageNamed:@"cross_1"];
         self.opponentPhoto.image=[UIImage imageNamed:@"zero_4"];
+        [self nowTurn:XOPlayerFirst];
     }
     else if ([[GameManager sharedInstance].mode isEqualToString:SINGLE_PLAYER]){
         self.myName.text=@"Me";
@@ -148,6 +150,27 @@
 - (void) resetTimer{
     time=30;
 }
+
+#pragma mark - playersTurnDelegate
+
+- (void) nowTurn:(XOPlayer)player{
+    switch (player) {
+        case XOPlayerSecond:{
+            self.opponentPhotoFrame.backgroundColor=[UIColor colorWithRed:(50.0/255.0) green:(190.0/255.0) blue:(70.0/255.0) alpha:1];
+            self.myPhotoFrame.backgroundColor=[UIColor colorWithRed:(50.0/255.0) green:(25.0/255.0) blue:(0.0/255.0) alpha:1];
+        }
+        break;
+        case XOPlayerFirst:{
+            self.myPhotoFrame.backgroundColor=[UIColor colorWithRed:(50.0/255.0) green:(190.0/255.0) blue:(70.0/255.0) alpha:1];
+            self.opponentPhotoFrame.backgroundColor=[UIColor colorWithRed:(50.0/255.0) green:(25.0/255.0) blue:(0.0/255.0) alpha:1];
+        }
+        break;
+        case XOPlayerNone:{
+            
+        }
+    }
+}
+
 
 #pragma mark - victoryDelegate
 

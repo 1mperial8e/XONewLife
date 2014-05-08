@@ -38,6 +38,11 @@
 - (void)drawVector:(XOVectorType)vectorType atLine:(int)line;
 @end
 
+@protocol playersTurn <NSObject>
+@optional
+- (void)nowTurn:(XOPlayer)player;
+@end
+
 @interface XOGameModel : NSObject <XOGameFieldViewControllerDelegate, GameDelegate>
 @property (nonatomic, assign) int gameColumns;
 @property (nonatomic, strong) NSDate *endGameTime;
@@ -49,6 +54,7 @@
 @property (nonatomic, weak) id <XOGameModelDelegate> delegate;
 @property (nonatomic, weak) id <XOStepTimerDelegate> timerDelegate;
 @property (nonatomic, weak) id <weHaveVictory> victoryDelegate;
+@property (nonatomic, weak) id <playersTurn> playersTurnDelegate;
 
 - (void)clear;
 - (void)setMoveForIndexPath:(NSIndexPath *)indexPath;
