@@ -8,6 +8,7 @@
 
 #import "XOGameModel.h"
 #import "GameManager.h"
+#import "SoundManager.h"
 
 @interface XOGameModel ()
 @end
@@ -78,6 +79,12 @@ static XOGameModel *_instance=Nil;
                 if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowTurn:)])) {
                 [_playersTurnDelegate nowTurn:_player];
                 }
+                if (_player==XOPlayerFirst) {
+                    [[SoundManager sharedInstance] playOTurnSound];
+                }
+                else{
+                    [[SoundManager sharedInstance] playXTurnSound];
+                }
             }
         NSLog(@"%@", _gameFieldMatrix);
     }
@@ -91,9 +98,11 @@ static XOGameModel *_instance=Nil;
                 if ([_delegate respondsToSelector:@selector(didChangeValue:forIndexPath:)]) {
                     [_delegate didChangeValue:1 forIndexPath:indexPath];
                 }
-                _player=XOPlayerSecond;if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowTurn:)])) {
+                _player=XOPlayerSecond;
+                if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowTurn:)])) {
                 [_playersTurnDelegate nowTurn:XOPlayerSecond];
                 }
+                [[SoundManager sharedInstance] playXTurnSound];
                 [[MPManager sharedInstance] sendPlayerMyMessage:[NSString stringWithFormat:@"%i%i", indexPath.row, indexPath.section]];
             }
         }
@@ -108,6 +117,7 @@ static XOGameModel *_instance=Nil;
                 if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowTurn:)])) {
                 [_playersTurnDelegate nowTurn:XOPlayerSecond];
                 }
+                [[SoundManager sharedInstance] playXTurnSound];
                 _player=XOPlayerSecond;
             }
         }
@@ -123,9 +133,10 @@ static XOGameModel *_instance=Nil;
             [_delegate didChangeValue:-1 forIndexPath:indexPath];
         }
         if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowTurn:)])) {
-        _player=XOPlayerFirst;
+                 [_playersTurnDelegate nowTurn:XOPlayerFirst];
         }
-        [_playersTurnDelegate nowTurn:XOPlayerFirst];
+       _player=XOPlayerFirst;
+        [[SoundManager sharedInstance] playOTurnSound];
     }
 }
 - (void)willChangeValueforIndexPath:(NSIndexPath *)indexPath

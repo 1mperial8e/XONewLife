@@ -46,9 +46,7 @@ static SoundManager *_instance = nil;
 }
 
 -(void)playMusic{
-    if ([GameManager sharedInstance].music==YES){
     [_instance.player play];
-    }
 }
 
 -(void)stopMusic{

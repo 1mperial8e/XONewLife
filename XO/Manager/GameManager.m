@@ -8,6 +8,7 @@
 
 #import "GameManager.h"
 #import "MPManager.h"
+#import "SoundManager.h"
 
 @implementation GameManager
 
@@ -31,6 +32,12 @@ static GameManager* _instance=nil;
     [GameManager sharedInstance].easyVictory=[userDefaults integerForKey:@"easyVictory"];
     [GameManager sharedInstance].mediumVictory=[userDefaults integerForKey:@"mediumVictory"];
     [GameManager sharedInstance].hardVictory=[userDefaults integerForKey:@"hardVictory"];
+    if ([GameManager sharedInstance].music==YES) {
+        [[SoundManager sharedInstance].player play];
+    }
+    else{
+        [[SoundManager sharedInstance].player stop];
+    }
 }
 
 - (void) updateProgress{
