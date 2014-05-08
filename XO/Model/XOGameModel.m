@@ -95,7 +95,6 @@ static XOGameModel *_instance=Nil;
                     [[SoundManager sharedInstance] playXTurnSound];
                 }
             }
-        //NSLog(@"%@", _gameFieldMatrix);
     }
     else if (_gameMode == XOGameModeOnline)
     {
@@ -192,8 +191,6 @@ static XOGameModel *_instance=Nil;
 }
 
 - (void)whoTurnFirst:(int)opponentRoll{
-    NSLog(@"%i",opponentRoll);
-    NSLog(@"%i",[GameManager sharedInstance].myRoll);
     if (opponentRoll==[GameManager sharedInstance].myRoll) {
         [MPManager sharedInstance].firstMessage=YES;
         [[GameManager sharedInstance] tryToBeFirst];
