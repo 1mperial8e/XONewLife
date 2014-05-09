@@ -87,7 +87,19 @@ static SoundManager *_instance = nil;
     }
     AudioServicesPlaySystemSound(_instance->_clickSound);
 }
-
+- (void)playXOSoundFor:(XOPlayer)player
+{
+    switch (player) {
+        case XOPlayerFirst:
+            [self playXTurnSound];
+            break;
+        case XOPlayerSecond:
+            [self playOTurnSound];
+            break;
+        default:
+            break;
+    }
+}
 - (void)dealloc{
     _player=nil;
     AudioServicesDisposeSystemSoundID(_instance->_clickSound);

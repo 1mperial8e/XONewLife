@@ -11,9 +11,11 @@
 #import "SoundManager.h"
 
 @interface XOGameModel ()
+@property (nonatomic, strong) NSIndexPath *lastMove;
 @end
 @implementation XOGameModel
 @synthesize gameColumns = _gameColumns;
+@synthesize matrix;
 #pragma mark - Static
 static XOGameModel *_instance=Nil;
 #pragma mark - Lifecicle
@@ -22,7 +24,6 @@ static XOGameModel *_instance=Nil;
     self = [super init];
     if (self) {
         _gameColumns = [self gameColumns];
-        _xTurn = YES;
         _dimension = 3;
         [MPManager sharedInstance].delegate = self;
     }
@@ -31,7 +32,8 @@ static XOGameModel *_instance=Nil;
 - (void) clear
 {
     _gameColumns = [self gameColumns];
-     _gameFieldMatrix = [XOMatrix matrixWithDimension:_gameColumns];
+    matrix = [XOObjectiveMatrix matrixWithDimension:_gameColumns];
+    matrix.parrent = self;
     _player = XOPlayerNone;
 }
 
@@ -46,7 +48,8 @@ static XOGameModel *_instance=Nil;
 - (void)setGameColumns:(int)gColumns
 {
     _gameColumns = gColumns;
-    _gameFieldMatrix = [XOMatrix matrixWithDimension:gColumns];
+    matrix = [XOObjectiveMatrix matrixWithDimension:gColumns];
+    matrix.parrent = self;
 }
 - (void)setGameMode:(XOGameMode)gameMode
 {
@@ -56,9 +59,13 @@ static XOGameModel *_instance=Nil;
 {
     _player = XOPlayerNone;
     _winner = winner;
+    
     if ([_timerDelegate respondsToSelector:@selector(stopTimer)])
     {
         [_timerDelegate stopTimer];
+    }
+    if ([_victoryDelegate respondsToSelector:@selector(drawVector:atLine:)]) {
+            [_victoryDelegate drawVector:matrix.vectorType atLine:matrix.vectorType == XOVectorTypeVertical?(int)matrix.lastMove.row:(int)matrix.lastMove.section];
     }
 }
 #pragma mark - Class Methods
@@ -75,16 +82,15 @@ static XOGameModel *_instance=Nil;
 {
     if (_gameMode == XOGameModeMultiplayer)
     {
-            //int value = _player?-1:1;
-            if ([_gameFieldMatrix setValue:_player forIndexPath:indexPath]) {
+            int value = _player;
+            if ([matrix setPlayer:_player forIndexPath:indexPath]) {
+                _player = _player==XOPlayerNone?XOPlayerNone:_player*-1;
                 if ([_timerDelegate respondsToSelector:@selector(resetTimer)]) {
                     [_timerDelegate resetTimer];
                 }
                 if ([_delegate respondsToSelector:@selector(didChangeValue:forIndexPath:)]) {
-                    [_delegate didChangeValue:_player forIndexPath:indexPath];
+                    [_delegate didChangeValue:value forIndexPath:indexPath];
                 }
-                _player= _player *-1;
-                
                 if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowTurn:)])) {
                     [_playersTurnDelegate nowTurn:_player];
                 }
@@ -98,78 +104,48 @@ static XOGameModel *_instance=Nil;
     }
     else if (_gameMode == XOGameModeOnline)
     {
-        if (_player == XOPlayerFirst) {
-            if ([_gameFieldMatrix setValue:_player forIndexPath:indexPath]) {
+        if (_player == _me) {
+            if ([matrix setPlayer:_me forIndexPath:indexPath]) {
                 if ([_timerDelegate respondsToSelector:@selector(resetTimer)]) {
                     [_timerDelegate resetTimer];
                 }
                 if ([_delegate respondsToSelector:@selector(didChangeValue:forIndexPath:)]) {
-                    [_delegate didChangeValue:1 forIndexPath:indexPath];
+                    [_delegate didChangeValue:_me forIndexPath:indexPath];
                 }
-                _player=XOPlayerSecond;
-                if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowTurn:)])) {
-                [_playersTurnDelegate nowTurn:XOPlayerSecond];
+                _player=_me*-1;
+                if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowMyTurn:)])) {
+                [_playersTurnDelegate nowMyTurn:NO];
                 }
-                [[SoundManager sharedInstance] playXTurnSound];
-                [[MPManager sharedInstance] sendPlayerMyMessage:[NSString stringWithFormat:@"%i%i", indexPath.row, indexPath.section]];
+                [[SoundManager sharedInstance] playXOSoundFor:_me];
+                [[MPManager sharedInstance] sendPlayerMyMessage:[NSString stringWithFormat:@"%i%i", indexPath.section, indexPath.row]];
             }
         }
-        NSLog(@"%@", _gameFieldMatrix);
+        NSLog(@"%@", matrix);
     }
     else if (_gameMode == XOGameModeSingle)
     {
         if (!_player) {
-            if ([_gameFieldMatrix setValue:1 forIndexPath:indexPath]) {
-                if ([_delegate respondsToSelector:@selector(didChangeValue:forIndexPath:)]) {
-                    [_delegate didChangeValue:1 forIndexPath:indexPath];
-                }
-                if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowTurn:)])) {
-                [_playersTurnDelegate nowTurn:XOPlayerSecond];
-                }
-                [[SoundManager sharedInstance] playXTurnSound];
-                _player=XOPlayerSecond;
-            }
         }
     }
-    if (_gameFieldMatrix.winner) {
-        if ([_victoryDelegate respondsToSelector:@selector(drawVector:atLine:)]) {
-            
-            if (_gameFieldMatrix.vectorType == XOVectorTypeVertical)
-                [_victoryDelegate drawVector:_gameFieldMatrix.vectorType atLine:indexPath.row];
-            else
-                [_victoryDelegate drawVector:_gameFieldMatrix.vectorType atLine:indexPath.section];
-            self.winner = _gameFieldMatrix.winner;
-            _gameFieldMatrix.winner =XOPlayerNone;
-            _player = XOPlayerNone;
-        }
-    }
+    
 }
 - (void)setMoveForIndexPath:(NSIndexPath *)indexPath
 {
-    if ([_gameFieldMatrix setValue:-1 forIndexPath:indexPath]) {
+    int value = _player;
+    if ([matrix setPlayer:_player forIndexPath:indexPath]) {
         if ([_timerDelegate respondsToSelector:@selector(resetTimer)]) {
             [_timerDelegate resetTimer];
         }
         if ([_delegate respondsToSelector:@selector(didChangeValue:forIndexPath:)]) {
-            [_delegate didChangeValue:-1 forIndexPath:indexPath];
+            [_delegate didChangeValue:value forIndexPath:indexPath];
         }
-        if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowTurn:)])) {
-                 [_playersTurnDelegate nowTurn:XOPlayerFirst];
+        if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowMyTurn:)])) {
+                 [_playersTurnDelegate nowMyTurn:YES];
         }
-       _player=XOPlayerFirst;
-        [[SoundManager sharedInstance] playOTurnSound];
-    }
-    if (_gameFieldMatrix.winner) {
-        if ([_victoryDelegate respondsToSelector:@selector(drawVector:atLine:)]) {
-            
-            if (_gameFieldMatrix.vectorType == XOVectorTypeVertical)
-                [_victoryDelegate drawVector:_gameFieldMatrix.vectorType atLine:indexPath.row];
-            else
-                [_victoryDelegate drawVector:_gameFieldMatrix.vectorType atLine:indexPath.section];
-            self.winner = _gameFieldMatrix.winner;
-            _gameFieldMatrix.winner =XOPlayerNone;
-            _player = XOPlayerNone;
-        }
+       _player=_player*-1;
+        
+        //[[SoundManager sharedInstance] playOTurnSound];
+        [[SoundManager sharedInstance] playXOSoundFor:value];
     }
 }
 - (void)willChangeValueforIndexPath:(NSIndexPath *)indexPath
@@ -184,8 +160,8 @@ static XOGameModel *_instance=Nil;
 - (void)didReceiveMessage:(NSString *)coords
 {
     if (![MPManager sharedInstance].firstMessage) {
-    int row = [[coords substringToIndex:1] intValue];
-    int section = [[coords substringFromIndex:1] intValue];
+    int section = [[coords substringToIndex:1] intValue];
+    int row = [[coords substringFromIndex:1] intValue];
     [self setMoveForIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
     }
 }
@@ -197,17 +173,21 @@ static XOGameModel *_instance=Nil;
         return;
     }
     else if (opponentRoll>[GameManager sharedInstance].myRoll) {
-        self.player=XOPlayerSecond;
+        self.player=XOPlayerFirst;
         if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowTurn:)])) {
-            [_playersTurnDelegate nowTurn:XOPlayerSecond];
+            //[_playersTurnDelegate nowTurn:XOPlayerFirst];
+            [_playersTurnDelegate nowMyTurn:NO];
+            self.me = XOPlayerSecond;
         }
     }
     else{
-        self.player=XOPlayerFirst;
         if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowTurn:)])) {
-            [_playersTurnDelegate nowTurn:XOPlayerFirst];
+            //[_playersTurnDelegate nowTurn:XOPlayerFirst];
+            [_playersTurnDelegate nowMyTurn:YES];
+            self.me = XOPlayerFirst;
         }
     }
+    self.player = XOPlayerFirst;
 }
 
 @end

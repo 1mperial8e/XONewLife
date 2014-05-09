@@ -27,5 +27,6 @@
 -(void)playWinSound;
 -(void)playLoseSound;
 -(void)playClickSound;
+- (void)playXOSoundFor:(XOPlayer)player;
 
 @end

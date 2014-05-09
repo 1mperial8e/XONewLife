@@ -9,7 +9,7 @@
 #import "XOAppDelegate.h"
 #import "Manager/MPManager.h"
 #import <GooglePlus/GooglePlus.h>
-#import "XOMatrix.h"
+#import "XOObjectiveMatrix.h"
 @implementation XOAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

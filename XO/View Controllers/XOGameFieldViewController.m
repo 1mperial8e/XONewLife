@@ -36,9 +36,12 @@
     [super viewDidLoad];
     [XOGameModel sharedInstance].delegate = self;
     _delegate = [XOGameModel sharedInstance];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(win:) name:@"Win" object:nil];
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [[XOGameModel sharedInstance] clear];
+}
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"Win" object:nil];
@@ -96,27 +99,5 @@
     cell.selected = YES;
 
 }
-- (void)win:(NSNotification *)notification
-{
-    NSDictionary *info = [notification object];
-    XOVectorType vT = [[info valueForKey:@"type"] intValue];
-    
-    switch (vT) {
-        case XOVectorTypeHorisontal:
-            [_collectionView reloadSections:[[NSIndexSet alloc] initWithIndex:[[info valueForKey:@"s"] intValue]]];
-            _color = YES;
-            break;
-        case XOVectorTypeVertical:
-            [_collectionView reloadSections:[[NSIndexSet alloc] initWithIndex:[[info valueForKey:@"r"] intValue]]];
-            _color = YES;
-            break;
-        case XOVectorTypeDiagonalLeft:
-            break;
-        case XOVectorTypeDiagonalRight:
-            break;
-        default:
-            break;
-    }
-    
-}
+
 @end

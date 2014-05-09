@@ -14,7 +14,7 @@
 //@end
 
 #import <Foundation/Foundation.h>
-#import "XOMatrix.h"
+#import "XOObjectiveMatrix.h"
 #import "XOGameFieldViewController.h"
 #import "MPManager.h"
 #import "Constants.h"
@@ -42,6 +42,7 @@
 @protocol playersTurn <NSObject>
 @optional
 - (void)nowTurn:(XOPlayer)player;
+- (void)nowMyTurn:(BOOL)myTurn;
 @end
 
 @interface XOGameModel : NSObject <XOGameFieldViewControllerDelegate, GameDelegate>
@@ -50,9 +51,11 @@
 @property (nonatomic) BOOL xTurn;
 @property (nonatomic) XOPlayer player;
 @property (nonatomic) XOPlayer winner;
+@property (nonatomic) XOPlayer firsMove;
+@property (nonatomic) XOPlayer me;
 @property (nonatomic) int dimension;
 @property (nonatomic) XOGameMode gameMode;
-@property (nonatomic, strong) XOMatrix *gameFieldMatrix;
+@property (nonatomic, strong) XOObjectiveMatrix *matrix;
 @property (nonatomic, weak) id <XOGameModelDelegate> delegate;
 @property (nonatomic, weak) id <XOStepTimerDelegate> timerDelegate;
 @property (nonatomic, weak) id <weHaveVictory> victoryDelegate;
