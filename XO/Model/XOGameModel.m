@@ -117,7 +117,7 @@ static XOGameModel *_instance=Nil;
                 [_playersTurnDelegate nowMyTurn:NO];
                 }
                 [[SoundManager sharedInstance] playXOSoundFor:_me];
-                [[MPManager sharedInstance] sendPlayerMyMessage:[NSString stringWithFormat:@"%i%i", indexPath.section, indexPath.row]];
+                [[MPManager sharedInstance] sendPlayerMyMessage:[NSString stringWithFormat:@"%i%i", (int)indexPath.section, (int)indexPath.row]];
             }
         }
         NSLog(@"%@", matrix);
