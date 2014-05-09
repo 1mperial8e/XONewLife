@@ -41,6 +41,7 @@
 		84AAC885191AAA92001C0B94 /* sound_lose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84AAC880191AAA92001C0B94 /* sound_lose.mp3 */; };
 		84AAC886191AAA92001C0B94 /* sound_win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84AAC881191AAA92001C0B94 /* sound_win.mp3 */; };
 		84AAC889191AAB0E001C0B94 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AAC888191AAB0E001C0B94 /* SoundManager.m */; };
+		84AAC88D191D2120001C0B94 /* XOProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AAC88C191D2120001C0B94 /* XOProgress.m */; };
 		84D667711917882A000DA569 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D667701917882A000DA569 /* AVFoundation.framework */; };
 		84D6677319178838000DA569 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D6677219178838000DA569 /* AudioToolbox.framework */; };
 		FCBA6849B3044F72B6B90560 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE32FFD0F7604EB6BEFAF60C /* libPods.a */; };
@@ -110,6 +111,8 @@
 		84AAC881191AAA92001C0B94 /* sound_win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_win.mp3; sourceTree = "<group>"; };
 		84AAC887191AAB0E001C0B94 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
 		84AAC888191AAB0E001C0B94 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
+		84AAC88B191D2120001C0B94 /* XOProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XOProgress.h; sourceTree = "<group>"; };
+		84AAC88C191D2120001C0B94 /* XOProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOProgress.m; sourceTree = "<group>"; };
 		84D667701917882A000DA569 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		84D6677219178838000DA569 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		DE32FFD0F7604EB6BEFAF60C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +148,7 @@
 		84742D7919197C54007B868E /* Other Classes */ = {
 			isa = PBXGroup;
 			children = (
+				84AAC88A191D210C001C0B94 /* Progress Structure */,
 				84742D7A19197C54007B868E /* Matrix */,
 			);
 			path = "Other Classes";
@@ -336,6 +340,15 @@
 			name = GameModeViewController;
 			sourceTree = "<group>";
 		};
+		84AAC88A191D210C001C0B94 /* Progress Structure */ = {
+			isa = PBXGroup;
+			children = (
+				84AAC88B191D2120001C0B94 /* XOProgress.h */,
+				84AAC88C191D2120001C0B94 /* XOProgress.m */,
+			);
+			path = "Progress Structure";
+			sourceTree = "<group>";
+		};
 		84D6677619178B49000DA569 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -494,6 +507,7 @@
 				8481FCA1191661A000D9F0EB /* GameManager.m in Sources */,
 				7FEAECD4191772A70065CC57 /* XOGameFieldFlowLayout.m in Sources */,
 				8481FC9D19165DF100D9F0EB /* XOGameModeViewController.m in Sources */,
+				84AAC88D191D2120001C0B94 /* XOProgress.m in Sources */,
 				84AAC889191AAB0E001C0B94 /* SoundManager.m in Sources */,
 				7FF96EA6191BF9A200EDB431 /* XOObjectiveMatrix.m in Sources */,
 				8481FC9419152A2D00D9F0EB /* XOOnlineLobbyViewController.m in Sources */,

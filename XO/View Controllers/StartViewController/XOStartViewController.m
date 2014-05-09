@@ -72,20 +72,20 @@ static NSString * const kClientID = @"111039763950-dj91993gmav7o5dn26v65ga1lavlt
 }
 
 - (IBAction)singlePlayer:(id)sender {
-    [GameManager sharedInstance].mode=SINGLE_PLAYER;
+    [GameManager sharedInstance].mode=XOGameModeSingle;
     [XOGameModel sharedInstance].gameMode = XOGameModeSingle;
     [[SoundManager sharedInstance] playClickSound];
 }
 
 - (IBAction)twoPlayers:(id)sender {
-    [GameManager sharedInstance].mode=TWO_PLAYERS;
+    [GameManager sharedInstance].mode=XOGameModeMultiplayer;
     [XOGameModel sharedInstance].gameMode = XOGameModeMultiplayer;
     [XOGameModel sharedInstance].player = XOPlayerFirst;
     [[SoundManager sharedInstance] playClickSound];
 }
 
 - (IBAction)playOnline:(id)sender {
-    [GameManager sharedInstance].mode=ONLINE_PLAYERS;
+    [GameManager sharedInstance].mode=XOGameModeOnline;
     [XOGameModel sharedInstance].gameMode = XOGameModeOnline;
     [XOGameModel sharedInstance].player = XOPlayerNone;
     [[SoundManager sharedInstance] playClickSound];

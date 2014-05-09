@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "XOProgress.h"
 
 @interface GameManager : NSObject
 
@@ -19,19 +20,13 @@
 @property (nonatomic, weak) NSString *googleUserImage;
 @property (nonatomic, strong) NSString *opponentName;
 @property (nonatomic, strong) NSURL *opponentImage;
-@property (nonatomic, weak) NSString *mode;
-@property (nonatomic) int easyVictory;
-@property (nonatomic) int mediumVictory;
-@property (nonatomic) int hardVictory;
-@property (nonatomic) int onlineVictory;
+@property (nonatomic) XOGameMode mode;
+@property (nonatomic, weak) XOProgress *progress;
 @property (nonatomic) int myRoll;
 @property (nonatomic) BOOL iTurnFirst;
 
 + (GameManager*)sharedInstance;
 - (void) setSettings;
-- (void) updateProgress;
-- (void)saveData:(NSString*)dataSTR;
-- (void) loadData;
 - (void)tryToBeFirst;
 
 @end

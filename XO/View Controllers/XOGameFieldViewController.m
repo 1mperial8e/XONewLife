@@ -12,6 +12,7 @@
 #import "MPManager.h"
 #import "GameManager.h"
 #import "XOGameModel.h"
+#import "SoundManager.h"
 
 @interface XOGameFieldViewController () <XOGameModelDelegate>
 
@@ -48,7 +49,11 @@
 }
 
 - (void) playSound{
-    if ([GameManager sharedInstance].sound==YES) {
+    if ([XOGameModel sharedInstance].winner==XOPlayerFirst) {
+        [[SoundManager sharedInstance] playWinSound];
+    }
+    else{
+        [[SoundManager sharedInstance] playLoseSound];
     }
 }
 
@@ -90,6 +95,7 @@
 #pragma mark - GameModel Delegate
 - (void)playerWin:(XOPlayer)player
 {
+    [self playSound];
     
 }
 -  (void)didChangeValue:(int)value forIndexPath:(NSIndexPath *)indexPath

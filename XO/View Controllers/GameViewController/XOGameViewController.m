@@ -43,8 +43,8 @@
     [XOGameModel sharedInstance].victoryDelegate = self;
     [XOGameModel sharedInstance].playersTurnDelegate = self;
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
-    if ([[GameManager sharedInstance].mode isEqualToString:ONLINE_PLAYERS]){
-        [[GameManager sharedInstance] loadData];
+    if ([GameManager sharedInstance].mode == XOGameModeOnline){
+        [[GameManager sharedInstance].progress loadData];
         [[GameManager sharedInstance] tryToBeFirst];
     }
     time=30;
@@ -97,7 +97,7 @@
 }
 
 - (void) viewWillDisappear:(BOOL)animated{
-    if ([[GameManager sharedInstance].mode isEqualToString:ONLINE_PLAYERS]){
+    if ([GameManager sharedInstance].mode == XOGameModeOnline){
     [[MPManager sharedInstance].roomToTrack leave];
     }
     [[XOGameModel sharedInstance] clear];
@@ -109,20 +109,20 @@
 }
 
 - (void) setPlayersInfo{
-    if ([[GameManager sharedInstance].mode isEqualToString:ONLINE_PLAYERS]){
+    if ([GameManager sharedInstance].mode == XOGameModeOnline){
     self.myName.text=[GameManager sharedInstance].googleUserName;
     self.opponentName.text=[GameManager sharedInstance].opponentName;
     self.myPhoto.image=[UIImage imageWithData:[NSData  dataWithContentsOfURL:[NSURL URLWithString:[GameManager sharedInstance].googleUserImage]]];
     self.opponentPhoto.image=[UIImage imageWithData:[NSData  dataWithContentsOfURL:[GameManager sharedInstance].opponentImage]];
     }
-    else if ([[GameManager sharedInstance].mode isEqualToString:TWO_PLAYERS]){
+    else if ([GameManager sharedInstance].mode == XOGameModeMultiplayer){
         self.myName.text=@"Player1";
         self.opponentName.text=@"Player2";
         self.myPhoto.image=[UIImage imageNamed:@"cross_1"];
         self.opponentPhoto.image=[UIImage imageNamed:@"zero_4"];
         [self nowTurn:XOPlayerFirst];
     }
-    else if ([[GameManager sharedInstance].mode isEqualToString:SINGLE_PLAYER]){
+    else if ([GameManager sharedInstance].mode == XOGameModeSingle){
         self.myName.text=@"Me";
         self.opponentName.text=@"iPhone";
         self.myPhoto.image=[UIImage imageWithData:[NSData  dataWithContentsOfURL:[NSURL URLWithString:[GameManager sharedInstance].googleUserImage]]];

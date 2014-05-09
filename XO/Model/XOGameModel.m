@@ -67,6 +67,7 @@ static XOGameModel *_instance=Nil;
     if ([_victoryDelegate respondsToSelector:@selector(drawVector:atLine:)]) {
             [_victoryDelegate drawVector:matrix.vectorType atLine:matrix.vectorType == XOVectorTypeVertical?(int)matrix.lastMove.row:(int)matrix.lastMove.section];
     }
+    [self victory];
 }
 #pragma mark - Class Methods
 + (XOGameModel*)sharedInstance{
@@ -142,8 +143,7 @@ static XOGameModel *_instance=Nil;
         if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowMyTurn:)])) {
                  [_playersTurnDelegate nowMyTurn:YES];
         }
-       _player=_player*-1;
-        
+       _player=_player*-1;        
         //[[SoundManager sharedInstance] playOTurnSound];
         [[SoundManager sharedInstance] playXOSoundFor:value];
     }
@@ -152,10 +152,16 @@ static XOGameModel *_instance=Nil;
 {
     
 }
+
 - (void) victory
 {
     NSLog(@"victory");
+    [self.delegate playerWin:_winner];
+    [[GameManager sharedInstance].progress updateProgress:[GameManager sharedInstance].mode forPlayer:_winner];
+    [self clear];
+    _winner=XOPlayerNone;
 }
+
 #pragma mark - Game Delegate
 - (void)didReceiveMessage:(NSString *)coords
 {
