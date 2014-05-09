@@ -18,6 +18,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *enableMusic;
 @property (weak, nonatomic) IBOutlet UIButton *enablePush;
 @property (weak, nonatomic) IBOutlet UIButton *enableGoogleAnalitics;
+@property (weak, nonatomic) IBOutlet UIImageView *soundCheck;
+@property (weak, nonatomic) IBOutlet UIImageView *musicCheck;
+@property (weak, nonatomic) IBOutlet UIImageView *pushCheck;
+@property (weak, nonatomic) IBOutlet UIImageView *googleAnaliticsCheck;
 
 - (IBAction)signInOut:(id)sender;
 - (IBAction)back:(id)sender;
@@ -41,12 +45,12 @@
 
 - (IBAction)signInOut:(id)sender {
     if ([[GPGManager sharedInstance] isSignedIn]){
-        [self.signInOut setTitle:@"G+ | sign in" forState:UIControlStateNormal];
+        [self.signInOut setTitle:@"                          Sign in" forState:UIControlStateNormal];
         [[GPGManager sharedInstance] signOut];
     }
     else{
         [[GPPSignIn sharedInstance] authenticate];
-        [self.signInOut setTitle:@"G+ | sign out" forState:UIControlStateNormal];
+        [self.signInOut setTitle:@"                          Sign out" forState:UIControlStateNormal];
     }
 }
 
@@ -85,35 +89,33 @@
 
 - (void) setControlState{
     if ([[GPGManager sharedInstance] isSignedIn]) {
-        [self.signInOut setTitle:@"G+ | sign out" forState:UIControlStateNormal];
+        [self.signInOut setTitle:@"                          Sign out" forState:UIControlStateNormal];
     }
     else{
-        [self.signInOut setTitle:@"G+ | sign in" forState:UIControlStateNormal];
+        [self.signInOut setTitle:@"                          Sign in" forState:UIControlStateNormal];
     }
     if ([GameManager sharedInstance].sound) {
-        [self.enableSound setTitle:@"Sound ON" forState:UIControlStateNormal];
-    }
+        self.soundCheck.image=[UIImage imageNamed:@"checked"];
+         }
     else{
-        [self.enableSound setTitle:@"Sound OFF" forState:UIControlStateNormal];
+        self.soundCheck.image=[UIImage imageNamed:@"unchecked"];
     }
     if ([GameManager sharedInstance].music) {
-        [self.enableMusic setTitle:@"Music ON" forState:UIControlStateNormal];
+        self.musicCheck.image=[UIImage imageNamed:@"checked"];
     }
     else{
-        [self.enableMusic setTitle:@"Music OFF" forState:UIControlStateNormal];
-    }
+        self.musicCheck.image=[UIImage imageNamed:@"unchecked"];    }
     if ([GameManager sharedInstance].googleAnalitics) {
-        [self.enableGoogleAnalitics setTitle:@"Google Analitics ON" forState:UIControlStateNormal];
+       self.googleAnaliticsCheck.image=[UIImage imageNamed:@"checked"];
     }
     else{
-        [self.enableGoogleAnalitics setTitle:@"Google Analitics OFF" forState:UIControlStateNormal];
+        self.googleAnaliticsCheck.image=[UIImage imageNamed:@"unchecked"];
     }
     if ([GameManager sharedInstance].push) {
-        [self.enablePush setTitle:@"Push ON" forState:UIControlStateNormal];
+        self.pushCheck.image=[UIImage imageNamed:@"checked"];
     }
     else{
-        [self.enablePush setTitle:@"Push OFF" forState:UIControlStateNormal];
-    }
+        self.pushCheck.image=[UIImage imageNamed:@"unchecked"];    }
 }
 
 @end
