@@ -91,10 +91,10 @@ static XOGameModel *_instance=Nil;
     {
         [_timerDelegate stopTimer];
     }
+    [self victory];
     if ([_victoryDelegate respondsToSelector:@selector(drawVector:atLine:)]) {
             [_victoryDelegate drawVector:matrix.vectorType atLine:matrix.vectorType == XOVectorTypeVertical?(int)matrix.lastMove.row:(int)matrix.lastMove.section];
     }
-    [self victory];
 }
 #pragma mark - Class Methods
 + (XOGameModel*)sharedInstance{
@@ -205,11 +205,52 @@ static XOGameModel *_instance=Nil;
 - (void) victory
 {
     NSLog(@"victory");
+    [self changeProgress];
     [self.delegate playerWin:_winner];
     [[GameManager sharedInstance].progress updateProgress:[GameManager sharedInstance].mode forPlayer:_winner];
     //[self clear];
     //_winner=XOPlayerNone;
 }
+
+- (void)changeProgress{
+    if ([GameManager sharedInstance].mode==XOGameModeOnline){
+        if (_winner==_me){
+        [[GameManager sharedInstance].progress updateProgress:[GameManager sharedInstance].mode forMe:YES];
+        }
+        else {
+            [[GameManager sharedInstance].progress updateProgress:[GameManager sharedInstance].mode forMe:NO];
+        }
+    }
+    if ([GameManager sharedInstance].mode==XOGameModeSingle) {
+        switch (_winner) {
+            case XOPlayerFirst:{
+                [[GameManager sharedInstance].progress updateProgress:[GameManager sharedInstance].mode forMe:YES];
+            }
+                break;
+            case XOPlayerSecond:{
+                [[GameManager sharedInstance].progress updateProgress:[GameManager sharedInstance].mode forMe:YES];
+            }
+                break;
+            default:
+                break;
+        }
+    }
+    if ([GameManager sharedInstance].mode==XOGameModeMultiplayer) {
+        switch (_winner) {
+            case XOPlayerFirst:{
+                [GameManager sharedInstance].firstPlayerVictory++;
+            }
+                break;
+            case XOPlayerSecond:{
+                [GameManager sharedInstance].secondPlayerVictory++;
+            }
+                break;
+            default:
+                break;
+        }
+    }
+}
+
 
 #pragma mark - Game Delegate
 - (void)didReceiveMessage:(NSString *)coords

@@ -21,7 +21,9 @@
 @property (nonatomic, strong) NSString *opponentName;
 @property (nonatomic, strong) NSURL *opponentImage;
 @property (nonatomic) XOGameMode mode;
-@property (nonatomic, weak) XOProgress *progress;
+@property (nonatomic, strong) XOProgress *progress;
+@property (nonatomic) int firstPlayerVictory;
+@property (nonatomic) int secondPlayerVictory;
 @property (nonatomic) int myRoll;
 @property (nonatomic) BOOL iTurnFirst;
 

@@ -24,6 +24,8 @@ static GameManager* _instance=nil;
 }
 
 - (void) setSettings{
+    XOProgress *progress=[XOProgress new];
+    [GameManager sharedInstance].progress=progress;
     NSUserDefaults *userDefaults=[NSUserDefaults standardUserDefaults];
     [GameManager sharedInstance].sound=[userDefaults boolForKey:@"sound"];
     [GameManager sharedInstance].music=[userDefaults boolForKey:@"music"];
@@ -32,8 +34,13 @@ static GameManager* _instance=nil;
     [GameManager sharedInstance].progress.easyVictory=[userDefaults integerForKey:@"easyVictory"];
     [GameManager sharedInstance].progress.mediumVictory=[userDefaults integerForKey:@"mediumVictory"];
     [GameManager sharedInstance].progress.hardVictory=[userDefaults integerForKey:@"hardVictory"];
-    [GameManager sharedInstance].progress.firstPlayerVictory=0;
-    [GameManager sharedInstance].progress.secondPlayerVictory=0;
+    [GameManager sharedInstance].progress.easyLooses=[userDefaults integerForKey:@"easyLooses"];
+    [GameManager sharedInstance].progress.mediumLooses=[userDefaults integerForKey:@"mediumLooses"];
+    [GameManager sharedInstance].progress.hardLooses=[userDefaults integerForKey:@"hardLooses"];
+    [GameManager sharedInstance].firstPlayerVictory=0;
+    [GameManager sharedInstance].secondPlayerVictory=0;
+    [GameManager sharedInstance].progress.myVictory=0;
+    [GameManager sharedInstance].progress.opponentVictory=0;
     if ([GameManager sharedInstance].music==YES) {
         [[SoundManager sharedInstance].player play];
     }

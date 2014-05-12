@@ -8,62 +8,83 @@
 
 #import "XOProgress.h"
 #import "GameManager.h"
+#import "MPManager.h"
 
 @implementation XOProgress
 
-- (void)resetMultiplayerScore{
-    self.firstPlayerVictory=0;
-    self.secondPlayerVictory=0;
+- (id) init{
+    _easyLooses=0;
+    _easyVictory=0;
+    _mediumLooses=0;
+    _mediumVictory=0;
+    _hardLooses=0;
+    _hardVictory=0;
+    _myVictory=0;
+    _opponentVictory=0;
+    return self;
 }
 
-- (void)updatePlayer:(XOPlayer)player{
-    switch (player) {
-        case XOPlayerFirst:
-            _firstPlayerVictory++;
-            break;
-        case XOPlayerSecond:{
-            _secondPlayerVictory++;
-        }            
-        default:
-            break;
-    }
-}
-
-- (void) updateProgress:(XOGameMode)mode forPlayer:(XOPlayer)player{
+- (void) updateProgress:(XOGameMode)mode forMe:(BOOL)player{
     NSString *key=[[NSString alloc] init];
     NSInteger value = 0;
     switch (mode) {
         case XOGameModeOnline:{
-            if (player==XOPlayerSecond) {
-                return;
+            if (player==YES) {
+                self.myVictory++;
+                self.onlineVictory++;
+                [MPManager sharedInstance].myScore.value=(long long)self.onlineVictory;
+                [[MPManager sharedInstance].myScore submitScoreWithCompletionHandler:^(GPGScoreReport *report, NSError *error){
+                    if (error) {
+                        NSLog(@"%@",error);
+                    }                    
+                }];
+                [self saveData:[NSString stringWithFormat:@"%i", self.onlineVictory]];
             }
-            self.onlineVictory++;
-            [self saveData:[NSString stringWithFormat:@"%i", self.onlineVictory]];
+            else {
+                self.opponentVictory++;
+            }
             return;
         }
             break;
         case XOGameModeMultiplayer:{
-            [self updatePlayer:player];
         }
             break;
         case XOGameModeSingle:{
-            if (player==XOPlayerSecond) {
-                return;
-            }
             if ([[GameManager sharedInstance].difficulty isEqualToString:EASY_MODE]){
-                self.easyVictory++;
-                value=self.easyVictory;
-                key=EASY_VICTORY;
+                if (player==YES){
+                    self.easyVictory++;
+                    value=self.easyVictory;
+                    key=EASY_LOOSES;
+                }
+                else {
+                    self.easyLooses++;
+                    value=self.easyLooses;
+                    key=EASY_VICTORY;
+                }
             }
             if ([[GameManager sharedInstance].difficulty isEqualToString:MEDIUM_MODE]){
-                self.mediumVictory++;
-                value=self.mediumVictory;
-                key=MEDIUM_VICTORY;
+                if (player==YES){
+                    self.mediumVictory++;
+                    value=self.mediumVictory;
+                    key=MEDIUM_LOOSES;
+                }
+                else {
+                    self.mediumLooses++;
+                    value=self.mediumLooses;
+                    key=MEDIUM_VICTORY;
+                }
             }
             if ([[GameManager sharedInstance].difficulty isEqualToString:HARD_MODE]){
-                self.hardVictory++;
-                value=self.hardVictory;
-                key=HARD_VICTORY;
+                if (player==YES){
+                    self.hardVictory++;
+                    value=self.hardVictory;
+                    key=HARD_LOOSES;
+                }
+                else {
+                    self.hardLooses++;
+                    value=self.hardLooses;
+                    key=HARD_VICTORY;
+                }
             }
         }
     }

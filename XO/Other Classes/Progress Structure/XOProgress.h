@@ -13,12 +13,14 @@
 @property (nonatomic) int easyVictory;
 @property (nonatomic) int mediumVictory;
 @property (nonatomic) int hardVictory;
+@property (nonatomic) int easyLooses;
+@property (nonatomic) int mediumLooses;
+@property (nonatomic) int hardLooses;
 @property (nonatomic) int onlineVictory;
-@property (nonatomic) int firstPlayerVictory;
-@property (nonatomic) int secondPlayerVictory;
+@property (nonatomic) int myVictory;
+@property (nonatomic) int opponentVictory;
 
-- (void) resetMultiplayerScore;
-- (void) updateProgress:(XOGameMode)mode forPlayer:(XOPlayer)player;
+- (void) updateProgress:(XOGameMode)mode forMe:(BOOL)player;
 - (void) saveData:(NSString*)dataSTR;
 - (void) loadData;
 
