@@ -90,7 +90,6 @@ static XOGameModel *_instance=Nil;
 }
 - (void)setWinner:(XOPlayer)winner
 {
-    //_player = XOPlayerNone;
     _winner = winner;
     NSString *message;
     if (_winner == XOPlayerNone) {

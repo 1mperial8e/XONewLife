@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface XOAlert : UIViewController
-- (XOAlert *) initWithTitle:(NSString *)title message:(NSString *)message delegate:(id)delegate cancelButtonTitle:(NSString *)cancelTitle otherButtonTitles:(NSString *)oserTitle, ...;
+- (id) initWithTitle:(NSString *)title message:(NSString *)message delegate:(id)delegate cancelButtonTitle:(NSString *)cancelTitle otherButtonTitles:(NSString *)oserTitle, ...;
 
 @end
