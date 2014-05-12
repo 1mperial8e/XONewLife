@@ -86,6 +86,14 @@
     }
     return NO;
 }
+- (XOPlayer)playerForIndexPath:(NSIndexPath *)indexPath
+{
+    return [_value[indexPath.section][indexPath.row] intValue];
+}
+- (NSUInteger)count
+{
+    return [_value count];
+}
 - (void)checkWinners:(NSIndexPath *)indexPath
 {
     int horisontal = [self vecrorSumByType:XOVectorTypeHorisontal indexPath:indexPath];
@@ -113,11 +121,6 @@
         }
     }
     
-}
-- (XOPlayer)playerForIndexPath:(NSIndexPath *)indexPath
-{
-    XOPlayer player = [_value[indexPath.section][indexPath.row] intValue];
-    return player;
 }
 #pragma mark - Class Methods
 + (XOObjectiveMatrix *)matrixWithDimension:(int) dimension

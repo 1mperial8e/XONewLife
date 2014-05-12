@@ -17,7 +17,8 @@
 @property (nonatomic, strong) NSIndexPath *lastMove;
 
 - (BOOL)setPlayer:(XOPlayer)player forIndexPath:(NSIndexPath *)indexPath;
-
+- (XOPlayer)playerForIndexPath:(NSIndexPath *)indexPath;
+- (NSUInteger)count;
 + (XOObjectiveMatrix *)matrixWithDimension:(int) dimension;
 
 @end

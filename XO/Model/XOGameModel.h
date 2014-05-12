@@ -26,6 +26,7 @@
 - (void)playerWin:(XOPlayer)player;
 - (void)willChangeValue:(int)value forIndexPath:(NSIndexPath *)indexPath;
 - (void)didChangeValue:(int)value forIndexPath:(NSIndexPath *)indexPath;
+- (void)reload;
 @end
 
 @protocol XOStepTimerDelegate <NSObject>
@@ -51,10 +52,10 @@
 @property (nonatomic) BOOL xTurn;
 @property (nonatomic) XOPlayer player;
 @property (nonatomic) XOPlayer winner;
-@property (nonatomic) XOPlayer firsMove;
 @property (nonatomic) XOPlayer me;
 @property (nonatomic) int dimension;
 @property (nonatomic) XOGameMode gameMode;
+@property (nonatomic) XOAIGameMode aiGameMode;
 @property (nonatomic, strong) XOObjectiveMatrix *matrix;
 @property (nonatomic, weak) id <XOGameModelDelegate> delegate;
 @property (nonatomic, weak) id <XOStepTimerDelegate> timerDelegate;

@@ -41,6 +41,8 @@
     } else if (mode<0) {
         _mode = mode;
         _image.image = _zeros[arc4random() % _cross.count];
+    } else {
+        _image.image = nil;
     }
 }
 - (void)setSelected:(BOOL)selected

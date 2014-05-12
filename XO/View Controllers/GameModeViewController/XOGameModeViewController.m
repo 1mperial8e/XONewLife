@@ -9,6 +9,7 @@
 #import "XOGameModeViewController.h"
 #import "GameManager.h"
 #import "SoundManager.h"
+#import "XOGameModel.h"
 
 @interface XOGameModeViewController ()
 
@@ -30,16 +31,25 @@
 
 - (IBAction)easyMode:(id)sender{
     [GameManager sharedInstance].difficulty=EASY_MODE;
+    [XOGameModel sharedInstance].aiGameMode = XOAIGameModeEasy;
+    [XOGameModel sharedInstance].player = XOPlayerFirst;
+    [XOGameModel sharedInstance].me = XOPlayerFirst;
     [[SoundManager sharedInstance] playClickSound];
 }
 
 - (IBAction)mediumMode:(id)sender{
     [GameManager sharedInstance].difficulty=MEDIUM_MODE;
+    [XOGameModel sharedInstance].aiGameMode = XOAIGameModeMedium;
+    [XOGameModel sharedInstance].player = XOPlayerFirst;
+    [XOGameModel sharedInstance].me = XOPlayerFirst;
     [[SoundManager sharedInstance] playClickSound];
 }
 
 - (IBAction)hardMode:(id)sender{
     [GameManager sharedInstance].difficulty=HARD_MODE;
+    [XOGameModel sharedInstance].aiGameMode = XOAIGameModeMedium;
+    [XOGameModel sharedInstance].player = XOPlayerFirst;
+    [XOGameModel sharedInstance].me = XOPlayerFirst;
     [[SoundManager sharedInstance] playClickSound];
 }
 

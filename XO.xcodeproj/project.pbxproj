@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F912D76191F632F00675027 /* XOAI.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F912D75191F632F00675027 /* XOAI.m */; };
 		7FEAECD4191772A70065CC57 /* XOGameFieldFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEAECD3191772A70065CC57 /* XOGameFieldFlowLayout.m */; };
 		7FEAECD7191783FB0065CC57 /* XOCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEAECD6191783FB0065CC57 /* XOCollectionViewCell.m */; };
 		7FEAECDA1917ADF80065CC57 /* XOGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEAECD91917ADF80065CC57 /* XOGameViewController.m */; };
@@ -59,6 +60,8 @@
 
 /* Begin PBXFileReference section */
 		13E03152E7E4493380648031 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		7F912D74191F632F00675027 /* XOAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XOAI.h; path = AI/XOAI.h; sourceTree = "<group>"; };
+		7F912D75191F632F00675027 /* XOAI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XOAI.m; path = AI/XOAI.m; sourceTree = "<group>"; };
 		7FEAECD2191772A70065CC57 /* XOGameFieldFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XOGameFieldFlowLayout.h; sourceTree = "<group>"; };
 		7FEAECD3191772A70065CC57 /* XOGameFieldFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOGameFieldFlowLayout.m; sourceTree = "<group>"; };
 		7FEAECD5191783FB0065CC57 /* XOCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XOCollectionViewCell.h; sourceTree = "<group>"; };
@@ -145,11 +148,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F912D77191F633700675027 /* AI */ = {
+			isa = PBXGroup;
+			children = (
+				7F912D74191F632F00675027 /* XOAI.h */,
+				7F912D75191F632F00675027 /* XOAI.m */,
+			);
+			name = AI;
+			sourceTree = "<group>";
+		};
 		84742D7919197C54007B868E /* Other Classes */ = {
 			isa = PBXGroup;
 			children = (
 				84AAC88A191D210C001C0B94 /* Progress Structure */,
 				84742D7A19197C54007B868E /* Matrix */,
+				7F912D77191F633700675027 /* AI */,
 			);
 			path = "Other Classes";
 			sourceTree = "<group>";
@@ -516,6 +529,7 @@
 				8481FC9919152A2D00D9F0EB /* XOGameFieldViewController.m in Sources */,
 				8481FC9619152A2D00D9F0EB /* XOStartViewController.m in Sources */,
 				8481FC9319152A2D00D9F0EB /* MPManager.m in Sources */,
+				7F912D76191F632F00675027 /* XOAI.m in Sources */,
 				7FEAECD7191783FB0065CC57 /* XOCollectionViewCell.m in Sources */,
 				8481FC541915273E00D9F0EB /* XOAppDelegate.m in Sources */,
 				7FEAECDA1917ADF80065CC57 /* XOGameViewController.m in Sources */,

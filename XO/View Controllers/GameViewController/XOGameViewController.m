@@ -181,6 +181,7 @@
 - (void) drawVector:(XOVectorType)vectorType atLine:(int)line{
     UIImage *lineIMG = [[UIImage alloc] init];
     CGRect frame;
+    
        switch (vectorType) {
         case XOVectorTypeDiagonalLeft:{
             lineIMG=[UIImage imageNamed:@"left"];
@@ -204,11 +205,19 @@
             frame=CGRectMake(((self.gameFieldContainerView.frame.size.width/3)/3)+line, 0, self.gameFieldContainerView.frame.size.width/10, self.gameFieldContainerView.frame.size.height);
         }
         break;
+               default:
+               [self removeVector];
+               return;
     }
     UIImageView *lineView=[[UIImageView alloc] initWithImage:lineIMG];
     lineView.frame=frame;
+    lineView.tag = 79;
     [self.gameFieldContainerView addSubview:lineView];
 }
-
+- (void) removeVector
+{
+    UIImageView *lineView = (UIImageView *)[_gameFieldContainerView viewWithTag:79];
+    [lineView removeFromSuperview];
+}
 
 @end

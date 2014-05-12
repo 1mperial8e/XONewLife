@@ -37,3 +37,8 @@ typedef enum {
     XOVectorTypeDiagonalLeft,
     XOVectorTypeDiagonalRight    
 } XOVectorType;
+typedef enum {
+    XOAIGameModeEasy,
+    XOAIGameModeMedium,
+    XOAIGameModeHard
+}XOAIGameMode;

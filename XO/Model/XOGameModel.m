@@ -9,8 +9,9 @@
 #import "XOGameModel.h"
 #import "GameManager.h"
 #import "SoundManager.h"
+#import "XOAI.h"
 
-@interface XOGameModel ()
+@interface XOGameModel () <UIAlertViewDelegate>
 @property (nonatomic, strong) NSIndexPath *lastMove;
 @end
 @implementation XOGameModel
@@ -36,7 +37,30 @@ static XOGameModel *_instance=Nil;
     matrix.parrent = self;
     _player = XOPlayerNone;
 }
-
+- (void) newGame: (NSTimer *)timer
+{
+    if ([[[timer userInfo] valueForKey:@"time"] intValue] == 0) {
+        _player = _player*-1;
+        //_player = _me;
+       // _me = _me*-1;
+        matrix = [XOObjectiveMatrix matrixWithDimension:_gameColumns];
+        matrix.parrent = self;
+        NSLog(@"%@", matrix);
+        [((UIAlertView *)[timer.userInfo valueForKey:@"alert"]) dismissWithClickedButtonIndex:0 animated:YES];
+        if ([_delegate respondsToSelector:@selector(reload)]) {
+            [_delegate reload];
+        }
+        if ([_victoryDelegate respondsToSelector:@selector(drawVector:atLine:)]) {
+            [_victoryDelegate drawVector:NSNotFound atLine:NSNotFound];
+        }
+        [timer invalidate];
+        
+    } else {
+        int t = [[timer.userInfo valueForKey:@"time"] intValue]-1;
+        [timer.userInfo setValue:[NSNumber numberWithInt:t] forKey:@"time"];
+        ((UIAlertView *)[timer.userInfo valueForKey:@"alert"]).message = [NSString stringWithFormat:@"New game through %is", [[timer.userInfo objectForKey:@"time"] intValue]];
+    }
+}
 #pragma mark - Custom Accsesors
 - (int) gameColumns
 {
@@ -57,9 +81,12 @@ static XOGameModel *_instance=Nil;
 }
 - (void)setWinner:(XOPlayer)winner
 {
-    _player = XOPlayerNone;
+    //_player = XOPlayerNone;
     _winner = winner;
-    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:_me==_winner?@"You win!":@"Player 2 win!" message:@"New game through 3s" delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:@{@"time":@3, @"alert":alertView}];
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(newGame:) userInfo:dict repeats:YES];
+    [alertView show];
     if ([_timerDelegate respondsToSelector:@selector(stopTimer)])
     {
         [_timerDelegate stopTimer];
@@ -125,8 +152,30 @@ static XOGameModel *_instance=Nil;
     }
     else if (_gameMode == XOGameModeSingle)
     {
-        if (!_player) {
+        int value = _player;
+        if (_player==_me) {
+            if ([matrix setPlayer:value forIndexPath:indexPath]) {
+                if ([_delegate respondsToSelector:@selector(didChangeValue:forIndexPath:)]) {
+                    [_delegate didChangeValue:value forIndexPath:indexPath];
+                }
+                _player=_me*-1;
+                 [[SoundManager sharedInstance] playXOSoundFor:value];
+            }
+            XOAI *ai = [XOAI new];
+            [ai moveWithTimer:2];
+            
+        } else if (_player&&!_winner){
+            //XOAI *ai = [XOAI new];
+            //NSIndexPath *aiMove = [ai makeMove];
+            if ([matrix setPlayer:value forIndexPath:indexPath]) {
+                if ([_delegate respondsToSelector:@selector(didChangeValue:forIndexPath:)]) {
+                    [_delegate didChangeValue:value forIndexPath:indexPath];
+                }
+                _player=_player*-1;
+                [[SoundManager sharedInstance] playXOSoundFor:value];
+            }
         }
+       // NSLog(@"%@", matrix);
     }
     
 }
@@ -158,8 +207,8 @@ static XOGameModel *_instance=Nil;
     NSLog(@"victory");
     [self.delegate playerWin:_winner];
     [[GameManager sharedInstance].progress updateProgress:[GameManager sharedInstance].mode forPlayer:_winner];
-    [self clear];
-    _winner=XOPlayerNone;
+    //[self clear];
+    //_winner=XOPlayerNone;
 }
 
 #pragma mark - Game Delegate
