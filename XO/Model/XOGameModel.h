@@ -33,6 +33,7 @@
 @optional
 - (void)resetTimer;
 - (void)stopTimer;
+- (void)startTimer;
 @end
 
 @protocol weHaveVictory <NSObject>

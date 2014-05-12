@@ -58,6 +58,7 @@ static XOGameModel *_instance=Nil;
 
 - (void)newGame
 {
+    [self.timerDelegate startTimer];
     [MPManager sharedInstance].newGame=0;
     _player = _player*-1;
     //_player = _me;
@@ -117,7 +118,12 @@ static XOGameModel *_instance=Nil;
     }
     [self victory];
     if ([_victoryDelegate respondsToSelector:@selector(drawVector:atLine:)]) {
+        if (_winner){
             [_victoryDelegate drawVector:matrix.vectorType atLine:matrix.vectorType == XOVectorTypeVertical?(int)matrix.lastMove.row:(int)matrix.lastMove.section];
+        }
+        else{
+            [_victoryDelegate drawVector:NSNotFound atLine:NSNotFound];
+        }
     }
 }
 
@@ -126,7 +132,7 @@ static XOGameModel *_instance=Nil;
     if (buttonIndex == 0) {
         [[MPManager sharedInstance] sendPlayerMyMessage:@"no"];
         [[MPManager sharedInstance].lobbyDelegate multiPlayerGameWasCanceled:YES];
-    } else {
+    } else if (buttonIndex == 1) {
         [[MPManager sharedInstance] sendPlayerMyMessage:@"yes"];
         [self waitOpponent];
     }
@@ -143,8 +149,8 @@ static XOGameModel *_instance=Nil;
         }
         else if ([MPManager sharedInstance].newGame==2){
             [((UIAlertView *)[timer.userInfo valueForKey:@"alert"]) dismissWithClickedButtonIndex:0 animated:YES];
-            [timer invalidate];
-            [MPManager sharedInstance].newGame=0;
+             [self newGame];
+            [timer invalidate];            
         }
         else if ([MPManager sharedInstance].newGame==0){
         int t = [[timer.userInfo valueForKey:@"time"] intValue]-1;
