@@ -130,7 +130,12 @@
     else if ([GameManager sharedInstance].mode == XOGameModeSingle){
         self.myName.text=@"Me";
         self.opponentName.text=@"iPhone";
+        if ([[GPGManager sharedInstance] isSignedIn]) {
         self.myPhoto.image=[UIImage imageWithData:[NSData  dataWithContentsOfURL:[NSURL URLWithString:[GameManager sharedInstance].googleUserImage]]];
+        }
+        else{
+        self.myPhoto.image=[UIImage imageNamed:@"user"];
+        }
         self.opponentPhoto.image=[UIImage imageNamed:@"apple"];
     }
     self.myName.layer.cornerRadius=4;
@@ -217,6 +222,17 @@
     return strScore;
 }
 
+- (void) changePhotos{
+    if (self.myPhoto.image==[UIImage imageNamed:@"zero_4"]){
+        self.myPhoto.image=[UIImage imageNamed:@"cross_1"];
+        self.opponentPhoto.image=[UIImage imageNamed:@"zero_4"];
+    }
+    else{
+        self.opponentPhoto.image=[UIImage imageNamed:@"cross_1"];
+        self.myPhoto.image=[UIImage imageNamed:@"zero_4"];        
+    }
+}
+
 #pragma mark - Timer Methods
 
 - (void) onTick:(NSTimer *)timer{
@@ -233,6 +249,7 @@
     if (restart<=0){
         [restartGameTimer invalidate];
         [[XOGameModel sharedInstance] newGame];
+        [self changePhotos];
     }
     switch ([[self.gameFieldContainerView viewWithTag:79] isHidden]) {
         case YES:

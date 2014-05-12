@@ -264,8 +264,8 @@ static XOGameModel *_instance=Nil;
         if ([_delegate respondsToSelector:@selector(didChangeValue:forIndexPath:)]) {
             [_delegate didChangeValue:value forIndexPath:indexPath];
         }
-        if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowMyTurn:)])) {
-                 [_playersTurnDelegate nowMyTurn:YES];
+        if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowTurn:)])) {
+                 [_playersTurnDelegate nowTurn:_player];
         }
        _player=_player*-1;        
         //[[SoundManager sharedInstance] playOTurnSound];
