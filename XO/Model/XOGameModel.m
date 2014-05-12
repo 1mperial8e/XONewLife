@@ -92,12 +92,17 @@ static XOGameModel *_instance=Nil;
 {
     //_player = XOPlayerNone;
     _winner = winner;
-    
+    NSString *message;
+    if (_winner == XOPlayerNone) {
+       message = @"Draw";
+    } else {
+        message = _me==_winner?@"You win!":@"Player 2 win!";
+    }
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:@{@"time":@3}];
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(newGame:) userInfo:dict repeats:YES];
     if (_gameMode == XOGameModeOnline) {
         [dict setValue:@30 forKey:@"time"];
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:_me==_winner?@"You win!":@"Player 2 win!" message:@"New game through 3s" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: @"New Game", nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:message message:@"New game through 3s" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: @"New Game", nil];
         [dict setValue:alertView forKey:@"alert"];
         [alertView show];
     }

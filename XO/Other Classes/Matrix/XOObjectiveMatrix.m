@@ -76,6 +76,17 @@
     }
     return result;
 }
+ - (int)movesLeft
+{
+    int result = 0;
+    for (int i = 0; i<_dimension; i++) {
+        for (int j = 0; j<_dimension; j++) {
+            if ([_value[j][i] intValue]==XOPlayerNone)
+            result ++;
+        }
+    }
+    return result;
+}
 #pragma mark - Public
 - (BOOL)setPlayer:(XOPlayer)player forIndexPath:(NSIndexPath *)indexPath
 {
@@ -117,6 +128,10 @@
     if (_winner) {
         if ([_parrent respondsToSelector:@selector(setWinner:)]) {
             _lastMove = indexPath;
+            [_parrent setWinner:_winner];
+        }
+    } else if (![self movesLeft]) {
+        if ([_parrent respondsToSelector:@selector(setWinner:)]) {
             [_parrent setWinner:_winner];
         }
     }
