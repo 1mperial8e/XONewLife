@@ -21,6 +21,7 @@ static MPManager *_instance = nil;
     if (nil == _instance) {
       _instance = [[self alloc] init];
       _instance.firstMessage=YES;
+      _instance.newGame=0;
     }
   }
   return _instance;
@@ -160,10 +161,10 @@ static MPManager *_instance = nil;
     }
     NSString * message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     if ([message isEqualToString:@"yes"]) {
-        
+        _newGame=1;
     }
     else if ([message isEqualToString:@"no"]){
-        
+        _newGame=2;
     }
     else{
     if(_delegate && [_delegate respondsToSelector:@selector(didReceiveMessage:)])

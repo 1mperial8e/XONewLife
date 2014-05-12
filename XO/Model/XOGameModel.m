@@ -57,6 +57,7 @@ static XOGameModel *_instance=Nil;
 }
  - (void)newGame
 {
+    [MPManager sharedInstance].newGame=0;
     _player = _player*-1;
     //_player = _me;
     _me = _me*-1;
@@ -119,11 +120,47 @@ static XOGameModel *_instance=Nil;
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 0) {
+        [[MPManager sharedInstance] sendPlayerMyMessage:@"no"];
         [[MPManager sharedInstance].lobbyDelegate multiPlayerGameWasCanceled:YES];
     } else {
-        [self newGame];
+        [[MPManager sharedInstance] sendPlayerMyMessage:@"yes"];
+        [self waitOpponent];
     }
 }
+
+- (void)waitForNewGame:(NSTimer*)timer{
+    if ([[[timer userInfo] valueForKey:@"time"] intValue] == 0) {
+        [((UIAlertView *)[timer.userInfo valueForKey:@"alert"]) dismissWithClickedButtonIndex:0 animated:YES];
+        [timer invalidate];        
+    } else {
+        if ([MPManager sharedInstance].newGame==1) {
+            [((UIAlertView *)[timer.userInfo valueForKey:@"alert"]) dismissWithClickedButtonIndex:0 animated:YES];
+            [timer invalidate];            
+        }
+        else if ([MPManager sharedInstance].newGame==2){
+            [((UIAlertView *)[timer.userInfo valueForKey:@"alert"]) dismissWithClickedButtonIndex:0 animated:YES];
+            [timer invalidate];
+            [MPManager sharedInstance].newGame=0;
+        }
+        else if ([MPManager sharedInstance].newGame==0){
+        int t = [[timer.userInfo valueForKey:@"time"] intValue]-1;
+        [timer.userInfo setValue:[NSNumber numberWithInt:t] forKey:@"time"];
+        if ([timer.userInfo valueForKey:@"alert"]) {
+            ((UIAlertView *)[timer.userInfo valueForKey:@"alert"]).message = [NSString stringWithFormat:@"New game through %is", [[timer.userInfo objectForKey:@"time"] intValue]];
+        }
+        }
+    }
+}
+
+- (void)waitOpponent{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:@{@"time":@10}];
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(waitForNewGame:) userInfo:dict repeats:YES];
+        [dict setValue:@10 forKey:@"time"];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Connecting" message:@"Waiting for opponent 10s" delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
+        [dict setValue:alertView forKey:@"alert"];
+        [alertView show];
+}
+
 #pragma mark - Class Methods
 + (XOGameModel*)sharedInstance{
     @synchronized(self) {

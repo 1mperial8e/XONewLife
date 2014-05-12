@@ -24,6 +24,7 @@
 @property (weak) id<GameDelegate> delegate;
 @property (nonatomic, strong) GPGScore *myScore;
 @property (nonatomic) BOOL firstMessage;
+@property (nonatomic) Byte newGame;
 
 /**
  * Accessor method for the singleton instance
