@@ -43,6 +43,24 @@ static XOGameModel *_instance=Nil;
     _player = XOPlayerNone;
     _winner = XOPlayerNone;
 }
+- (void) newGame: (NSTimer *)timer
+{
+    if ([[[timer userInfo] valueForKey:@"time"] intValue] == 0) {
+        if ([timer.userInfo valueForKey:@"alert"]) {
+            [self newGame];
+        [((UIAlertView *)[timer.userInfo valueForKey:@"alert"]) dismissWithClickedButtonIndex:0 animated:YES];
+        }
+        
+        [timer invalidate];
+        
+    } else {
+        int t = [[timer.userInfo valueForKey:@"time"] intValue]-1;
+        [timer.userInfo setValue:[NSNumber numberWithInt:t] forKey:@"time"];
+        if ([timer.userInfo valueForKey:@"alert"]) {
+        ((UIAlertView *)[timer.userInfo valueForKey:@"alert"]).message = [NSString stringWithFormat:@"New game through %is", [[timer.userInfo objectForKey:@"time"] intValue]];
+        }
+    }
+}
 
  - (void)newGame
 {
