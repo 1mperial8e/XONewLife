@@ -93,16 +93,21 @@
     [self presentViewController:vcToShow animated:YES completion:nil];
 }
 
-- (void)multiPlayerGameWasCanceled
+- (void)multiPlayerGameWasCanceled:(BOOL)byMe
 {
     if (self.presentedViewController != nil) {
         [self dismissViewControllerAnimated:YES completion:nil];
         [[SoundManager sharedInstance] playClickSound];
     }
-    if (![[self.navigationController.viewControllers lastObject] isEqual:self])
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"End game!" message:@"Opponent has left the game :-(" delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];
-        [alert show];        
+    if (byMe==YES){
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else{
+        if (![[self.navigationController.viewControllers lastObject] isEqual:self])
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"End game!" message:@"Opponent has left the game :-(" delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];
+            [alert show];
+        }
     }
 }
 

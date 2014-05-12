@@ -9,7 +9,7 @@
 
 @protocol MPLobbyDelegate <GPGRealTimeRoomDelegate>
 - (void)readyToStartMultiPlayerGame;
-- (void)multiPlayerGameWasCanceled;
+- (void)multiPlayerGameWasCanceled:(BOOL)byMe;
 - (void)showInviteViewController:(UIViewController *)vcToShow;
 @end
 

@@ -101,7 +101,7 @@ static MPManager *_instance = nil;
 {
     if (status == GPGRealTimeRoomStatusDeleted) {
         NSLog(@"RoomStatusDeleted");
-        [self.lobbyDelegate multiPlayerGameWasCanceled];
+        [self.lobbyDelegate multiPlayerGameWasCanceled:NO];
         _roomToTrack = nil;
     } else if (status == GPGRealTimeRoomStatusConnecting) {
         NSLog(@"RoomStatusConnecting");
@@ -175,7 +175,7 @@ static MPManager *_instance = nil;
 
 - (void)roomViewControllerDidClose:(GPGRealTimeRoomViewController *)roomViewController
 {
-    [self.lobbyDelegate multiPlayerGameWasCanceled];
+    [self.lobbyDelegate multiPlayerGameWasCanceled:NO];
 }
 
 - (void)sendPlayerMyMessage:(NSString *)message
