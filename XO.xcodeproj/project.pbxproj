@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F232CE51920ED35004B208E /* XOAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F232CE41920ED35004B208E /* XOAlert.m */; };
+		7F232CE81920ED66004B208E /* AlertView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F232CE71920ED66004B208E /* AlertView.storyboard */; };
 		7F912D76191F632F00675027 /* XOAI.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F912D75191F632F00675027 /* XOAI.m */; };
 		7FEAECD4191772A70065CC57 /* XOGameFieldFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEAECD3191772A70065CC57 /* XOGameFieldFlowLayout.m */; };
 		7FEAECD7191783FB0065CC57 /* XOCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEAECD6191783FB0065CC57 /* XOCollectionViewCell.m */; };
@@ -60,6 +62,9 @@
 
 /* Begin PBXFileReference section */
 		13E03152E7E4493380648031 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		7F232CE31920ED35004B208E /* XOAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XOAlert.h; path = AlertViewController/XOAlert.h; sourceTree = "<group>"; };
+		7F232CE41920ED35004B208E /* XOAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XOAlert.m; path = AlertViewController/XOAlert.m; sourceTree = "<group>"; };
+		7F232CE71920ED66004B208E /* AlertView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AlertView.storyboard; sourceTree = "<group>"; };
 		7F912D74191F632F00675027 /* XOAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XOAI.h; path = AI/XOAI.h; sourceTree = "<group>"; };
 		7F912D75191F632F00675027 /* XOAI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XOAI.m; path = AI/XOAI.m; sourceTree = "<group>"; };
 		7FEAECD2191772A70065CC57 /* XOGameFieldFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XOGameFieldFlowLayout.h; sourceTree = "<group>"; };
@@ -148,6 +153,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F232CE61920ED3F004B208E /* AlerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7F232CE31920ED35004B208E /* XOAlert.h */,
+				7F232CE41920ED35004B208E /* XOAlert.m */,
+				7F232CE71920ED66004B208E /* AlertView.storyboard */,
+			);
+			name = AlerViewController;
+			sourceTree = "<group>";
+		};
 		7F912D77191F633700675027 /* AI */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,6 +304,7 @@
 				8481FC9E19165DF600D9F0EB /* GameModeViewController */,
 				8481FC8819152A2D00D9F0EB /* StartViewController */,
 				8481FC8B19152A2D00D9F0EB /* GameField */,
+				7F232CE61920ED3F004B208E /* AlerViewController */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -460,6 +476,7 @@
 				8481FC5A1915273E00D9F0EB /* Main_iPad.storyboard in Resources */,
 				84AAC884191AAA92001C0B94 /* sound_goes_x.mp3 in Resources */,
 				8481FC4E1915273E00D9F0EB /* InfoPlist.strings in Resources */,
+				7F232CE81920ED66004B208E /* AlertView.storyboard in Resources */,
 				84AAC882191AAA92001C0B94 /* sound_click.mp3 in Resources */,
 				7FEAED2D1917D84E0065CC57 /* Images.xcassets in Resources */,
 				8481FC7C1915293400D9F0EB /* iPhone.storyboard in Resources */,
@@ -524,6 +541,7 @@
 				84AAC889191AAB0E001C0B94 /* SoundManager.m in Sources */,
 				7FF96EA6191BF9A200EDB431 /* XOObjectiveMatrix.m in Sources */,
 				8481FC9419152A2D00D9F0EB /* XOOnlineLobbyViewController.m in Sources */,
+				7F232CE51920ED35004B208E /* XOAlert.m in Sources */,
 				8481FC501915273E00D9F0EB /* main.m in Sources */,
 				8481FC9519152A2D00D9F0EB /* XOSettingsViewController.m in Sources */,
 				8481FC9919152A2D00D9F0EB /* XOGameFieldViewController.m in Sources */,
