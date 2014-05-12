@@ -8,6 +8,7 @@
 
 #import "XOProgress.h"
 #import "GameManager.h"
+#import "MPManager.h"
 
 @implementation XOProgress
 
@@ -31,6 +32,12 @@
             if (player==YES) {
                 self.myVictory++;
                 self.onlineVictory++;
+                [MPManager sharedInstance].myScore.value=(long long)self.onlineVictory;
+                [[MPManager sharedInstance].myScore submitScoreWithCompletionHandler:^(GPGScoreReport *report, NSError *error){
+                    if (error) {
+                        NSLog(@"%@",error);
+                    }                    
+                }];
                 [self saveData:[NSString stringWithFormat:@"%i", self.onlineVictory]];
             }
             else {

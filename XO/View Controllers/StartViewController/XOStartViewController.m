@@ -151,6 +151,7 @@ static NSString * const kClientID = @"111039763950-dj91993gmav7o5dn26v65ga1lavlt
         [userDefaults synchronize];
     }
     [[GameManager sharedInstance] setSettings];
+    [MPManager sharedInstance].myScore=[[GPGScore alloc] initWithLeaderboardId:@"CgkI7qvx050DEAIQBQ"];
 }
 
 @end
