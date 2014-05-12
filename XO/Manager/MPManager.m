@@ -21,7 +21,7 @@ static MPManager *_instance = nil;
     if (nil == _instance) {
       _instance = [[self alloc] init];
       _instance.firstMessage=YES;
-      _instance.newGame=0;
+      //_instance.newGame=0;
     }
   }
   return _instance;
@@ -161,10 +161,10 @@ static MPManager *_instance = nil;
     }
     NSString * message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     if ([message isEqualToString:@"yes"]) {
-        _newGame=1;
+        [XOGameModel sharedInstance].opponentNewGame = NewGameMessageYes;
     }
     else if ([message isEqualToString:@"no"]){
-        _newGame=2;
+        [XOGameModel sharedInstance].opponentNewGame = NewGameMessageNo;
     }
     else{
     if(_delegate && [_delegate respondsToSelector:@selector(didReceiveMessage:)])
@@ -173,7 +173,10 @@ static MPManager *_instance = nil;
     }
     }
 }
-
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+}
 - (void)roomViewControllerDidClose:(GPGRealTimeRoomViewController *)roomViewController
 {
     [self.lobbyDelegate multiPlayerGameWasCanceled:NO];

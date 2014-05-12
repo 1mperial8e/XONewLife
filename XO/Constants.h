@@ -45,3 +45,8 @@ typedef enum {
     XOAIGameModeMedium,
     XOAIGameModeHard
 }XOAIGameMode;
+typedef enum{
+    NewGameMessageUnknown,
+    NewGameMessageYes,
+    NewGameMessageNo
+}NewGameMessage;

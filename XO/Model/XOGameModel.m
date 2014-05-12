@@ -13,9 +13,14 @@
 
 @interface XOGameModel () <UIAlertViewDelegate>
 @property (nonatomic, strong) NSIndexPath *lastMove;
+@property (nonatomic, strong) UIAlertView *waitingForUser;
+@property (nonatomic, strong) UIAlertView *alertForNewGame;
+@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic) BOOL myTurn;
 @end
 @implementation XOGameModel
 @synthesize gameColumns = _gameColumns;
+@synthesize opponentNewGame = _opponentNewGame;
 @synthesize matrix;
 #pragma mark - Static
 static XOGameModel *_instance=Nil;
@@ -36,28 +41,12 @@ static XOGameModel *_instance=Nil;
     matrix = [XOObjectiveMatrix matrixWithDimension:_gameColumns];
     matrix.parrent = self;
     _player = XOPlayerNone;
+    _winner = XOPlayerNone;
 }
-- (void) newGame: (NSTimer *)timer
-{
-    if ([[[timer userInfo] valueForKey:@"time"] intValue] == 0) {
-        if ([timer.userInfo valueForKey:@"alert"]) {
-            [self newGame];
-        [((UIAlertView *)[timer.userInfo valueForKey:@"alert"]) dismissWithClickedButtonIndex:0 animated:YES];
-        }
-        
-        [timer invalidate];
-        
-    } else {
-        int t = [[timer.userInfo valueForKey:@"time"] intValue]-1;
-        [timer.userInfo setValue:[NSNumber numberWithInt:t] forKey:@"time"];
-        if ([timer.userInfo valueForKey:@"alert"]) {
-        ((UIAlertView *)[timer.userInfo valueForKey:@"alert"]).message = [NSString stringWithFormat:@"New game through %is", [[timer.userInfo objectForKey:@"time"] intValue]];
-        }
-    }
-}
+
  - (void)newGame
 {
-    [MPManager sharedInstance].newGame=0;
+    _winner = XOPlayerNone;
     _player = _player*-1;
     //_player = _me;
     _me = _me*-1;
@@ -67,11 +56,53 @@ static XOGameModel *_instance=Nil;
         [_delegate reload];
     }
     if ([_victoryDelegate respondsToSelector:@selector(drawVector:atLine:)]) {
-        [_victoryDelegate drawVector:NSNotFound atLine:NSNotFound];
+        [_victoryDelegate drawVector:NSNotFound  atLine:NSNotFound];
     }
+    if (_gameMode == XOGameModeSingle) {
+        XOAI *ai = [XOAI new];
+        [ai moveWithTimer:1];
+    }
+    
     
 }
 #pragma mark - Custom Accsesors
+- (void)setGameMode:(XOGameMode)gameMode
+{
+    _gameMode = gameMode;
+    _winner = XOPlayerNone;
+}
+- (void) setOpponentNewGame:(NewGameMessage)opponentNewGame
+{
+    _opponentNewGame = opponentNewGame;
+    if (_waitingForUser) {
+        [_waitingForUser dismissWithClickedButtonIndex:0 animated:YES];
+        _waitingForUser = nil;
+
+    }
+    switch (opponentNewGame) {
+        case NewGameMessageYes:
+            [self newGame];
+            break;
+        case NewGameMessageNo:
+            if (_waitingForUser) {
+                [_waitingForUser dismissWithClickedButtonIndex:0 animated:YES];
+                _waitingForUser = nil;
+            }
+            if (_alertForNewGame) {
+                [_alertForNewGame dismissWithClickedButtonIndex:0 animated:YES];
+                _alertForNewGame = nil;
+            }
+            break;
+            
+        default:
+            
+            break;
+    }
+}
+- (NewGameMessage)opponentNewGame
+{
+    return _opponentNewGame;
+}
 - (int) gameColumns
 {
     if (!_gameColumns) {
@@ -85,28 +116,27 @@ static XOGameModel *_instance=Nil;
     matrix = [XOObjectiveMatrix matrixWithDimension:gColumns];
     matrix.parrent = self;
 }
-- (void)setGameMode:(XOGameMode)gameMode
-{
-    _gameMode = gameMode;
-}
 - (void)setWinner:(XOPlayer)winner
 {
     _winner = winner;
-    NSString *message;
-    if (_winner == XOPlayerNone) {
-       message = @"Draw";
-    } else {
-        message = _me==_winner?@"You win!":@"Player 2 win!";
+    _opponentNewGame = NewGameMessageUnknown;
+    switch (_gameMode) {
+        case XOGameModeSingle:
+            [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(newGame) userInfo:nil repeats:NO];
+            
+            break;
+        case XOGameModeMultiplayer:
+            break;
+        case XOGameModeOnline:
+            if (!_alertForNewGame) {
+                _alertForNewGame = [[UIAlertView alloc] initWithTitle:_player==_me?@"You win!":@"You opponent win!" message:@"Continue game?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Continue", nil];
+            }
+            [_alertForNewGame show];
+            break;
+            
+        default:
+            break;
     }
-    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:@{@"time":@3}];
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(newGame:) userInfo:dict repeats:YES];
-    if (_gameMode == XOGameModeOnline) {
-        [dict setValue:@30 forKey:@"time"];
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:message message:@"New game through 3s" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: @"New Game", nil];
-        [dict setValue:alertView forKey:@"alert"];
-        [alertView show];
-    }
-    
     if ([_timerDelegate respondsToSelector:@selector(stopTimer)])
     {
         [_timerDelegate stopTimer];
@@ -118,48 +148,48 @@ static XOGameModel *_instance=Nil;
 }
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 0) {
-        [[MPManager sharedInstance] sendPlayerMyMessage:@"no"];
-        [[MPManager sharedInstance].lobbyDelegate multiPlayerGameWasCanceled:YES];
-    } else {
-        [[MPManager sharedInstance] sendPlayerMyMessage:@"yes"];
-        [self waitOpponent];
+    switch (buttonIndex) {
+        case 1:
+            //[[MPManager sharedInstance].lobbyDelegate multiPlayerGameWasCanceled:YES];
+            [[MPManager sharedInstance] sendPlayerMyMessage:@"yes"];
+            [self displayWaitOpponentView];
+            break;
+        case 2:
+            [self newGame];
+            //[[MPManager sharedInstance] sendPlayerMyMessage:@"yes"];
+            break;
+        default:
+            [[MPManager sharedInstance].lobbyDelegate multiPlayerGameWasCanceled:YES];
+            [[MPManager sharedInstance] sendPlayerMyMessage:@"no"];
+            break;
     }
 }
-
-- (void)waitForNewGame:(NSTimer*)timer{
-    if ([[[timer userInfo] valueForKey:@"time"] intValue] == 0) {
-        [((UIAlertView *)[timer.userInfo valueForKey:@"alert"]) dismissWithClickedButtonIndex:0 animated:YES];
-        [timer invalidate];        
-    } else {
-        if ([MPManager sharedInstance].newGame==1) {
-            [((UIAlertView *)[timer.userInfo valueForKey:@"alert"]) dismissWithClickedButtonIndex:0 animated:YES];
-            [timer invalidate];            
-        }
-        else if ([MPManager sharedInstance].newGame==2){
-            [((UIAlertView *)[timer.userInfo valueForKey:@"alert"]) dismissWithClickedButtonIndex:0 animated:YES];
-            [timer invalidate];
-            [MPManager sharedInstance].newGame=0;
-        }
-        else if ([MPManager sharedInstance].newGame==0){
-        int t = [[timer.userInfo valueForKey:@"time"] intValue]-1;
-        [timer.userInfo setValue:[NSNumber numberWithInt:t] forKey:@"time"];
-        if ([timer.userInfo valueForKey:@"alert"]) {
-            ((UIAlertView *)[timer.userInfo valueForKey:@"alert"]).message = [NSString stringWithFormat:@"New game through %is", [[timer.userInfo objectForKey:@"time"] intValue]];
-        }
-        }
+- (void)displayWaitOpponentView
+{
+    if (!_waitingForUser&&!_opponentNewGame) {
+        _waitingForUser = [[UIAlertView alloc] initWithTitle:@"Waiting for parthner" message:@"" delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
+        _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerTick:) userInfo:[NSMutableDictionary dictionaryWithDictionary: @{@"waiting":@10}] repeats:YES];
     }
+    [_waitingForUser show];
 }
+- (void)timerTick:(NSTimer *)timer
+{
+    int t = [[timer.userInfo valueForKey:@"waiting"] intValue];
+    if (!t)
+    {
+        if (_waitingForUser) {
+            [_waitingForUser dismissWithClickedButtonIndex:0 animated:YES];
+            [[MPManager sharedInstance].lobbyDelegate multiPlayerGameWasCanceled:YES];
+            _waitingForUser = nil;
+        }
+        [timer invalidate];
+        timer = nil;
+    } else if (t >=3)
+    {
+    }
+    [timer.userInfo setValue:[NSNumber numberWithInt:t-1] forKey:@"waiting"];
 
-- (void)waitOpponent{
-    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:@{@"time":@10}];
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(waitForNewGame:) userInfo:dict repeats:YES];
-        [dict setValue:@10 forKey:@"time"];
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Connecting" message:@"Waiting for opponent 10s" delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
-        [dict setValue:alertView forKey:@"alert"];
-        [alertView show];
 }
-
 #pragma mark - Class Methods
 + (XOGameModel*)sharedInstance{
     @synchronized(self) {
@@ -224,22 +254,14 @@ static XOGameModel *_instance=Nil;
                 }
                 _player=_me*-1;
                  [[SoundManager sharedInstance] playXOSoundFor:value];
+                XOAI *ai = [XOAI new];
+                [ai moveWithTimer:1];
             }
-            XOAI *ai = [XOAI new];
-            [ai moveWithTimer:2];
             
-        } else if (_player&&!_winner){
-            //XOAI *ai = [XOAI new];
-            //NSIndexPath *aiMove = [ai makeMove];
-            if ([matrix setPlayer:value forIndexPath:indexPath]) {
-                if ([_delegate respondsToSelector:@selector(didChangeValue:forIndexPath:)]) {
-                    [_delegate didChangeValue:value forIndexPath:indexPath];
-                }
-                _player=_player*-1;
-                [[SoundManager sharedInstance] playXOSoundFor:value];
-            }
+            
         }
-       // NSLog(@"%@", matrix);
+        NSLog(@"Winner %i", _winner);
+        NSLog(@"%@", matrix);
     }
     
 }
@@ -257,7 +279,6 @@ static XOGameModel *_instance=Nil;
                  [_playersTurnDelegate nowMyTurn:YES];
         }
        _player=_player*-1;        
-        //[[SoundManager sharedInstance] playOTurnSound];
         [[SoundManager sharedInstance] playXOSoundFor:value];
     }
 }

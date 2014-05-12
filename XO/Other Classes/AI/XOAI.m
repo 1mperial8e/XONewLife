@@ -28,7 +28,8 @@
 }
 - (void)move:(NSTimer *)timer
 {
-    [[XOGameModel sharedInstance] willChangeValueForIndexPath:[self makeMove]];
+    //[[XOGameModel sharedInstance] willChangeValueForIndexPath:[self makeMove]];
+    [[XOGameModel sharedInstance] setMoveForIndexPath:[self makeMove]];
 }
 - (void)dealloc
 {

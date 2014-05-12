@@ -61,8 +61,10 @@
 @property (nonatomic, weak) id <XOStepTimerDelegate> timerDelegate;
 @property (nonatomic, weak) id <weHaveVictory> victoryDelegate;
 @property (nonatomic, weak) id <playersTurn> playersTurnDelegate;
+@property (nonatomic) NewGameMessage opponentNewGame;
 
 - (void)clear;
+- (void) newGame;
 - (void)setMoveForIndexPath:(NSIndexPath *)indexPath;
 + (XOGameModel *)sharedInstance;
 @end
