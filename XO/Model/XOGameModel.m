@@ -65,6 +65,7 @@ static XOGameModel *_instance=Nil;
     
     
 }
+
 #pragma mark - Custom Accsesors
 - (void)setGameMode:(XOGameMode)gameMode
 {
@@ -143,9 +144,15 @@ static XOGameModel *_instance=Nil;
     }
     [self victory];
     if ([_victoryDelegate respondsToSelector:@selector(drawVector:atLine:)]) {
+        if (_winner){
             [_victoryDelegate drawVector:matrix.vectorType atLine:matrix.vectorType == XOVectorTypeVertical?(int)matrix.lastMove.row:(int)matrix.lastMove.section];
+        }
+        else{
+            [_victoryDelegate drawVector:NSNotFound atLine:NSNotFound];
+        }
     }
 }
+
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     switch (buttonIndex) {
@@ -275,8 +282,8 @@ static XOGameModel *_instance=Nil;
         if ([_delegate respondsToSelector:@selector(didChangeValue:forIndexPath:)]) {
             [_delegate didChangeValue:value forIndexPath:indexPath];
         }
-        if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowMyTurn:)])) {
-                 [_playersTurnDelegate nowMyTurn:YES];
+        if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowTurn:)])) {
+                 [_playersTurnDelegate nowTurn:_player];
         }
        _player=_player*-1;        
         [[SoundManager sharedInstance] playXOSoundFor:value];
@@ -292,6 +299,11 @@ static XOGameModel *_instance=Nil;
     NSLog(@"victory");
     [self changeProgress];
     [self.delegate playerWin:_winner];
+    
+    if (_gameMode==XOGameModeMultiplayer) {
+        [self.victoryDelegate restartGame];
+    }
+    
     //[[GameManager sharedInstance].progress updateProgress:[GameManager sharedInstance].mode forPlayer:_winner];
     //[self clear];
     //_winner=XOPlayerNone;

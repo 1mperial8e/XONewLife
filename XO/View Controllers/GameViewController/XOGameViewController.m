@@ -14,7 +14,9 @@
 
 @interface XOGameViewController () <XOStepTimerDelegate, weHaveVictory, playersTurn>{
     NSTimer *stepTimer;
+    NSTimer *restartGameTimer;
     int time;
+    float restart;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *gameFieldContainerView;
@@ -128,7 +130,12 @@
     else if ([GameManager sharedInstance].mode == XOGameModeSingle){
         self.myName.text=@"Me";
         self.opponentName.text=@"iPhone";
+        if ([[GPGManager sharedInstance] isSignedIn]) {
         self.myPhoto.image=[UIImage imageWithData:[NSData  dataWithContentsOfURL:[NSURL URLWithString:[GameManager sharedInstance].googleUserImage]]];
+        }
+        else{
+        self.myPhoto.image=[UIImage imageNamed:@"user"];
+        }
         self.opponentPhoto.image=[UIImage imageNamed:@"apple"];
     }
     self.myName.layer.cornerRadius=4;
@@ -215,6 +222,17 @@
     return strScore;
 }
 
+- (void) changePhotos{
+    if (self.myPhoto.image==[UIImage imageNamed:@"zero_4"]){
+        self.myPhoto.image=[UIImage imageNamed:@"cross_1"];
+        self.opponentPhoto.image=[UIImage imageNamed:@"zero_4"];
+    }
+    else{
+        self.opponentPhoto.image=[UIImage imageNamed:@"cross_1"];
+        self.myPhoto.image=[UIImage imageNamed:@"zero_4"];        
+    }
+}
+
 #pragma mark - Timer Methods
 
 - (void) onTick:(NSTimer *)timer{
@@ -223,6 +241,23 @@
     if (time==0) {
         [stepTimer invalidate];
         time=30;
+    }
+}
+
+- (void) restartTick:(NSTimer *)timer{
+    restart-=0.2f;
+    if (restart<=0){
+        [restartGameTimer invalidate];
+        [[XOGameModel sharedInstance] newGame];
+        [self changePhotos];
+    }
+    switch ([[self.gameFieldContainerView viewWithTag:79] isHidden]) {
+        case YES:
+            [[self.gameFieldContainerView viewWithTag:79] setHidden:NO];
+            break;
+        case NO:
+            [[self.gameFieldContainerView viewWithTag:79] setHidden:YES];
+        break;
     }
 }
 
@@ -235,6 +270,16 @@
 {
     [stepTimer invalidate];
 }
+
+- (void)startTimer{
+    time=30;
+    stepTimer=[NSTimer scheduledTimerWithTimeInterval:1.0
+                                               target:self
+                                             selector:@selector(onTick:)
+                                             userInfo:nil
+                                              repeats:YES];
+}
+
 #pragma mark - playersTurnDelegate
 - (void) nowTurn:(XOPlayer)player{
     if (player == XOPlayerFirst) {
@@ -294,6 +339,16 @@
     [self.gameFieldContainerView addSubview:lineView];
     [self showScore];
 }
+
+- (void)restartGame{
+    restartGameTimer=[NSTimer scheduledTimerWithTimeInterval:0.1
+                                                               target:self
+                                                             selector:@selector(restartTick:)
+                                                             userInfo:nil
+                                                              repeats:YES];
+    restart=2.0f;
+}
+
 - (void) removeVector
 {
     UIImageView *lineView = (UIImageView *)[_gameFieldContainerView viewWithTag:79];
