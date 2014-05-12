@@ -55,7 +55,8 @@ static XOGameModel *_instance=Nil;
         }
     }
 }
- - (void)newGame
+
+- (void)newGame
 {
     [MPManager sharedInstance].newGame=0;
     _player = _player*-1;
@@ -71,7 +72,9 @@ static XOGameModel *_instance=Nil;
     }
     
 }
+
 #pragma mark - Custom Accsesors
+
 - (int) gameColumns
 {
     if (!_gameColumns) {
@@ -117,6 +120,7 @@ static XOGameModel *_instance=Nil;
             [_victoryDelegate drawVector:matrix.vectorType atLine:matrix.vectorType == XOVectorTypeVertical?(int)matrix.lastMove.row:(int)matrix.lastMove.section];
     }
 }
+
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 0) {
@@ -272,6 +276,11 @@ static XOGameModel *_instance=Nil;
     NSLog(@"victory");
     [self changeProgress];
     [self.delegate playerWin:_winner];
+    
+    if (_gameMode==XOGameModeMultiplayer) {
+        [self.victoryDelegate restartGame];
+    }
+    
     //[[GameManager sharedInstance].progress updateProgress:[GameManager sharedInstance].mode forPlayer:_winner];
     //[self clear];
     //_winner=XOPlayerNone;

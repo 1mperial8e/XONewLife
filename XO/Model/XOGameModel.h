@@ -38,6 +38,7 @@
 @protocol weHaveVictory <NSObject>
 @optional
 - (void)drawVector:(XOVectorType)vectorType atLine:(int)line;
+- (void)restartGame;
 @end
 
 @protocol playersTurn <NSObject>
@@ -64,5 +65,6 @@
 
 - (void)clear;
 - (void)setMoveForIndexPath:(NSIndexPath *)indexPath;
+- (void)newGame;
 + (XOGameModel *)sharedInstance;
 @end

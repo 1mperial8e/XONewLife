@@ -14,7 +14,9 @@
 
 @interface XOGameViewController () <XOStepTimerDelegate, weHaveVictory, playersTurn>{
     NSTimer *stepTimer;
+    NSTimer *restartGameTimer;
     int time;
+    float restart;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *gameFieldContainerView;
@@ -226,6 +228,22 @@
     }
 }
 
+- (void) restartTick:(NSTimer *)timer{
+    restart-=0.2f;
+    if (restart<=0){
+        [restartGameTimer invalidate];
+        [[XOGameModel sharedInstance] newGame];
+    }
+    switch ([[self.gameFieldContainerView viewWithTag:79] isHidden]) {
+        case YES:
+            [[self.gameFieldContainerView viewWithTag:79] setHidden:NO];
+            break;
+        case NO:
+            [[self.gameFieldContainerView viewWithTag:79] setHidden:YES];
+        break;
+    }
+}
+
 #pragma mark - XOStepTimerDelegate
 
 - (void) resetTimer{
@@ -294,6 +312,16 @@
     [self.gameFieldContainerView addSubview:lineView];
     [self showScore];
 }
+
+- (void)restartGame{
+    restartGameTimer=[NSTimer scheduledTimerWithTimeInterval:0.1
+                                                               target:self
+                                                             selector:@selector(restartTick:)
+                                                             userInfo:nil
+                                                              repeats:YES];
+    restart=2.0f;
+}
+
 - (void) removeVector
 {
     UIImageView *lineView = (UIImageView *)[_gameFieldContainerView viewWithTag:79];
