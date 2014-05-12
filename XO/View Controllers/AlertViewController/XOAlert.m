@@ -9,7 +9,10 @@
 #import "XOAlert.h"
 
 @interface XOAlert ()
-
+@property (nonatomic, weak) IBOutlet UIView *alertVeiw;
+@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
+@property (nonatomic, weak) IBOutlet UILabel *messageLabel;
+@property (nonatomic, weak) IBOutlet UIButton *cancelButton;
 @end
 
 @implementation XOAlert
@@ -34,7 +37,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (id)initWithTitle:(NSString *)title message:(NSString *)message delegate:(id)delegate cancelButtonTitle:(NSString *)cancelTitle otherButtonTitles:(NSString *)oserTitle, ...
+{
+    return self;
+}
 /*
 #pragma mark - Navigation
 
