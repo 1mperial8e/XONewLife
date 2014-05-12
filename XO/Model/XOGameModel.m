@@ -42,7 +42,7 @@ static XOGameModel *_instance=Nil;
     if ([[[timer userInfo] valueForKey:@"time"] intValue] == 0) {
         _player = _player*-1;
         //_player = _me;
-       // _me = _me*-1;
+        _me = _me*-1;
         matrix = [XOObjectiveMatrix matrixWithDimension:_gameColumns];
         matrix.parrent = self;
         NSLog(@"%@", matrix);
@@ -207,7 +207,7 @@ static XOGameModel *_instance=Nil;
     NSLog(@"victory");
     [self changeProgress];
     [self.delegate playerWin:_winner];
-    [[GameManager sharedInstance].progress updateProgress:[GameManager sharedInstance].mode forPlayer:_winner];
+    //[[GameManager sharedInstance].progress updateProgress:[GameManager sharedInstance].mode forPlayer:_winner];
     //[self clear];
     //_winner=XOPlayerNone;
 }
