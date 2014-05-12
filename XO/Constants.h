@@ -15,6 +15,9 @@
 #define EASY_VICTORY @"easyVictory"
 #define MEDIUM_VICTORY @"mediumVictory"
 #define HARD_VICTORY @"hardVictory"
+#define EASY_LOOSES @"easyLooses"
+#define MEDIUM_LOOSES @"mediumLooses"
+#define HARD_LOOSES @"hardLooses"
 #endif
 
 #pragma mark - Enums

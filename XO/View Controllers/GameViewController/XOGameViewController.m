@@ -26,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet UIView *myPhotoFrame;
 @property (weak, nonatomic) IBOutlet UIView *opponentPhotoFrame;
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *firstPlayerScore;
+@property (weak, nonatomic) IBOutlet UILabel *secondPlayerScore;
 
 - (IBAction)back:(id)sender;
 
@@ -101,6 +103,7 @@
     [[MPManager sharedInstance].roomToTrack leave];
     }
     [[XOGameModel sharedInstance] clear];
+    [self clearProgress];
 }
 
 - (IBAction)back:(id)sender {
@@ -116,8 +119,8 @@
     self.opponentPhoto.image=[UIImage imageWithData:[NSData  dataWithContentsOfURL:[GameManager sharedInstance].opponentImage]];
     }
     else if ([GameManager sharedInstance].mode == XOGameModeMultiplayer){
-        self.myName.text=@"Player1";
-        self.opponentName.text=@"Player2";
+        self.myName.text=@"Player 1";
+        self.opponentName.text=@"Player 2";
         self.myPhoto.image=[UIImage imageNamed:@"cross_1"];
         self.opponentPhoto.image=[UIImage imageNamed:@"zero_4"];
         [self nowTurn:XOPlayerFirst];
@@ -136,9 +139,85 @@
     self.opponentPhotoFrame.layer.cornerRadius=32.5;
     self.myPhoto.clipsToBounds=YES;
     self.opponentPhoto.clipsToBounds=YES;
+    switch ([GameManager sharedInstance].mode) {
+        case XOGameModeSingle:{
+            if ([[GameManager sharedInstance].difficulty isEqualToString:EASY_MODE]) {
+                self.firstPlayerScore.text=[self textScore:[GameManager sharedInstance].progress.easyVictory];
+                self.secondPlayerScore.text=[self textScore:[GameManager sharedInstance].progress.easyLooses];
+            }
+            if ([[GameManager sharedInstance].difficulty isEqualToString:MEDIUM_MODE]) {
+                self.firstPlayerScore.text=[self textScore:[GameManager sharedInstance].progress.mediumVictory];
+                self.secondPlayerScore.text=[self textScore:[GameManager sharedInstance].progress.mediumLooses];
+            }
+            if ([[GameManager sharedInstance].difficulty isEqualToString:HARD_MODE]) {
+                self.firstPlayerScore.text=[self textScore:[GameManager sharedInstance].progress.hardVictory];
+                self.secondPlayerScore.text=[self textScore:[GameManager sharedInstance].progress.hardLooses];
+            }
+        }
+        break;
+        default:{
+                self.firstPlayerScore.text=[self textScore:0];
+                self.secondPlayerScore.text=[self textScore:0];
+            }
+        break;
+    }
+    
 }
 
-- (void)onTick:(NSTimer *)timer{
+#pragma mark - Score methods
+
+- (void) showScore{
+    switch ([GameManager sharedInstance].mode) {
+        case XOGameModeMultiplayer:{
+            self.firstPlayerScore.text=[self textScore:[GameManager sharedInstance].firstPlayerVictory];
+            self.secondPlayerScore.text=[self textScore:[GameManager sharedInstance].secondPlayerVictory];
+        }
+        break;
+        case XOGameModeSingle:{
+            if ([[GameManager sharedInstance].difficulty isEqualToString:EASY_MODE]) {
+                self.firstPlayerScore.text=[self textScore:[GameManager sharedInstance].progress.easyVictory];
+                self.secondPlayerScore.text=[self textScore:[GameManager sharedInstance].progress.easyLooses];
+            }
+            if ([[GameManager sharedInstance].difficulty isEqualToString:MEDIUM_MODE]) {
+                self.firstPlayerScore.text=[self textScore:[GameManager sharedInstance].progress.mediumVictory];
+                self.secondPlayerScore.text=[self textScore:[GameManager sharedInstance].progress.mediumLooses];
+            }
+            if ([[GameManager sharedInstance].difficulty isEqualToString:HARD_MODE]) {
+                self.firstPlayerScore.text=[self textScore:[GameManager sharedInstance].progress.hardVictory];
+                self.secondPlayerScore.text=[self textScore:[GameManager sharedInstance].progress.hardLooses];
+            }           
+        }
+        break;
+        case XOGameModeOnline:{
+            self.firstPlayerScore.text=[self textScore:[GameManager sharedInstance].progress.myVictory];
+            self.secondPlayerScore.text=[self textScore:[GameManager sharedInstance].progress.opponentVictory];
+        }
+        break;
+    }
+}
+
+- (void) clearProgress{
+    [GameManager sharedInstance].firstPlayerVictory=0;
+    [GameManager sharedInstance].secondPlayerVictory=0;
+    [GameManager sharedInstance].progress.myVictory=0;
+    [GameManager sharedInstance].progress.opponentVictory=0;
+}
+
+- (NSString*)textScore:(int)score{
+    NSString *strScore=[NSString new];
+    if (score<10) {
+        strScore=[NSString stringWithFormat:@"0 %i",score];
+    }
+    else{
+        strScore=[NSString stringWithFormat:@"%i",score];
+        strScore=[NSString stringWithFormat:@"%@ %@", [strScore substringToIndex:1], [strScore substringFromIndex:1]];
+    }
+    return strScore;
+}
+
+#pragma mark - Timer Methods
+
+- (void) onTick:(NSTimer *)timer{
     time--;
     self.timerLabel.text=[NSString stringWithFormat:@"%i",time];
     if (time==0) {
@@ -208,6 +287,7 @@
     UIImageView *lineView=[[UIImageView alloc] initWithImage:lineIMG];
     lineView.frame=frame;
     [self.gameFieldContainerView addSubview:lineView];
+    [self showScore];
 }
 
 

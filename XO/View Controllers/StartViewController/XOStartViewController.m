@@ -137,7 +137,7 @@ static NSString * const kClientID = @"111039763950-dj91993gmav7o5dn26v65ga1lavlt
 
 - (void) getDefaultSettings{
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    if ([userDefaults objectForKey:@"easyVictory"]==nil) {
+    if ([userDefaults objectForKey:@"easyLooses"]==nil) {
         [userDefaults setBool:YES forKey:@"sound"];
         [userDefaults setBool:YES forKey:@"music"];
         [userDefaults setBool:YES forKey:@"googleAnalitics"];
@@ -145,6 +145,9 @@ static NSString * const kClientID = @"111039763950-dj91993gmav7o5dn26v65ga1lavlt
         [userDefaults setInteger:0 forKey:@"easyVictory"];
         [userDefaults setInteger:0 forKey:@"mediumVictory"];
         [userDefaults setInteger:0 forKey:@"hardVictory"];
+        [userDefaults setInteger:0 forKey:@"easyLooses"];
+        [userDefaults setInteger:0 forKey:@"mediumLooses"];
+        [userDefaults setInteger:0 forKey:@"hardLooses"];
         [userDefaults synchronize];
     }
     [[GameManager sharedInstance] setSettings];

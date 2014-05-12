@@ -158,10 +158,18 @@ static MPManager *_instance = nil;
         }
         return;
     }
-    NSString * coords = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSString * message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    if ([message isEqualToString:@"yes"]) {
+        
+    }
+    else if ([message isEqualToString:@"no"]){
+        
+    }
+    else{
     if(_delegate && [_delegate respondsToSelector:@selector(didReceiveMessage:)])
     {
-        [_delegate didReceiveMessage: coords];
+        [_delegate didReceiveMessage: message];
+    }
     }
 }
 
