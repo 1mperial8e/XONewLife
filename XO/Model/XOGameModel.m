@@ -297,8 +297,8 @@ static XOGameModel *_instance=Nil;
             if ([matrix setPlayer:_me forIndexPath:indexPath]) {
                 [self resetTimer];
                 [self didChangeValue:_me forIndexPath:indexPath];
-                [self nowTurn:_player];
                 [[SoundManager sharedInstance] playXOSoundFor:_me];
+                [self nowMyTurn:_player];
                 [[MPManager sharedInstance] sendPlayerMyMessage:[NSString stringWithFormat:@"%i%i", (int)indexPath.section, (int)indexPath.row]];
             }
         }
@@ -323,12 +323,10 @@ static XOGameModel *_instance=Nil;
 }
 - (void)setMoveForIndexPath:(NSIndexPath *)indexPath
 {
-    int value = _player;
     if ([matrix setPlayer:_player forIndexPath:indexPath]) {
         [self resetTimer];
-        [self didChangeValue:value forIndexPath:indexPath];
-        [self nowTurn:value];
-        
+        [self didChangeValue:_player forIndexPath:indexPath];
+        [self nowMyTurn:_player];
         [[SoundManager sharedInstance] playXOSoundFor:_player];
     }
 }
