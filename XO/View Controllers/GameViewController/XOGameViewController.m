@@ -248,6 +248,17 @@
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Time is out" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
+        else{
+            if ([XOGameModel sharedInstance].player == [XOGameModel sharedInstance].me) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Time is out" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+            }
+            else{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Time is out. Opponent left the game." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [[GameManager sharedInstance].progress updateProgress:XOGameModeOnline forMe:YES];
+                [alert show];
+            }
+        }
         time=30;
     }
 }
@@ -304,7 +315,9 @@
 }
 - (void) stopTimer
 {
-    [stepTimer invalidate];
+    if ([stepTimer isValid]==YES) {
+       [stepTimer invalidate];
+    }
     stepTimer = nil;
 }
 
