@@ -251,7 +251,6 @@
         else{
             if ([XOGameModel sharedInstance].player == [XOGameModel sharedInstance].me) {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Time is out" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                [[MPManager sharedInstance].roomToTrack leave];
                 [alert show];
             }
             else{
@@ -316,7 +315,9 @@
 }
 - (void) stopTimer
 {
-    [stepTimer invalidate];
+    if ([stepTimer isValid]==YES) {
+       [stepTimer invalidate];
+    }
     stepTimer = nil;
 }
 
