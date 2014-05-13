@@ -277,11 +277,13 @@
 
 - (void)startTimer{
     time=30;
-    stepTimer =[NSTimer scheduledTimerWithTimeInterval:1.0
+    if (!stepTimer.isValid) {
+        stepTimer =[NSTimer scheduledTimerWithTimeInterval:1.0
                                                target:self
                                              selector:@selector(onTick:)
                                              userInfo:nil
                                               repeats:YES];
+    }
 }
 
 #pragma mark - playersTurnDelegate
