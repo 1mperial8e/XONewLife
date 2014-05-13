@@ -53,6 +53,7 @@
 @property (nonatomic) XOPlayer me;
 @property (nonatomic) XOPlayer player;
 @property (nonatomic) XOPlayer winner;
+@property (nonatomic) XOPlayer multiplayerWinner;
 @property (nonatomic) int dimension;
 @property (nonatomic) XOGameMode gameMode;
 @property (nonatomic) XOAIGameMode aiGameMode;
@@ -67,5 +68,6 @@
 - (void)setMoveForIndexPath:(NSIndexPath *)indexPath;
 - (void)botWillTurn:(NSIndexPath *)indexPath;
 - (void)newGame;
+- (void)multiplayerNewGame;
 + (XOGameModel *)sharedInstance;
 @end

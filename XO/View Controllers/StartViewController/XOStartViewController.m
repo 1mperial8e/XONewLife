@@ -96,7 +96,8 @@
 - (IBAction)twoPlayers:(id)sender {
     [GameManager sharedInstance].mode=XOGameModeMultiplayer;
     [XOGameModel sharedInstance].gameMode = XOGameModeMultiplayer;
-    [XOGameModel sharedInstance].player = XOPlayerFirst;
+    [XOGameModel sharedInstance].me = XOPlayerNone;
+    [[XOGameModel sharedInstance] multiplayerNewGame];
     [[SoundManager sharedInstance] playClickSound];
 }
 
