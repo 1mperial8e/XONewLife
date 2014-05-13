@@ -106,6 +106,9 @@
     }
     [[XOGameModel sharedInstance] clear];
     [self clearProgress];
+    if ([stepTimer isValid]) {
+        [stepTimer invalidate];
+    }
 }
 
 - (IBAction)back:(id)sender {
