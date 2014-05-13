@@ -13,6 +13,10 @@
 
 @interface XOGameModeViewController ()
 
+@property (strong, nonatomic) IBOutlet UIButton *easy;
+@property (strong, nonatomic) IBOutlet UIButton *medium;
+@property (strong, nonatomic) IBOutlet UIButton *hard;
+
 - (IBAction)back:(id)sender;
 - (IBAction)easyMode:(id)sender;
 - (IBAction)mediumMode:(id)sender;
@@ -26,7 +30,6 @@
 {
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
-
 }
 
 - (IBAction)easyMode:(id)sender{
@@ -35,6 +38,7 @@
     [XOGameModel sharedInstance].player = XOPlayerFirst;
     [XOGameModel sharedInstance].me = XOPlayerFirst;
     [[SoundManager sharedInstance] playClickSound];
+    [self resetBtnStatus];
 }
 
 - (IBAction)mediumMode:(id)sender{
@@ -43,6 +47,7 @@
     [XOGameModel sharedInstance].player = XOPlayerFirst;
     [XOGameModel sharedInstance].me = XOPlayerFirst;
     [[SoundManager sharedInstance] playClickSound];
+    [self resetBtnStatus];
 }
 
 - (IBAction)hardMode:(id)sender{
@@ -51,11 +56,41 @@
     [XOGameModel sharedInstance].player = XOPlayerFirst;
     [XOGameModel sharedInstance].me = XOPlayerFirst;
     [[SoundManager sharedInstance] playClickSound];
+    [self resetBtnStatus];
 }
 
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
     [[SoundManager sharedInstance] playClickSound];
+}
+
+- (IBAction) pressed: (id) sender
+{
+    if (sender == self.easy)
+    {
+    	self.medium.enabled = false;
+    	self.hard.enabled = false;
+    }
+    else if (sender == self.medium)
+    {
+    	self.easy.enabled = false;
+    	self.hard.enabled = false;
+    }
+    else
+    {
+    	self.easy.enabled = false;
+    	self.medium.enabled = false;
+    }
+}
+
+- (IBAction)touchUpOutside:(id)sender{
+    [self resetBtnStatus];
+}
+
+- (void) resetBtnStatus{
+    self.easy.enabled = true;
+    self.medium.enabled = true;
+    self.hard.enabled = true;
 }
 
 @end
