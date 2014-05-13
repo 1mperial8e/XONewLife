@@ -143,6 +143,7 @@
 {
     if (error == nil && auth) {
         NSLog(@"Success signing in to Google! Auth object is %@", auth);
+        [[GameManager sharedInstance].progress canUnlockAchievement];
         [self startGoogleGamesSignIn];
         GTLPlusPerson *me=[GPPSignIn sharedInstance].googlePlusUser;
         [GameManager sharedInstance].googleUserName=me.displayName;
