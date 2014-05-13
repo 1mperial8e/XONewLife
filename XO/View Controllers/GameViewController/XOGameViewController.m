@@ -253,13 +253,26 @@
            [self changePhotos];
         }
     }
-    switch ([[self.gameFieldContainerView viewWithTag:79] isHidden]) {
-        case YES:
-            [[self.gameFieldContainerView viewWithTag:79] setHidden:NO];
+    if ([XOGameModel sharedInstance].winner!=0){
+        switch ([[self.gameFieldContainerView viewWithTag:79] isHidden]) {
+            case YES:
+                [[self.gameFieldContainerView viewWithTag:79] setHidden:NO];
             break;
-        case NO:
-            [[self.gameFieldContainerView viewWithTag:79] setHidden:YES];
-        break;
+            case NO:
+                [[self.gameFieldContainerView viewWithTag:79] setHidden:YES];
+            break;
+        }
+    }
+    else{
+        switch ([self.gameFieldContainerView isHidden]) {
+            case YES:
+                [self.gameFieldContainerView setHidden:NO];
+                break;
+            case NO:
+                [self.gameFieldContainerView setHidden:YES];
+                break;
+        }
+
     }
 }
 
@@ -278,7 +291,7 @@
 - (void)startTimer{
     time=30;
     if (!stepTimer.isValid) {
-        stepTimer =[NSTimer scheduledTimerWithTimeInterval:1.0
+    stepTimer =[NSTimer scheduledTimerWithTimeInterval:1.0
                                                target:self
                                              selector:@selector(onTick:)
                                              userInfo:nil
@@ -335,9 +348,9 @@
             frame=CGRectMake(((self.gameFieldContainerView.frame.size.width/3)/3)+line, 0, self.gameFieldContainerView.frame.size.width/10, self.gameFieldContainerView.frame.size.height);
         }
         break;
-               default:
-               [self removeVector];
-               return;
+        default:
+        [self removeVector];
+        return;
     }
     UIImageView *lineView=[[UIImageView alloc] initWithImage:lineIMG];
     lineView.frame=frame;
