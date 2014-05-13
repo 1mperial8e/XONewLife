@@ -12,7 +12,7 @@
 #import "XOGameModel.h"
 #import "SoundManager.h"
 
-@interface XOGameViewController () <XOStepTimerDelegate, weHaveVictory, playersTurn>{
+@interface XOGameViewController () <XOStepTimerDelegate, weHaveVictory, playersTurn, UIAlertViewDelegate>{
     NSTimer *stepTimer;
     NSTimer *restartGameTimer;
     int time;
@@ -137,6 +137,7 @@
         self.myPhoto.image=[UIImage imageNamed:@"user"];
         }
         self.opponentPhoto.image=[UIImage imageNamed:@"apple"];
+        [self nowTurn:XOPlayerFirst];
     }
     self.myName.layer.cornerRadius=4;
     self.opponentName.layer.cornerRadius=4;
@@ -240,6 +241,10 @@
     self.timerLabel.text=[NSString stringWithFormat:@"%i",time];
     if (time<=1) {
         [stepTimer invalidate];
+        if ([XOGameModel sharedInstance].gameMode!=XOGameModeOnline) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Time is out" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
         time=30;
     }
 }
@@ -280,6 +285,14 @@
     }
 }
 
+#pragma mark - UIAlertViewDelegate
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex==0) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
 #pragma mark - XOStepTimerDelegate
 
 - (void) resetTimer{
@@ -306,20 +319,20 @@
 #pragma mark - playersTurnDelegate
 - (void) nowTurn:(XOPlayer)player{
     if (player == XOPlayerFirst) {
-        self.myPhotoFrame.backgroundColor=[UIColor colorWithRed:(50.0/255.0) green:(190.0/255.0) blue:(70.0/255.0) alpha:1];
+        self.myPhotoFrame.backgroundColor=[UIColor colorWithRed:(50.0/255.0) green:(190.0/255.0) blue:(70.0/255.0) alpha:0.65f];
         self.opponentPhotoFrame.backgroundColor=[UIColor colorWithRed:(50.0/255.0) green:(25.0/255.0) blue:(0.0/255.0) alpha:1];
     } else if (player == XOPlayerSecond) {
-        self.opponentPhotoFrame.backgroundColor=[UIColor colorWithRed:(50.0/255.0) green:(190.0/255.0) blue:(70.0/255.0) alpha:1];
+        self.opponentPhotoFrame.backgroundColor=[UIColor colorWithRed:(50.0/255.0) green:(190.0/255.0) blue:(70.0/255.0) alpha:0.65f];
         self.myPhotoFrame.backgroundColor=[UIColor colorWithRed:(50.0/255.0) green:(25.0/255.0) blue:(0.0/255.0) alpha:1];
     }
 }
 - (void)nowMyTurn:(BOOL)myTurn
 {
     if (myTurn) {
-        self.myPhotoFrame.backgroundColor=[UIColor colorWithRed:(50.0/255.0) green:(190.0/255.0) blue:(70.0/255.0) alpha:1];
+        self.myPhotoFrame.backgroundColor=[UIColor colorWithRed:(50.0/255.0) green:(190.0/255.0) blue:(70.0/255.0) alpha:0.65f];
         self.opponentPhotoFrame.backgroundColor=[UIColor colorWithRed:(50.0/255.0) green:(25.0/255.0) blue:(0.0/255.0) alpha:1];
     } else {
-        self.opponentPhotoFrame.backgroundColor=[UIColor colorWithRed:(50.0/255.0) green:(190.0/255.0) blue:(70.0/255.0) alpha:1];
+        self.opponentPhotoFrame.backgroundColor=[UIColor colorWithRed:(50.0/255.0) green:(190.0/255.0) blue:(70.0/255.0) alpha:0.65f];
         self.myPhotoFrame.backgroundColor=[UIColor colorWithRed:(50.0/255.0) green:(25.0/255.0) blue:(0.0/255.0) alpha:1];
     }
 }
