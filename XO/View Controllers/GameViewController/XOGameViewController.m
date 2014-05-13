@@ -252,6 +252,10 @@
         if ([XOGameModel sharedInstance].gameMode == XOGameModeMultiplayer) {
            [self changePhotos];
         }
+        if ([self.gameFieldContainerView isHidden]==YES) {
+            [self.gameFieldContainerView setHidden:NO];
+        }
+        return;
     }
     if ([XOGameModel sharedInstance].winner!=0){
         switch ([[self.gameFieldContainerView viewWithTag:79] isHidden]) {
