@@ -248,7 +248,7 @@
     restart-=0.2f;
     if (restart<=0){
         [restartGameTimer invalidate];
-        [[XOGameModel sharedInstance] newGame];
+        //[[XOGameModel sharedInstance] newGame];
         if ([XOGameModel sharedInstance].gameMode == XOGameModeMultiplayer) {
            [self changePhotos];
         }

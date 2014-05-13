@@ -86,6 +86,19 @@ static XOGameModel *_instance=Nil;
     }
     
 }
+- (void)multiplayerNewGame
+{
+    _winner = XOPlayerNone;
+    [self nowTurn:_player];
+    matrix = [XOObjectiveMatrix matrixWithDimension:_gameColumns];
+    matrix.parrent = self;
+    if ([_delegate respondsToSelector:@selector(reload)]) {
+        [_delegate reload];
+    }
+    if ([_victoryDelegate respondsToSelector:@selector(drawVector:atLine:)]) {
+        [_victoryDelegate drawVector:42  atLine:42];
+    }
+}
 
 #pragma mark - Custom Accsesors
 - (void)setGameMode:(XOGameMode)gameMode
@@ -148,6 +161,7 @@ static XOGameModel *_instance=Nil;
             
             break;
         case XOGameModeMultiplayer:
+            [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(multiplayerNewGame) userInfo:nil repeats:NO];
             break;
         case XOGameModeOnline:
             if (!_alertForNewGame) {
@@ -265,15 +279,15 @@ static XOGameModel *_instance=Nil;
     {
             int value = _player;
             if ([matrix setPlayer:_player forIndexPath:indexPath]) {
-                _player = _player==XOPlayerNone?XOPlayerNone:_player*-1;
+                //_player =_player*-1;
                 [self resetTimer];
                 [self didChangeValue:value forIndexPath:indexPath];
                 [self nowTurn:_player];
                 if (_player==XOPlayerFirst) {
-                    [[SoundManager sharedInstance] playOTurnSound];
+                    [[SoundManager sharedInstance] playXTurnSound];
                 }
                 else{
-                    [[SoundManager sharedInstance] playXTurnSound];
+                    [[SoundManager sharedInstance] playOTurnSound];
                 }
             }
     }
@@ -313,8 +327,6 @@ static XOGameModel *_instance=Nil;
     if ([matrix setPlayer:_player forIndexPath:indexPath]) {
         [self resetTimer];
         [self didChangeValue:value forIndexPath:indexPath];
-        
-        //_player=_player*-1;
         [self nowTurn:value];
         
         [[SoundManager sharedInstance] playXOSoundFor:_player];
@@ -328,7 +340,6 @@ static XOGameModel *_instance=Nil;
         [self didChangeValue:value forIndexPath:indexPath];
         [[SoundManager sharedInstance] playXOSoundFor:_player];
         [self nowMyTurn:_player];
-        NSLog(@"%i", _player);
     }
 }
 
