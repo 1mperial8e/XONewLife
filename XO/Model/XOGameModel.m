@@ -203,8 +203,10 @@ static XOGameModel *_instance=Nil;
     if (_winner == _me)
     {
         player = XOPlayerFirst;
-    } else {
+    } else if (_winner == _me*-1) {
         player = XOPlayerSecond;
+    } else {
+        player = XOPlayerNone;
     }
     return player;
 }
