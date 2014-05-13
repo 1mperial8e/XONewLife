@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *easy;
 @property (strong, nonatomic) IBOutlet UIButton *medium;
 @property (strong, nonatomic) IBOutlet UIButton *hard;
+@property (weak, nonatomic) IBOutlet UIButton *back;
 
 - (IBAction)back:(id)sender;
 - (IBAction)easyMode:(id)sender;
@@ -70,16 +71,25 @@
     {
     	self.medium.enabled = false;
     	self.hard.enabled = false;
+        self.back.enabled = false;
     }
     else if (sender == self.medium)
     {
     	self.easy.enabled = false;
+    	self.hard.enabled = false;
+        self.back.enabled = false;
+    }
+    else if (sender == self.back)
+    {
+    	self.easy.enabled = false;
+        self.medium.enabled = false;
     	self.hard.enabled = false;
     }
     else
     {
     	self.easy.enabled = false;
     	self.medium.enabled = false;
+        self.back.enabled = false;
     }
 }
 
@@ -91,6 +101,7 @@
     self.easy.enabled = true;
     self.medium.enabled = true;
     self.hard.enabled = true;
+    self.back.enabled = true;
 }
 
 @end
