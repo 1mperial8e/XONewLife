@@ -88,8 +88,12 @@ static XOGameModel *_instance=Nil;
 }
 - (void)multiplayerNewGame
 {
+    _player = XOPlayerSecond;
     _winner = XOPlayerNone;
     [self nowTurn:_player];
+    //_me = _me==XOPlayerNone?XOPlayerFirst:(_player*-1);
+    if (_me == XOPlayerSecond || !_me) _me = XOPlayerFirst; else
+    if (_me == XOPlayerFirst) _me = XOPlayerSecond;
     matrix = [XOObjectiveMatrix matrixWithDimension:_gameColumns];
     matrix.parrent = self;
     if ([_delegate respondsToSelector:@selector(reload)]) {
@@ -98,6 +102,7 @@ static XOGameModel *_instance=Nil;
     if ([_victoryDelegate respondsToSelector:@selector(drawVector:atLine:)]) {
         [_victoryDelegate drawVector:42  atLine:42];
     }
+    NSLog(@"me: %i", _me);
 }
 
 #pragma mark - Custom Accsesors
@@ -192,6 +197,17 @@ static XOGameModel *_instance=Nil;
         }
     }
 }
+- (XOPlayer)multiplayerWinner
+{
+    XOPlayer player;
+    if (_winner == _me)
+    {
+        player = XOPlayerFirst;
+    } else {
+        player = XOPlayerSecond;
+    }
+    return player;
+}
 #pragma mark - Private Methods
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -277,18 +293,16 @@ static XOGameModel *_instance=Nil;
 {
     if (_gameMode == XOGameModeMultiplayer)
     {
-            int value = _player;
             if ([matrix setPlayer:_player forIndexPath:indexPath]) {
-                //_player =_player*-1;
                 [self resetTimer];
-                [self didChangeValue:value forIndexPath:indexPath];
-                [self nowTurn:_player];
+                [self didChangeValue:_player forIndexPath:indexPath];
                 if (_player==XOPlayerFirst) {
                     [[SoundManager sharedInstance] playXTurnSound];
                 }
                 else{
                     [[SoundManager sharedInstance] playOTurnSound];
                 }
+                [self nowTurn:_player];
             }
     }
     else if (_gameMode == XOGameModeOnline)
@@ -316,8 +330,6 @@ static XOGameModel *_instance=Nil;
                 [ai moveWithTimer:1];
                 
             }
-            
-            
         }
     }
 }
@@ -374,7 +386,7 @@ static XOGameModel *_instance=Nil;
         }
     }
     if ([GameManager sharedInstance].mode==XOGameModeMultiplayer) {
-        switch (_winner) {
+        switch ([self multiplayerWinner]) {
             case XOPlayerFirst:{
                 [GameManager sharedInstance].firstPlayerVictory++;
             }
