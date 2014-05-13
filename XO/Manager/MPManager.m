@@ -186,7 +186,7 @@ static MPManager *_instance = nil;
 {
     NSData *data;
     data = [message dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
-    [self.roomToTrack sendUnreliableDataToOthers:data];
+    [self.roomToTrack sendReliableDataToOthers:data];
   
 }
 
