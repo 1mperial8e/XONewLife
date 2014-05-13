@@ -18,6 +18,11 @@
 #define EASY_LOOSES @"easyLooses"
 #define MEDIUM_LOOSES @"mediumLooses"
 #define HARD_LOOSES @"hardLooses"
+#define CLIENT_ID @"111039763950-dj91993gmav7o5dn26v65ga1lavlt0jg.apps.googleusercontent.com"
+#define ACH_NEWBIE @"CgkI7qvx050DEAIQAg"
+#define ACH_STUDENT @"CgkI7qvx050DEAIQAw"
+#define ACH_EXPERT @"CgkI7qvx050DEAIQBA"
+#define LEAD_LEADERBOARD @"CgkI7qvx050DEAIQBg"
 #endif
 
 #pragma mark - Enums

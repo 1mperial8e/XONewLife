@@ -341,7 +341,7 @@ static XOGameModel *_instance=Nil;
     if ((_gameMode==XOGameModeMultiplayer) || (_gameMode==XOGameModeSingle)) {
         [self.victoryDelegate restartGame];
     }
-    
+    [[GameManager sharedInstance].progress canUnlockAchievement];
     //[[GameManager sharedInstance].progress updateProgress:[GameManager sharedInstance].mode forPlayer:_winner];
     //[self clear];
     //_winner=XOPlayerNone;

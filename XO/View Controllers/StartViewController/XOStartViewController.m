@@ -32,14 +32,13 @@
 
 @implementation XOStartViewController
 
-static NSString * const kClientID = @"111039763950-dj91993gmav7o5dn26v65ga1lavlt0jg.apps.googleusercontent.com";
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];    
 	GPPSignIn *signIn = [GPPSignIn sharedInstance];
     // You set kClientID in a previous step
-    signIn.clientID = kClientID;
+    signIn.clientID = CLIENT_ID;
     signIn.scopes = [NSArray arrayWithObjects:
                      @"https://www.googleapis.com/auth/games",
                      @"https://www.googleapis.com/auth/appstate",
@@ -194,7 +193,7 @@ static NSString * const kClientID = @"111039763950-dj91993gmav7o5dn26v65ga1lavlt
         [userDefaults synchronize];
     }
     [[GameManager sharedInstance] setSettings];
-    [MPManager sharedInstance].myScore=[[GPGScore alloc] initWithLeaderboardId:@"CgkI7qvx050DEAIQBg"];
+    [MPManager sharedInstance].myScore=[[GPGScore alloc] initWithLeaderboardId:LEAD_LEADERBOARD];
 }
 
 - (void)showAchievements{
@@ -204,7 +203,7 @@ static NSString * const kClientID = @"111039763950-dj91993gmav7o5dn26v65ga1lavlt
 }
 
 - (void)showLeaderboard{
-    GPGLeaderboardController *leadController=[[GPGLeaderboardController alloc] initWithLeaderboardId:@"CgkI7qvx050DEAIQBQ"];
+    GPGLeaderboardController *leadController=[[GPGLeaderboardController alloc] initWithLeaderboardId:LEAD_LEADERBOARD];
     leadController.leaderboardDelegate=self;
     leadController.timeScope=GPGLeaderboardTimeScopeThisWeek;
     [self presentViewController:leadController animated:YES completion:nil];

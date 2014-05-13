@@ -23,5 +23,6 @@
 - (void) updateProgress:(XOGameMode)mode forMe:(BOOL)player;
 - (void) saveData:(NSString*)dataSTR;
 - (void) loadData;
+- (void) canUnlockAchievement;
 
 @end

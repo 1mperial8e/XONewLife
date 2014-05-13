@@ -98,6 +98,31 @@
     [userDefaults synchronize];
 }
 
+- (void)canUnlockAchievement{
+    if (self.easyVictory>=50) {
+        [self tryToUnlockAchievement:ACH_NEWBIE];
+    }
+    if (self.mediumVictory>=50) {
+        [self tryToUnlockAchievement:ACH_STUDENT];
+    }
+    if (self.hardVictory>=50) {
+        [self tryToUnlockAchievement:ACH_EXPERT];
+    }
+}
+
+- (void) tryToUnlockAchievement:(NSString*)achievement{
+    GPGAchievement *unlockMe = [GPGAchievement achievementWithId:achievement];
+    [unlockMe unlockAchievementWithCompletionHandler:^(BOOL newlyUnlocked, NSError *error) {
+        if (error) {
+            NSLog(@"%@",error);
+        } else if (!newlyUnlocked) {
+            // Achievement was already unlocked
+        } else {
+            NSLog(@"Hooray! Achievement unlocked!");
+        }
+    }];    
+}
+
 #pragma mark - CloudSaving
 
 - (void)saveData:(NSString*)dataSTR{
