@@ -132,7 +132,7 @@
         }
     } else if (![self movesLeft]) {
         if ([_parrent respondsToSelector:@selector(setWinner:)]) {
-            [_parrent setWinner:_winner];
+            [_parrent setWinner:XOPlayerNone];
         }
     }
     

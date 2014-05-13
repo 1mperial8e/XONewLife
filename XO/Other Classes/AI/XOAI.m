@@ -28,8 +28,7 @@
 }
 - (void)move:(NSTimer *)timer
 {
-    //[[XOGameModel sharedInstance] willChangeValueForIndexPath:[self makeMove]];
-    [[XOGameModel sharedInstance] setMoveForIndexPath:[self makeMove]];
+    [[XOGameModel sharedInstance] botWillTurn:[self makeMove]];
 }
 - (void)dealloc
 {
@@ -71,19 +70,17 @@
 }
 - (NSIndexPath *)getMediumMove:(XOObjectiveMatrix *)matrix
 {
-    NSIndexPath *winMove = [self checkForWin:matrix];
+    NSIndexPath *winMove = [self checkForWin:matrix player:[XOGameModel sharedInstance].me*-1];
+    NSLog(@"%@", winMove);
     if (winMove) {
         return winMove;
     }
-    NSIndexPath *protectMove = [self checkForProtect:matrix];
+    NSIndexPath *protectMove =  [self checkForWin:matrix player:[XOGameModel sharedInstance].me];
+     NSLog(@"%@", protectMove);
     if (protectMove) {
         return protectMove;
     }
-    return /*nil;*/[self getEasyMove:matrix];
-}
-- (NSIndexPath *)checkForProtect:(XOObjectiveMatrix *)matrix
-{
-    return [self checkForWin:matrix];
+    return [self getEasyMove:matrix];
 }
 
 
@@ -92,10 +89,24 @@
     return [NSIndexPath indexPathForItem:i inSection:j];
 }
 
-- (NSIndexPath *)checkForWin:(XOObjectiveMatrix *)matrix
+//- (NSIndexPath *)checkForWin2:(XOObjectiveMatrix *)matrix player:(XOPlayer)aiSide
+//{
+//    int dim = [XOGameModel sharedInstance].dimension;
+//    int countInRowToWin = dim;
+//    for (int i = 0; i<dim; i++) {
+//        for (int j = 0; j<dim; j++) {
+//            if ([matrix[i][j] intValue] == aiSide) {
+//                if (jStart <0) {
+//                    jStart = 0
+//                }
+//            }
+//        }
+//    }
+//    return nil;
+//}
+- (NSIndexPath *)checkForWin:(XOObjectiveMatrix *)matrix player:(XOPlayer)aiSide
 {
     int size = [XOGameModel sharedInstance].dimension;
-    XOPlayer aiSide = [XOGameModel sharedInstance].me*-1;
     int countInRowToWin = [XOGameModel sharedInstance].dimension;
     
     // Horizontal
@@ -110,7 +121,7 @@
                 jEnd = j;
             }
             else {
-                if ((jStart >= 0 && jEnd >=0 )&& (jEnd - jStart + 1 == countInRowToWin - 1)) {
+                if ((jStart >= 0 && jEnd >=0 )&& (jEnd - jStart + 1 == countInRowToWin-1)) {
                     // Can AI do move to left of finding block?
                     if (jStart > 0)
                         if ([matrix.value[i][jStart - 1] intValue] == XOPlayerNone)

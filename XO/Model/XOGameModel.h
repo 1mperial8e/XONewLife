@@ -18,11 +18,10 @@
 #import "XOGameFieldViewController.h"
 #import "MPManager.h"
 #import "Constants.h"
-
+#pragma mark - Protocols
 @protocol XOGameModelDelegate <NSObject>
 @optional
 - (void)gameOver;
-- (void)changeValue:(int)value forPoint:(CGPoint)point;
 - (void)playerWin:(XOPlayer)player;
 - (void)willChangeValue:(int)value forIndexPath:(NSIndexPath *)indexPath;
 - (void)didChangeValue:(int)value forIndexPath:(NSIndexPath *)indexPath;
@@ -47,14 +46,13 @@
 - (void)nowTurn:(XOPlayer)player;
 - (void)nowMyTurn:(BOOL)myTurn;
 @end
-
+#pragma mark - XO Game Model Interface
 @interface XOGameModel : NSObject <XOGameFieldViewControllerDelegate, GameDelegate>
 @property (nonatomic, assign) int gameColumns;
 @property (nonatomic, strong) NSDate *endGameTime;
-@property (nonatomic) BOOL xTurn;
+@property (nonatomic) XOPlayer me;
 @property (nonatomic) XOPlayer player;
 @property (nonatomic) XOPlayer winner;
-@property (nonatomic) XOPlayer me;
 @property (nonatomic) int dimension;
 @property (nonatomic) XOGameMode gameMode;
 @property (nonatomic) XOAIGameMode aiGameMode;
@@ -66,8 +64,8 @@
 @property (nonatomic) NewGameMessage opponentNewGame;
 
 - (void)clear;
-- (void) newGame;
 - (void)setMoveForIndexPath:(NSIndexPath *)indexPath;
+- (void)botWillTurn:(NSIndexPath *)indexPath;
 - (void)newGame;
 + (XOGameModel *)sharedInstance;
 @end
