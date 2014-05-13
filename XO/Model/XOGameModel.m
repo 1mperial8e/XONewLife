@@ -88,12 +88,15 @@ static XOGameModel *_instance=Nil;
 }
 - (void)multiplayerNewGame
 {
-    _player = XOPlayerSecond;
+    _player = XOPlayerFirst;
     _winner = XOPlayerNone;
-    [self nowTurn:_player];
+    //[self nowTurn:_player];
     //_me = _me==XOPlayerNone?XOPlayerFirst:(_player*-1);
     if (_me == XOPlayerSecond || !_me) _me = XOPlayerFirst; else
     if (_me == XOPlayerFirst) _me = XOPlayerSecond;
+    if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowMyTurn:)])) {
+        [_playersTurnDelegate nowMyTurn:_player==_me?YES:NO];
+    }
     matrix = [XOObjectiveMatrix matrixWithDimension:_gameColumns];
     matrix.parrent = self;
     if ([_delegate respondsToSelector:@selector(reload)]) {
@@ -304,7 +307,10 @@ static XOGameModel *_instance=Nil;
                 else{
                     [[SoundManager sharedInstance] playOTurnSound];
                 }
-                [self nowTurn:_player];
+                _player = _player*-1;
+                if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowMyTurn:)])) {
+                    [_playersTurnDelegate nowMyTurn:_player==_me?YES:NO];
+                }
             }
     }
     else if (_gameMode == XOGameModeOnline)
