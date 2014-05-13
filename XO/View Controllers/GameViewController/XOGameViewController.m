@@ -12,7 +12,7 @@
 #import "XOGameModel.h"
 #import "SoundManager.h"
 
-@interface XOGameViewController () <XOStepTimerDelegate, weHaveVictory, playersTurn>{
+@interface XOGameViewController () <XOStepTimerDelegate, weHaveVictory, playersTurn, UIAlertViewDelegate>{
     NSTimer *stepTimer;
     NSTimer *restartGameTimer;
     int time;
@@ -241,6 +241,10 @@
     self.timerLabel.text=[NSString stringWithFormat:@"%i",time];
     if (time<=1) {
         [stepTimer invalidate];
+        if ([XOGameModel sharedInstance].gameMode!=XOGameModeOnline) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Time is out" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
         time=30;
     }
 }
@@ -278,6 +282,14 @@
                 break;
         }
 
+    }
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex==0) {
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 
