@@ -235,7 +235,7 @@ static XOGameModel *_instance=Nil;
 - (void)displayWaitOpponentView
 {
     if (!_waitingForUser&&!_opponentNewGame) {
-        _waitingForUser = [[UIAlertView alloc] initWithTitle:@"Waiting for parthner" message:@"" delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
+        _waitingForUser = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Waiting", nil) message:@"" delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
         _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerTick:) userInfo:[NSMutableDictionary dictionaryWithDictionary: @{@"waiting":@10}] repeats:YES];
     }
     [_waitingForUser show];
@@ -324,7 +324,6 @@ static XOGameModel *_instance=Nil;
                 [[MPManager sharedInstance] sendPlayerMyMessage:[NSString stringWithFormat:@"%i%i", (int)indexPath.section, (int)indexPath.row]];
             }
         }
-        NSLog(@"%@", matrix);
     }
     else if (_gameMode == XOGameModeSingle)
     {
@@ -371,9 +370,6 @@ static XOGameModel *_instance=Nil;
         [self.victoryDelegate restartGame];
     }
     [[GameManager sharedInstance].progress canUnlockAchievement];
-    //[[GameManager sharedInstance].progress updateProgress:[GameManager sharedInstance].mode forPlayer:_winner];
-    //[self clear];
-    //_winner=XOPlayerNone;
 }
 
 - (void)changeProgress{
