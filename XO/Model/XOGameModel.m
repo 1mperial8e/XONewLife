@@ -105,6 +105,9 @@ static XOGameModel *_instance=Nil;
     if ([_victoryDelegate respondsToSelector:@selector(drawVector:atLine:)]) {
         [_victoryDelegate drawVector:42  atLine:42];
     }
+    if ((_timerDelegate) && ([_timerDelegate respondsToSelector:@selector(startTimer)])) {
+        [_timerDelegate startTimer];
+    }
     NSLog(@"me: %i", _me);
 }
 
