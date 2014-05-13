@@ -132,6 +132,9 @@
             [self saveData:[NSString stringWithFormat:@"%i", self.onlineVictory]];
         } else if (status == GPGAppStateLoadStatusSuccess) {
             NSString *data=[[NSString alloc] initWithData:[model stateDataForKey:playerAvatarKey] encoding:NSUTF8StringEncoding];
+            if ([data integerValue]>10000) {
+                data = @"0";
+            }
             self.onlineVictory=[data integerValue];
         } else if (status == GPGAppStateLoadStatusUnknownError) {
             NSLog(@"error loading data! error %@",error);

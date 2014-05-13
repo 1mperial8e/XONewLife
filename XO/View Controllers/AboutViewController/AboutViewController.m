@@ -29,4 +29,5 @@
     [[SoundManager sharedInstance] playClickSound];
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 @end
