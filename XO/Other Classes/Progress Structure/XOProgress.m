@@ -54,36 +54,36 @@
                 if (player==YES){
                     self.easyVictory++;
                     value=self.easyVictory;
-                    key=EASY_LOOSES;
+                    key=EASY_VICTORY;
                 }
                 else {
                     self.easyLooses++;
                     value=self.easyLooses;
-                    key=EASY_VICTORY;
+                    key=EASY_LOOSES;
                 }
             }
             if ([[GameManager sharedInstance].difficulty isEqualToString:MEDIUM_MODE]){
                 if (player==YES){
                     self.mediumVictory++;
                     value=self.mediumVictory;
-                    key=MEDIUM_LOOSES;
+                    key=MEDIUM_VICTORY;
                 }
                 else {
                     self.mediumLooses++;
                     value=self.mediumLooses;
-                    key=MEDIUM_VICTORY;
+                    key=MEDIUM_LOOSES;
                 }
             }
             if ([[GameManager sharedInstance].difficulty isEqualToString:HARD_MODE]){
                 if (player==YES){
                     self.hardVictory++;
                     value=self.hardVictory;
-                    key=HARD_LOOSES;
+                    key=HARD_VICTORY;
                 }
                 else {
                     self.hardLooses++;
                     value=self.hardLooses;
-                    key=HARD_VICTORY;
+                    key=HARD_LOOSES;
                 }
             }
         }

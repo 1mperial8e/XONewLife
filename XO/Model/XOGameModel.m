@@ -80,6 +80,9 @@ static XOGameModel *_instance=Nil;
         XOAI *ai = [XOAI new];
         [ai moveWithTimer:1];
     }
+    if ((_timerDelegate) && ([_timerDelegate respondsToSelector:@selector(startTimer)])) {
+        [_timerDelegate startTimer];
+    }
     
     
 }
@@ -318,7 +321,7 @@ static XOGameModel *_instance=Nil;
     [self changeProgress];
     [self.delegate playerWin:_winner];
     
-    if (_gameMode==XOGameModeMultiplayer) {
+    if ((_gameMode==XOGameModeMultiplayer) || (_gameMode==XOGameModeSingle)) {
         [self.victoryDelegate restartGame];
     }
     
@@ -337,17 +340,11 @@ static XOGameModel *_instance=Nil;
         }
     }
     if ([GameManager sharedInstance].mode==XOGameModeSingle) {
-        switch (_winner) {
-            case XOPlayerFirst:{
-                [[GameManager sharedInstance].progress updateProgress:[GameManager sharedInstance].mode forMe:YES];
-            }
-                break;
-            case XOPlayerSecond:{
-                [[GameManager sharedInstance].progress updateProgress:[GameManager sharedInstance].mode forMe:YES];
-            }
-                break;
-            default:
-                break;
+        if (_winner==_me) {
+            [[GameManager sharedInstance].progress updateProgress:[GameManager sharedInstance].mode forMe:YES];
+        }
+        else{
+            [[GameManager sharedInstance].progress updateProgress:[GameManager sharedInstance].mode forMe:NO];
         }
     }
     if ([GameManager sharedInstance].mode==XOGameModeMultiplayer) {

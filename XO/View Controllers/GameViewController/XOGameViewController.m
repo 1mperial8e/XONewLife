@@ -238,7 +238,7 @@
 - (void) onTick:(NSTimer *)timer{
     time--;
     self.timerLabel.text=[NSString stringWithFormat:@"%i",time];
-    if (time==0) {
+    if (time<=1) {
         [stepTimer invalidate];
         time=30;
     }
@@ -249,7 +249,9 @@
     if (restart<=0){
         [restartGameTimer invalidate];
         [[XOGameModel sharedInstance] newGame];
-        [self changePhotos];
+        if ([XOGameModel sharedInstance].gameMode == XOGameModeMultiplayer) {
+           [self changePhotos];
+        }
     }
     switch ([[self.gameFieldContainerView viewWithTag:79] isHidden]) {
         case YES:
@@ -265,15 +267,17 @@
 
 - (void) resetTimer{
     time=30;
+    self.timerLabel.text=[NSString stringWithFormat:@"%i",time];
 }
 - (void) stopTimer
 {
     [stepTimer invalidate];
+    stepTimer = nil;
 }
 
 - (void)startTimer{
     time=30;
-    stepTimer=[NSTimer scheduledTimerWithTimeInterval:1.0
+    stepTimer =[NSTimer scheduledTimerWithTimeInterval:1.0
                                                target:self
                                              selector:@selector(onTick:)
                                              userInfo:nil

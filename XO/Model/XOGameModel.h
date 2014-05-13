@@ -68,6 +68,5 @@
 - (void)clear;
 - (void) newGame;
 - (void)setMoveForIndexPath:(NSIndexPath *)indexPath;
-- (void)newGame;
 + (XOGameModel *)sharedInstance;
 @end
