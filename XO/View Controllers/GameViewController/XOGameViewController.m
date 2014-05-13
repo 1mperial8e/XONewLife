@@ -238,7 +238,7 @@
 - (void) onTick:(NSTimer *)timer{
     time--;
     self.timerLabel.text=[NSString stringWithFormat:@"%i",time];
-    if (time==0) {
+    if (time<=1) {
         [stepTimer invalidate];
         time=30;
     }
@@ -249,15 +249,34 @@
     if (restart<=0){
         [restartGameTimer invalidate];
         [[XOGameModel sharedInstance] newGame];
-        [self changePhotos];
+        if ([XOGameModel sharedInstance].gameMode == XOGameModeMultiplayer) {
+           [self changePhotos];
+        }
+        if ([self.gameFieldContainerView isHidden]==YES) {
+            [self.gameFieldContainerView setHidden:NO];
+        }
+        return;
     }
-    switch ([[self.gameFieldContainerView viewWithTag:79] isHidden]) {
-        case YES:
-            [[self.gameFieldContainerView viewWithTag:79] setHidden:NO];
+    if ([XOGameModel sharedInstance].winner!=0){
+        switch ([[self.gameFieldContainerView viewWithTag:79] isHidden]) {
+            case YES:
+                [[self.gameFieldContainerView viewWithTag:79] setHidden:NO];
             break;
-        case NO:
-            [[self.gameFieldContainerView viewWithTag:79] setHidden:YES];
-        break;
+            case NO:
+                [[self.gameFieldContainerView viewWithTag:79] setHidden:YES];
+            break;
+        }
+    }
+    else{
+        switch ([self.gameFieldContainerView isHidden]) {
+            case YES:
+                [self.gameFieldContainerView setHidden:NO];
+                break;
+            case NO:
+                [self.gameFieldContainerView setHidden:YES];
+                break;
+        }
+
     }
 }
 
@@ -265,19 +284,23 @@
 
 - (void) resetTimer{
     time=30;
+    self.timerLabel.text=[NSString stringWithFormat:@"%i",time];
 }
 - (void) stopTimer
 {
     [stepTimer invalidate];
+    stepTimer = nil;
 }
 
 - (void)startTimer{
     time=30;
-    stepTimer=[NSTimer scheduledTimerWithTimeInterval:1.0
+    if (!stepTimer.isValid) {
+    stepTimer =[NSTimer scheduledTimerWithTimeInterval:1.0
                                                target:self
                                              selector:@selector(onTick:)
                                              userInfo:nil
                                               repeats:YES];
+    }
 }
 
 #pragma mark - playersTurnDelegate
@@ -329,9 +352,9 @@
             frame=CGRectMake(((self.gameFieldContainerView.frame.size.width/3)/3)+line, 0, self.gameFieldContainerView.frame.size.width/10, self.gameFieldContainerView.frame.size.height);
         }
         break;
-               default:
-               [self removeVector];
-               return;
+        default:
+        [self removeVector];
+        return;
     }
     UIImageView *lineView=[[UIImageView alloc] initWithImage:lineIMG];
     lineView.frame=frame;

@@ -15,7 +15,10 @@
 #import "SoundManager.h"
 
 
-@interface XOStartViewController () <GPGAchievementControllerDelegate, GPGLeaderboardControllerDelegate>
+@interface XOStartViewController () <GPGAchievementControllerDelegate, GPGLeaderboardControllerDelegate, UIAlertViewDelegate>{
+    BOOL showAchievement;
+    BOOL showLeaderboard;
+}
 
 - (IBAction)leaderboardButton:(id)sender;
 - (IBAction)achievementsButton:(id)sender;
@@ -48,6 +51,8 @@ static NSString * const kClientID = @"111039763950-dj91993gmav7o5dn26v65ga1lavlt
     [signIn trySilentAuthentication];
     [self getDefaultSettings];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
+    showAchievement=NO;
+    showLeaderboard=NO;
 }
 
 - (void) viewWillAppear:(BOOL)animated{
@@ -58,17 +63,29 @@ static NSString * const kClientID = @"111039763950-dj91993gmav7o5dn26v65ga1lavlt
 #pragma mark - UIActions
 
 - (IBAction)leaderboardButton:(id)sender{
-    GPGLeaderboardController *leadController=[[GPGLeaderboardController alloc] initWithLeaderboardId:@"CgkI7qvx050DEAIQBQ"];
-    leadController.leaderboardDelegate=self;
-    leadController.timeScope=GPGLeaderboardTimeScopeThisWeek;
-    [self presentViewController:leadController animated:YES completion:nil];
     [[SoundManager sharedInstance] playClickSound];
+    if (![[GPGManager sharedInstance] isSignedIn]) {
+        showLeaderboard=YES;
+        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"You are not signed in" message:@"Sign in via google+ to use leaderboard" delegate:self cancelButtonTitle:@"Cancle" otherButtonTitles:@"Sign in", nil];
+        [alert show];
+    }
+    else{
+        [self showLeaderboard];
+    }
+
+    
 }
+
 - (IBAction)achievementsButton:(id)sender{
-    GPGAchievementController *achController = [[GPGAchievementController alloc] init];
-    achController.achievementDelegate = self;
-    [self presentViewController:achController animated:YES completion:nil];
     [[SoundManager sharedInstance] playClickSound];
+    if (![[GPGManager sharedInstance] isSignedIn]) {
+        showAchievement=YES;
+        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"You are not signed in" message:@"Sign in via google+ to use achievements" delegate:self cancelButtonTitle:@"Cancle" otherButtonTitles:@"Sign in", nil];
+        [alert show];
+    }
+    else{
+        [self showAchievements];
+    }
 }
 
 - (IBAction)singlePlayer:(id)sender {
@@ -94,11 +111,31 @@ static NSString * const kClientID = @"111039763950-dj91993gmav7o5dn26v65ga1lavlt
 - (IBAction)settings:(id)sender {
     [[SoundManager sharedInstance] playClickSound];
 }
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    switch (buttonIndex) {
+        case 0:{
+            showLeaderboard=NO;
+            showAchievement=NO;
+        }
+        break;
+        case 1:{
+            [self startGoogleGamesSignIn];
+        }
+        default:
+        break;
+    }
+}
+
+
 #pragma mark - GPGLeaderboardDelegate
 
 - (void) leaderboardViewControllerDidFinish:(GPGLeaderboardController *)viewController{
     [self dismissViewControllerAnimated:YES completion:nil];
     [[SoundManager sharedInstance] playClickSound];
+    showLeaderboard=NO;
 }
 
 #pragma mark - GPPSignIn delegate
@@ -111,6 +148,12 @@ static NSString * const kClientID = @"111039763950-dj91993gmav7o5dn26v65ga1lavlt
         GTLPlusPerson *me=[GPPSignIn sharedInstance].googlePlusUser;
         [GameManager sharedInstance].googleUserName=me.displayName;
         [GameManager sharedInstance].googleUserImage=me.image.url;
+        if (showAchievement==YES) {
+            [self showAchievements];
+        }
+        else if (showLeaderboard==YES){
+            [self showLeaderboard];
+        }
     } else {
         NSLog(@"Failed to log into Google!\n\tError=%@\n\tAuthObj=%@",error,auth);
     }
@@ -151,7 +194,20 @@ static NSString * const kClientID = @"111039763950-dj91993gmav7o5dn26v65ga1lavlt
         [userDefaults synchronize];
     }
     [[GameManager sharedInstance] setSettings];
-    [MPManager sharedInstance].myScore=[[GPGScore alloc] initWithLeaderboardId:@"CgkI7qvx050DEAIQBQ"];
+    [MPManager sharedInstance].myScore=[[GPGScore alloc] initWithLeaderboardId:@"CgkI7qvx050DEAIQBg"];
+}
+
+- (void)showAchievements{
+    GPGAchievementController *achController = [[GPGAchievementController alloc] init];
+    achController.achievementDelegate = self;
+    [self presentViewController:achController animated:YES completion:nil];
+}
+
+- (void)showLeaderboard{
+    GPGLeaderboardController *leadController=[[GPGLeaderboardController alloc] initWithLeaderboardId:@"CgkI7qvx050DEAIQBQ"];
+    leadController.leaderboardDelegate=self;
+    leadController.timeScope=GPGLeaderboardTimeScopeThisWeek;
+    [self presentViewController:leadController animated:YES completion:nil];
 }
 
 @end

@@ -23,7 +23,7 @@
 @property (nonatomic) XOGameMode mode;
 @property (nonatomic, strong) XOProgress *progress;
 @property (nonatomic) int firstPlayerVictory;
-@property (nonatomic) int secondPlayerVictory;
+@property (nonatomic) int secondPlayerVictory; 
 @property (nonatomic) int myRoll;
 @property (nonatomic) BOOL iTurnFirst;
 

@@ -167,16 +167,17 @@ static MPManager *_instance = nil;
         [XOGameModel sharedInstance].opponentNewGame = NewGameMessageNo;
     }
     else{
-    if(_delegate && [_delegate respondsToSelector:@selector(didReceiveMessage:)])
-    {
-        [_delegate didReceiveMessage: message];
-    }
+        if(_delegate && [_delegate respondsToSelector:@selector(didReceiveMessage:)])
+        {
+            [_delegate didReceiveMessage: message];
+        }
     }
 }
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    
 }
+
 - (void)roomViewControllerDidClose:(GPGRealTimeRoomViewController *)roomViewController
 {
     [self.lobbyDelegate multiPlayerGameWasCanceled:NO];
@@ -186,7 +187,7 @@ static MPManager *_instance = nil;
 {
     NSData *data;
     data = [message dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
-    [self.roomToTrack sendUnreliableDataToOthers:data];
+    [self.roomToTrack sendReliableDataToOthers:data];
   
 }
 

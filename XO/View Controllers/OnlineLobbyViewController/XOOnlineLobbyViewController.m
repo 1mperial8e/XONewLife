@@ -11,6 +11,7 @@
 #import "MPManager.h"
 #import "XOGameViewController.h"
 #import "SoundManager.h"
+#import "XOGameModel.h"
 
 @interface XOOnlineLobbyViewController () <UIAlertViewDelegate, MPLobbyDelegate>
 
@@ -99,13 +100,14 @@
         [self dismissViewControllerAnimated:YES completion:nil];
         [[SoundManager sharedInstance] playClickSound];
     }
+    if (![[self.navigationController.viewControllers lastObject] isEqual:self])
+    {
     if (byMe==YES){
         [self.navigationController popViewControllerAnimated:YES];
     }
     else{
-        if (![[self.navigationController.viewControllers lastObject] isEqual:self])
-        {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"End game!" message:@"Opponent has left the game :-(" delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];
+        [XOGameModel sharedInstance].opponentNewGame=NewGameMessageNo;
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"End game!" message:@"Opponent has left the game :-(" delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];
             [alert show];
         }
     }

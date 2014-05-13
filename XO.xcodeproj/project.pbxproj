@@ -45,6 +45,7 @@
 		84AAC886191AAA92001C0B94 /* sound_win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84AAC881191AAA92001C0B94 /* sound_win.mp3 */; };
 		84AAC889191AAB0E001C0B94 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AAC888191AAB0E001C0B94 /* SoundManager.m */; };
 		84AAC88D191D2120001C0B94 /* XOProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AAC88C191D2120001C0B94 /* XOProgress.m */; };
+		84AAC89019220AD4001C0B94 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AAC88F19220AD4001C0B94 /* AboutViewController.m */; };
 		84D667711917882A000DA569 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D667701917882A000DA569 /* AVFoundation.framework */; };
 		84D6677319178838000DA569 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D6677219178838000DA569 /* AudioToolbox.framework */; };
 		FCBA6849B3044F72B6B90560 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE32FFD0F7604EB6BEFAF60C /* libPods.a */; };
@@ -121,6 +122,8 @@
 		84AAC888191AAB0E001C0B94 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
 		84AAC88B191D2120001C0B94 /* XOProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XOProgress.h; sourceTree = "<group>"; };
 		84AAC88C191D2120001C0B94 /* XOProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOProgress.m; sourceTree = "<group>"; };
+		84AAC88E19220AD4001C0B94 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = AboutViewController/AboutViewController.h; sourceTree = "<group>"; };
+		84AAC88F19220AD4001C0B94 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = AboutViewController/AboutViewController.m; sourceTree = "<group>"; };
 		84D667701917882A000DA569 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		84D6677219178838000DA569 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		DE32FFD0F7604EB6BEFAF60C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,14 +156,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7F232CE61920ED3F004B208E /* AlerViewController */ = {
+		7F232CE61920ED3F004B208E /* AlertViewController */ = {
 			isa = PBXGroup;
 			children = (
 				7F232CE31920ED35004B208E /* XOAlert.h */,
 				7F232CE41920ED35004B208E /* XOAlert.m */,
 				7F232CE71920ED66004B208E /* AlertView.storyboard */,
 			);
-			name = AlerViewController;
+			name = AlertViewController;
 			sourceTree = "<group>";
 		};
 		7F912D77191F633700675027 /* AI */ = {
@@ -304,7 +307,8 @@
 				8481FC9E19165DF600D9F0EB /* GameModeViewController */,
 				8481FC8819152A2D00D9F0EB /* StartViewController */,
 				8481FC8B19152A2D00D9F0EB /* GameField */,
-				7F232CE61920ED3F004B208E /* AlerViewController */,
+				7F232CE61920ED3F004B208E /* AlertViewController */,
+				84AAC89219220B07001C0B94 /* AboutViewController */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -376,6 +380,15 @@
 				84AAC88C191D2120001C0B94 /* XOProgress.m */,
 			);
 			path = "Progress Structure";
+			sourceTree = "<group>";
+		};
+		84AAC89219220B07001C0B94 /* AboutViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84AAC88E19220AD4001C0B94 /* AboutViewController.h */,
+				84AAC88F19220AD4001C0B94 /* AboutViewController.m */,
+			);
+			name = AboutViewController;
 			sourceTree = "<group>";
 		};
 		84D6677619178B49000DA569 /* Resources */ = {
@@ -547,6 +560,7 @@
 				8481FC9919152A2D00D9F0EB /* XOGameFieldViewController.m in Sources */,
 				8481FC9619152A2D00D9F0EB /* XOStartViewController.m in Sources */,
 				8481FC9319152A2D00D9F0EB /* MPManager.m in Sources */,
+				84AAC89019220AD4001C0B94 /* AboutViewController.m in Sources */,
 				7F912D76191F632F00675027 /* XOAI.m in Sources */,
 				7FEAECD7191783FB0065CC57 /* XOCollectionViewCell.m in Sources */,
 				8481FC541915273E00D9F0EB /* XOAppDelegate.m in Sources */,
