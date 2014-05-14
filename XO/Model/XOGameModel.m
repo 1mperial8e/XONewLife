@@ -393,6 +393,7 @@ static XOGameModel *_instance=Nil;
         }
     }
     if ([GameManager sharedInstance].mode==XOGameModeMultiplayer) {
+        [[GameManager sharedInstance].progress updateProgress:[GameManager sharedInstance].mode forMe:NO];
         switch ([self multiplayerWinner]) {
             case XOPlayerFirst:{
                 [GameManager sharedInstance].firstPlayerVictory++;
