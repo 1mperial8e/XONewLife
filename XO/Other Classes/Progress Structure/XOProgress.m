@@ -21,6 +21,8 @@
     _hardVictory=0;
     _myVictory=0;
     _opponentVictory=0;
+    _onlineGames=0;
+    _multiplayerGames=0;
     return self;
 }
 
@@ -29,6 +31,7 @@
     NSInteger value = 0;
     switch (mode) {
         case XOGameModeOnline:{
+            self.onlineGames++;
             if (player==YES) {
                 self.myVictory++;
                 self.onlineVictory++;
@@ -47,6 +50,9 @@
         }
             break;
         case XOGameModeMultiplayer:{
+            [GameManager sharedInstance].progress.multiplayerGames++;
+            value=self.multiplayerGames;
+            key=MULTIPLAYER_GAMES;
         }
             break;
         case XOGameModeSingle:{
@@ -99,14 +105,20 @@
 }
 
 - (void)canUnlockAchievement{
-    if (self.easyVictory>=50) {
+    if (self.easyVictory>=10) {
         [self tryToUnlockAchievement:ACH_NEWBIE];
     }
-    if (self.mediumVictory>=50) {
-        [self tryToUnlockAchievement:ACH_STUDENT];
+    if (self.hardVictory>=10) {
+        [self tryToUnlockAchievement:ACH_GOOD_PLAYER];
     }
-    if (self.hardVictory>=50) {
-        [self tryToUnlockAchievement:ACH_EXPERT];
+    if (self.onlineGames>=1) {
+        [self tryToUnlockAchievement:ACH_BEGINER];
+    }
+    if (self.multiplayerGames>=10) {
+        [self tryToUnlockAchievement:ACH_FRIENDLY_GAMER];
+    }
+    if (self.onlineVictory>=10) {
+        [self tryToUnlockAchievement:ACH_GAMER];
     }
 }
 

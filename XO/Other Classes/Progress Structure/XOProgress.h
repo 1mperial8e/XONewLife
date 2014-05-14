@@ -19,6 +19,8 @@
 @property (nonatomic) int onlineVictory;
 @property (nonatomic) int myVictory;
 @property (nonatomic) int opponentVictory;
+@property (nonatomic) int onlineGames;
+@property (nonatomic) int multiplayerGames;
 
 - (void) updateProgress:(XOGameMode)mode forMe:(BOOL)player;
 - (void) saveData:(NSString*)dataSTR;

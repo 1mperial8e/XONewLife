@@ -191,17 +191,18 @@
 
 - (void) getDefaultSettings{
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    if ([userDefaults objectForKey:@"easyLooses"]==nil) {
+    if ([userDefaults objectForKey:MULTIPLAYER_GAMES]==nil) {
         [userDefaults setBool:YES forKey:@"sound"];
         [userDefaults setBool:YES forKey:@"music"];
         [userDefaults setBool:YES forKey:@"googleAnalitics"];
         [userDefaults setBool:YES forKey:@"push"];
-        [userDefaults setInteger:0 forKey:@"easyVictory"];
+        [userDefaults setInteger:0 forKey:EASY_VICTORY];
         [userDefaults setInteger:0 forKey:@"mediumVictory"];
-        [userDefaults setInteger:0 forKey:@"hardVictory"];
-        [userDefaults setInteger:0 forKey:@"easyLooses"];
+        [userDefaults setInteger:0 forKey:HARD_VICTORY];
+        [userDefaults setInteger:0 forKey:EASY_LOOSES];
         [userDefaults setInteger:0 forKey:@"mediumLooses"];
-        [userDefaults setInteger:0 forKey:@"hardLooses"];
+        [userDefaults setInteger:0 forKey:HARD_LOOSES];
+        [userDefaults setInteger:0 forKey:MULTIPLAYER_GAMES];
         [userDefaults synchronize];
     }
     [[GameManager sharedInstance] setSettings];
