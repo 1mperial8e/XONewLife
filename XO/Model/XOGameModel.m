@@ -388,7 +388,7 @@ static XOGameModel *_instance=Nil;
         if (_winner==_me) {
             [[GameManager sharedInstance].progress updateProgress:[GameManager sharedInstance].mode forMe:YES];
         }
-        else{
+        else if (_winner!=XOPlayerNone){
             [[GameManager sharedInstance].progress updateProgress:[GameManager sharedInstance].mode forMe:NO];
         }
     }
