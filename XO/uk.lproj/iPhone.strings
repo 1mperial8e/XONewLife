@@ -1,0 +1,78 @@
+
+/* Class = "IBUIButton"; normalTitle = "Back"; ObjectID = "140-3x-xl1"; */
+"140-3x-xl1.normalTitle" = "Назад";
+
+/* Class = "IBUIButton"; normalTitle = "     Music"; ObjectID = "37d-Ft-fD2"; */
+"37d-Ft-fD2.normalTitle" = "Музика";
+
+/* Class = "IBUIButton"; normalTitle = "Back"; ObjectID = "AnF-Yi-fVM"; */
+"AnF-Yi-fVM.normalTitle" = "Назад";
+
+/* Class = "IBUILabel"; text = "Payer 1"; ObjectID = "FYN-Ii-4fX"; */
+"FYN-Ii-4fX.text" = "Гравець 1";
+
+/* Class = "IBUIButton"; normalTitle = "Quick game"; ObjectID = "H4L-Zc-Aug"; */
+"H4L-Zc-Aug.normalTitle" = "Швидка гра";
+
+/* Class = "IBUIButton"; normalTitle = "ACHIEVEMENTS"; ObjectID = "KNA-7C-R0M"; */
+"KNA-7C-R0M.normalTitle" = "ДОСЯГНЕННЯ";
+
+/* Class = "IBUIButton"; normalTitle = "SETTINGS"; ObjectID = "Mrb-50-4fV"; */
+"Mrb-50-4fV.normalTitle" = "ПАРАМЕТРИ";
+
+/* Class = "IBUIButton"; normalTitle = "Invite friend"; ObjectID = "ODZ-jy-vtr"; */
+"ODZ-jy-vtr.normalTitle" = "Запросити друзів";
+
+/* Class = "IBUIButton"; normalTitle = "Hard"; ObjectID = "TEz-He-AXN"; */
+"TEz-He-AXN.normalTitle" = "Складний";
+
+/* Class = "IBUIButton"; normalTitle = "Easy"; ObjectID = "UJq-20-ndO"; */
+"UJq-20-ndO.normalTitle" = "Легкий";
+
+/* Class = "IBUIButton"; normalTitle = "     Sound"; ObjectID = "Ujd-6b-wt6"; */
+"Ujd-6b-wt6.normalTitle" = "Звуки";
+
+/* Class = "IBUIButton"; normalTitle = "PLAY ONLINE"; ObjectID = "b6A-R5-2a6"; */
+"b6A-R5-2a6.normalTitle" = "ГАТИ ОНЛАЙН";
+
+/* Class = "IBUIButton"; normalTitle = "Back"; ObjectID = "bsH-p2-BQ8"; */
+"bsH-p2-BQ8.normalTitle" = "Назад";
+
+/* Class = "IBUIButton"; normalTitle = "                          Sign out"; ObjectID = "cHn-93-C4a"; */
+"cHn-93-C4a.normalTitle" = "Вийти";
+
+/* Class = "IBUIButton"; normalTitle = "1 PLAYER"; ObjectID = "eXF-2A-saR"; */
+"eXF-2A-saR.normalTitle" = "1 ГАВЕЦЬ";
+
+/* Class = "IBUILabel"; text = "30"; ObjectID = "gxM-D7-TB0"; */
+"gxM-D7-TB0.text" = "30";
+
+/* Class = "IBUIButton"; normalTitle = "Back"; ObjectID = "keo-I7-l4f"; */
+"keo-I7-l4f.normalTitle" = "Назад";
+
+/* Class = "IBUIButton"; normalTitle = "2 PLAYERS"; ObjectID = "mCo-RS-3Ie"; */
+"mCo-RS-3Ie.normalTitle" = "2 ГРАВЦІ";
+
+/* Class = "IBUIButton"; normalTitle = "Hard"; ObjectID = "mat-kP-aGb"; */
+"mat-kP-aGb.normalTitle" = "Складний";
+
+/* Class = "IBUIButton"; normalTitle = "     Push"; ObjectID = "otG-xq-tDu"; */
+"otG-xq-tDu.normalTitle" = "Push";
+
+/* Class = "IBUIButton"; normalTitle = "ABOUT"; ObjectID = "pxp-Sb-ING"; */
+"pxp-Sb-ING.normalTitle" = "ПРО ДОДАТОК";
+
+/* Class = "IBUILabel"; text = "Payer 2"; ObjectID = "qna-UE-joM"; */
+"qna-UE-joM.text" = "Гравець 2";
+
+/* Class = "IBUIButton"; normalTitle = "Check invites"; ObjectID = "se9-4H-YFG"; */
+"se9-4H-YFG.normalTitle" = "Запрошення";
+
+/* Class = "IBUIButton"; normalTitle = "     Google Analitics"; ObjectID = "tGq-Cy-ljw"; */
+"tGq-Cy-ljw.normalTitle" = "Google Analitics";
+
+/* Class = "IBUIButton"; normalTitle = "Back"; ObjectID = "u12-8p-hZz"; */
+"u12-8p-hZz.normalTitle" = "Назад";
+
+/* Class = "IBUIButton"; normalTitle = "LEADERBOARD"; ObjectID = "u5v-08-xuZ"; */
+"u5v-08-xuZ.normalTitle" = "ЛІДЕРИ";

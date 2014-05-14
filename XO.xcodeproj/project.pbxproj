@@ -14,10 +14,14 @@
 		7FEAECD7191783FB0065CC57 /* XOCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEAECD6191783FB0065CC57 /* XOCollectionViewCell.m */; };
 		7FEAECDA1917ADF80065CC57 /* XOGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEAECD91917ADF80065CC57 /* XOGameViewController.m */; };
 		7FEAED2D1917D84E0065CC57 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FEAED2C1917D84E0065CC57 /* Images.xcassets */; };
-		7FF34694192253B500E4AEE1 /* Localized.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7FF34696192253B500E4AEE1 /* Localized.strings */; };
+		7FF34694192253B500E4AEE1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7FF34696192253B500E4AEE1 /* Localizable.strings */; };
 		7FF3469D19225B2C00E4AEE1 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FF3469F19225B2C00E4AEE1 /* iPhone.storyboard */; };
 		7FF346B1192266C800E4AEE1 /* XOStartSequeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF346B0192266C800E4AEE1 /* XOStartSequeAnimation.m */; };
-		7FF346B7192349B600E4AEE1 /* crown.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7FF346B6192349B600E4AEE1 /* crown.mp3 */; };
+		7FF346BA1923503500E4AEE1 /* MGCicleProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF346B91923503500E4AEE1 /* MGCicleProgress.m */; };
+		7FF346BD19236A5800E4AEE1 /* XOAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF346BC19236A5800E4AEE1 /* XOAlertView.m */; };
+		7FF346C5192383EB00E4AEE1 /* sound_win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7FF346C4192383EB00E4AEE1 /* sound_win.mp3 */; };
+		7FF346C819239A7D00E4AEE1 /* ADVManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF346C719239A7D00E4AEE1 /* ADVManager.m */; };
+		7FF346CA19239AFF00E4AEE1 /* sound_lose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7FF346C919239AFF00E4AEE1 /* sound_lose.mp3 */; };
 		7FF96EA3191A4B5C00EDB431 /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7FF96EA2191A4B5C00EDB431 /* music.mp3 */; };
 		7FF96EA6191BF9A200EDB431 /* XOObjectiveMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF96EA5191BF9A200EDB431 /* XOObjectiveMatrix.m */; };
 		84742D8119197CF3007B868E /* XOGameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84742D8019197CF3007B868E /* XOGameModel.m */; };
@@ -44,8 +48,6 @@
 		84AAC882191AAA92001C0B94 /* sound_click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84AAC87D191AAA92001C0B94 /* sound_click.mp3 */; };
 		84AAC883191AAA92001C0B94 /* sound_goes_o.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84AAC87E191AAA92001C0B94 /* sound_goes_o.mp3 */; };
 		84AAC884191AAA92001C0B94 /* sound_goes_x.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84AAC87F191AAA92001C0B94 /* sound_goes_x.mp3 */; };
-		84AAC885191AAA92001C0B94 /* sound_lose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84AAC880191AAA92001C0B94 /* sound_lose.mp3 */; };
-		84AAC886191AAA92001C0B94 /* sound_win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84AAC881191AAA92001C0B94 /* sound_win.mp3 */; };
 		84AAC889191AAB0E001C0B94 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AAC888191AAB0E001C0B94 /* SoundManager.m */; };
 		84AAC88D191D2120001C0B94 /* XOProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AAC88C191D2120001C0B94 /* XOProgress.m */; };
 		84AAC89019220AD4001C0B94 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AAC88F19220AD4001C0B94 /* AboutViewController.m */; };
@@ -78,13 +80,23 @@
 		7FEAECD81917ADF80065CC57 /* XOGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XOGameViewController.h; sourceTree = "<group>"; };
 		7FEAECD91917ADF80065CC57 /* XOGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOGameViewController.m; sourceTree = "<group>"; };
 		7FEAED2C1917D84E0065CC57 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		7FF34695192253B500E4AEE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localized.strings; sourceTree = "<group>"; };
-		7FF34697192253D100E4AEE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localized.strings; sourceTree = "<group>"; };
+		7FF34695192253B500E4AEE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7FF34697192253D100E4AEE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7FF3469E19225B2C00E4AEE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPhone.storyboard; sourceTree = "<group>"; };
-		7FF346A419225B7100E4AEE1 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localized.strings; sourceTree = "<group>"; };
+		7FF346A419225B7100E4AEE1 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7FF346AF192266C800E4AEE1 /* XOStartSequeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XOStartSequeAnimation.h; path = Animations/XOStartSequeAnimation.h; sourceTree = "<group>"; };
 		7FF346B0192266C800E4AEE1 /* XOStartSequeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XOStartSequeAnimation.m; path = Animations/XOStartSequeAnimation.m; sourceTree = "<group>"; };
-		7FF346B6192349B600E4AEE1 /* crown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crown.mp3; sourceTree = "<group>"; };
+		7FF346B81923503500E4AEE1 /* MGCicleProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGCicleProgress.h; sourceTree = "<group>"; };
+		7FF346B91923503500E4AEE1 /* MGCicleProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGCicleProgress.m; sourceTree = "<group>"; };
+		7FF346BB19236A5800E4AEE1 /* XOAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XOAlertView.h; path = AlertViewController/XOAlertView.h; sourceTree = "<group>"; };
+		7FF346BC19236A5800E4AEE1 /* XOAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XOAlertView.m; path = AlertViewController/XOAlertView.m; sourceTree = "<group>"; };
+		7FF346C11923702D00E4AEE1 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/iPhone.strings; sourceTree = "<group>"; };
+		7FF346C219237FAA00E4AEE1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7FF346C319237FAA00E4AEE1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/iPhone.strings; sourceTree = "<group>"; };
+		7FF346C4192383EB00E4AEE1 /* sound_win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_win.mp3; sourceTree = "<group>"; };
+		7FF346C619239A7D00E4AEE1 /* ADVManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADVManager.h; sourceTree = "<group>"; };
+		7FF346C719239A7D00E4AEE1 /* ADVManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADVManager.m; sourceTree = "<group>"; };
+		7FF346C919239AFF00E4AEE1 /* sound_lose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_lose.mp3; sourceTree = "<group>"; };
 		7FF96EA2191A4B5C00EDB431 /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
 		7FF96EA4191BF9A200EDB431 /* XOObjectiveMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XOObjectiveMatrix.h; sourceTree = "<group>"; };
 		7FF96EA5191BF9A200EDB431 /* XOObjectiveMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOObjectiveMatrix.m; sourceTree = "<group>"; };
@@ -125,8 +137,6 @@
 		84AAC87D191AAA92001C0B94 /* sound_click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_click.mp3; sourceTree = "<group>"; };
 		84AAC87E191AAA92001C0B94 /* sound_goes_o.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_goes_o.mp3; sourceTree = "<group>"; };
 		84AAC87F191AAA92001C0B94 /* sound_goes_x.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_goes_x.mp3; sourceTree = "<group>"; };
-		84AAC880191AAA92001C0B94 /* sound_lose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_lose.mp3; sourceTree = "<group>"; };
-		84AAC881191AAA92001C0B94 /* sound_win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_win.mp3; sourceTree = "<group>"; };
 		84AAC887191AAB0E001C0B94 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
 		84AAC888191AAB0E001C0B94 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
 		84AAC88B191D2120001C0B94 /* XOProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XOProgress.h; sourceTree = "<group>"; };
@@ -171,6 +181,8 @@
 				7F232CE31920ED35004B208E /* XOAlert.h */,
 				7F232CE41920ED35004B208E /* XOAlert.m */,
 				7F232CE71920ED66004B208E /* AlertView.storyboard */,
+				7FF346BB19236A5800E4AEE1 /* XOAlertView.h */,
+				7FF346BC19236A5800E4AEE1 /* XOAlertView.m */,
 			);
 			name = AlertViewController;
 			sourceTree = "<group>";
@@ -187,6 +199,8 @@
 		7FF346B2192266CE00E4AEE1 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				7FF346B81923503500E4AEE1 /* MGCicleProgress.h */,
+				7FF346B91923503500E4AEE1 /* MGCicleProgress.m */,
 				7FF346AF192266C800E4AEE1 /* XOStartSequeAnimation.h */,
 				7FF346B0192266C800E4AEE1 /* XOStartSequeAnimation.m */,
 			);
@@ -312,6 +326,8 @@
 				8481FCA0191661A000D9F0EB /* GameManager.m */,
 				84AAC887191AAB0E001C0B94 /* SoundManager.h */,
 				84AAC888191AAB0E001C0B94 /* SoundManager.m */,
+				7FF346C619239A7D00E4AEE1 /* ADVManager.h */,
+				7FF346C719239A7D00E4AEE1 /* ADVManager.m */,
 			);
 			name = Managers;
 			path = Manager;
@@ -416,12 +432,11 @@
 				84AAC87D191AAA92001C0B94 /* sound_click.mp3 */,
 				84AAC87E191AAA92001C0B94 /* sound_goes_o.mp3 */,
 				84AAC87F191AAA92001C0B94 /* sound_goes_x.mp3 */,
-				84AAC880191AAA92001C0B94 /* sound_lose.mp3 */,
-				84AAC881191AAA92001C0B94 /* sound_win.mp3 */,
 				7FF96EA2191A4B5C00EDB431 /* music.mp3 */,
-				7FF346B6192349B600E4AEE1 /* crown.mp3 */,
+				7FF346C4192383EB00E4AEE1 /* sound_win.mp3 */,
+				7FF346C919239AFF00E4AEE1 /* sound_lose.mp3 */,
 				7FEAED2C1917D84E0065CC57 /* Images.xcassets */,
-				7FF34696192253B500E4AEE1 /* Localized.strings */,
+				7FF34696192253B500E4AEE1 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = SOURCE_ROOT;
@@ -489,6 +504,7 @@
 				en,
 				Base,
 				uk,
+				ru,
 			);
 			mainGroup = 8481FC371915273E00D9F0EB;
 			productRefGroup = 8481FC411915273E00D9F0EB /* Products */;
@@ -506,18 +522,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84AAC886191AAA92001C0B94 /* sound_win.mp3 in Resources */,
 				84AAC883191AAA92001C0B94 /* sound_goes_o.mp3 in Resources */,
-				7FF346B7192349B600E4AEE1 /* crown.mp3 in Resources */,
+				7FF346C5192383EB00E4AEE1 /* sound_win.mp3 in Resources */,
 				8481FC5A1915273E00D9F0EB /* Main_iPad.storyboard in Resources */,
 				84AAC884191AAA92001C0B94 /* sound_goes_x.mp3 in Resources */,
 				8481FC4E1915273E00D9F0EB /* InfoPlist.strings in Resources */,
 				7F232CE81920ED66004B208E /* AlertView.storyboard in Resources */,
+				7FF346CA19239AFF00E4AEE1 /* sound_lose.mp3 in Resources */,
 				84AAC882191AAA92001C0B94 /* sound_click.mp3 in Resources */,
 				7FEAED2D1917D84E0065CC57 /* Images.xcassets in Resources */,
 				7FF3469D19225B2C00E4AEE1 /* iPhone.storyboard in Resources */,
-				84AAC885191AAA92001C0B94 /* sound_lose.mp3 in Resources */,
-				7FF34694192253B500E4AEE1 /* Localized.strings in Resources */,
+				7FF34694192253B500E4AEE1 /* Localizable.strings in Resources */,
 				7FF96EA3191A4B5C00EDB431 /* music.mp3 in Resources */,
 				8481FC9719152A2D00D9F0EB /* GameField.storyboard in Resources */,
 			);
@@ -573,6 +588,7 @@
 			files = (
 				8481FCA1191661A000D9F0EB /* GameManager.m in Sources */,
 				7FEAECD4191772A70065CC57 /* XOGameFieldFlowLayout.m in Sources */,
+				7FF346BD19236A5800E4AEE1 /* XOAlertView.m in Sources */,
 				8481FC9D19165DF100D9F0EB /* XOGameModeViewController.m in Sources */,
 				84AAC88D191D2120001C0B94 /* XOProgress.m in Sources */,
 				84AAC889191AAB0E001C0B94 /* SoundManager.m in Sources */,
@@ -580,11 +596,13 @@
 				8481FC9419152A2D00D9F0EB /* XOOnlineLobbyViewController.m in Sources */,
 				7F232CE51920ED35004B208E /* XOAlert.m in Sources */,
 				8481FC501915273E00D9F0EB /* main.m in Sources */,
+				7FF346C819239A7D00E4AEE1 /* ADVManager.m in Sources */,
 				8481FC9519152A2D00D9F0EB /* XOSettingsViewController.m in Sources */,
 				7FF346B1192266C800E4AEE1 /* XOStartSequeAnimation.m in Sources */,
 				8481FC9919152A2D00D9F0EB /* XOGameFieldViewController.m in Sources */,
 				8481FC9619152A2D00D9F0EB /* XOStartViewController.m in Sources */,
 				8481FC9319152A2D00D9F0EB /* MPManager.m in Sources */,
+				7FF346BA1923503500E4AEE1 /* MGCicleProgress.m in Sources */,
 				84AAC89019220AD4001C0B94 /* AboutViewController.m in Sources */,
 				7F912D76191F632F00675027 /* XOAI.m in Sources */,
 				7FEAECD7191783FB0065CC57 /* XOCollectionViewCell.m in Sources */,
@@ -613,20 +631,23 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7FF34696192253B500E4AEE1 /* Localized.strings */ = {
+		7FF34696192253B500E4AEE1 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				7FF34695192253B500E4AEE1 /* Base */,
 				7FF34697192253D100E4AEE1 /* en */,
 				7FF346A419225B7100E4AEE1 /* uk */,
+				7FF346C219237FAA00E4AEE1 /* ru */,
 			);
-			name = Localized.strings;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		7FF3469F19225B2C00E4AEE1 /* iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				7FF3469E19225B2C00E4AEE1 /* Base */,
+				7FF346C11923702D00E4AEE1 /* uk */,
+				7FF346C319237FAA00E4AEE1 /* ru */,
 			);
 			name = iPhone.storyboard;
 			sourceTree = "<group>";
@@ -662,6 +683,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					armv7s,
+					armv7,
+				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -693,7 +718,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "82B0C230-C08B-4A2F-BC17-0F8342AE3CA2";
+				PROVISIONING_PROFILE = "FB92E9A7-1384-4854-B684-4DDD279CDFB1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -703,6 +728,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					armv7s,
+					armv7,
+				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -727,7 +756,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				PROVISIONING_PROFILE = "82B0C230-C08B-4A2F-BC17-0F8342AE3CA2";
+				PROVISIONING_PROFILE = "FB92E9A7-1384-4854-B684-4DDD279CDFB1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -738,12 +767,21 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13E03152E7E4493380648031 /* Pods.xcconfig */;
 			buildSettings = {
+				ARCHS = (
+					armv7s,
+					armv7,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XO/XO-Prefix.pch";
 				INFOPLIST_FILE = "XO/XO-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/XO/GoogleAdMobAdsSdkiOS-6.8.0/Add-ons/GoogleAnalyticsServicesiOS_3.03",
+					"$(PROJECT_DIR)/XO/GoogleAdMobAdsSdkiOS-6.8.0",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -786,8 +824,8 @@
 				);
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "82B0C230-C08B-4A2F-BC17-0F8342AE3CA2";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "FB92E9A7-1384-4854-B684-4DDD279CDFB1";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -796,12 +834,21 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13E03152E7E4493380648031 /* Pods.xcconfig */;
 			buildSettings = {
+				ARCHS = (
+					armv7s,
+					armv7,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XO/XO-Prefix.pch";
 				INFOPLIST_FILE = "XO/XO-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/XO/GoogleAdMobAdsSdkiOS-6.8.0/Add-ons/GoogleAnalyticsServicesiOS_3.03",
+					"$(PROJECT_DIR)/XO/GoogleAdMobAdsSdkiOS-6.8.0",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -844,8 +891,8 @@
 				);
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "82B0C230-C08B-4A2F-BC17-0F8342AE3CA2";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "FB92E9A7-1384-4854-B684-4DDD279CDFB1";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

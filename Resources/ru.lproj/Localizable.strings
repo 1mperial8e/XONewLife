@@ -1,0 +1,16 @@
+
+ "Sing in" = "Войти";
+ "Sing out" = "Выйти";
+"You win!" = "Вы выиграли!";
+"You opponent win!" = "Ваш оппонент выиграл!";
+"Continue game?" = "Продолжить игру?";
+"Cancel"= "Завершить";
+"Continue"="Продолжить";
+"Draw game!"="Ничья!";
+"Waiting for opponent"="Ожидание оппонента.";
+"End game!"="Конец игры";
+"Opponent has left the game :-("="Оппонент покинул игру";
+"Exit"="Выход";
+"Player %i"="Игрок %i";
+"Me"="Я";
+""="";

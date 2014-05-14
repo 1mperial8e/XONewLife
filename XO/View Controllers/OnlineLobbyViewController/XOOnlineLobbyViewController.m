@@ -107,7 +107,8 @@
     }
     else{
         [XOGameModel sharedInstance].opponentNewGame=NewGameMessageNo;
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"End game!" message:@"Opponent has left the game :-(" delegate:self cancelButtonTitle:@"Exit" otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"End game!", ni
+l) message:NSLocalizedString(@"Opponent has left the game :-(", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Exit", nil) otherButtonTitles:nil, nil];
         [[XOGameModel sharedInstance].timerDelegate stopTimer];
         [alert show];
         }

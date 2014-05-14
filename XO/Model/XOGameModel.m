@@ -10,11 +10,12 @@
 #import "GameManager.h"
 #import "SoundManager.h"
 #import "XOAI.h"
+#import "XOAlertView.h"
 
 @interface XOGameModel () <UIAlertViewDelegate>
 @property (nonatomic, strong) NSIndexPath *lastMove;
-@property (nonatomic, strong) UIAlertView *waitingForUser;
-@property (nonatomic, strong) UIAlertView *alertForNewGame;
+@property (nonatomic, strong) XOAlertView *waitingForUser;
+@property (nonatomic, strong) XOAlertView *alertForNewGame;
 @property (nonatomic, strong) NSTimer *timer;
 @end
 @implementation XOGameModel
@@ -108,7 +109,6 @@ static XOGameModel *_instance=Nil;
     if ((_timerDelegate) && ([_timerDelegate respondsToSelector:@selector(startTimer)])) {
         [_timerDelegate startTimer];
     }
-    NSLog(@"me: %i", _me);
 }
 
 #pragma mark - Custom Accsesors
@@ -177,9 +177,9 @@ static XOGameModel *_instance=Nil;
         case XOGameModeOnline:
             if (!_alertForNewGame) {
                 if (winner) {
-                    _alertForNewGame = [[UIAlertView alloc] initWithTitle:_winner==_me?@"You win!":@"You opponent win!" message:@"Continue game?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Continue", nil];
+                    _alertForNewGame = [[XOAlertView alloc] initWithTitle:_winner==_me?NSLocalizedString(@"You win!", nil):NSLocalizedString(@"You opponent win!", nil)message:NSLocalizedString(@"Continue game?", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"Continue", nil), nil];
                 } else {
-                    _alertForNewGame = [[UIAlertView alloc] initWithTitle:@"Draw game!" message:@"Continue game?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Continue", nil];
+                    _alertForNewGame = [[XOAlertView alloc] initWithTitle:NSLocalizedString(@"Draw game!", nil) message:NSLocalizedString(@"Continue game?", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"Continue", nil), nil];
                 }
                 
             }
@@ -238,7 +238,7 @@ static XOGameModel *_instance=Nil;
 - (void)displayWaitOpponentView
 {
     if (!_waitingForUser&&!_opponentNewGame) {
-        _waitingForUser = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Waiting", nil) message:@"" delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
+        _waitingForUser = [[XOAlertView alloc] initWithTitle:NSLocalizedString(@"Waiting for opponent", nil) message:@"" delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
         _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerTick:) userInfo:[NSMutableDictionary dictionaryWithDictionary: @{@"waiting":@10}] repeats:YES];
     }
     [_waitingForUser show];
@@ -365,7 +365,6 @@ static XOGameModel *_instance=Nil;
 
 - (void) victory
 {
-    NSLog(@"victory");
     [self changeProgress];
     [self.delegate playerWin:_winner];
     

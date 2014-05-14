@@ -45,12 +45,12 @@
 
 - (IBAction)signInOut:(id)sender {
     if ([[GPGManager sharedInstance] isSignedIn]){
-        [self.signInOut setTitle:@"                          Sign in" forState:UIControlStateNormal];
+        [self.signInOut setTitle:NSLocalizedString(@"G_SIGN_IN", @"")/* @"                          Sign in"*/ forState:UIControlStateNormal];
         [[GPGManager sharedInstance] signOut];
     }
     else{
         [[GPPSignIn sharedInstance] authenticate];
-        [self.signInOut setTitle:@"                          Sign out" forState:UIControlStateNormal];
+        [self.signInOut setTitle:NSLocalizedString(@"G_SIGN_OUT", @"")/*@"                          Sign out"*/ forState:UIControlStateNormal];
     }
 }
 
@@ -89,10 +89,10 @@
 
 - (void) setControlState{
     if ([[GPGManager sharedInstance] isSignedIn]) {
-        [self.signInOut setTitle:@"                          Sign out" forState:UIControlStateNormal];
+        [self.signInOut setTitle:NSLocalizedString(@"Sing out", @"")/*@"                          Sign out"*/ forState:UIControlStateNormal];
     }
     else{
-        [self.signInOut setTitle:@"                          Sign in" forState:UIControlStateNormal];
+        [self.signInOut setTitle:NSLocalizedString(@"Sing in", @"")/*@"                          Sign in"*/ forState:UIControlStateNormal];
     }
     if ([GameManager sharedInstance].sound) {
         self.soundCheck.image=[UIImage imageNamed:@"checked"];

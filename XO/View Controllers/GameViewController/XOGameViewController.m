@@ -11,6 +11,7 @@
 #import "MPManager.h"
 #import "XOGameModel.h"
 #import "SoundManager.h"
+#import "MGCicleProgress.h"
 
 @interface XOGameViewController () <XOStepTimerDelegate, weHaveVictory, playersTurn, UIAlertViewDelegate>{
     NSTimer *stepTimer;
@@ -30,7 +31,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *firstPlayerScore;
 @property (weak, nonatomic) IBOutlet UILabel *secondPlayerScore;
-
+@property (weak, nonatomic) IBOutlet MGCicleProgress *progress;
 - (IBAction)back:(id)sender;
 
 @end
@@ -51,6 +52,7 @@
         [[GameManager sharedInstance].progress loadData];
         [[GameManager sharedInstance] tryToBeFirst];
     }
+    _progress.maxValue = 30;
     time=30;
     stepTimer=[NSTimer scheduledTimerWithTimeInterval:1.0
                                                target:self
@@ -124,14 +126,14 @@
     self.opponentPhoto.image=[UIImage imageWithData:[NSData  dataWithContentsOfURL:[GameManager sharedInstance].opponentImage]];
     }
     else if ([GameManager sharedInstance].mode == XOGameModeMultiplayer){
-        self.myName.text=@"Player 1";
-        self.opponentName.text=@"Player 2";
+        self.myName.text=[NSString stringWithFormat:NSLocalizedString(@"Player %i", nil), 1];
+        self.opponentName.text=[NSString stringWithFormat:NSLocalizedString(@"Player %i", nil), 2];
         self.myPhoto.image=[UIImage imageNamed:@"cross_1"];
         self.opponentPhoto.image=[UIImage imageNamed:@"zero_4"];
         [self nowTurn:XOPlayerFirst];
     }
     else if ([GameManager sharedInstance].mode == XOGameModeSingle){
-        self.myName.text=@"Me";
+        self.myName.text=NSLocalizedString(@"Me", nil);
         self.opponentName.text=@"iPhone";
         if ([[GPGManager sharedInstance] isSignedIn]) {
         self.myPhoto.image=[UIImage imageWithData:[NSData  dataWithContentsOfURL:[NSURL URLWithString:[GameManager sharedInstance].googleUserImage]]];
@@ -242,6 +244,7 @@
 - (void) onTick:(NSTimer *)timer{
     time--;
     self.timerLabel.text=[NSString stringWithFormat:@"%i",time];
+    _progress.doubleValue = (double)time;
     if (time<=1) {
         [stepTimer invalidate];
         if ([XOGameModel sharedInstance].gameMode!=XOGameModeOnline) {

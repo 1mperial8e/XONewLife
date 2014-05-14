@@ -13,7 +13,7 @@
 #import "GTLPlusPerson.h"
 #import "XOGameModel.h"
 #import "SoundManager.h"
-
+#import "ADVManager.h"
 
 @interface XOStartViewController () <GPGAchievementControllerDelegate, GPGLeaderboardControllerDelegate, UIAlertViewDelegate>{
     BOOL showAchievement;
@@ -59,6 +59,9 @@
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
     showAchievement=NO;
     showLeaderboard=NO;
+    UIView *v = [self.view viewWithTag:135];
+    [ADVManager sharedInstance].advRootViewController = self;
+    [v addSubview:[ADVManager sharedInstance].adv];
 }
 
 - (void) viewWillAppear:(BOOL)animated{

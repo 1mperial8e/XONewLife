@@ -35,8 +35,6 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
 	<key>GPGApplicationID</key>
 	<string>111039763950</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -62,5 +60,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>
