@@ -19,6 +19,13 @@
     BOOL showAchievement;
     BOOL showLeaderboard;
 }
+@property (nonatomic, weak) IBOutlet UIButton *single;
+@property (nonatomic, weak) IBOutlet UIButton *multi;
+@property (nonatomic, weak) IBOutlet UIButton *online;
+@property (nonatomic, weak) IBOutlet UIButton *back;
+@property (nonatomic, weak) IBOutlet UIButton *ach;
+@property (nonatomic, weak) IBOutlet UIButton *leader;
+@property (nonatomic, weak) IBOutlet UIButton *prefs;
 
 - (IBAction)leaderboardButton:(id)sender;
 - (IBAction)achievementsButton:(id)sender;

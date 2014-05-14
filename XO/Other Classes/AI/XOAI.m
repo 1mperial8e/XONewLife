@@ -71,12 +71,12 @@
 - (NSIndexPath *)getMediumMove:(XOObjectiveMatrix *)matrix
 {
     NSIndexPath *winMove = [self checkForWin:matrix player:[XOGameModel sharedInstance].me*-1];
-    NSLog(@"%@", winMove);
+    NSLog(@"WinMove %@", winMove);
     if (winMove) {
         return winMove;
     }
     NSIndexPath *protectMove =  [self checkForWin:matrix player:[XOGameModel sharedInstance].me];
-     NSLog(@"%@", protectMove);
+     NSLog(@"ProtectMove %@", protectMove);
     if (protectMove) {
         return protectMove;
     }
@@ -86,7 +86,7 @@
 
 - (NSIndexPath *)indexPathFromI:(int)i J:(int)j
 {
-    return [NSIndexPath indexPathForItem:i inSection:j];
+    return [NSIndexPath indexPathForItem:j inSection:i];
 }
 
 //- (NSIndexPath *)checkForWin2:(XOObjectiveMatrix *)matrix player:(XOPlayer)aiSide

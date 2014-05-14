@@ -14,6 +14,9 @@
 		7FEAECD7191783FB0065CC57 /* XOCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEAECD6191783FB0065CC57 /* XOCollectionViewCell.m */; };
 		7FEAECDA1917ADF80065CC57 /* XOGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEAECD91917ADF80065CC57 /* XOGameViewController.m */; };
 		7FEAED2D1917D84E0065CC57 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FEAED2C1917D84E0065CC57 /* Images.xcassets */; };
+		7FF34694192253B500E4AEE1 /* Localized.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7FF34696192253B500E4AEE1 /* Localized.strings */; };
+		7FF3469D19225B2C00E4AEE1 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FF3469F19225B2C00E4AEE1 /* iPhone.storyboard */; };
+		7FF346B1192266C800E4AEE1 /* XOStartSequeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF346B0192266C800E4AEE1 /* XOStartSequeAnimation.m */; };
 		7FF96EA3191A4B5C00EDB431 /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7FF96EA2191A4B5C00EDB431 /* music.mp3 */; };
 		7FF96EA6191BF9A200EDB431 /* XOObjectiveMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF96EA5191BF9A200EDB431 /* XOObjectiveMatrix.m */; };
 		84742D8119197CF3007B868E /* XOGameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84742D8019197CF3007B868E /* XOGameModel.m */; };
@@ -29,7 +32,6 @@
 		8481FC681915273E00D9F0EB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481FC471915273E00D9F0EB /* UIKit.framework */; };
 		8481FC701915273E00D9F0EB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8481FC6E1915273E00D9F0EB /* InfoPlist.strings */; };
 		8481FC721915273E00D9F0EB /* XOTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC711915273E00D9F0EB /* XOTests.m */; };
-		8481FC7C1915293400D9F0EB /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8481FC7B1915293400D9F0EB /* iPhone.storyboard */; };
 		8481FC9319152A2D00D9F0EB /* MPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC7F19152A2D00D9F0EB /* MPManager.m */; };
 		8481FC9419152A2D00D9F0EB /* XOOnlineLobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC8419152A2D00D9F0EB /* XOOnlineLobbyViewController.m */; };
 		8481FC9519152A2D00D9F0EB /* XOSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC8719152A2D00D9F0EB /* XOSettingsViewController.m */; };
@@ -75,6 +77,12 @@
 		7FEAECD81917ADF80065CC57 /* XOGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XOGameViewController.h; sourceTree = "<group>"; };
 		7FEAECD91917ADF80065CC57 /* XOGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOGameViewController.m; sourceTree = "<group>"; };
 		7FEAED2C1917D84E0065CC57 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7FF34695192253B500E4AEE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localized.strings; sourceTree = "<group>"; };
+		7FF34697192253D100E4AEE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localized.strings; sourceTree = "<group>"; };
+		7FF3469E19225B2C00E4AEE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPhone.storyboard; sourceTree = "<group>"; };
+		7FF346A419225B7100E4AEE1 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localized.strings; sourceTree = "<group>"; };
+		7FF346AF192266C800E4AEE1 /* XOStartSequeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XOStartSequeAnimation.h; path = Animations/XOStartSequeAnimation.h; sourceTree = "<group>"; };
+		7FF346B0192266C800E4AEE1 /* XOStartSequeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XOStartSequeAnimation.m; path = Animations/XOStartSequeAnimation.m; sourceTree = "<group>"; };
 		7FF96EA2191A4B5C00EDB431 /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
 		7FF96EA4191BF9A200EDB431 /* XOObjectiveMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XOObjectiveMatrix.h; sourceTree = "<group>"; };
 		7FF96EA5191BF9A200EDB431 /* XOObjectiveMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOObjectiveMatrix.m; sourceTree = "<group>"; };
@@ -96,7 +104,6 @@
 		8481FC6D1915273E00D9F0EB /* XOTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "XOTests-Info.plist"; sourceTree = "<group>"; };
 		8481FC6F1915273E00D9F0EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8481FC711915273E00D9F0EB /* XOTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XOTests.m; sourceTree = "<group>"; };
-		8481FC7B1915293400D9F0EB /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
 		8481FC7E19152A2D00D9F0EB /* MPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPManager.h; sourceTree = "<group>"; };
 		8481FC7F19152A2D00D9F0EB /* MPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPManager.m; sourceTree = "<group>"; };
 		8481FC8319152A2D00D9F0EB /* XOOnlineLobbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XOOnlineLobbyViewController.h; sourceTree = "<group>"; };
@@ -175,12 +182,22 @@
 			name = AI;
 			sourceTree = "<group>";
 		};
+		7FF346B2192266CE00E4AEE1 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				7FF346AF192266C800E4AEE1 /* XOStartSequeAnimation.h */,
+				7FF346B0192266C800E4AEE1 /* XOStartSequeAnimation.m */,
+			);
+			name = Animations;
+			sourceTree = "<group>";
+		};
 		84742D7919197C54007B868E /* Other Classes */ = {
 			isa = PBXGroup;
 			children = (
 				84AAC88A191D210C001C0B94 /* Progress Structure */,
 				84742D7A19197C54007B868E /* Matrix */,
 				7F912D77191F633700675027 /* AI */,
+				7FF346B2192266CE00E4AEE1 /* Animations */,
 			);
 			path = "Other Classes";
 			sourceTree = "<group>";
@@ -247,7 +264,7 @@
 				8481FC8019152A2D00D9F0EB /* View Controllers */,
 				8481FC521915273E00D9F0EB /* XOAppDelegate.h */,
 				8481FC531915273E00D9F0EB /* XOAppDelegate.m */,
-				8481FC7B1915293400D9F0EB /* iPhone.storyboard */,
+				7FF3469F19225B2C00E4AEE1 /* iPhone.storyboard */,
 				8481FC581915273E00D9F0EB /* Main_iPad.storyboard */,
 				8481FC4A1915273E00D9F0EB /* Supporting Files */,
 				8481FCA5191664D000D9F0EB /* Constants.h */,
@@ -401,6 +418,7 @@
 				84AAC881191AAA92001C0B94 /* sound_win.mp3 */,
 				7FF96EA2191A4B5C00EDB431 /* music.mp3 */,
 				7FEAED2C1917D84E0065CC57 /* Images.xcassets */,
+				7FF34696192253B500E4AEE1 /* Localized.strings */,
 			);
 			path = Resources;
 			sourceTree = SOURCE_ROOT;
@@ -467,6 +485,7 @@
 			knownRegions = (
 				en,
 				Base,
+				uk,
 			);
 			mainGroup = 8481FC371915273E00D9F0EB;
 			productRefGroup = 8481FC411915273E00D9F0EB /* Products */;
@@ -492,8 +511,9 @@
 				7F232CE81920ED66004B208E /* AlertView.storyboard in Resources */,
 				84AAC882191AAA92001C0B94 /* sound_click.mp3 in Resources */,
 				7FEAED2D1917D84E0065CC57 /* Images.xcassets in Resources */,
-				8481FC7C1915293400D9F0EB /* iPhone.storyboard in Resources */,
+				7FF3469D19225B2C00E4AEE1 /* iPhone.storyboard in Resources */,
 				84AAC885191AAA92001C0B94 /* sound_lose.mp3 in Resources */,
+				7FF34694192253B500E4AEE1 /* Localized.strings in Resources */,
 				7FF96EA3191A4B5C00EDB431 /* music.mp3 in Resources */,
 				8481FC9719152A2D00D9F0EB /* GameField.storyboard in Resources */,
 			);
@@ -557,6 +577,7 @@
 				7F232CE51920ED35004B208E /* XOAlert.m in Sources */,
 				8481FC501915273E00D9F0EB /* main.m in Sources */,
 				8481FC9519152A2D00D9F0EB /* XOSettingsViewController.m in Sources */,
+				7FF346B1192266C800E4AEE1 /* XOStartSequeAnimation.m in Sources */,
 				8481FC9919152A2D00D9F0EB /* XOGameFieldViewController.m in Sources */,
 				8481FC9619152A2D00D9F0EB /* XOStartViewController.m in Sources */,
 				8481FC9319152A2D00D9F0EB /* MPManager.m in Sources */,
@@ -588,6 +609,24 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		7FF34696192253B500E4AEE1 /* Localized.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7FF34695192253B500E4AEE1 /* Base */,
+				7FF34697192253D100E4AEE1 /* en */,
+				7FF346A419225B7100E4AEE1 /* uk */,
+			);
+			name = Localized.strings;
+			sourceTree = "<group>";
+		};
+		7FF3469F19225B2C00E4AEE1 /* iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7FF3469E19225B2C00E4AEE1 /* Base */,
+			);
+			name = iPhone.storyboard;
+			sourceTree = "<group>";
+		};
 		8481FC4C1915273E00D9F0EB /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
