@@ -120,7 +120,7 @@
                     jStart = j;
                 jEnd = j;
             }
-            else {
+            if (([matrix.value[i][j] intValue] != aiSide) || (j==size-1)) {
                 if ((jStart >= 0 && jEnd >=0 )&& (jEnd - jStart + 1 == countInRowToWin-1)) {
                     // Can AI do move to left of finding block?
                     if (jStart > 0)
@@ -150,7 +150,7 @@
                     iStart = i;
                 iEnd = i;
             }
-            else {
+            if (([matrix.value[i][j] intValue] != aiSide) || (i==size-1)) {
                 if (iStart >= 0 && iEnd >=0 && iEnd - iStart + 1 == countInRowToWin - 1) {
                     // Can AI do move above of finding block?
                     if (iStart > 0)
