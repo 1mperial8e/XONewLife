@@ -115,7 +115,8 @@
         self.pushCheck.image=[UIImage imageNamed:@"checked"];
     }
     else{
-        self.pushCheck.image=[UIImage imageNamed:@"unchecked"];    }
+        self.pushCheck.image=[UIImage imageNamed:@"unchecked"];
+    }
 }
 
 @end

@@ -34,7 +34,7 @@
             // You probably want to do other notification checking here.
         }
     }
-   return YES;    
+   return YES;
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
