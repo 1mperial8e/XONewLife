@@ -81,7 +81,6 @@
 		7FEAECD91917ADF80065CC57 /* XOGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOGameViewController.m; sourceTree = "<group>"; };
 		7FEAED2C1917D84E0065CC57 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7FF34695192253B500E4AEE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		7FF34697192253D100E4AEE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7FF3469E19225B2C00E4AEE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPhone.storyboard; sourceTree = "<group>"; };
 		7FF346A419225B7100E4AEE1 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7FF346AF192266C800E4AEE1 /* XOStartSequeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XOStartSequeAnimation.h; path = Animations/XOStartSequeAnimation.h; sourceTree = "<group>"; };
@@ -143,6 +142,7 @@
 		84AAC88C191D2120001C0B94 /* XOProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOProgress.m; sourceTree = "<group>"; };
 		84AAC88E19220AD4001C0B94 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = AboutViewController/AboutViewController.h; sourceTree = "<group>"; };
 		84AAC88F19220AD4001C0B94 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = AboutViewController/AboutViewController.m; sourceTree = "<group>"; };
+		84D61AFA1923CEF000CC9A46 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84D667701917882A000DA569 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		84D6677219178838000DA569 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		DE32FFD0F7604EB6BEFAF60C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -635,9 +635,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				7FF34695192253B500E4AEE1 /* Base */,
-				7FF34697192253D100E4AEE1 /* en */,
 				7FF346A419225B7100E4AEE1 /* uk */,
 				7FF346C219237FAA00E4AEE1 /* ru */,
+				84D61AFA1923CEF000CC9A46 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -718,9 +718,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "FB92E9A7-1384-4854-B684-4DDD279CDFB1";
+				PROVISIONING_PROFILE = "C10FDAF6-D7D0-440D-A585-C2A82F814A0C";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -756,10 +757,11 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				PROVISIONING_PROFILE = "FB92E9A7-1384-4854-B684-4DDD279CDFB1";
+				PROVISIONING_PROFILE = "C10FDAF6-D7D0-440D-A585-C2A82F814A0C";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -779,7 +781,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/XO/GoogleAdMobAdsSdkiOS-6.8.0/Add-ons/GoogleAnalyticsServicesiOS_3.03",
 					"$(PROJECT_DIR)/XO/GoogleAdMobAdsSdkiOS-6.8.0",
 				);
 				OTHER_LDFLAGS = (
@@ -824,8 +825,9 @@
 				);
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "FB92E9A7-1384-4854-B684-4DDD279CDFB1";
+				PROVISIONING_PROFILE = "C10FDAF6-D7D0-440D-A585-C2A82F814A0C";
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -846,7 +848,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/XO/GoogleAdMobAdsSdkiOS-6.8.0/Add-ons/GoogleAnalyticsServicesiOS_3.03",
 					"$(PROJECT_DIR)/XO/GoogleAdMobAdsSdkiOS-6.8.0",
 				);
 				OTHER_LDFLAGS = (
@@ -891,8 +892,9 @@
 				);
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "FB92E9A7-1384-4854-B684-4DDD279CDFB1";
+				PROVISIONING_PROFILE = "C10FDAF6-D7D0-440D-A585-C2A82F814A0C";
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

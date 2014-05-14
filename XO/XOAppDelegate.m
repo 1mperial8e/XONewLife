@@ -19,21 +19,21 @@
     [GPGManager sharedInstance].realTimeRoomDelegate = [MPManager sharedInstance];
     
     //register notification
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert)];
-    NSDictionary *remoteNotification =
-    [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-    
-    if (remoteNotification) {
-        if ([[GPGManager sharedInstance] tryHandleRemoteNotification:remoteNotification]) {
-            NSLog(@"Handling notification %@ after sign-in is complete", remoteNotification);
-            // Looks like we got a Google Play match invite! No other action is requied. Our
-            // invite delegate will receive a didReceiveRealTimeInviteForRoon just as soon
-            // as sign-in is finished.
-        } else {
-            // You probably want to do other notification checking here.
-        }
-    }
+//    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+//     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert)];
+//    NSDictionary *remoteNotification =
+//    [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+//    
+//    if (remoteNotification) {
+//        if ([[GPGManager sharedInstance] tryHandleRemoteNotification:remoteNotification]) {
+//            NSLog(@"Handling notification %@ after sign-in is complete", remoteNotification);
+//            // Looks like we got a Google Play match invite! No other action is requied. Our
+//            // invite delegate will receive a didReceiveRealTimeInviteForRoon just as soon
+//            // as sign-in is finished.
+//        } else {
+//            // You probably want to do other notification checking here.
+//        }
+//    }
    return YES;
 }
 
@@ -42,6 +42,7 @@
     return [GPPURLHandler handleURL:url sourceApplication:sourceApplication annotation:annotation];
 }
 
+/*
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
     NSLog(@"Got deviceToken from APNS! %@", deviceToken);
@@ -63,5 +64,6 @@
         // remote notification
     }
 }
+ */
 
 @end

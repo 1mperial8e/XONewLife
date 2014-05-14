@@ -48,19 +48,12 @@ static GameManager* _instance=nil;
     else{
         [[SoundManager sharedInstance].player stop];
     }
-    if ([GameManager sharedInstance].push==YES){
-        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert)];
-    }
-    else{
-        [[UIApplication sharedApplication] unregisterForRemoteNotifications];
-    }
-    UIRemoteNotificationType types = [[UIApplication sharedApplication] enabledRemoteNotificationTypes];
-    if (types == UIRemoteNotificationTypeNone){
-        NSLog(@"YES");
-    }
-    else{
-       NSLog(@"NO"); 
-    }
+//    if ([GameManager sharedInstance].push==YES){
+//        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert)];
+//    }
+//    else{
+//        [[UIApplication sharedApplication] unregisterForRemoteNotifications];
+//    }
 }
 
 - (void)tryToBeFirst{

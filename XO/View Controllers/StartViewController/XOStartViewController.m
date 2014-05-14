@@ -75,7 +75,7 @@
     [[SoundManager sharedInstance] playClickSound];
     if (![[GPGManager sharedInstance] isSignedIn]) {
         showLeaderboard=YES;
-        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"You are not signed in" message:@"Sign in via google+ to use leaderboard" delegate:self cancelButtonTitle:@"Cancle" otherButtonTitles:@"Sign in", nil];
+        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NoConnection", nil) message:NSLocalizedString(@"forLeader", nil)  delegate:self cancelButtonTitle:NSLocalizedString(@"CancelLogin", nil) otherButtonTitles:NSLocalizedString(@"Sign in", nil) , nil];
         [alert show];
     }
     else{
@@ -89,7 +89,7 @@
     [[SoundManager sharedInstance] playClickSound];
     if (![[GPGManager sharedInstance] isSignedIn]) {
         showAchievement=YES;
-        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"You are not signed in" message:@"Sign in via google+ to use achievements" delegate:self cancelButtonTitle:@"Cancle" otherButtonTitles:@"Sign in", nil];
+        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NoConnection", nil) message:NSLocalizedString(@"forAch", nil)  delegate:self cancelButtonTitle:NSLocalizedString(@"CancelLogin", nil) otherButtonTitles:NSLocalizedString(@"Sign in", nil) , nil];
         [alert show];
     }
     else{
