@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "GADBannerView.h"
 @interface ADVManager : NSObject
-@property (strong, nonatomic) UIView *adv;
+@property (strong, nonatomic) GADBannerView *adv;
 @property (strong, nonatomic) UIViewController *advRootViewController;
+- (void)load;
 + (ADVManager *)sharedInstance;
 @end

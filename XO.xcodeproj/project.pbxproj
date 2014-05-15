@@ -16,6 +16,7 @@
 		7F8495A91924AAE90022BC08 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F8495A41924AAE90022BC08 /* SystemConfiguration.framework */; };
 		7F8495CF1924AD670022BC08 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F8495CE1924AD670022BC08 /* libGoogleAdMobAds.a */; };
 		7F8495D21924AD720022BC08 /* ADVManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8495D11924AD720022BC08 /* ADVManager.m */; };
+		7F8495D51924C3970022BC08 /* XONavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8495D41924C3970022BC08 /* XONavigationController.m */; };
 		7F912D76191F632F00675027 /* XOAI.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F912D75191F632F00675027 /* XOAI.m */; };
 		7FEAECD4191772A70065CC57 /* XOGameFieldFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEAECD3191772A70065CC57 /* XOGameFieldFlowLayout.m */; };
 		7FEAECD7191783FB0065CC57 /* XOCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEAECD6191783FB0065CC57 /* XOCollectionViewCell.m */; };
@@ -103,6 +104,8 @@
 		7F8495CE1924AD670022BC08 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAdMobAds.a; path = GoogleAdMob/libGoogleAdMobAds.a; sourceTree = "<group>"; };
 		7F8495D01924AD720022BC08 /* ADVManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADVManager.h; sourceTree = "<group>"; };
 		7F8495D11924AD720022BC08 /* ADVManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADVManager.m; sourceTree = "<group>"; };
+		7F8495D31924C3970022BC08 /* XONavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XONavigationController.h; path = "Navigation Controller/XONavigationController.h"; sourceTree = "<group>"; };
+		7F8495D41924C3970022BC08 /* XONavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XONavigationController.m; path = "Navigation Controller/XONavigationController.m"; sourceTree = "<group>"; };
 		7F912D74191F632F00675027 /* XOAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XOAI.h; path = AI/XOAI.h; sourceTree = "<group>"; };
 		7F912D75191F632F00675027 /* XOAI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XOAI.m; path = AI/XOAI.m; sourceTree = "<group>"; };
 		7FEAECD2191772A70065CC57 /* XOGameFieldFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XOGameFieldFlowLayout.h; sourceTree = "<group>"; };
@@ -268,6 +271,15 @@
 			name = GoogleAd;
 			sourceTree = "<group>";
 		};
+		7F8495D61924C39D0022BC08 /* Navigation Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7F8495D31924C3970022BC08 /* XONavigationController.h */,
+				7F8495D41924C3970022BC08 /* XONavigationController.m */,
+			);
+			name = "Navigation Controller";
+			sourceTree = "<group>";
+		};
 		7F912D77191F633700675027 /* AI */ = {
 			isa = PBXGroup;
 			children = (
@@ -431,6 +443,7 @@
 				8481FC8B19152A2D00D9F0EB /* GameField */,
 				7F232CE61920ED3F004B208E /* AlertViewController */,
 				84AAC89219220B07001C0B94 /* AboutViewController */,
+				7F8495D61924C39D0022BC08 /* Navigation Controller */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -682,6 +695,7 @@
 				7FF96EA6191BF9A200EDB431 /* XOObjectiveMatrix.m in Sources */,
 				8481FC9419152A2D00D9F0EB /* XOOnlineLobbyViewController.m in Sources */,
 				7F232CE51920ED35004B208E /* XOAlert.m in Sources */,
+				7F8495D51924C3970022BC08 /* XONavigationController.m in Sources */,
 				8481FC501915273E00D9F0EB /* main.m in Sources */,
 				8481FC9519152A2D00D9F0EB /* XOSettingsViewController.m in Sources */,
 				7FF346B1192266C800E4AEE1 /* XOStartSequeAnimation.m in Sources */,

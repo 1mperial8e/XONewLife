@@ -18,16 +18,21 @@ static ADVManager* _instance=nil;
 {
     self = [super init];
     if (self) {
-        _banner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
         
-        _banner.adUnitID = @"INSERT_YOUR_AD_UNIT_ID_HERE";
+        //self.adv =_banner;
         
-        _banner.rootViewController = self.advRootViewController;
-        [self.adv addSubview:_banner];
-        
-        [_banner loadRequest:[GADRequest request]];
     }
     return self;
+}
+- (void)load
+{
+    _adv = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+    
+    _adv.adUnitID = @"/6253334/dfp_example_ad";
+    
+    _adv.rootViewController =_advRootViewController;
+    [_adv loadRequest:[GADRequest request]];
+
 }
 #pragma mark - Class Methods
 + (ADVManager *)sharedInstance
