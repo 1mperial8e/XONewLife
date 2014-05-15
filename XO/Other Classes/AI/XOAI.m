@@ -40,7 +40,7 @@
     switch (mode) {
         case XOAIGameModeEasy:
             return [self getEasyMove:[XOGameModel sharedInstance].matrix];
-        case XOAIGameModeMedium:
+        case XOAIGameModeHard:
             return [self getMediumMove:[XOGameModel sharedInstance].matrix];
         default:
             return nil;

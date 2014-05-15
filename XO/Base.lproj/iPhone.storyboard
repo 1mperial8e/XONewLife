@@ -59,7 +59,9 @@
                                     <color key="titleShadowColor" red="0.56470588239999997" green="0.015686274510000001" blue="0.1333333333" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="pressed:" destination="YxK-UW-oVt" eventType="touchDown" id="J2R-NR-Vh0"/>
                                     <action selector="singlePlayer:" destination="YxK-UW-oVt" eventType="touchUpInside" id="vJu-du-ets"/>
+                                    <action selector="touchUpOutside:" destination="YxK-UW-oVt" eventType="touchUpOutside" id="c3i-VA-vhv"/>
                                     <segue destination="6HV-fQ-CXQ" kind="push" id="7lO-gh-AkI"/>
                                 </connections>
                             </button>
@@ -77,8 +79,9 @@
                                     <color key="titleShadowColor" red="0.56470588239999997" green="0.015686274510000001" blue="0.1333333333" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="pressed:" destination="YxK-UW-oVt" eventType="touchDown" id="Yzy-tS-LwY"/>
+                                    <action selector="touchUpOutside:" destination="YxK-UW-oVt" eventType="touchUpOutside" id="yL0-nY-EEE"/>
                                     <action selector="twoPlayers:" destination="YxK-UW-oVt" eventType="touchUpInside" id="uDs-zJ-Pe0"/>
-                                    <segue destination="Ehd-WW-Mg5" kind="push" identifier="startPlay" customClass="XOStartSequeAnimation" id="tld-Wt-PbJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6A-R5-2a6">
@@ -96,6 +99,8 @@
                                 </state>
                                 <connections>
                                     <action selector="playOnline:" destination="YxK-UW-oVt" eventType="touchUpInside" id="EH7-VT-fzW"/>
+                                    <action selector="pressed:" destination="YxK-UW-oVt" eventType="touchDown" id="PxN-dR-tfc"/>
+                                    <action selector="touchUpOutside:" destination="YxK-UW-oVt" eventType="touchUpOutside" id="WNw-FY-zYy"/>
                                     <segue destination="tFQ-E5-nof" kind="push" id="UEW-cF-UgQ"/>
                                 </connections>
                             </button>
@@ -113,6 +118,9 @@
                                     <color key="titleShadowColor" red="0.56470588239999997" green="0.015686274510000001" blue="0.1333333333" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="aboutButton:" destination="YxK-UW-oVt" eventType="touchUpInside" id="e6o-wx-sLA"/>
+                                    <action selector="pressed:" destination="YxK-UW-oVt" eventType="touchDown" id="Yc0-XI-I0p"/>
+                                    <action selector="touchUpOutside:" destination="YxK-UW-oVt" eventType="touchUpOutside" id="Npm-8K-ct1"/>
                                     <segue destination="XKe-xM-hso" kind="push" id="glZ-fi-5wb"/>
                                 </connections>
                             </button>
@@ -130,6 +138,8 @@
                                 </state>
                                 <connections>
                                     <action selector="leaderboardButton:" destination="YxK-UW-oVt" eventType="touchUpInside" id="Irf-gS-32u"/>
+                                    <action selector="pressed:" destination="YxK-UW-oVt" eventType="touchDown" id="tfp-ao-LJe"/>
+                                    <action selector="touchUpOutside:" destination="YxK-UW-oVt" eventType="touchUpOutside" id="GyQ-90-WO4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNA-7C-R0M">
@@ -146,6 +156,8 @@
                                 </state>
                                 <connections>
                                     <action selector="achievementsButton:" destination="YxK-UW-oVt" eventType="touchUpInside" id="bdp-zA-YOX"/>
+                                    <action selector="pressed:" destination="YxK-UW-oVt" eventType="touchDown" id="nSu-8h-wHL"/>
+                                    <action selector="touchUpOutside:" destination="YxK-UW-oVt" eventType="touchUpOutside" id="gDa-7T-dGC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mrb-50-4fV">
@@ -161,7 +173,9 @@
                                     <color key="titleShadowColor" red="0.56470588239999997" green="0.015686274510000001" blue="0.1333333333" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="pressed:" destination="YxK-UW-oVt" eventType="touchDown" id="FYC-Zb-6C5"/>
                                     <action selector="settings:" destination="YxK-UW-oVt" eventType="touchUpInside" id="04V-AW-fqS"/>
+                                    <action selector="touchUpOutside:" destination="YxK-UW-oVt" eventType="touchUpOutside" id="lWo-1z-ShK"/>
                                     <segue destination="yya-Jm-GhW" kind="push" id="pAB-zW-fXD"/>
                                 </connections>
                             </button>
@@ -240,6 +254,15 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <connections>
+                        <outlet property="about" destination="pxp-Sb-ING" id="hif-uJ-wYq"/>
+                        <outlet property="ach" destination="KNA-7C-R0M" id="buv-6R-0qX"/>
+                        <outlet property="leader" destination="u5v-08-xuZ" id="m6P-M8-vUN"/>
+                        <outlet property="multi" destination="mCo-RS-3Ie" id="5gY-E2-ard"/>
+                        <outlet property="online" destination="b6A-R5-2a6" id="NWL-GH-P5H"/>
+                        <outlet property="prefs" destination="Mrb-50-4fV" id="rfw-pz-Wtk"/>
+                        <outlet property="single" destination="eXF-2A-saR" id="xYa-0p-xWw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Bm-iO-Mrd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -418,7 +441,7 @@
                                             <color key="titleShadowColor" red="0.56470588239999997" green="0.015686274510000001" blue="0.1333333333" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="mediumMode:" destination="6HV-fQ-CXQ" eventType="touchUpInside" id="G4I-JU-1cs"/>
+                                            <action selector="hardMode:" destination="6HV-fQ-CXQ" eventType="touchUpInside" id="eKl-6d-XzV"/>
                                             <action selector="pressed:" destination="6HV-fQ-CXQ" eventType="touchDown" id="ncu-ia-Zk4"/>
                                             <action selector="touchUpOutside:" destination="6HV-fQ-CXQ" eventType="touchUpOutside" id="qcg-Zu-BID"/>
                                             <segue destination="Ehd-WW-Mg5" kind="push" id="Gvf-8t-al8"/>
@@ -581,7 +604,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.22708067602040816" green="0.11403419537820175" blue="0.00046966063933040172" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                         <color key="textColor" red="0.9882352941176471" green="0.85490196078431369" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -590,7 +613,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.1965880102" green="0.098721546709999997" blue="0.0004065940448" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                         <color key="textColor" red="0.9882352941176471" green="0.85490196078431369" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -625,34 +648,20 @@
                                         <color key="textColor" red="0.20392156862745098" green="0.094117647058823528" blue="0.023529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOX-D2-lMj">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOX-D2-lMj">
                                         <rect key="frame" x="159" y="82" width="58" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <attributedString key="attributedText">
-                                            <fragment content="00">
-                                                <attributes>
-                                                    <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <font key="NSFont" size="32" name="ArialMT"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="32"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIk-yL-0xQ">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIk-yL-0xQ">
                                         <rect key="frame" x="103" y="82" width="58" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <attributedString key="attributedText">
-                                            <fragment content="00">
-                                                <attributes>
-                                                    <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <font key="NSFont" size="32" name="ArialMT"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="32"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -1124,6 +1133,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="tld-Wt-PbJ"/>
+        <segue reference="Vcv-6n-v2v"/>
     </inferredMetricsTieBreakers>
 </document>
