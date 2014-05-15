@@ -60,7 +60,10 @@
                                              userInfo:nil
                                               repeats:YES];
     [MPManager sharedInstance].firstMessage = YES;
+}
 
+- (void) viewWillAppear:(BOOL)animated{
+    [self setPlayersInfo];
 }
 
 - (void)configGameField
@@ -98,7 +101,6 @@
                                                                        multiplier:1.0
                                                                          constant:0]];
     [self addChildViewController:_gameFieldViewController];
-    [self setPlayersInfo];
     
 }
 
@@ -174,7 +176,6 @@
             }
         break;
     }
-    
 }
 
 #pragma mark - Score methods
@@ -248,16 +249,16 @@
     if (time<=1) {
         [stepTimer invalidate];
         if ([XOGameModel sharedInstance].gameMode!=XOGameModeOnline) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Time is out" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"timeOut",nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
         else{
             if ([XOGameModel sharedInstance].player == [XOGameModel sharedInstance].me) {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Time is out" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"timeOut", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
             }
             else{
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Time is out. Opponent left the game." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"timeOponent", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [[GameManager sharedInstance].progress updateProgress:XOGameModeOnline forMe:YES];
                 [alert show];
             }

@@ -8,7 +8,7 @@
 "Draw game!"="Draw game!";
 "Waiting for opponent"="Waiting for opponent";
 "End game!"="End game!";
-"Opponent has left the game :-("="Opponent has left the game :-(";
+"Opponent has left the game :-("="Opponent has left the game";
 "Exit"="Exit";
 "Player %i"="Player %i";
 "Me"="Me";
@@ -17,3 +17,5 @@
 "forPlaying"="Sign in via google+ account to play online";
 "forAch"="Sign in via google+ account to use achievements";
 "forLeader"="Sign in via google+ account to use leaderboard";
+"timeOut"="Time is out";
+"timeOponent"="Time is out. Opponent has left the game";
