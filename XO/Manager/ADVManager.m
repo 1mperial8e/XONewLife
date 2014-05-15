@@ -7,9 +7,9 @@
 //
 
 #import "ADVManager.h"
-//#import "GADBannerView.h"
+#import "GADBannerView.h"
 @interface ADVManager ()
-//@property (strong, nonatomic) GADBannerView *banner;
+@property (nonatomic) GADBannerView *banner;
 @end
 @implementation ADVManager
 static ADVManager* _instance=nil;
@@ -18,14 +18,14 @@ static ADVManager* _instance=nil;
 {
     self = [super init];
     if (self) {
-//        _banner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
-//        
-//        _banner.adUnitID = @"INSERT_YOUR_AD_UNIT_ID_HERE";
-//        
-//        _banner.rootViewController = self.advRootViewController;
-//        [self.adv addSubview:_banner];
-//        
-//        [_banner loadRequest:[GADRequest request]];
+        _banner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+        
+        _banner.adUnitID = @"INSERT_YOUR_AD_UNIT_ID_HERE";
+        
+        _banner.rootViewController = self.advRootViewController;
+        [self.adv addSubview:_banner];
+        
+        [_banner loadRequest:[GADRequest request]];
     }
     return self;
 }
