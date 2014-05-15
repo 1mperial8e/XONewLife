@@ -8,6 +8,9 @@
 
 #import "AboutViewController.h"
 #import "SoundManager.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAI.h"
+#import "GameManager.h"
 
 @interface AboutViewController ()
 
@@ -23,7 +26,9 @@
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
 }
 
-
+- (void) viewWillAppear:(BOOL)animated{
+    [[GameManager sharedInstance] trackScreen:self withName:ABOUT_SCREEN];
+}
 
 - (IBAction)backButton:(id)sender {
     [[SoundManager sharedInstance] playClickSound];

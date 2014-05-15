@@ -9,6 +9,7 @@
 #import "GameManager.h"
 #import "MPManager.h"
 #import "SoundManager.h"
+#import "GAITrackedViewController.h"
 
 @implementation GameManager
 
@@ -62,5 +63,13 @@ static GameManager* _instance=nil;
     [[MPManager sharedInstance] sendPlayerMyMessage:[NSString stringWithFormat:@"%i",roll]];
 }
 
+- (void) trackScreen:(GAITrackedViewController*)screen withName:(NSString*)name{
+    if (_googleAnalitics==YES) {
+        screen.screenName=name;
+    }
+    else{
+        screen.screenName=nil;
+    }
+}
 
 @end

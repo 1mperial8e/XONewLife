@@ -29,6 +29,7 @@
 
 + (GameManager*)sharedInstance;
 - (void) setSettings;
-- (void)tryToBeFirst;
+- (void) tryToBeFirst;
+- (void) trackScreen:(id)screen withName:(NSString*)name;
 
 @end

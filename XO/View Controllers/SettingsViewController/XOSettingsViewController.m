@@ -10,6 +10,8 @@
 #import "XOStartViewController.h"
 #import "GameManager.h"
 #import "SoundManager.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAI.h"
 
 @interface XOSettingsViewController ()
 
@@ -40,6 +42,17 @@
     [self setControlState];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
 
+}
+
+- (void) viewWillAppear:(BOOL)animated{
+    [[GameManager sharedInstance] trackScreen:self withName:SETTINGS_SCREEN];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:SETTINGS_SCREEN value:@"Stopwatch"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 

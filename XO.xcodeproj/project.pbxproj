@@ -51,6 +51,10 @@
 		84AAC889191AAB0E001C0B94 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AAC888191AAB0E001C0B94 /* SoundManager.m */; };
 		84AAC88D191D2120001C0B94 /* XOProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AAC88C191D2120001C0B94 /* XOProgress.m */; };
 		84AAC89019220AD4001C0B94 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AAC88F19220AD4001C0B94 /* AboutViewController.m */; };
+		84AD02C91924BBBE0036B05F /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AD02C81924BBBE0036B05F /* libGoogleAnalyticsServices.a */; };
+		84AD02CB1924BBD90036B05F /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AD02CA1924BBD90036B05F /* libsqlite3.0.dylib */; };
+		84AD02CD1924BC1D0036B05F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AD02CC1924BC1D0036B05F /* CoreData.framework */; };
+		84AD02D11924BCB20036B05F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AD02D01924BCB20036B05F /* libz.dylib */; };
 		84D667711917882A000DA569 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D667701917882A000DA569 /* AVFoundation.framework */; };
 		84D6677319178838000DA569 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D6677219178838000DA569 /* AudioToolbox.framework */; };
 		FCBA6849B3044F72B6B90560 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE32FFD0F7604EB6BEFAF60C /* libPods.a */; };
@@ -142,6 +146,10 @@
 		84AAC88C191D2120001C0B94 /* XOProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOProgress.m; sourceTree = "<group>"; };
 		84AAC88E19220AD4001C0B94 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = AboutViewController/AboutViewController.h; sourceTree = "<group>"; };
 		84AAC88F19220AD4001C0B94 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = AboutViewController/AboutViewController.m; sourceTree = "<group>"; };
+		84AD02C81924BBBE0036B05F /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = "Pods/GoogleAnalytics-iOS-SDK/libGoogleAnalyticsServices.a"; sourceTree = "<group>"; };
+		84AD02CA1924BBD90036B05F /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		84AD02CC1924BC1D0036B05F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		84AD02D01924BCB20036B05F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		84D61AFA1923CEF000CC9A46 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84D667701917882A000DA569 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		84D6677219178838000DA569 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -153,11 +161,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84AD02D11924BCB20036B05F /* libz.dylib in Frameworks */,
+				84AD02CD1924BC1D0036B05F /* CoreData.framework in Frameworks */,
+				84AD02CB1924BBD90036B05F /* libsqlite3.0.dylib in Frameworks */,
 				84D6677319178838000DA569 /* AudioToolbox.framework in Frameworks */,
 				84D667711917882A000DA569 /* AVFoundation.framework in Frameworks */,
 				8481FC461915273E00D9F0EB /* CoreGraphics.framework in Frameworks */,
 				8481FC481915273E00D9F0EB /* UIKit.framework in Frameworks */,
 				8481FC441915273E00D9F0EB /* Foundation.framework in Frameworks */,
+				84AD02C91924BBBE0036B05F /* libGoogleAnalyticsServices.a in Frameworks */,
 				FCBA6849B3044F72B6B90560 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +271,10 @@
 		8481FC421915273E00D9F0EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84AD02D01924BCB20036B05F /* libz.dylib */,
+				84AD02CC1924BC1D0036B05F /* CoreData.framework */,
+				84AD02CA1924BBD90036B05F /* libsqlite3.0.dylib */,
+				84AD02C81924BBBE0036B05F /* libGoogleAnalyticsServices.a */,
 				84D6677219178838000DA569 /* AudioToolbox.framework */,
 				84D667701917882A000DA569 /* AVFoundation.framework */,
 				8481FC431915273E00D9F0EB /* Foundation.framework */,
@@ -782,6 +798,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/XO/GoogleAdMobAdsSdkiOS-6.8.0",
+					"$(PROJECT_DIR)/Pods/GoogleAnalytics-iOS-SDK",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -849,6 +866,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/XO/GoogleAdMobAdsSdkiOS-6.8.0",
+					"$(PROJECT_DIR)/Pods/GoogleAnalytics-iOS-SDK",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",

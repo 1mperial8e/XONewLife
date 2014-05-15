@@ -26,6 +26,15 @@
 #define ACH_GAMER @"CgkI7qvx050DEAIQCA"
 #define ACH_FRIENDLY_GAMER @"CgkI7qvx050DEAIQCQ"
 #define LEAD_LEADERBOARD @"CgkI7qvx050DEAIQBg"
+#define TRACK_ID @"UA-51035720-1"
+#define MULTIPLAYER_SCREEN @"multi"
+#define SINGLE_SCREEN @"single"
+#define ONLINE_SCREEN @"online"
+#define LOBBY_SCREEN @"lobby"
+#define SETTINGS_SCREEN @"settings"
+#define GAME_MODE_SCREEN @"gameMode"
+#define START_SCREEN @"start"
+#define ABOUT_SCREEN @"about"
 #endif
 
 #pragma mark - Enums

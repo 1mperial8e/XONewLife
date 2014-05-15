@@ -12,6 +12,9 @@
 #import "XOGameViewController.h"
 #import "SoundManager.h"
 #import "XOGameModel.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAI.h"
+#import "GameManager.h"
 
 @interface XOOnlineLobbyViewController () <UIAlertViewDelegate, MPLobbyDelegate>
 
@@ -34,6 +37,10 @@
     }
     [MPManager sharedInstance].lobbyDelegate = self;
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
+}
+
+- (void) viewWillAppear:(BOOL)animated{
+    [[GameManager sharedInstance] trackScreen:self withName:LOBBY_SCREEN];
 }
 
 - (IBAction)backButton:(id)sender {

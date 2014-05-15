@@ -14,6 +14,8 @@
 #import "XOGameModel.h"
 #import "SoundManager.h"
 #import "ADVManager.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAI.h"
 
 @interface XOStartViewController () <GPGAchievementControllerDelegate, GPGLeaderboardControllerDelegate, UIAlertViewDelegate>{
     BOOL showAchievement;
@@ -68,6 +70,7 @@
 - (void) viewWillAppear:(BOOL)animated{
     [self.navigationController.navigationBar setHidden:YES];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    [[GameManager sharedInstance] trackScreen:self withName:START_SCREEN];
 }
 
 #pragma mark - UIActions

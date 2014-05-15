@@ -10,6 +10,8 @@
 #import "GameManager.h"
 #import "SoundManager.h"
 #import "XOGameModel.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAI.h"
 
 @interface XOGameModeViewController ()
 
@@ -31,6 +33,13 @@
 {
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:GAME_MODE_SCREEN value:@"Stopwatch"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 - (IBAction)easyMode:(id)sender{
