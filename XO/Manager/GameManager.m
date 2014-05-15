@@ -10,6 +10,7 @@
 #import "MPManager.h"
 #import "SoundManager.h"
 #import "GAITrackedViewController.h"
+#import "XOGameModel.h"
 
 @implementation GameManager
 
@@ -28,6 +29,7 @@ static GameManager* _instance=nil;
     XOProgress *progress=[XOProgress new];
     [GameManager sharedInstance].progress=progress;
     NSUserDefaults *userDefaults=[NSUserDefaults standardUserDefaults];
+    [XOGameModel sharedInstance].aiGameMode=[userDefaults integerForKey:GAME_MODE];
     [GameManager sharedInstance].sound=[userDefaults boolForKey:@"sound"];
     [GameManager sharedInstance].music=[userDefaults boolForKey:@"music"];
     [GameManager sharedInstance].googleAnalitics=[userDefaults boolForKey:@"googleAnalitics"];

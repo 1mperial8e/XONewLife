@@ -12,6 +12,7 @@
 #import "SoundManager.h"
 #import "GAIDictionaryBuilder.h"
 #import "GAI.h"
+#import "XOGameModel.h"
 
 @interface XOSettingsViewController ()
 
@@ -24,7 +25,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *musicCheck;
 @property (weak, nonatomic) IBOutlet UIImageView *pushCheck;
 @property (weak, nonatomic) IBOutlet UIImageView *googleAnaliticsCheck;
+@property (weak, nonatomic) IBOutlet UIButton *gameMode;
 
+- (IBAction)changeGameMode:(id)sender;
 - (IBAction)signInOut:(id)sender;
 - (IBAction)back:(id)sender;
 - (IBAction)enableSound:(id)sender;
@@ -55,6 +58,11 @@
     [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
+
+- (IBAction)changeGameMode:(id)sender {
+    [self changeSettings:@"mode"];
+    [[SoundManager sharedInstance] playClickSound];
+}
 
 - (IBAction)signInOut:(id)sender {
     if ([[GPGManager sharedInstance] isSignedIn]){
@@ -90,10 +98,20 @@
 
 - (void)changeSettings:(NSString*)settings{
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    if ([userDefaults boolForKey:settings]==NO){
-        [userDefaults setBool:YES forKey:settings];
-    }else{
-        [userDefaults setBool:NO forKey:settings];        
+    if ([settings isEqualToString:@"mode"]) {
+        if ([userDefaults integerForKey:settings]==0){
+            [userDefaults setInteger:2 forKey:settings];
+        }
+        else{
+            [userDefaults setInteger:0 forKey:settings];
+        }
+    }
+    else{
+        if ([userDefaults boolForKey:settings]==NO){
+            [userDefaults setBool:YES forKey:settings];
+        }else{
+            [userDefaults setBool:NO forKey:settings];
+        }
     }
     [userDefaults synchronize];
     [[GameManager sharedInstance] setSettings];
@@ -129,6 +147,12 @@
     }
     else{
         self.pushCheck.image=[UIImage imageNamed:@"unchecked"];
+    }
+    if ([XOGameModel sharedInstance].aiGameMode==0) {
+        [self.gameMode setTitle:@"Easy" forState:UIControlStateNormal];
+    }
+    else{
+        [self.gameMode setTitle:@"Hard" forState:UIControlStateNormal];
     }
 }
 

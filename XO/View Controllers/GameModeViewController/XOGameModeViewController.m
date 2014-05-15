@@ -43,28 +43,18 @@
 }
 
 - (IBAction)easyMode:(id)sender{
-    [GameManager sharedInstance].difficulty=EASY_MODE;
-    [XOGameModel sharedInstance].aiGameMode = XOAIGameModeEasy;
-    [XOGameModel sharedInstance].player = XOPlayerFirst;
-    [XOGameModel sharedInstance].me = XOPlayerFirst;
-    [[SoundManager sharedInstance] playClickSound];
-    [self resetBtnStatus];
+    
 }
 
 - (IBAction)mediumMode:(id)sender{
-    [GameManager sharedInstance].difficulty=MEDIUM_MODE;
-    [XOGameModel sharedInstance].aiGameMode = XOAIGameModeMedium;
-    [XOGameModel sharedInstance].player = XOPlayerFirst;
+    
     [XOGameModel sharedInstance].me = XOPlayerFirst;
     [[SoundManager sharedInstance] playClickSound];
     [self resetBtnStatus];
 }
 
 - (IBAction)hardMode:(id)sender{
-    [GameManager sharedInstance].difficulty=HARD_MODE;
-    [XOGameModel sharedInstance].aiGameMode = XOAIGameModeHard;
-    [XOGameModel sharedInstance].player = XOPlayerFirst;
-    [XOGameModel sharedInstance].me = XOPlayerFirst;
+        [XOGameModel sharedInstance].me = XOPlayerFirst;
     [[SoundManager sharedInstance] playClickSound];
     [self resetBtnStatus];
 }

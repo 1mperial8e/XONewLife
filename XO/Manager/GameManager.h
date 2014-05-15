@@ -11,7 +11,6 @@
 
 @interface GameManager : NSObject
 
-@property (nonatomic, weak) NSString* difficulty;
 @property (nonatomic) BOOL sound;
 @property (nonatomic) BOOL music;
 @property (nonatomic) BOOL push;

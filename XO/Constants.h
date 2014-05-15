@@ -9,9 +9,7 @@
 #ifndef XO_Constants_h
 #define XO_Constants_h
 
-#define EASY_MODE @"easy"
-#define MEDIUM_MODE @"medium"
-#define HARD_MODE @"hard"
+#define GAME_MODE @"mode"
 #define EASY_VICTORY @"easyVictory"
 #define MEDIUM_VICTORY @"mediumVictory"
 #define HARD_VICTORY @"hardVictory"
