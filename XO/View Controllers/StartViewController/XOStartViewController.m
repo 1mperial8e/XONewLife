@@ -82,8 +82,7 @@
     else{
         [self showLeaderboard];
     }
-
-    
+    [self resetBtnStatus];
 }
 
 - (IBAction)achievementsButton:(id)sender{
@@ -96,12 +95,14 @@
     else{
         [self showAchievements];
     }
+    [self resetBtnStatus];
 }
 
 - (IBAction)singlePlayer:(id)sender {
     [GameManager sharedInstance].mode=XOGameModeSingle;
     [XOGameModel sharedInstance].gameMode = XOGameModeSingle;
     [[SoundManager sharedInstance] playClickSound];
+    [self resetBtnStatus];
 }
 
 - (IBAction)twoPlayers:(id)sender {
@@ -112,6 +113,7 @@
     [[SoundManager sharedInstance] playClickSound];
     XOGameViewController *gameView=[[UIStoryboard storyboardWithName:@"iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"game"];
     [self.navigationController pushViewController:gameView animated:YES];
+    [self resetBtnStatus];
 }
 
 - (IBAction)playOnline:(id)sender {
@@ -119,13 +121,17 @@
     [XOGameModel sharedInstance].gameMode = XOGameModeOnline;
     [XOGameModel sharedInstance].player = XOPlayerNone;
     [[SoundManager sharedInstance] playClickSound];
+    [self resetBtnStatus];
 }
 
 - (IBAction)settings:(id)sender {
     [[SoundManager sharedInstance] playClickSound];
+    [self resetBtnStatus];
 }
 
 - (IBAction)aboutButton:(id)sender {
+    [self resetBtnStatus];
+    [[SoundManager sharedInstance] playClickSound];
 }
 
 - (IBAction) pressed: (id) sender
