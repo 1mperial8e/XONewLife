@@ -11,7 +11,6 @@
 
 @interface GameManager : NSObject
 
-@property (nonatomic, weak) NSString* difficulty;
 @property (nonatomic) BOOL sound;
 @property (nonatomic) BOOL music;
 @property (nonatomic) BOOL push;
@@ -29,6 +28,7 @@
 
 + (GameManager*)sharedInstance;
 - (void) setSettings;
-- (void)tryToBeFirst;
+- (void) tryToBeFirst;
+- (void) trackScreen:(id)screen withName:(NSString*)name;
 
 @end

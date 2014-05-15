@@ -9,6 +9,8 @@
 #import "GameManager.h"
 #import "MPManager.h"
 #import "SoundManager.h"
+#import "GAITrackedViewController.h"
+#import "XOGameModel.h"
 
 @implementation GameManager
 
@@ -27,6 +29,7 @@ static GameManager* _instance=nil;
     XOProgress *progress=[XOProgress new];
     [GameManager sharedInstance].progress=progress;
     NSUserDefaults *userDefaults=[NSUserDefaults standardUserDefaults];
+    [XOGameModel sharedInstance].aiGameMode=[userDefaults integerForKey:GAME_MODE];
     [GameManager sharedInstance].sound=[userDefaults boolForKey:@"sound"];
     [GameManager sharedInstance].music=[userDefaults boolForKey:@"music"];
     [GameManager sharedInstance].googleAnalitics=[userDefaults boolForKey:@"googleAnalitics"];
@@ -62,5 +65,13 @@ static GameManager* _instance=nil;
     [[MPManager sharedInstance] sendPlayerMyMessage:[NSString stringWithFormat:@"%i",roll]];
 }
 
+- (void) trackScreen:(GAITrackedViewController*)screen withName:(NSString*)name{
+    if (_googleAnalitics==YES) {
+        screen.screenName=name;
+    }
+    else{
+        screen.screenName=nil;
+    }
+}
 
 @end

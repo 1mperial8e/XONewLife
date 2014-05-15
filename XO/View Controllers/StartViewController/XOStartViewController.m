@@ -65,6 +65,7 @@
 - (void) viewWillAppear:(BOOL)animated{
     [self.navigationController.navigationBar setHidden:YES];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    [[GameManager sharedInstance] trackScreen:self withName:START_SCREEN];
 }
 
 #pragma mark - UIActions
@@ -98,6 +99,13 @@
 - (IBAction)singlePlayer:(id)sender {
     [GameManager sharedInstance].mode=XOGameModeSingle;
     [XOGameModel sharedInstance].gameMode = XOGameModeSingle;
+    if ([XOGameModel sharedInstance].aiGameMode == 0) {
+        [XOGameModel sharedInstance].aiGameMode = XOAIGameModeEasy;
+    }
+    else{
+        [XOGameModel sharedInstance].aiGameMode = XOAIGameModeHard;    }
+    [XOGameModel sharedInstance].player = XOPlayerFirst;
+    [XOGameModel sharedInstance].me = XOPlayerFirst;
     [[SoundManager sharedInstance] playClickSound];
     [self resetBtnStatus];
 }
@@ -281,11 +289,12 @@
 
 - (void) getDefaultSettings{
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    if ([userDefaults objectForKey:MULTIPLAYER_GAMES]==nil) {
+    if ([userDefaults objectForKey:GAME_MODE]==nil) {
         [userDefaults setBool:YES forKey:@"sound"];
         [userDefaults setBool:YES forKey:@"music"];
         [userDefaults setBool:YES forKey:@"googleAnalitics"];
         [userDefaults setBool:YES forKey:@"push"];
+        [userDefaults setInteger:0 forKey:GAME_MODE];
         [userDefaults setInteger:0 forKey:EASY_VICTORY];
         [userDefaults setInteger:0 forKey:@"mediumVictory"];
         [userDefaults setInteger:0 forKey:HARD_VICTORY];

@@ -12,6 +12,8 @@
 #import "XOGameModel.h"
 #import "SoundManager.h"
 #import "MGCicleProgress.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAI.h"
 
 @interface XOGameViewController () <XOStepTimerDelegate, weHaveVictory, playersTurn, UIAlertViewDelegate>{
     NSTimer *stepTimer;
@@ -60,11 +62,24 @@
                                              userInfo:nil
                                               repeats:YES];
     [MPManager sharedInstance].firstMessage = YES;
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated{
     [self setPlayersInfo];
+    switch ([GameManager sharedInstance].mode) {
+        case XOGameModeMultiplayer:
+            [[GameManager sharedInstance] trackScreen:self withName:MULTIPLAYER_SCREEN];
+            break;
+        case XOGameModeOnline:
+            [[GameManager sharedInstance] trackScreen:self withName:ONLINE_SCREEN];
+            break;
+        case XOGameModeSingle:
+            [[GameManager sharedInstance] trackScreen:self withName:SINGLE_SCREEN];
+            break;
+    }
 }
+
 
 - (void)configGameField
 {
@@ -156,15 +171,14 @@
     self.opponentPhoto.clipsToBounds=YES;
     switch ([GameManager sharedInstance].mode) {
         case XOGameModeSingle:{
-            if ([[GameManager sharedInstance].difficulty isEqualToString:EASY_MODE]) {
+            if ([XOGameModel sharedInstance].aiGameMode == 0) {
                 self.firstPlayerScore.text=[self textScore:[GameManager sharedInstance].progress.easyVictory];
                 self.secondPlayerScore.text=[self textScore:[GameManager sharedInstance].progress.easyLooses];
             }
-            if ([[GameManager sharedInstance].difficulty isEqualToString:MEDIUM_MODE]) {
-                self.firstPlayerScore.text=[self textScore:[GameManager sharedInstance].progress.mediumVictory];
-                self.secondPlayerScore.text=[self textScore:[GameManager sharedInstance].progress.mediumLooses];
+            if ([XOGameModel sharedInstance].aiGameMode == 1) {
+               
             }
-            if ([[GameManager sharedInstance].difficulty isEqualToString:HARD_MODE]) {
+            if ([XOGameModel sharedInstance].aiGameMode == 2) {
                 self.firstPlayerScore.text=[self textScore:[GameManager sharedInstance].progress.hardVictory];
                 self.secondPlayerScore.text=[self textScore:[GameManager sharedInstance].progress.hardLooses];
             }
@@ -188,15 +202,14 @@
         }
         break;
         case XOGameModeSingle:{
-            if ([[GameManager sharedInstance].difficulty isEqualToString:EASY_MODE]) {
+            if ([XOGameModel sharedInstance].aiGameMode == 0) {
                 self.firstPlayerScore.text=[self textScore:[GameManager sharedInstance].progress.easyVictory];
                 self.secondPlayerScore.text=[self textScore:[GameManager sharedInstance].progress.easyLooses];
             }
-            if ([[GameManager sharedInstance].difficulty isEqualToString:MEDIUM_MODE]) {
-                self.firstPlayerScore.text=[self textScore:[GameManager sharedInstance].progress.mediumVictory];
-                self.secondPlayerScore.text=[self textScore:[GameManager sharedInstance].progress.mediumLooses];
+            if ([XOGameModel sharedInstance].aiGameMode == 1) {
+               
             }
-            if ([[GameManager sharedInstance].difficulty isEqualToString:HARD_MODE]) {
+            if ([XOGameModel sharedInstance].aiGameMode == 2) {
                 self.firstPlayerScore.text=[self textScore:[GameManager sharedInstance].progress.hardVictory];
                 self.secondPlayerScore.text=[self textScore:[GameManager sharedInstance].progress.hardLooses];
             }           

@@ -10,6 +10,8 @@
 #import "GameManager.h"
 #import "SoundManager.h"
 #import "XOGameModel.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAI.h"
 
 @interface XOGameModeViewController ()
 
@@ -33,29 +35,26 @@
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:GAME_MODE_SCREEN value:@"Stopwatch"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+}
+
 - (IBAction)easyMode:(id)sender{
-    [GameManager sharedInstance].difficulty=EASY_MODE;
-    [XOGameModel sharedInstance].aiGameMode = XOAIGameModeEasy;
-    [XOGameModel sharedInstance].player = XOPlayerFirst;
-    [XOGameModel sharedInstance].me = XOPlayerFirst;
-    [[SoundManager sharedInstance] playClickSound];
-    [self resetBtnStatus];
+    
 }
 
 - (IBAction)mediumMode:(id)sender{
-    [GameManager sharedInstance].difficulty=MEDIUM_MODE;
-    [XOGameModel sharedInstance].aiGameMode = XOAIGameModeMedium;
-    [XOGameModel sharedInstance].player = XOPlayerFirst;
+    
     [XOGameModel sharedInstance].me = XOPlayerFirst;
     [[SoundManager sharedInstance] playClickSound];
     [self resetBtnStatus];
 }
 
 - (IBAction)hardMode:(id)sender{
-    [GameManager sharedInstance].difficulty=HARD_MODE;
-    [XOGameModel sharedInstance].aiGameMode = XOAIGameModeHard;
-    [XOGameModel sharedInstance].player = XOPlayerFirst;
-    [XOGameModel sharedInstance].me = XOPlayerFirst;
+        [XOGameModel sharedInstance].me = XOPlayerFirst;
     [[SoundManager sharedInstance] playClickSound];
     [self resetBtnStatus];
 }

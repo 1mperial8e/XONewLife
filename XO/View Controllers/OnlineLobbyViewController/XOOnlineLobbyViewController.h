@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 
-@interface XOOnlineLobbyViewController : UIViewController
+@interface XOOnlineLobbyViewController : GAITrackedViewController
 
 @end

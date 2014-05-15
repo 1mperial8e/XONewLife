@@ -9,6 +9,7 @@
 #import "XOProgress.h"
 #import "GameManager.h"
 #import "MPManager.h"
+#import "XOGameModel.h"
 
 @implementation XOProgress
 
@@ -56,7 +57,7 @@
         }
             break;
         case XOGameModeSingle:{
-            if ([[GameManager sharedInstance].difficulty isEqualToString:EASY_MODE]){
+            if ([XOGameModel sharedInstance].aiGameMode == 0){
                 if (player==YES){
                     self.easyVictory++;
                     value=self.easyVictory;
@@ -68,19 +69,15 @@
                     key=EASY_LOOSES;
                 }
             }
-            if ([[GameManager sharedInstance].difficulty isEqualToString:MEDIUM_MODE]){
+            if ([XOGameModel sharedInstance].aiGameMode == 1){
                 if (player==YES){
-                    self.mediumVictory++;
-                    value=self.mediumVictory;
-                    key=MEDIUM_VICTORY;
+                    
                 }
                 else {
-                    self.mediumLooses++;
-                    value=self.mediumLooses;
-                    key=MEDIUM_LOOSES;
+                    
                 }
             }
-            if ([[GameManager sharedInstance].difficulty isEqualToString:HARD_MODE]){
+            if ([XOGameModel sharedInstance].aiGameMode == 2){
                 if (player==YES){
                     self.hardVictory++;
                     value=self.hardVictory;

@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <GooglePlus/GooglePlus.h>
+#import "GAITrackedViewController.h"
 
 @class GPGSignIn;
 
-@interface XOStartViewController : UIViewController <GPPSignInDelegate>
+@interface XOStartViewController : GAITrackedViewController <GPPSignInDelegate>
 
 @end
