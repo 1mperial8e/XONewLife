@@ -53,7 +53,7 @@
 
 - (IBAction)hardMode:(id)sender{
     [GameManager sharedInstance].difficulty=HARD_MODE;
-    [XOGameModel sharedInstance].aiGameMode = XOAIGameModeMedium;
+    [XOGameModel sharedInstance].aiGameMode = XOAIGameModeHard;
     [XOGameModel sharedInstance].player = XOPlayerFirst;
     [XOGameModel sharedInstance].me = XOPlayerFirst;
     [[SoundManager sharedInstance] playClickSound];

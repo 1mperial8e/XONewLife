@@ -29,7 +29,7 @@
     [super viewDidLoad];
     if (![[GPGManager sharedInstance] isSignedIn])
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No connection" message:@"For playing online, please sign in via google+" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Sign in", nil];
+        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NoConnection", nil) message:NSLocalizedString(@"forPlaying", nil)  delegate:self cancelButtonTitle:NSLocalizedString(@"CancelLogin", nil) otherButtonTitles:NSLocalizedString(@"Sign in", nil) , nil];
         [alert show];
     }
     [MPManager sharedInstance].lobbyDelegate = self;

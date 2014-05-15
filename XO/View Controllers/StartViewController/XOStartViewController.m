@@ -22,10 +22,10 @@
 @property (nonatomic, weak) IBOutlet UIButton *single;
 @property (nonatomic, weak) IBOutlet UIButton *multi;
 @property (nonatomic, weak) IBOutlet UIButton *online;
-@property (nonatomic, weak) IBOutlet UIButton *back;
 @property (nonatomic, weak) IBOutlet UIButton *ach;
 @property (nonatomic, weak) IBOutlet UIButton *leader;
 @property (nonatomic, weak) IBOutlet UIButton *prefs;
+@property (weak, nonatomic) IBOutlet UIButton *about;
 
 - (IBAction)leaderboardButton:(id)sender;
 - (IBAction)achievementsButton:(id)sender;
@@ -33,6 +33,7 @@
 - (IBAction)twoPlayers:(id)sender;
 - (IBAction)playOnline:(id)sender;
 - (IBAction)settings:(id)sender;
+- (IBAction)aboutButton:(id)sender;
 
 
 @end
@@ -75,32 +76,33 @@
     [[SoundManager sharedInstance] playClickSound];
     if (![[GPGManager sharedInstance] isSignedIn]) {
         showLeaderboard=YES;
-        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"You are not signed in" message:@"Sign in via google+ to use leaderboard" delegate:self cancelButtonTitle:@"Cancle" otherButtonTitles:@"Sign in", nil];
+        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NoConnection", nil) message:NSLocalizedString(@"forLeader", nil)  delegate:self cancelButtonTitle:NSLocalizedString(@"CancelLogin", nil) otherButtonTitles:NSLocalizedString(@"Sign in", nil) , nil];
         [alert show];
     }
     else{
         [self showLeaderboard];
     }
-
-    
+    [self resetBtnStatus];
 }
 
 - (IBAction)achievementsButton:(id)sender{
     [[SoundManager sharedInstance] playClickSound];
     if (![[GPGManager sharedInstance] isSignedIn]) {
         showAchievement=YES;
-        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"You are not signed in" message:@"Sign in via google+ to use achievements" delegate:self cancelButtonTitle:@"Cancle" otherButtonTitles:@"Sign in", nil];
+        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NoConnection", nil) message:NSLocalizedString(@"forAch", nil)  delegate:self cancelButtonTitle:NSLocalizedString(@"CancelLogin", nil) otherButtonTitles:NSLocalizedString(@"Sign in", nil) , nil];
         [alert show];
     }
     else{
         [self showAchievements];
     }
+    [self resetBtnStatus];
 }
 
 - (IBAction)singlePlayer:(id)sender {
     [GameManager sharedInstance].mode=XOGameModeSingle;
     [XOGameModel sharedInstance].gameMode = XOGameModeSingle;
     [[SoundManager sharedInstance] playClickSound];
+    [self resetBtnStatus];
 }
 
 - (IBAction)twoPlayers:(id)sender {
@@ -109,6 +111,9 @@
     [XOGameModel sharedInstance].me = XOPlayerNone;
     [[XOGameModel sharedInstance] multiplayerNewGame];
     [[SoundManager sharedInstance] playClickSound];
+    XOGameViewController *gameView=[[UIStoryboard storyboardWithName:@"iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"game"];
+    [self.navigationController pushViewController:gameView animated:YES];
+    [self resetBtnStatus];
 }
 
 - (IBAction)playOnline:(id)sender {
@@ -116,10 +121,98 @@
     [XOGameModel sharedInstance].gameMode = XOGameModeOnline;
     [XOGameModel sharedInstance].player = XOPlayerNone;
     [[SoundManager sharedInstance] playClickSound];
+    [self resetBtnStatus];
 }
 
 - (IBAction)settings:(id)sender {
     [[SoundManager sharedInstance] playClickSound];
+    [self resetBtnStatus];
+}
+
+- (IBAction)aboutButton:(id)sender {
+    [self resetBtnStatus];
+    [[SoundManager sharedInstance] playClickSound];
+}
+
+- (IBAction) pressed: (id) sender
+{
+    if (sender == self.single)
+    {
+    	self.multi.enabled = false;
+    	self.online.enabled = false;
+        self.about.enabled = false;
+        self.leader.enabled = false;
+        self.ach.enabled = false;
+        self.prefs.enabled = false;
+    }
+    else if (sender == self.multi)
+    {
+    	self.single.enabled = false;
+    	self.online.enabled = false;
+        self.about.enabled = false;
+        self.leader.enabled = false;
+        self.ach.enabled = false;
+        self.prefs.enabled = false;
+    }
+    else if (sender == self.online)
+    {
+    	self.multi.enabled = false;
+    	self.single.enabled = false;
+        self.about.enabled = false;
+        self.leader.enabled = false;
+        self.ach.enabled = false;
+        self.prefs.enabled = false;
+    }
+    else if (sender == self.about)
+    {
+        self.multi.enabled = false;
+    	self.online.enabled = false;
+        self.single.enabled = false;
+        self.leader.enabled = false;
+        self.ach.enabled = false;
+        self.prefs.enabled = false;
+    }
+    else if (sender == self.leader)
+    {
+        self.multi.enabled = false;
+    	self.online.enabled = false;
+        self.single.enabled = false;
+        self.about.enabled = false;
+        self.ach.enabled = false;
+        self.prefs.enabled = false;
+    }
+    else if (sender == self.ach)
+    {
+        self.multi.enabled = false;
+    	self.online.enabled = false;
+        self.single.enabled = false;
+        self.about.enabled = false;
+        self.leader.enabled = false;
+        self.prefs.enabled = false;
+    }
+    else if (sender == self.prefs)
+    {
+        self.multi.enabled = false;
+    	self.online.enabled = false;
+        self.single.enabled = false;
+        self.about.enabled = false;
+        self.leader.enabled = false;
+        self.ach.enabled = false;
+    }
+}
+
+- (IBAction)touchUpOutside:(id)sender{
+    [self resetBtnStatus];
+}
+
+- (void) resetBtnStatus{
+    self.multi.enabled = true;
+    self.online.enabled = true;
+    self.single.enabled = true;
+    self.about.enabled = true;
+    self.leader.enabled = true;
+    self.ach.enabled = true;
+    self.prefs.enabled=true;
 }
 
 #pragma mark - UIAlertViewDelegate

@@ -1,6 +1,6 @@
 
- "Sing in" = "Войти";
- "Sing out" = "Выйти";
+"Sign in" = "Войти";
+"Sign out" = "Выйти";
 "You win!" = "Вы выиграли!";
 "You opponent win!" = "Ваш оппонент выиграл!";
 "Continue game?" = "Продолжить игру?";
@@ -8,9 +8,15 @@
 "Continue"="Продолжить";
 "Draw game!"="Ничья!";
 "Waiting for opponent"="Ожидание оппонента.";
-"End game!"="Конец игры";
+"End game!"="Конец игры!";
 "Opponent has left the game :-("="Оппонент покинул игру";
 "Exit"="Выход";
 "Player %i"="Игрок %i";
 "Me"="Я";
-""="";
+"CancelLogin"="Отмена";
+"NoConnection"="Соединение отсутствует";
+"forPlaying"="Для онлайн игры, войдите с помощью google+";
+"forAch"="Для просмотра достижений, войдите с помощью google+";
+"forLeader"="Для просмотра рейтинга, войдите с помощью google+";
+"timeOut"="Время вышло";
+"timeOponent"="Время вышло. Оппонент покинул игру";

@@ -33,7 +33,7 @@
 "Ujd-6b-wt6.normalTitle" = "Звуки";
 
 /* Class = "IBUIButton"; normalTitle = "PLAY ONLINE"; ObjectID = "b6A-R5-2a6"; */
-"b6A-R5-2a6.normalTitle" = "ГАТИ ОНЛАЙН";
+"b6A-R5-2a6.normalTitle" = "ГРАТИ ОНЛАЙН";
 
 /* Class = "IBUIButton"; normalTitle = "Back"; ObjectID = "bsH-p2-BQ8"; */
 "bsH-p2-BQ8.normalTitle" = "Назад";
@@ -42,7 +42,7 @@
 "cHn-93-C4a.normalTitle" = "Вийти";
 
 /* Class = "IBUIButton"; normalTitle = "1 PLAYER"; ObjectID = "eXF-2A-saR"; */
-"eXF-2A-saR.normalTitle" = "1 ГАВЕЦЬ";
+"eXF-2A-saR.normalTitle" = "1 ГРАВЕЦЬ";
 
 /* Class = "IBUILabel"; text = "30"; ObjectID = "gxM-D7-TB0"; */
 "gxM-D7-TB0.text" = "30";
@@ -75,4 +75,4 @@
 "u12-8p-hZz.normalTitle" = "Назад";
 
 /* Class = "IBUIButton"; normalTitle = "LEADERBOARD"; ObjectID = "u5v-08-xuZ"; */
-"u5v-08-xuZ.normalTitle" = "ЛІДЕРИ";
+"u5v-08-xuZ.normalTitle" = "РЕЙТИНГ";
