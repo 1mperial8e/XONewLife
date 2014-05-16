@@ -14,6 +14,7 @@
 #import "GAIDictionaryBuilder.h"
 #import "GAI.h"
 #import "XOGameModel.h"
+#import "XOGameFieldViewController.h"
 
 @interface XOSettingsViewController ()
 
@@ -106,8 +107,21 @@
         else{
             [userDefaults setInteger:0 forKey:settings];
         }
-        if ([[self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2 ] isKindOfClass:NSClassFromString(@"XOGameViewController")]){
-            //[[XOGameModel sharedInstance] clear];
+        if ([GameManager sharedInstance].mode==XOGameModeSingle) {
+            if ([[self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2 ] isKindOfClass:NSClassFromString(@"XOGameViewController")]){
+                [[XOGameModel sharedInstance] clear];
+                XOGameViewController *gameView=[self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2 ];
+                XOGameFieldViewController *gameFields=gameView.gameFieldViewController;
+                [gameFields reload];
+                if ([XOGameModel sharedInstance].aiGameMode == 2) {
+                    [XOGameModel sharedInstance].aiGameMode = XOAIGameModeEasy;
+                }
+                else{
+                    [XOGameModel sharedInstance].aiGameMode = XOAIGameModeHard;
+                }
+                [XOGameModel sharedInstance].player = XOPlayerFirst;
+                [XOGameModel sharedInstance].me = XOPlayerFirst;
+            }
         }
     }
     else{

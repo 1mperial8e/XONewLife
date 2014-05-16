@@ -1,0 +1,1 @@
+../../GooglePlayGames/GooglePlayGames.framework/Versions/A/Headers/GPGApplicationModel.h

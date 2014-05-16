@@ -577,7 +577,7 @@
                                 <rect key="frame" x="264" y="0.0" width="56" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.90196078430000004" green="0.67843137249999996" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="Settings">
+                                <state key="normal" image="lightSettings">
                                     <color key="titleShadowColor" red="0.90196078430000004" green="0.67843137249999996" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -907,6 +907,7 @@
         <image name="count" width="115" height="41"/>
         <image name="field_bg" width="501" height="620"/>
         <image name="g+ icon" width="22" height="24"/>
+        <image name="lightSettings" width="36" height="36"/>
         <image name="startPaper_bottom" width="320" height="211"/>
         <image name="startPaper_top" width="320" height="301"/>
         <image name="timer" width="83" height="83"/>

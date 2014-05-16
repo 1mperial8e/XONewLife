@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "GAITrackedViewController.h"
+#import "XOGameFieldViewController.h"
 
 @interface XOGameViewController : GAITrackedViewController
+@property (weak, nonatomic) XOGameFieldViewController *gameFieldViewController;
 @end

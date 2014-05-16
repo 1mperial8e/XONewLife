@@ -18,5 +18,6 @@
 @property (nonatomic, weak) id <XOGameFieldViewControllerDelegate> delegate;
 
 - (void)clearGameField;
+- (void)reload;
 
 @end
