@@ -10,8 +10,7 @@
 #import "Manager/MPManager.h"
 #import <GooglePlus/GooglePlus.h>
 #import "XOObjectiveMatrix.h"
-#import "GAI.h"
-
+#import "ADVManager.h"
 @implementation XOAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -19,13 +18,6 @@
 
     //implemented GPG
     [GPGManager sharedInstance].realTimeRoomDelegate = [MPManager sharedInstance];
-    // Optional: automatically send uncaught exceptions to Google Analytics.
-    [GAI sharedInstance].trackUncaughtExceptions = YES;
-    // Optional: set Logger to VERBOSE for debug information.
-    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
-    [GAI sharedInstance].dispatchInterval = 1;
-    [[GAI sharedInstance] trackerWithTrackingId:TRACK_ID];
-    
     //register notification
 //    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
 //     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert)];
