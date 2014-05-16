@@ -8,6 +8,7 @@
 
 #import "XOSettingsViewController.h"
 #import "XOStartViewController.h"
+#import "XOGameViewController.h"
 #import "GameManager.h"
 #import "SoundManager.h"
 #import "GAIDictionaryBuilder.h"
@@ -66,12 +67,12 @@
 
 - (IBAction)signInOut:(id)sender {
     if ([[GPGManager sharedInstance] isSignedIn]){
-        [self.signInOut setTitle:NSLocalizedString(@"Sign in", @"")/* @"                          Sign in"*/ forState:UIControlStateNormal];
+        [self.signInOut setTitle:NSLocalizedString(@"Sign in", @"") forState:UIControlStateNormal];
         [[GPGManager sharedInstance] signOut];
     }
     else{
         [[GPPSignIn sharedInstance] authenticate];
-        [self.signInOut setTitle:NSLocalizedString(@"Sign out", @"")/*@"                          Sign out"*/ forState:UIControlStateNormal];
+        [self.signInOut setTitle:NSLocalizedString(@"Sign out", @"") forState:UIControlStateNormal];
     }
 }
 
@@ -105,6 +106,9 @@
         else{
             [userDefaults setInteger:0 forKey:settings];
         }
+        if ([[self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2 ] isKindOfClass:NSClassFromString(@"XOGameViewController")]){
+            //[[XOGameModel sharedInstance] clear];
+        }
     }
     else{
         if ([userDefaults boolForKey:settings]==NO){
@@ -120,10 +124,10 @@
 
 - (void) setControlState{
     if ([[GPGManager sharedInstance] isSignedIn]) {
-        [self.signInOut setTitle:NSLocalizedString(@"Sign out", @"")/*@"                          Sign out"*/ forState:UIControlStateNormal];
+        [self.signInOut setTitle:NSLocalizedString(@"Sign out", @"") forState:UIControlStateNormal];
     }
     else{
-        [self.signInOut setTitle:NSLocalizedString(@"Sign in", @"")/*@"                          Sign in"*/ forState:UIControlStateNormal];
+        [self.signInOut setTitle:NSLocalizedString(@"Sign in", @"") forState:UIControlStateNormal];
     }
     if ([GameManager sharedInstance].sound) {
         self.soundCheck.image=[UIImage imageNamed:@"checked"];

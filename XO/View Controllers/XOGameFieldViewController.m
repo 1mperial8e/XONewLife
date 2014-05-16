@@ -41,10 +41,12 @@
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    [[XOGameModel sharedInstance] clear];
+    
 }
+
 - (void)dealloc
 {
+    [[XOGameModel sharedInstance] clear];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"Win" object:nil];
 }
 

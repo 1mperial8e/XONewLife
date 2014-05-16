@@ -7,6 +7,7 @@
 //
 
 #import "XOGameViewController.h"
+#import "XOSettingsViewController.h"
 #import "GameManager.h"
 #import "MPManager.h"
 #import "XOGameModel.h"
@@ -20,9 +21,11 @@
     NSTimer *restartGameTimer;
     int time;
     float restart;
+    BOOL config;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *gameFieldContainerView;
+@property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 @property (weak, nonatomic) UIViewController *gameFieldViewController;
 @property (weak, nonatomic) IBOutlet UILabel *myName;
 @property (weak, nonatomic) IBOutlet UILabel *opponentName;
@@ -34,7 +37,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *firstPlayerScore;
 @property (weak, nonatomic) IBOutlet UILabel *secondPlayerScore;
 @property (weak, nonatomic) IBOutlet MGCicleProgress *progress;
+@property (weak, nonatomic) IBOutlet UIImageView *timer;
+@property (weak, nonatomic) IBOutlet MGCicleProgress *timerCircle;
 - (IBAction)back:(id)sender;
+- (IBAction)settings:(id)sender;
 
 @end
 
@@ -62,7 +68,6 @@
                                              userInfo:nil
                                               repeats:YES];
     [MPManager sharedInstance].firstMessage = YES;
-    
 }
 
 - (void) viewWillAppear:(BOOL)animated{
@@ -116,6 +121,7 @@
                                                                        multiplier:1.0
                                                                          constant:0]];
     [self addChildViewController:_gameFieldViewController];
+    config=TRUE;
     
 }
 
@@ -123,11 +129,14 @@
     if ([GameManager sharedInstance].mode == XOGameModeOnline){
     [[MPManager sharedInstance].roomToTrack leave];
     }
-    [[XOGameModel sharedInstance] clear];
-    [self clearProgress];
     if ([stepTimer isValid]) {
         [stepTimer invalidate];
     }
+}
+
+- (void) dealloc{
+    [[XOGameModel sharedInstance] clear];
+    [self clearProgress];
 }
 
 - (IBAction)back:(id)sender {
@@ -135,8 +144,17 @@
     [[SoundManager sharedInstance] playClickSound];
 }
 
+- (IBAction)settings:(id)sender {
+    XOSettingsViewController *settingsVew=[[UIStoryboard storyboardWithName:@"iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"settings"];
+    [self.navigationController pushViewController:settingsVew animated:YES];
+}
+
 - (void) setPlayersInfo{
     if ([GameManager sharedInstance].mode == XOGameModeOnline){
+    [self.timerLabel setHidden:NO];
+    [self.timer setHidden:NO];
+    [self.timerCircle setHidden:NO];
+    [self.settingsButton setHidden:YES];
     self.myName.text=[GameManager sharedInstance].googleUserName;
     self.opponentName.text=[GameManager sharedInstance].opponentName;
     self.myPhoto.image=[UIImage imageWithData:[NSData  dataWithContentsOfURL:[NSURL URLWithString:[GameManager sharedInstance].googleUserImage]]];
@@ -148,6 +166,10 @@
         self.myPhoto.image=[UIImage imageNamed:@"cross_1"];
         self.opponentPhoto.image=[UIImage imageNamed:@"zero_4"];
         [self nowTurn:XOPlayerFirst];
+        [self.timerLabel setHidden:YES];
+        [self.timer setHidden:YES];
+        [self.timerCircle setHidden:YES];
+        [self.settingsButton setHidden:NO];
     }
     else if ([GameManager sharedInstance].mode == XOGameModeSingle){
         self.myName.text=NSLocalizedString(@"Me", nil);
@@ -160,6 +182,10 @@
         }
         self.opponentPhoto.image=[UIImage imageNamed:@"apple"];
         [self nowTurn:XOPlayerFirst];
+        [self.timerLabel setHidden:YES];
+        [self.timer setHidden:YES];
+        [self.timerCircle setHidden:YES];
+        [self.settingsButton setHidden:NO];
     }
     self.myName.layer.cornerRadius=4;
     self.opponentName.layer.cornerRadius=4;
@@ -184,10 +210,15 @@
             }
         }
         break;
+        case XOGameModeMultiplayer:{
+            self.firstPlayerScore.text=[self textScore:[GameManager sharedInstance].firstPlayerVictory];
+            self.secondPlayerScore.text=[self textScore:[GameManager sharedInstance].secondPlayerVictory];
+        }
+        break;
         default:{
-                self.firstPlayerScore.text=[self textScore:0];
-                self.secondPlayerScore.text=[self textScore:0];
-            }
+            self.firstPlayerScore.text=[self textScore:0];
+            self.secondPlayerScore.text=[self textScore:0];
+        }
         break;
     }
 }
@@ -262,8 +293,8 @@
     if (time<=1) {
         [stepTimer invalidate];
         if ([XOGameModel sharedInstance].gameMode!=XOGameModeOnline) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"timeOut",nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"timeOut",nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//            [alert show];
         }
         else{
             if ([XOGameModel sharedInstance].player == [XOGameModel sharedInstance].me) {
