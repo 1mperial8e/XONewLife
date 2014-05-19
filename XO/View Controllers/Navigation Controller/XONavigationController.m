@@ -12,14 +12,17 @@
 #import "SADWebView.h"
 
 @interface XONavigationController () <SADWebViewDelegate>
+{
+    SADWebView* webView;
+}
 @property (nonatomic, weak) IBOutlet ADVContainer *containerView;
 @property (nonatomic, strong) GADBannerView *banner;
 @property (nonatomic) BOOL advLoaded;
-@property (nonatomic, strong) SADWebView *webView;
+//@property (nonatomic, strong) SADWebView *webView;
 @end
 
 @implementation XONavigationController
-@synthesize banner, webView;
+@synthesize banner;//, webView;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -33,26 +36,7 @@
 {
     [super viewDidLoad];
     _containerView = (ADVContainer *)[self.visibleViewController.view viewWithTag:135];
-    if (!webView) {
-        webView = [[SADWebView alloc]initWithId:@"5374b9b8fcb9071100000000"]; // creating instance of SASWebview
-        [webView setSadDelegate:self]; // adding the delegate
-        [webView loadAd:LANGUAGE_RU]; // loading data with params
-    }
-    webView.backgroundColor=[UIColor whiteColor];
-    webView.frame=CGRectMake(0, 0, 320, 50);
-    [[self.view viewWithTag:135] addSubview:webView];
-    /*banner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
     
-    banner.adUnitID = @"/6253334/dfp_example_ad";
-    // "@ca-app-pub-8249028322108129/3701709092"
-    // @"ca-app-pub-8249028322108129/6794776292"
-    banner.rootViewController =self.topViewController;
-    [banner loadRequest:[GADRequest request]];
-    _containerView = (ADVContainer *)[self.topViewController.view viewWithTag:135];
-    _containerView.backgroundColor = [UIColor redColor];
-    [_containerView addSubview:banner];
-    [banner loadRequest:[GADRequest request]];
-    banner.delegate = self;*/
     _containerView.hidden = YES;
     self.delegate = self;
 }
@@ -65,7 +49,7 @@
 - (void)adViewDidReceiveAd:(GADBannerView *)view
 {
     
-    _advLoaded = YES;
+    //_advLoaded = YES;
     if (_containerView.hidden) {
         [_containerView setHidden:NO animate:YES];
     }
@@ -80,7 +64,7 @@
 - (void)adView:(GADBannerView *)view didFailToReceiveAdWithError:(GADRequestError *)error
 {
     [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(tick:) userInfo:nil repeats:NO];
-    _advLoaded = NO;
+    //_advLoaded = NO;
     [_containerView setHidden:YES animate:YES];
     NSLog(@"Error")
     ;
@@ -111,7 +95,7 @@
 {
     NSLog(@"WillShow");
 
-    _containerView = (ADVContainer *)[self.visibleViewController.view viewWithTag:135];
+    /*_containerView = (ADVContainer *)[self.visibleViewController.view viewWithTag:135];
     ((ADVContainer *)[self.visibleViewController.view viewWithTag:135]).backgroundColor = [UIColor colorWithPatternImage:[self imageWithView:banner]];
     if (_advLoaded) {
         _containerView = (ADVContainer *)[self.visibleViewController.view viewWithTag:135];
@@ -119,17 +103,19 @@
         [_containerView setHidden:NO animate:YES];
     } else {
         _containerView.hidden = YES;
-    }
+    }*/
 }
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     _containerView = (ADVContainer *)[self.visibleViewController.view viewWithTag:135];
-    [(ADVContainer *)[self.visibleViewController.view viewWithTag:135] addSubview:banner];
+   // [(ADVContainer *)[self.visibleViewController.view viewWithTag:135] addSubview:banner];
 }
 #pragma mark - SAD Delegate
 -(void)onReceivedAd
 {
-    
+    if (_containerView.hidden) {
+        [_containerView setHidden:NO animate:YES];
+    }
 }
 -(void)onShowedAd
 {
@@ -138,7 +124,7 @@
 -(void)onError:(SADVIEW_ERROR)error
 {
     //_advLoaded = YES;
-    if (_containerView.hidden) {
+    if (!_containerView.hidden) {
         [_containerView setHidden:YES animate:YES];
     }
 
@@ -150,7 +136,7 @@
 -(void)noAdFound
 {
     //_advLoaded = YES;
-    if (_containerView.hidden) {
+    if (!_containerView.hidden) {
         [_containerView setHidden:YES animate:YES];
     }
 
