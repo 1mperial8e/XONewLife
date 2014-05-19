@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "XOProgress.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface GameManager : NSObject
 
@@ -25,10 +28,11 @@
 @property (nonatomic) int secondPlayerVictory; 
 @property (nonatomic) int myRoll;
 @property (nonatomic) BOOL iTurnFirst;
+@property (nonatomic) id<GAITracker> tracker;
 
 + (GameManager*)sharedInstance;
 - (void) setSettings;
 - (void) tryToBeFirst;
-- (void) trackScreen:(id)screen withName:(NSString*)name;
+- (void) trackScreenWithName:(NSString*)name;
 
 @end

@@ -11,8 +11,6 @@
 #import "XOGameViewController.h"
 #import "GameManager.h"
 #import "SoundManager.h"
-#import "GAIDictionaryBuilder.h"
-#import "GAI.h"
 #import "XOGameModel.h"
 #import "XOGameFieldViewController.h"
 
@@ -50,7 +48,7 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated{
-    [[GameManager sharedInstance] trackScreen:self withName:SETTINGS_SCREEN];
+    [[GameManager sharedInstance] trackScreenWithName:SETTINGS_SCREEN];;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -167,10 +165,10 @@
         self.pushCheck.image=[UIImage imageNamed:@"unchecked"];
     }
     if ([XOGameModel sharedInstance].aiGameMode==0) {
-        [self.gameMode setTitle:@"Easy" forState:UIControlStateNormal];
+        [self.gameMode setTitle:NSLocalizedString(@"Easy", nil) forState:UIControlStateNormal];
     }
     else{
-        [self.gameMode setTitle:@"Hard" forState:UIControlStateNormal];
+        [self.gameMode setTitle:NSLocalizedString(@"Hard", nil) forState:UIControlStateNormal];
     }
 }
 

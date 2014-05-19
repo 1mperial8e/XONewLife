@@ -11,6 +11,7 @@
 #import <GooglePlus/GooglePlus.h>
 #import "XOObjectiveMatrix.h"
 #import "ADVManager.h"
+
 @implementation XOAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -18,6 +19,7 @@
 
     //implemented GPG
     [GPGManager sharedInstance].realTimeRoomDelegate = [MPManager sharedInstance];
+        
     //register notification
 //    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
 //     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert)];

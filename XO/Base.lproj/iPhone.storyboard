@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Nts-kL-eRo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="localizable" useAutolayout="YES" initialViewController="Nts-kL-eRo">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -207,7 +207,7 @@
                             <view tag="135" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gUL-Rs-bBm">
                                 <rect key="frame" x="0.0" y="518" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="noN-ZY-QU9"/>
                                     <constraint firstAttribute="height" constant="50" id="ze0-pU-vhi"/>
@@ -374,6 +374,7 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="se9-4H-YFG" secondAttribute="trailing" constant="62" id="GLu-KZ-siX"/>
                                     <constraint firstAttribute="trailing" secondItem="H4L-Zc-Aug" secondAttribute="trailing" constant="62" id="Gc9-F8-qV9"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="L1s-fc-I5x"/>
                                     <constraint firstAttribute="height" constant="300" id="PPC-BK-g2w"/>
                                     <constraint firstItem="ODZ-jy-vtr" firstAttribute="leading" secondItem="iuJ-xQ-r6o" secondAttribute="leading" constant="62" id="Rxd-Uj-GtT"/>
                                     <constraint firstItem="se9-4H-YFG" firstAttribute="leading" secondItem="iuJ-xQ-r6o" secondAttribute="leading" constant="62" id="XTD-hr-IiU"/>
@@ -382,6 +383,7 @@
                                     <constraint firstAttribute="width" constant="320" id="d1S-Eh-cBf"/>
                                     <constraint firstItem="H4L-Zc-Aug" firstAttribute="top" secondItem="iuJ-xQ-r6o" secondAttribute="top" constant="48" id="fwT-r7-vOn"/>
                                     <constraint firstItem="ODZ-jy-vtr" firstAttribute="top" secondItem="H4L-Zc-Aug" secondAttribute="bottom" constant="8" id="hm7-1C-uNF"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="tgA-VU-G4G"/>
                                     <constraint firstItem="se9-4H-YFG" firstAttribute="top" secondItem="ODZ-jy-vtr" secondAttribute="bottom" constant="8" id="zEO-3f-HHg"/>
                                 </constraints>
                             </view>

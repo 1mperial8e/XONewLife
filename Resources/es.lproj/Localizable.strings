@@ -1,5 +1,5 @@
-"Sign in" = "Log in";
-"Sign out" = "Log out";
+"Sign in" = "Sign in";
+"Sign out" = "Sign out";
 "You win!" = "You win!";
 "Your opponent win!" = "Your opponent win!";
 "Continue game?" = "Continue game?";
@@ -11,7 +11,7 @@
 "Opponent has left the game :-("="Opponent has left the game";
 "Exit"="Exit";
 "Player %i"="Player %i";
-"Me"="You";
+"Me"="Me";
 "CancelLogin"="Cancel";
 "NoConnection"="No Connection";
 "forPlaying"="Sign in via google+ account to play online";

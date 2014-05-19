@@ -8,8 +8,6 @@
 
 #import "AboutViewController.h"
 #import "SoundManager.h"
-#import "GAIDictionaryBuilder.h"
-#import "GAI.h"
 #import "GameManager.h"
 
 @interface AboutViewController ()
@@ -27,7 +25,7 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated{
-    [[GameManager sharedInstance] trackScreen:self withName:ABOUT_SCREEN];
+    [[GameManager sharedInstance] trackScreenWithName:ABOUT_SCREEN];
 }
 
 - (IBAction)backButton:(id)sender {

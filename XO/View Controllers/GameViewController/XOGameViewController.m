@@ -13,8 +13,6 @@
 #import "XOGameModel.h"
 #import "SoundManager.h"
 #import "MGCicleProgress.h"
-#import "GAIDictionaryBuilder.h"
-#import "GAI.h"
 
 @interface XOGameViewController () <XOStepTimerDelegate, weHaveVictory, playersTurn, UIAlertViewDelegate>{
     NSTimer *stepTimer;
@@ -73,13 +71,13 @@
     [self setPlayersInfo];
     switch ([GameManager sharedInstance].mode) {
         case XOGameModeMultiplayer:
-            [[GameManager sharedInstance] trackScreen:self withName:MULTIPLAYER_SCREEN];
+            [[GameManager sharedInstance] trackScreenWithName:MULTIPLAYER_SCREEN];
             break;
         case XOGameModeOnline:
-            [[GameManager sharedInstance] trackScreen:self withName:ONLINE_SCREEN];
+            [[GameManager sharedInstance] trackScreenWithName:ONLINE_SCREEN];
             break;
         case XOGameModeSingle:
-            [[GameManager sharedInstance] trackScreen:self withName:SINGLE_SCREEN];
+            [[GameManager sharedInstance] trackScreenWithName:SINGLE_SCREEN];
             break;
     }
 }

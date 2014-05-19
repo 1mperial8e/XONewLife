@@ -21,6 +21,7 @@ static GameManager* _instance=nil;
     if (_instance==nil) {
         _instance=[[self alloc] init];
     }
+        _instance.tracker=[[GAI sharedInstance] trackerWithTrackingId:TRACK_ID];
     return _instance;
     }
 }
@@ -40,9 +41,7 @@ static GameManager* _instance=nil;
     [GameManager sharedInstance].progress.easyLooses=[userDefaults integerForKey:EASY_LOOSES];
     [GameManager sharedInstance].progress.mediumLooses=[userDefaults integerForKey:@"mediumLooses"];
     [GameManager sharedInstance].progress.hardLooses=[userDefaults integerForKey:HARD_LOOSES];
-    [GameManager sharedInstance].progress.multiplayerGames=[userDefaults integerForKey:MULTIPLAYER_GAMES];
-    [GameManager sharedInstance].firstPlayerVictory=0;
-    [GameManager sharedInstance].secondPlayerVictory=0;
+    [GameManager sharedInstance].progress.multiplayerGames=[userDefaults integerForKey:MULTIPLAYER_GAMES];    
     [GameManager sharedInstance].progress.myVictory=0;
     [GameManager sharedInstance].progress.opponentVictory=0;
     if ([GameManager sharedInstance].music==YES) {
@@ -65,12 +64,10 @@ static GameManager* _instance=nil;
     [[MPManager sharedInstance] sendPlayerMyMessage:[NSString stringWithFormat:@"%i",roll]];
 }
 
-- (void) trackScreen:(GAITrackedViewController*)screen withName:(NSString*)name{
+- (void) trackScreenWithName:(NSString*)name{
     if (_googleAnalitics==YES) {
-        screen.screenName=name;
-    }
-    else{
-        screen.screenName=nil;
+        [_tracker send:[[[GAIDictionaryBuilder createAppView] set:name
+                                                          forKey:kGAIScreenName] build]];
     }
 }
 

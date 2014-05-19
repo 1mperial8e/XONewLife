@@ -46,6 +46,7 @@
     
     //[self layoutIfNeeded];
 }
+
 - (void)setHidden:(BOOL)hidden animate:(BOOL)animate
 {
     [self setHidden:hidden];

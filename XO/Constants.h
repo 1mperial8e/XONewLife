@@ -9,6 +9,7 @@
 #ifndef XO_Constants_h
 #define XO_Constants_h
 
+//UserDefaults keys
 #define GAME_MODE @"mode"
 #define EASY_VICTORY @"easyVictory"
 #define MEDIUM_VICTORY @"mediumVictory"
@@ -17,6 +18,8 @@
 #define MEDIUM_LOOSES @"mediumLooses"
 #define HARD_LOOSES @"hardLooses"
 #define MULTIPLAYER_GAMES @"multiplayerGames"
+
+//Google Play Game Service constants
 #define CLIENT_ID @"111039763950-dj91993gmav7o5dn26v65ga1lavlt0jg.apps.googleusercontent.com"
 #define ACH_NEWBIE @"CgkI7qvx050DEAIQAg"
 #define ACH_GOOD_PLAYER @"CgkI7qvx050DEAIQBA"
@@ -24,16 +27,24 @@
 #define ACH_GAMER @"CgkI7qvx050DEAIQCA"
 #define ACH_FRIENDLY_GAMER @"CgkI7qvx050DEAIQCQ"
 #define LEAD_LEADERBOARD @"CgkI7qvx050DEAIQBg"
-#define TRACK_ID @"UA-51035720-1"
-#define MULTIPLAYER_SCREEN @"multi"
-#define SINGLE_SCREEN @"single"
-#define ONLINE_SCREEN @"online"
-#define LOBBY_SCREEN @"lobby"
-#define SETTINGS_SCREEN @"settings"
-#define GAME_MODE_SCREEN @"gameMode"
-#define START_SCREEN @"start"
-#define ABOUT_SCREEN @"about"
+
+//Google Analytics constants
+#define TRACK_ID @"UA-51080238-1"
+#define MULTIPLAYER_SCREEN @"Two Players"
+#define SINGLE_SCREEN @"Single Player"
+#define ONLINE_SCREEN @"Game Online Screen"
+#define LOBBY_SCREEN @"Choose Online Game"
+#define SETTINGS_SCREEN @"Settings Screen"
+#define START_SCREEN @"Main Screen"
+#define ABOUT_SCREEN @"About Screen"
+#define LEADERBOARD_SCREEN @"Leader Board"
+#define ACHIEVEMENTS_SCREEN @"Achievements"
+#define QUICK_GAME_SCREEN @"Quick Game"
+#define INVITE_FRIEND_SCREEN @"Invite Friend"
+#define SHOW_INVITES_SCREEN @"View Invite"
+
 #endif
+
 
 #pragma mark - Enums
 typedef enum
@@ -55,11 +66,13 @@ typedef enum {
     XOVectorTypeDiagonalLeft,
     XOVectorTypeDiagonalRight
 } XOVectorType;
+
 typedef enum {
     XOAIGameModeEasy,
     XOAIGameModeMedium,
     XOAIGameModeHard
 }XOAIGameMode;
+
 typedef enum{
     NewGameMessageUnknown,
     NewGameMessageYes,

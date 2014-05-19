@@ -12,8 +12,6 @@
 #import "XOGameViewController.h"
 #import "SoundManager.h"
 #import "XOGameModel.h"
-#import "GAIDictionaryBuilder.h"
-#import "GAI.h"
 #import "GameManager.h"
 
 @interface XOOnlineLobbyViewController () <UIAlertViewDelegate, MPLobbyDelegate>
@@ -30,17 +28,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if (![[GPGManager sharedInstance] isSignedIn])
-    {
-        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NoConnection", nil) message:NSLocalizedString(@"forPlaying", nil)  delegate:self cancelButtonTitle:NSLocalizedString(@"CancelLogin", nil) otherButtonTitles:NSLocalizedString(@"Sign in", nil) , nil];
-        [alert show];
-    }
     [MPManager sharedInstance].lobbyDelegate = self;
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
 }
 
 - (void) viewWillAppear:(BOOL)animated{
-    [[GameManager sharedInstance] trackScreen:self withName:LOBBY_SCREEN];
+    if (![[GPGManager sharedInstance] isSignedIn])
+    {
+        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NoConnection", nil) message:NSLocalizedString(@"forPlaying", nil)  delegate:self cancelButtonTitle:NSLocalizedString(@"CancelLogin", nil) otherButtonTitles:NSLocalizedString(@"Sign in", nil) , nil];
+        [alert show];
+    }
+    [[GameManager sharedInstance] trackScreenWithName:LOBBY_SCREEN];
 }
 
 - (IBAction)backButton:(id)sender {
@@ -49,16 +47,19 @@
 }
 
 - (IBAction)checkInvites:(id)sender {
+    [[GameManager sharedInstance] trackScreenWithName:SHOW_INVITES_SCREEN];
     [[MPManager sharedInstance] showIncomingInvitesScreen];
     [[SoundManager sharedInstance] playClickSound];
 }
 
 - (IBAction)quickGame:(id)sender {
+    [[GameManager sharedInstance] trackScreenWithName:QUICK_GAME_SCREEN];
     [self startQuickMatchGameWithTotalPlayers:2];
     [[SoundManager sharedInstance] playClickSound];
 }
 
 - (IBAction)inviteFriend:(id)sender {
+    [[GameManager sharedInstance] trackScreenWithName:INVITE_FRIEND_SCREEN];
     [[MPManager sharedInstance] startInvitationGameWithMinPlayers:2 maxPlayers:2];
     [[SoundManager sharedInstance] playClickSound];
 }

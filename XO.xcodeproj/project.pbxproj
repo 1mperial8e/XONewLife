@@ -50,7 +50,6 @@
 		8481FC9619152A2D00D9F0EB /* XOStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC8A19152A2D00D9F0EB /* XOStartViewController.m */; };
 		8481FC9719152A2D00D9F0EB /* GameField.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8481FC8C19152A2D00D9F0EB /* GameField.storyboard */; };
 		8481FC9919152A2D00D9F0EB /* XOGameFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC9019152A2D00D9F0EB /* XOGameFieldViewController.m */; };
-		8481FC9D19165DF100D9F0EB /* XOGameModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC9C19165DF100D9F0EB /* XOGameModeViewController.m */; };
 		8481FCA1191661A000D9F0EB /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FCA0191661A000D9F0EB /* GameManager.m */; };
 		84AAC882191AAA92001C0B94 /* sound_click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84AAC87D191AAA92001C0B94 /* sound_click.mp3 */; };
 		84AAC883191AAA92001C0B94 /* sound_goes_o.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84AAC87E191AAA92001C0B94 /* sound_goes_o.mp3 */; };
@@ -63,9 +62,10 @@
 		84AD034F1925ECD00036B05F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AD034E1925ECD00036B05F /* libz.dylib */; };
 		84AD03511925ED4D0036B05F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AD03501925ED4D0036B05F /* CoreData.framework */; };
 		84AD03571925F12A0036B05F /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AD03561925F12A0036B05F /* libGoogleAnalyticsServices.a */; };
+		84C551CB19265A3300045D75 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AD03541925F0260036B05F /* QuartzCore.framework */; };
+		84C551D119265AEC00045D75 /* libSADView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C551D019265AEC00045D75 /* libSADView.a */; };
 		84D667711917882A000DA569 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D667701917882A000DA569 /* AVFoundation.framework */; };
 		84D6677319178838000DA569 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D6677219178838000DA569 /* AudioToolbox.framework */; };
-		FCBA6849B3044F72B6B90560 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE32FFD0F7604EB6BEFAF60C /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,11 +166,24 @@
 		8481FC8C19152A2D00D9F0EB /* GameField.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GameField.storyboard; sourceTree = "<group>"; };
 		8481FC8F19152A2D00D9F0EB /* XOGameFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XOGameFieldViewController.h; path = ../XOGameFieldViewController.h; sourceTree = "<group>"; };
 		8481FC9019152A2D00D9F0EB /* XOGameFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XOGameFieldViewController.m; path = ../XOGameFieldViewController.m; sourceTree = "<group>"; };
-		8481FC9B19165DF100D9F0EB /* XOGameModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XOGameModeViewController.h; path = GameModeViewController/XOGameModeViewController.h; sourceTree = "<group>"; };
-		8481FC9C19165DF100D9F0EB /* XOGameModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XOGameModeViewController.m; path = GameModeViewController/XOGameModeViewController.m; sourceTree = "<group>"; };
 		8481FC9F191661A000D9F0EB /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
 		8481FCA0191661A000D9F0EB /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
 		8481FCA5191664D000D9F0EB /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		84A1A392192618E500184D18 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/iPhone.strings; sourceTree = "<group>"; };
+		84A1A393192618E500184D18 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main_iPad.strings; sourceTree = "<group>"; };
+		84A1A394192618E500184D18 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		84A1A395192618E500184D18 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		84A1A396192618E600184D18 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		84A1A397192618EB00184D18 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/iPhone.strings; sourceTree = "<group>"; };
+		84A1A398192618EB00184D18 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main_iPad.strings; sourceTree = "<group>"; };
+		84A1A399192618EB00184D18 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		84A1A39A192618EB00184D18 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		84A1A39B192618EB00184D18 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		84A1A39C192618F000184D18 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/iPhone.strings; sourceTree = "<group>"; };
+		84A1A39D192618F000184D18 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main_iPad.strings; sourceTree = "<group>"; };
+		84A1A39E192618F000184D18 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		84A1A39F192618F000184D18 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		84A1A3A0192618F000184D18 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		84AAC87D191AAA92001C0B94 /* sound_click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_click.mp3; sourceTree = "<group>"; };
 		84AAC87E191AAA92001C0B94 /* sound_goes_o.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_goes_o.mp3; sourceTree = "<group>"; };
 		84AAC87F191AAA92001C0B94 /* sound_goes_x.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_goes_x.mp3; sourceTree = "<group>"; };
@@ -297,6 +310,8 @@
 		84AD03521925EFFD0036B05F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		84AD03541925F0260036B05F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		84AD03561925F12A0036B05F /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = "Pods/GoogleAnalytics-iOS-SDK/libGoogleAnalyticsServices.a"; sourceTree = "<group>"; };
+		84C551CA1926417A00045D75 /* SADWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SADWebView.h; path = "../../../../Downloads/SDK-iOS-master/libs/SADWebView.h"; sourceTree = "<group>"; };
+		84C551D019265AEC00045D75 /* libSADView.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSADView.a; sourceTree = "<group>"; };
 		84D61AFA1923CEF000CC9A46 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84D667701917882A000DA569 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		84D6677219178838000DA569 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -308,12 +323,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84C551CB19265A3300045D75 /* QuartzCore.framework in Frameworks */,
 				84AD03511925ED4D0036B05F /* CoreData.framework in Frameworks */,
 				84AD034F1925ECD00036B05F /* libz.dylib in Frameworks */,
 				84AD02D31925E9DB0036B05F /* libsqlite3.0.dylib in Frameworks */,
 				84AD03571925F12A0036B05F /* libGoogleAnalyticsServices.a in Frameworks */,
 				84AD034B1925EBC30036B05F /* libGoogleAdMobAds.a in Frameworks */,
 				7F8495A51924AAE90022BC08 /* AdSupport.framework in Frameworks */,
+				84C551D119265AEC00045D75 /* libSADView.a in Frameworks */,
 				7F8495A61924AAE90022BC08 /* CoreTelephony.framework in Frameworks */,
 				7F8495A71924AAE90022BC08 /* MessageUI.framework in Frameworks */,
 				7F8495A81924AAE90022BC08 /* StoreKit.framework in Frameworks */,
@@ -323,7 +340,6 @@
 				8481FC461915273E00D9F0EB /* CoreGraphics.framework in Frameworks */,
 				8481FC481915273E00D9F0EB /* UIKit.framework in Frameworks */,
 				8481FC441915273E00D9F0EB /* Foundation.framework in Frameworks */,
-				FCBA6849B3044F72B6B90560 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +493,7 @@
 		8481FC421915273E00D9F0EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84C551D019265AEC00045D75 /* libSADView.a */,
 				84AD03561925F12A0036B05F /* libGoogleAnalyticsServices.a */,
 				84AD03541925F0260036B05F /* QuartzCore.framework */,
 				84AD03521925EFFD0036B05F /* CFNetwork.framework */,
@@ -569,7 +586,6 @@
 				8481FC8119152A2D00D9F0EB /* GameViewController */,
 				8481FC8219152A2D00D9F0EB /* OnlineLobbyViewController */,
 				8481FC8519152A2D00D9F0EB /* SettingsViewController */,
-				8481FC9E19165DF600D9F0EB /* GameModeViewController */,
 				8481FC8819152A2D00D9F0EB /* StartViewController */,
 				8481FC8B19152A2D00D9F0EB /* GameField */,
 				7F232CE61920ED3F004B208E /* AlertViewController */,
@@ -630,15 +646,6 @@
 			path = TTGameField;
 			sourceTree = "<group>";
 		};
-		8481FC9E19165DF600D9F0EB /* GameModeViewController */ = {
-			isa = PBXGroup;
-			children = (
-				8481FC9B19165DF100D9F0EB /* XOGameModeViewController.h */,
-				8481FC9C19165DF100D9F0EB /* XOGameModeViewController.m */,
-			);
-			name = GameModeViewController;
-			sourceTree = "<group>";
-		};
 		84AAC88A191D210C001C0B94 /* Progress Structure */ = {
 			isa = PBXGroup;
 			children = (
@@ -660,6 +667,7 @@
 		84AD02D71925EAE70036B05F /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				84C551C91926416100045D75 /* Banner */,
 				84AD02D81925EAE70036B05F /* google-plus-ios-sdk */,
 				84AD030F1925EAE70036B05F /* GoogleAds-IMA-iOS-SDK */,
 				84AD031C1925EAE70036B05F /* GoogleAnalytics-iOS-SDK */,
@@ -807,6 +815,14 @@
 			path = GooglePlayGames;
 			sourceTree = "<group>";
 		};
+		84C551C91926416100045D75 /* Banner */ = {
+			isa = PBXGroup;
+			children = (
+				84C551CA1926417A00045D75 /* SADWebView.h */,
+			);
+			name = Banner;
+			sourceTree = "<group>";
+		};
 		84D6677619178B49000DA569 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -886,6 +902,9 @@
 				Base,
 				uk,
 				ru,
+				fr,
+				de,
+				es,
 			);
 			mainGroup = 8481FC371915273E00D9F0EB;
 			productRefGroup = 8481FC411915273E00D9F0EB /* Products */;
@@ -970,7 +989,6 @@
 				8481FCA1191661A000D9F0EB /* GameManager.m in Sources */,
 				7FEAECD4191772A70065CC57 /* XOGameFieldFlowLayout.m in Sources */,
 				7FF346BD19236A5800E4AEE1 /* XOAlertView.m in Sources */,
-				8481FC9D19165DF100D9F0EB /* XOGameModeViewController.m in Sources */,
 				84AAC88D191D2120001C0B94 /* XOProgress.m in Sources */,
 				84AAC889191AAB0E001C0B94 /* SoundManager.m in Sources */,
 				7FF96EA6191BF9A200EDB431 /* XOObjectiveMatrix.m in Sources */,
@@ -1021,6 +1039,9 @@
 				7FF346A419225B7100E4AEE1 /* uk */,
 				7FF346C219237FAA00E4AEE1 /* ru */,
 				84D61AFA1923CEF000CC9A46 /* en */,
+				84A1A394192618E500184D18 /* fr */,
+				84A1A399192618EB00184D18 /* de */,
+				84A1A39E192618F000184D18 /* es */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1031,6 +1052,9 @@
 				7FF3469E19225B2C00E4AEE1 /* Base */,
 				7FF346C11923702D00E4AEE1 /* uk */,
 				7FF346C319237FAA00E4AEE1 /* ru */,
+				84A1A392192618E500184D18 /* fr */,
+				84A1A397192618EB00184D18 /* de */,
+				84A1A39C192618F000184D18 /* es */,
 			);
 			name = iPhone.storyboard;
 			sourceTree = "<group>";
@@ -1039,6 +1063,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				8481FC4D1915273E00D9F0EB /* en */,
+				84A1A395192618E500184D18 /* fr */,
+				84A1A39A192618EB00184D18 /* de */,
+				84A1A39F192618F000184D18 /* es */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1047,6 +1074,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				8481FC591915273E00D9F0EB /* Base */,
+				84A1A393192618E500184D18 /* fr */,
+				84A1A398192618EB00184D18 /* de */,
+				84A1A39D192618F000184D18 /* es */,
 			);
 			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
@@ -1055,6 +1085,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				8481FC6F1915273E00D9F0EB /* en */,
+				84A1A396192618E600184D18 /* fr */,
+				84A1A39B192618EB00184D18 /* de */,
+				84A1A3A0192618F000184D18 /* es */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1101,7 +1134,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "C10FDAF6-D7D0-440D-A585-C2A82F814A0C";
+				PROVISIONING_PROFILE = "82B0C230-C08B-4A2F-BC17-0F8342AE3CA2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s";
@@ -1140,7 +1173,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				PROVISIONING_PROFILE = "C10FDAF6-D7D0-440D-A585-C2A82F814A0C";
+				PROVISIONING_PROFILE = "82B0C230-C08B-4A2F-BC17-0F8342AE3CA2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1167,6 +1200,8 @@
 					"$(PROJECT_DIR)/XO/Manager/GoogleAdMob",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/XO-fvibmdejxgmiylblcejhnlykkcng/Build/Products/Debug-iphoneos",
 					"$(PROJECT_DIR)/Pods/GoogleAnalytics-iOS-SDK",
+					"/Users/Admin/Downloads/SDK-iOS-master/libs",
+					"$(PROJECT_DIR)",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1207,10 +1242,12 @@
 					AudioToolbox,
 					"-framework",
 					AVFoundation,
+					"-l",
+					SADView,
 				);
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "C10FDAF6-D7D0-440D-A585-C2A82F814A0C";
+				PROVISIONING_PROFILE = "82B0C230-C08B-4A2F-BC17-0F8342AE3CA2";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
@@ -1236,6 +1273,8 @@
 					"$(PROJECT_DIR)/XO/Manager/GoogleAdMob",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/XO-fvibmdejxgmiylblcejhnlykkcng/Build/Products/Debug-iphoneos",
 					"$(PROJECT_DIR)/Pods/GoogleAnalytics-iOS-SDK",
+					"/Users/Admin/Downloads/SDK-iOS-master/libs",
+					"$(PROJECT_DIR)",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1276,10 +1315,12 @@
 					AudioToolbox,
 					"-framework",
 					AVFoundation,
+					"-l",
+					SADView,
 				);
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "C10FDAF6-D7D0-440D-A585-C2A82F814A0C";
+				PROVISIONING_PROFILE = "82B0C230-C08B-4A2F-BC17-0F8342AE3CA2";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
