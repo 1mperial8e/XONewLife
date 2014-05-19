@@ -20,13 +20,13 @@
 #define MULTIPLAYER_GAMES @"multiplayerGames"
 
 //Google Play Game Service constants
-#define CLIENT_ID @"111039763950-dj91993gmav7o5dn26v65ga1lavlt0jg.apps.googleusercontent.com"
-#define ACH_NEWBIE @"CgkI7qvx050DEAIQAg"
-#define ACH_GOOD_PLAYER @"CgkI7qvx050DEAIQBA"
-#define ACH_BEGINER @"CgkI7qvx050DEAIQBw"
-#define ACH_GAMER @"CgkI7qvx050DEAIQCA"
-#define ACH_FRIENDLY_GAMER @"CgkI7qvx050DEAIQCQ"
-#define LEAD_LEADERBOARD @"CgkI7qvx050DEAIQBg"
+#define CLIENT_ID @"672079329528-t081sk1p5kca2cpalfj1k2irn7l2ej26.apps.googleusercontent.com"
+#define ACH_NEWBIE @"CgkI-PGy2McTEAIQAg"
+#define ACH_GOOD_PLAYER @"CgkI-PGy2McTEAIQAw"
+#define ACH_BEGINER @"CgkI-PGy2McTEAIQBA"
+#define ACH_GAMER @"CgkI-PGy2McTEAIQBQ"
+#define ACH_FRIENDLY_GAMER @"CgkI-PGy2McTEAIQBg"
+#define LEAD_LEADERBOARD @"CgkI-PGy2McTEAIQBw"
 
 //Google Analytics constants
 #define TRACK_ID @"UA-51080238-1"
@@ -41,7 +41,7 @@
 #define ACHIEVEMENTS_SCREEN @"Achievements"
 #define QUICK_GAME_SCREEN @"Quick Game"
 #define INVITE_FRIEND_SCREEN @"Invite Friend"
-#define SHOW_INVITES_SCREEN @"View Invite"
+#define SHOW_INVITES_SCREEN @"Show Invites"
 
 #endif
 

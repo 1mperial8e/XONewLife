@@ -69,17 +69,6 @@
 
 - (void) viewWillAppear:(BOOL)animated{
     [self setPlayersInfo];
-    switch ([GameManager sharedInstance].mode) {
-        case XOGameModeMultiplayer:
-            [[GameManager sharedInstance] trackScreenWithName:MULTIPLAYER_SCREEN];
-            break;
-        case XOGameModeOnline:
-            [[GameManager sharedInstance] trackScreenWithName:ONLINE_SCREEN];
-            break;
-        case XOGameModeSingle:
-            [[GameManager sharedInstance] trackScreenWithName:SINGLE_SCREEN];
-            break;
-    }
 }
 
 
@@ -312,36 +301,8 @@
     restart-=0.2f;
     if (restart<=0){
         [restartGameTimer invalidate];
-        //[[XOGameModel sharedInstance] newGame];
-        if ([XOGameModel sharedInstance].gameMode == XOGameModeMultiplayer) {
-           [self changePhotos];
-        }
-        if ([self.gameFieldContainerView isHidden]==YES) {
-            [self.gameFieldContainerView setHidden:NO];
-        }
-        return;
     }
-    if ([XOGameModel sharedInstance].winner!=0){
-        switch ([[self.gameFieldContainerView viewWithTag:79] isHidden]) {
-            case YES:
-                [[self.gameFieldContainerView viewWithTag:79] setHidden:NO];
-            break;
-            case NO:
-                [[self.gameFieldContainerView viewWithTag:79] setHidden:YES];
-            break;
-        }
-    }
-    else{
-        switch ([self.gameFieldContainerView isHidden]) {
-            case YES:
-                [self.gameFieldContainerView setHidden:NO];
-                break;
-            case NO:
-                [self.gameFieldContainerView setHidden:YES];
-                break;
-        }
 
-    }
 }
 
 #pragma mark - UIAlertViewDelegate
@@ -367,6 +328,17 @@
 }
 
 - (void)startTimer{
+    switch ([GameManager sharedInstance].mode) {
+        case XOGameModeMultiplayer:
+            [[GameManager sharedInstance] trackScreenWithName:MULTIPLAYER_SCREEN];
+            break;
+        case XOGameModeOnline:
+            [[GameManager sharedInstance] trackScreenWithName:ONLINE_SCREEN];
+            break;
+        case XOGameModeSingle:
+            [[GameManager sharedInstance] trackScreenWithName:SINGLE_SCREEN];
+            break;
+    }
     time=30;
     if (!stepTimer.isValid) {
     stepTimer =[NSTimer scheduledTimerWithTimeInterval:1.0
