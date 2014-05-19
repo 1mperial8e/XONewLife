@@ -13,12 +13,10 @@
 #import "GTLPlusPerson.h"
 #import "XOGameModel.h"
 #import "SoundManager.h"
-#import "SADWebView.h"
 
 @interface XOStartViewController () <GPGAchievementControllerDelegate, GPGLeaderboardControllerDelegate, UIAlertViewDelegate>{
     BOOL showAchievement;
     BOOL showLeaderboard;
-    SADWebView* webView;
 }
 @property (nonatomic, weak) IBOutlet UIButton *single;
 @property (nonatomic, weak) IBOutlet UIButton *multi;
@@ -45,14 +43,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if (!webView) {
-        webView = [[SADWebView alloc]initWithId:@"5377a0f18df6a01300000000"]; // creating instance of SASWebview
-        [webView setSadDelegate:self]; // adding the delegate
-        [webView loadAd:LANGUAGE_RU]; // loading data with params
-    }
-    webView.backgroundColor=[UIColor whiteColor];
-    webView.frame=CGRectMake(0, 0, 320, 50);
-    [[self.view viewWithTag:135] addSubview:webView];
 	GPPSignIn *signIn = [GPPSignIn sharedInstance];
     // You set kClientID in a previous step
     signIn.clientID = CLIENT_ID;
@@ -97,10 +87,10 @@
     NSLog(@"SADView  onShowedAd");
 }
 
--(void)onError:(SADVIEW_ERROR)error
+/*-(void)onError:(SADVIEW_ERROR)error
 {
     NSLog(@"SADView error: %d", error);
-}
+}*/
 
 -(void)onAdClicked
 {

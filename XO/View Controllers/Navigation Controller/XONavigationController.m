@@ -9,15 +9,17 @@
 #import "XONavigationController.h"
 #import "ADVManager.h"
 #import "ADVContainer.h"
+#import "SADWebView.h"
 
-@interface XONavigationController ()
+@interface XONavigationController () <SADWebViewDelegate>
 @property (nonatomic, weak) IBOutlet ADVContainer *containerView;
 @property (nonatomic, strong) GADBannerView *banner;
 @property (nonatomic) BOOL advLoaded;
+@property (nonatomic, strong) SADWebView *webView;
 @end
 
 @implementation XONavigationController
-@synthesize banner;
+@synthesize banner, webView;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -30,7 +32,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    banner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+    _containerView = (ADVContainer *)[self.visibleViewController.view viewWithTag:135];
+    if (!webView) {
+        webView = [[SADWebView alloc]initWithId:@"5374b9b8fcb9071100000000"]; // creating instance of SASWebview
+        [webView setSadDelegate:self]; // adding the delegate
+        [webView loadAd:LANGUAGE_RU]; // loading data with params
+    }
+    webView.backgroundColor=[UIColor whiteColor];
+    webView.frame=CGRectMake(0, 0, 320, 50);
+    [[self.view viewWithTag:135] addSubview:webView];
+    /*banner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
     
     banner.adUnitID = @"/6253334/dfp_example_ad";
     // "@ca-app-pub-8249028322108129/3701709092"
@@ -41,7 +52,7 @@
     _containerView.backgroundColor = [UIColor redColor];
     [_containerView addSubview:banner];
     [banner loadRequest:[GADRequest request]];
-    banner.delegate = self;
+    banner.delegate = self;*/
     _containerView.hidden = YES;
     self.delegate = self;
 }
@@ -115,4 +126,34 @@
     _containerView = (ADVContainer *)[self.visibleViewController.view viewWithTag:135];
     [(ADVContainer *)[self.visibleViewController.view viewWithTag:135] addSubview:banner];
 }
+#pragma mark - SAD Delegate
+-(void)onReceivedAd
+{
+    
+}
+-(void)onShowedAd
+{
+    
+}
+-(void)onError:(SADVIEW_ERROR)error
+{
+    //_advLoaded = YES;
+    if (_containerView.hidden) {
+        [_containerView setHidden:YES animate:YES];
+    }
+
+}
+-(void)onAdClicked
+{
+    
+}
+-(void)noAdFound
+{
+    //_advLoaded = YES;
+    if (_containerView.hidden) {
+        [_containerView setHidden:YES animate:YES];
+    }
+
+}
+
 @end
