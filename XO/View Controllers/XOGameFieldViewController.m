@@ -51,11 +51,16 @@
 }
 
 - (void) playSound{
-    if ([XOGameModel sharedInstance].winner==XOPlayerFirst) {
+    if ([GameManager sharedInstance].mode==XOGameModeMultiplayer){
         [[SoundManager sharedInstance] playWinSound];
     }
     else{
-        [[SoundManager sharedInstance] playLoseSound];
+        if ([XOGameModel sharedInstance].winner==[XOGameModel sharedInstance].me) {
+            [[SoundManager sharedInstance] playWinSound];
+        }
+        else{
+            [[SoundManager sharedInstance] playLoseSound];
+        }
     }
 }
 
