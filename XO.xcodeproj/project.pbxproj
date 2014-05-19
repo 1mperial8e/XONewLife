@@ -130,9 +130,7 @@
 		7FF346B91923503500E4AEE1 /* MGCicleProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGCicleProgress.m; sourceTree = "<group>"; };
 		7FF346BB19236A5800E4AEE1 /* XOAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XOAlertView.h; path = AlertViewController/XOAlertView.h; sourceTree = "<group>"; };
 		7FF346BC19236A5800E4AEE1 /* XOAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XOAlertView.m; path = AlertViewController/XOAlertView.m; sourceTree = "<group>"; };
-		7FF346C11923702D00E4AEE1 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/iPhone.strings; sourceTree = "<group>"; };
 		7FF346C219237FAA00E4AEE1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		7FF346C319237FAA00E4AEE1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/iPhone.strings; sourceTree = "<group>"; };
 		7FF346C4192383EB00E4AEE1 /* sound_win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_win.mp3; sourceTree = "<group>"; };
 		7FF346C919239AFF00E4AEE1 /* sound_lose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_lose.mp3; sourceTree = "<group>"; };
 		7FF347ED1923C39300E4AEE1 /* ADVContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADVContainer.h; path = "ADV View/ADVContainer.h"; sourceTree = "<group>"; };
@@ -140,6 +138,12 @@
 		7FF96EA2191A4B5C00EDB431 /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
 		7FF96EA4191BF9A200EDB431 /* XOObjectiveMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XOObjectiveMatrix.h; sourceTree = "<group>"; };
 		7FF96EA5191BF9A200EDB431 /* XOObjectiveMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOObjectiveMatrix.m; sourceTree = "<group>"; };
+		8454BD27192A05B4008906E0 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/iPhone.strings; sourceTree = "<group>"; };
+		8454BD28192A05B6008906E0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/iPhone.strings; sourceTree = "<group>"; };
+		8454BD2B192A05BE008906E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/iPhone.strings; sourceTree = "<group>"; };
+		8454BD2C192A05C0008906E0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/iPhone.strings; sourceTree = "<group>"; };
+		8454BD2D192A05C1008906E0 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/iPhone.strings; sourceTree = "<group>"; };
+		8454BD2E192A05C3008906E0 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/iPhone.strings; sourceTree = "<group>"; };
 		84742D7F19197CF3007B868E /* XOGameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XOGameModel.h; sourceTree = "<group>"; };
 		84742D8019197CF3007B868E /* XOGameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOGameModel.m; sourceTree = "<group>"; };
 		8481FC401915273E00D9F0EB /* XO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XO.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,17 +176,14 @@
 		8481FC9F191661A000D9F0EB /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
 		8481FCA0191661A000D9F0EB /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
 		8481FCA5191664D000D9F0EB /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		84A1A392192618E500184D18 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/iPhone.strings; sourceTree = "<group>"; };
 		84A1A393192618E500184D18 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main_iPad.strings; sourceTree = "<group>"; };
 		84A1A394192618E500184D18 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84A1A395192618E500184D18 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		84A1A396192618E600184D18 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		84A1A397192618EB00184D18 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/iPhone.strings; sourceTree = "<group>"; };
 		84A1A398192618EB00184D18 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main_iPad.strings; sourceTree = "<group>"; };
 		84A1A399192618EB00184D18 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84A1A39A192618EB00184D18 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		84A1A39B192618EB00184D18 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		84A1A39C192618F000184D18 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/iPhone.strings; sourceTree = "<group>"; };
 		84A1A39D192618F000184D18 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main_iPad.strings; sourceTree = "<group>"; };
 		84A1A39E192618F000184D18 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84A1A39F192618F000184D18 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -791,11 +792,12 @@
 			isa = PBXVariantGroup;
 			children = (
 				7FF3469E19225B2C00E4AEE1 /* Base */,
-				7FF346C11923702D00E4AEE1 /* uk */,
-				7FF346C319237FAA00E4AEE1 /* ru */,
-				84A1A392192618E500184D18 /* fr */,
-				84A1A397192618EB00184D18 /* de */,
-				84A1A39C192618F000184D18 /* es */,
+				8454BD27192A05B4008906E0 /* uk */,
+				8454BD28192A05B6008906E0 /* ru */,
+				8454BD2B192A05BE008906E0 /* en */,
+				8454BD2C192A05C0008906E0 /* fr */,
+				8454BD2D192A05C1008906E0 /* de */,
+				8454BD2E192A05C3008906E0 /* es */,
 			);
 			name = iPhone.storyboard;
 			sourceTree = "<group>";

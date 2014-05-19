@@ -69,17 +69,6 @@
 
 - (void) viewWillAppear:(BOOL)animated{
     [self setPlayersInfo];
-    switch ([GameManager sharedInstance].mode) {
-        case XOGameModeMultiplayer:
-            [[GameManager sharedInstance] trackScreenWithName:MULTIPLAYER_SCREEN];
-            break;
-        case XOGameModeOnline:
-            [[GameManager sharedInstance] trackScreenWithName:ONLINE_SCREEN];
-            break;
-        case XOGameModeSingle:
-            [[GameManager sharedInstance] trackScreenWithName:SINGLE_SCREEN];
-            break;
-    }
 }
 
 
@@ -260,13 +249,7 @@
 
 - (NSString*)textScore:(int)score{
     NSString *strScore=[NSString new];
-    if (score<10) {
-        strScore=[NSString stringWithFormat:@"0 %i",score];
-    }
-    else{
-        strScore=[NSString stringWithFormat:@"%i",score];
-        strScore=[NSString stringWithFormat:@"%@ %@", [strScore substringToIndex:1], [strScore substringFromIndex:1]];
-    }
+    strScore=[NSString stringWithFormat:@"%i",score];
     return strScore;
 }
 
@@ -289,11 +272,7 @@
     _progress.doubleValue = (double)time;
     if (time<=1) {
         [stepTimer invalidate];
-        if ([XOGameModel sharedInstance].gameMode!=XOGameModeOnline) {
-//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"timeOut",nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//            [alert show];
-        }
-        else{
+        if ([XOGameModel sharedInstance].gameMode==XOGameModeOnline) {
             if ([XOGameModel sharedInstance].player == [XOGameModel sharedInstance].me) {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"timeOut", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
@@ -312,36 +291,8 @@
     restart-=0.2f;
     if (restart<=0){
         [restartGameTimer invalidate];
-        //[[XOGameModel sharedInstance] newGame];
-        if ([XOGameModel sharedInstance].gameMode == XOGameModeMultiplayer) {
-           [self changePhotos];
-        }
-        if ([self.gameFieldContainerView isHidden]==YES) {
-            [self.gameFieldContainerView setHidden:NO];
-        }
-        return;
     }
-    if ([XOGameModel sharedInstance].winner!=0){
-        switch ([[self.gameFieldContainerView viewWithTag:79] isHidden]) {
-            case YES:
-                [[self.gameFieldContainerView viewWithTag:79] setHidden:NO];
-            break;
-            case NO:
-                [[self.gameFieldContainerView viewWithTag:79] setHidden:YES];
-            break;
-        }
-    }
-    else{
-        switch ([self.gameFieldContainerView isHidden]) {
-            case YES:
-                [self.gameFieldContainerView setHidden:NO];
-                break;
-            case NO:
-                [self.gameFieldContainerView setHidden:YES];
-                break;
-        }
 
-    }
 }
 
 #pragma mark - UIAlertViewDelegate
@@ -367,6 +318,17 @@
 }
 
 - (void)startTimer{
+    switch ([GameManager sharedInstance].mode) {
+        case XOGameModeMultiplayer:
+            [[GameManager sharedInstance] trackScreenWithName:MULTIPLAYER_SCREEN];
+            break;
+        case XOGameModeOnline:
+            [[GameManager sharedInstance] trackScreenWithName:ONLINE_SCREEN];
+            break;
+        case XOGameModeSingle:
+            [[GameManager sharedInstance] trackScreenWithName:SINGLE_SCREEN];
+            break;
+    }
     time=30;
     if (!stepTimer.isValid) {
     stepTimer =[NSTimer scheduledTimerWithTimeInterval:1.0
