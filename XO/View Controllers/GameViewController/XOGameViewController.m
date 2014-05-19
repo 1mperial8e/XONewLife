@@ -249,13 +249,7 @@
 
 - (NSString*)textScore:(int)score{
     NSString *strScore=[NSString new];
-    if (score<10) {
-        strScore=[NSString stringWithFormat:@"0 %i",score];
-    }
-    else{
-        strScore=[NSString stringWithFormat:@"%i",score];
-        strScore=[NSString stringWithFormat:@"%@ %@", [strScore substringToIndex:1], [strScore substringFromIndex:1]];
-    }
+    strScore=[NSString stringWithFormat:@"%i",score];
     return strScore;
 }
 
@@ -278,11 +272,7 @@
     _progress.doubleValue = (double)time;
     if (time<=1) {
         [stepTimer invalidate];
-        if ([XOGameModel sharedInstance].gameMode!=XOGameModeOnline) {
-//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"timeOut",nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//            [alert show];
-        }
-        else{
+        if ([XOGameModel sharedInstance].gameMode==XOGameModeOnline) {
             if ([XOGameModel sharedInstance].player == [XOGameModel sharedInstance].me) {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"timeOut", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];

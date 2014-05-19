@@ -1,0 +1,75 @@
+
+/* Class = "IBUIButton"; normalTitle = "Back"; ObjectID = "140-3x-xl1"; */
+"140-3x-xl1.normalTitle" = "Back";
+
+/* Class = "IBUIButton"; normalTitle = "Music"; ObjectID = "37d-Ft-fD2"; */
+"37d-Ft-fD2.normalTitle" = "Music";
+
+/* Class = "IBUIButton"; normalTitle = "Easy"; ObjectID = "AcF-2u-Jo4"; */
+"AcF-2u-Jo4.normalTitle" = "Easy";
+
+/* Class = "IBUIButton"; normalTitle = "Back"; ObjectID = "AnF-Yi-fVM"; */
+"AnF-Yi-fVM.normalTitle" = "Back";
+
+/* Class = "IBUILabel"; text = "Payer 1"; ObjectID = "FYN-Ii-4fX"; */
+"FYN-Ii-4fX.text" = "Payer 1";
+
+/* Class = "IBUIButton"; normalTitle = "Quick game"; ObjectID = "H4L-Zc-Aug"; */
+"H4L-Zc-Aug.normalTitle" = "Quick game";
+
+/* Class = "IBUIButton"; normalTitle = "ACHIEVEMENTS"; ObjectID = "KNA-7C-R0M"; */
+"KNA-7C-R0M.normalTitle" = "ACHIEVEMENTS";
+
+/* Class = "IBUIButton"; normalTitle = "SETTINGS"; ObjectID = "Mrb-50-4fV"; */
+"Mrb-50-4fV.normalTitle" = "SETTINGS";
+
+/* Class = "IBUIButton"; normalTitle = "Invite friend"; ObjectID = "ODZ-jy-vtr"; */
+"ODZ-jy-vtr.normalTitle" = "Invite friend";
+
+/* Class = "IBUIButton"; normalTitle = "Sound"; ObjectID = "Ujd-6b-wt6"; */
+"Ujd-6b-wt6.normalTitle" = "Sound";
+
+/* Class = "IBUILabel"; text = "0"; ObjectID = "aOX-D2-lMj"; */
+"aOX-D2-lMj.text" = "0";
+
+/* Class = "IBUIButton"; normalTitle = "PLAY ONLINE"; ObjectID = "b6A-R5-2a6"; */
+"b6A-R5-2a6.normalTitle" = "PLAY ONLINE";
+
+/* Class = "IBUIButton"; normalTitle = "Back"; ObjectID = "bsH-p2-BQ8"; */
+"bsH-p2-BQ8.normalTitle" = "Back";
+
+/* Class = "IBUIButton"; normalTitle = " Sign out"; ObjectID = "cHn-93-C4a"; */
+"cHn-93-C4a.normalTitle" = " Sign out";
+
+/* Class = "IBUIButton"; normalTitle = "1 PLAYER"; ObjectID = "eXF-2A-saR"; */
+"eXF-2A-saR.normalTitle" = "1 PLAYER";
+
+/* Class = "IBUILabel"; text = "30"; ObjectID = "gxM-D7-TB0"; */
+"gxM-D7-TB0.text" = "30";
+
+/* Class = "IBUILabel"; text = "0"; ObjectID = "jIk-yL-0xQ"; */
+"jIk-yL-0xQ.text" = "0";
+
+/* Class = "IBUIButton"; normalTitle = "2 PLAYERS"; ObjectID = "mCo-RS-3Ie"; */
+"mCo-RS-3Ie.normalTitle" = "2 PLAYERS";
+
+/* Class = "IBUIButton"; normalTitle = "Push"; ObjectID = "otG-xq-tDu"; */
+"otG-xq-tDu.normalTitle" = "Push";
+
+/* Class = "IBUIButton"; normalTitle = "ABOUT"; ObjectID = "pxp-Sb-ING"; */
+"pxp-Sb-ING.normalTitle" = "ABOUT";
+
+/* Class = "IBUILabel"; text = "Payer 2"; ObjectID = "qna-UE-joM"; */
+"qna-UE-joM.text" = "Payer 2";
+
+/* Class = "IBUIButton"; normalTitle = "Check invites"; ObjectID = "se9-4H-YFG"; */
+"se9-4H-YFG.normalTitle" = "Check invites";
+
+/* Class = "IBUIButton"; normalTitle = "Google Analitics"; ObjectID = "tGq-Cy-ljw"; */
+"tGq-Cy-ljw.normalTitle" = "Google Analitics";
+
+/* Class = "IBUIButton"; normalTitle = "Back"; ObjectID = "u12-8p-hZz"; */
+"u12-8p-hZz.normalTitle" = "Back";
+
+/* Class = "IBUIButton"; normalTitle = "LEADERBOARD"; ObjectID = "u5v-08-xuZ"; */
+"u5v-08-xuZ.normalTitle" = "LEADERBOARD";
