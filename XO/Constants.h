@@ -28,6 +28,10 @@
 #define ACH_FRIENDLY_GAMER @"CgkI-PGy2McTEAIQBg"
 #define LEAD_LEADERBOARD @"CgkI-PGy2McTEAIQBw"
 
+//Ad Mob ID
+
+#define GOOGLE_AD_MOB_ID @"ca-app-pub-8370463222730338/6953510008"
+
 //Google Analytics constants
 #define TRACK_ID @"UA-51080238-1"
 #define MULTIPLAYER_SCREEN @"Two Players"

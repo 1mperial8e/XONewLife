@@ -33,11 +33,6 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated{
-    if (![[GPGManager sharedInstance] isSignedIn])
-    {
-        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NoConnection", nil) message:NSLocalizedString(@"forPlaying", nil)  delegate:self cancelButtonTitle:NSLocalizedString(@"CancelLogin", nil) otherButtonTitles:NSLocalizedString(@"Sign in", nil) , nil];
-        [alert show];
-    }
     [[GameManager sharedInstance] trackScreenWithName:LOBBY_SCREEN];
 }
 

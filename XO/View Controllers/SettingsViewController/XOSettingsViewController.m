@@ -48,7 +48,13 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated{
-    [[GameManager sharedInstance] trackScreenWithName:SETTINGS_SCREEN];;
+    [[GameManager sharedInstance] trackScreenWithName:SETTINGS_SCREEN];
+    if ([GameManager sharedInstance].mode==XOGameModeMultiplayer) {
+        [self.gameMode setHidden:YES];
+    }
+    else{
+        [self.gameMode setHidden:NO];
+    }
 }
 
 -(void)viewDidAppear:(BOOL)animated{

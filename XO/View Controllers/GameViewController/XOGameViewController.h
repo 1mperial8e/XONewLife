@@ -10,5 +10,6 @@
 #import "XOGameFieldViewController.h"
 
 @interface XOGameViewController : UIViewController
+
 @property (weak, nonatomic) XOGameFieldViewController *gameFieldViewController;
 @end

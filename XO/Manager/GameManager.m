@@ -20,8 +20,11 @@ static GameManager* _instance=nil;
     @synchronized(self) {
     if (_instance==nil) {
         _instance=[[self alloc] init];
-    }
+        _instance.interstitial_ = [[GADInterstitial alloc] init];
+        _instance.interstitial_.adUnitID = GOOGLE_AD_MOB_ID;
         _instance.tracker=[[GAI sharedInstance] trackerWithTrackingId:TRACK_ID];
+        [_instance.interstitial_ loadRequest:[GADRequest request]];
+    }    
     return _instance;
     }
 }

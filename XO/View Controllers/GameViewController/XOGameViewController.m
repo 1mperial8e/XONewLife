@@ -14,7 +14,7 @@
 #import "SoundManager.h"
 #import "MGCicleProgress.h"
 
-@interface XOGameViewController () <XOStepTimerDelegate, weHaveVictory, playersTurn, UIAlertViewDelegate>{
+@interface XOGameViewController () <XOStepTimerDelegate, weHaveVictory, playersTurn, UIAlertViewDelegate, GADInterstitialDelegate>{
     NSTimer *stepTimer;
     NSTimer *restartGameTimer;
     int time;
@@ -24,6 +24,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *gameFieldContainerView;
 @property (weak, nonatomic) IBOutlet UIButton *settingsButton;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UILabel *myName;
 @property (weak, nonatomic) IBOutlet UILabel *opponentName;
 @property (weak, nonatomic) IBOutlet UIImageView *myPhoto;
@@ -69,6 +70,10 @@
 
 - (void) viewWillAppear:(BOOL)animated{
     [self setPlayersInfo];
+    [GameManager sharedInstance].interstitial_=nil;
+    [GameManager sharedInstance].interstitial_ = [[GADInterstitial alloc] init];
+    [GameManager sharedInstance].interstitial_.adUnitID = GOOGLE_AD_MOB_ID;
+    [[GameManager sharedInstance].interstitial_ loadRequest:[GADRequest request]];
 }
 
 
@@ -128,11 +133,14 @@
 - (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
     [[SoundManager sharedInstance] playClickSound];
+    [self resetBtnStatus];
 }
 
 - (IBAction)settings:(id)sender {
     XOSettingsViewController *settingsVew=[[UIStoryboard storyboardWithName:@"iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"settings"];
     [self.navigationController pushViewController:settingsVew animated:YES];
+    [[SoundManager sharedInstance] playClickSound];
+    [self resetBtnStatus];
 }
 
 - (void) setPlayersInfo{
@@ -207,6 +215,29 @@
         }
         break;
     }
+}
+
+#pragma mark - buttonsLock
+
+- (IBAction) pressed: (id) sender
+{
+    if (sender == self.backButton)
+    {
+    	self.settingsButton.enabled = false;
+    }
+    else if (sender == self.settingsButton)
+    {
+    	self.backButton.enabled = false;
+    }
+}
+
+- (IBAction)touchUpOutside:(id)sender{
+    [self resetBtnStatus];
+}
+
+- (void) resetBtnStatus{
+    self.settingsButton.enabled = true;
+    self.backButton.enabled = true;
 }
 
 #pragma mark - Score methods

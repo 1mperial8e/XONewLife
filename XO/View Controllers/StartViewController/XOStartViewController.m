@@ -8,6 +8,7 @@
 
 #import "XOStartViewController.h"
 #import "XOGameViewController.h"
+#import "XOOnlineLobbyViewController.h"
 #import "XOSettingsViewController.h"
 #import "GameManager.h"
 #import "GTLPlusPerson.h"
@@ -17,6 +18,7 @@
 @interface XOStartViewController () <GPGAchievementControllerDelegate, GPGLeaderboardControllerDelegate, UIAlertViewDelegate>{
     BOOL showAchievement;
     BOOL showLeaderboard;
+    BOOL goToLobby;
 }
 @property (nonatomic, weak) IBOutlet UIButton *single;
 @property (nonatomic, weak) IBOutlet UIButton *multi;
@@ -59,6 +61,7 @@
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
     showAchievement=NO;
     showLeaderboard=NO;
+    goToLobby=NO;
     
 }
 
@@ -135,6 +138,7 @@
 }
 
 - (IBAction)singlePlayer:(id)sender {
+    [[GameManager sharedInstance].interstitial_ presentFromRootViewController:self];
     [GameManager sharedInstance].mode=XOGameModeSingle;
     [XOGameModel sharedInstance].gameMode = XOGameModeSingle;
     if ([XOGameModel sharedInstance].aiGameMode == 0) {
@@ -149,6 +153,7 @@
 }
 
 - (IBAction)twoPlayers:(id)sender {
+    [[GameManager sharedInstance].interstitial_ presentFromRootViewController:self];
     [GameManager sharedInstance].mode=XOGameModeMultiplayer;
     [XOGameModel sharedInstance].gameMode = XOGameModeMultiplayer;
     [XOGameModel sharedInstance].me = XOPlayerNone;
@@ -162,10 +167,16 @@
 }
 
 - (IBAction)playOnline:(id)sender {
-    [GameManager sharedInstance].mode=XOGameModeOnline;
-    [XOGameModel sharedInstance].gameMode = XOGameModeOnline;
-    [XOGameModel sharedInstance].player = XOPlayerNone;
-    [[SoundManager sharedInstance] playClickSound];
+    [[GameManager sharedInstance].interstitial_ presentFromRootViewController:self];
+    if (![[GPGManager sharedInstance] isSignedIn])
+    {
+        goToLobby=YES;
+        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NoConnection", nil) message:NSLocalizedString(@"forPlaying", nil)  delegate:self cancelButtonTitle:NSLocalizedString(@"CancelLogin", nil) otherButtonTitles:NSLocalizedString(@"Sign in", nil) , nil];
+        [alert show];
+    }
+    else{
+        [self goToLobbyScreen];
+    }
     [self resetBtnStatus];
 }
 
@@ -267,6 +278,7 @@
         case 0:{
             showLeaderboard=NO;
             showAchievement=NO;
+            goToLobby=NO;
         }
         break;
         case 1:{
@@ -303,6 +315,9 @@
         else if (showLeaderboard==YES){
             [self showLeaderboard];
         }
+        else if (goToLobby==YES){
+            [self goToLobbyScreen];
+        }
     } else {
         NSLog(@"Failed to log into Google!\n\tError=%@\n\tAuthObj=%@",error,auth);
     }
@@ -318,6 +333,16 @@
     }];
 }
 
+#pragma mark - GADInterstitialDelegate
+
+- (void) interstitialDidReceiveAd:(GADInterstitial *)ad{
+    NSLog(@"recieve ad");
+}
+
+- (void)interstitial:(GADInterstitial *)interstitial didFailToReceiveAdWithError:(GADRequestError *)error{
+    NSLog(@"%@",error);
+}
+
 #pragma mark - AchievmentDelegate
 
 - (void)achievementViewControllerDidFinish: (GPGAchievementController *)viewController {
@@ -326,6 +351,16 @@
 }
 
 #pragma mark - Other Methods
+
+- (void) goToLobbyScreen{
+    goToLobby=NO;
+    [GameManager sharedInstance].mode=XOGameModeOnline;
+    [XOGameModel sharedInstance].gameMode = XOGameModeOnline;
+    [XOGameModel sharedInstance].player = XOPlayerNone;
+    [[SoundManager sharedInstance] playClickSound];
+    XOOnlineLobbyViewController *lobby=[[UIStoryboard storyboardWithName:@"iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"lobby"];
+    [self.navigationController pushViewController:lobby animated:YES];
+}
 
 - (void) getDefaultSettings{
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];

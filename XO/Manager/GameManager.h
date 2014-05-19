@@ -11,6 +11,8 @@
 #import "GAI.h"
 #import "GAIFields.h"
 #import "GAIDictionaryBuilder.h"
+#import "GADInterstitial.h"
+
 
 @interface GameManager : NSObject
 
@@ -29,6 +31,7 @@
 @property (nonatomic) int myRoll;
 @property (nonatomic) BOOL iTurnFirst;
 @property (nonatomic) id<GAITracker> tracker;
+@property (nonatomic, strong) GADInterstitial *interstitial_;
 
 + (GameManager*)sharedInstance;
 - (void) setSettings;
