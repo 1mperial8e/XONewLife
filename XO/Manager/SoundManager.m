@@ -24,25 +24,33 @@ static SoundManager *_instance = nil;
             [_instance.player prepareToPlay];
             _instance.player.numberOfLoops=-1;
             soundPath = [[NSBundle mainBundle] pathForResource:@"sound_click" ofType:@"mp3"];
-            fileURL = [NSURL URLWithString:soundPath];
-            AudioServicesCreateSystemSoundID((__bridge CFURLRef)fileURL, &_instance->_clickSound);
-            soundPath = [[NSBundle mainBundle] pathForResource:@"sound_goes_o" ofType:@"mp3"];
-            fileURL = [NSURL URLWithString:soundPath];
-            AudioServicesCreateSystemSoundID((__bridge CFURLRef)fileURL, &_instance->_oTurnSound);
+            _instance.clickSound = [NSURL URLWithString:soundPath];
             soundPath = [[NSBundle mainBundle] pathForResource:@"sound_goes_x" ofType:@"mp3"];
-            fileURL = [NSURL URLWithString:soundPath];
-            AudioServicesCreateSystemSoundID((__bridge CFURLRef)fileURL, &_instance->_xTurnSound);
+            _instance.xTurnSound = [NSURL URLWithString:soundPath];
+            soundPath = [[NSBundle mainBundle] pathForResource:@"sound_goes_o" ofType:@"mp3"];
+            _instance.oTurnSound = [NSURL URLWithString:soundPath];
             soundPath = [[NSBundle mainBundle] pathForResource:@"sound_win" ofType:@"mp3"];
-            fileURL = [NSURL URLWithString:soundPath];
-            AudioServicesCreateSystemSoundID((__bridge CFURLRef)fileURL, &_instance->_winSound);
+            _instance.winSound = [NSURL URLWithString:soundPath];
             soundPath = [[NSBundle mainBundle] pathForResource:@"sound_lose" ofType:@"mp3"];
-            fileURL = [NSURL URLWithString:soundPath];
-            AudioServicesCreateSystemSoundID((__bridge CFURLRef)fileURL, &_instance->_looseSound);
-
+            _instance.looseSound = [NSURL URLWithString:soundPath];
+            _instance.clickSoundPlayer=[[AVAudioPlayer alloc] initWithContentsOfURL:_instance.clickSound error:&error];
+            [_instance.clickSoundPlayer prepareToPlay];
+            _instance.clickSoundPlayer.numberOfLoops=0;
+            _instance.xTurnSoundPlayer=[[AVAudioPlayer alloc] initWithContentsOfURL:_instance.xTurnSound error:&error];
+            [_instance.xTurnSoundPlayer prepareToPlay];
+            _instance.xTurnSoundPlayer.numberOfLoops=0;
+            _instance.oTurnSoundPlayer=[[AVAudioPlayer alloc] initWithContentsOfURL:_instance.oTurnSound error:&error];
+            [_instance.oTurnSoundPlayer prepareToPlay];
+            _instance.oTurnSoundPlayer.numberOfLoops=0;
+            _instance.winSoundPlayer=[[AVAudioPlayer alloc] initWithContentsOfURL:_instance.winSound error:&error];
+            [_instance.winSoundPlayer prepareToPlay];
+            _instance.winSoundPlayer.numberOfLoops=0;
+            _instance.looseSoundPlayer=[[AVAudioPlayer alloc] initWithContentsOfURL:_instance.looseSound error:&error];
+            [_instance.looseSoundPlayer prepareToPlay];
+            _instance.looseSoundPlayer.numberOfLoops=0;
         }
     }
     return _instance;
-  
 }
 
 -(void)playMusic{
@@ -54,39 +62,35 @@ static SoundManager *_instance = nil;
 }
 
 -(void)playXTurnSound{
-    if ([GameManager sharedInstance].sound==NO) {
-        return;
+    if ([GameManager sharedInstance].sound==YES) {
+        [_xTurnSoundPlayer play];
     }
-    AudioServicesPlaySystemSound(_instance->_xTurnSound);
 }
 
 -(void)playOTurnSound{
-    if ([GameManager sharedInstance].sound==NO) {
-        return;
+    if ([GameManager sharedInstance].sound==YES) {
+        [_oTurnSoundPlayer play];
     }
-    AudioServicesPlaySystemSound(_instance->_oTurnSound);
 }
 
 -(void)playWinSound{
-    if ([GameManager sharedInstance].sound==NO) {
-        return;
+    if ([GameManager sharedInstance].sound==YES) {
+        [_winSoundPlayer play];
     }
-    AudioServicesPlaySystemSound(_instance->_winSound);
 }
 
 -(void)playLoseSound{
-    if ([GameManager sharedInstance].sound==NO) {
-        return;
+    if ([GameManager sharedInstance].sound==YES) {
+        [_looseSoundPlayer play];
     }
-    AudioServicesPlaySystemSound(_instance->_looseSound);
 }
 
 -(void)playClickSound{
-    if ([GameManager sharedInstance].sound==NO) {
-        return;
+    if ([GameManager sharedInstance].sound==YES) {
+        [_clickSoundPlayer play];
     }
-    AudioServicesPlaySystemSound(_instance->_clickSound);
 }
+
 - (void)playXOSoundFor:(XOPlayer)player
 {
     switch (player) {
@@ -102,11 +106,11 @@ static SoundManager *_instance = nil;
 }
 - (void)dealloc{
     _player=nil;
-    AudioServicesDisposeSystemSoundID(_instance->_clickSound);
-    AudioServicesDisposeSystemSoundID(_instance->_xTurnSound);
-    AudioServicesDisposeSystemSoundID(_instance->_oTurnSound);
-    AudioServicesDisposeSystemSoundID(_instance->_winSound);
-    AudioServicesDisposeSystemSoundID(_instance->_looseSound);
+    _clickSoundPlayer=nil;
+    _looseSoundPlayer=nil;
+    _winSoundPlayer=nil;
+    _xTurnSoundPlayer=nil;
+    _oTurnSoundPlayer=nil;
 }
 
 @end
