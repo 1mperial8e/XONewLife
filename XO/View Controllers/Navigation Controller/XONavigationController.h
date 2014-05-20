@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GADBannerView.h"
-#import "GADBannerViewDelegate.h"
-@interface XONavigationController : UINavigationController <GADBannerViewDelegate, UINavigationControllerDelegate> 
+@interface XONavigationController : UINavigationController <UINavigationControllerDelegate> 
 
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "XOOnlineLobbyViewController.h"
-#import "GooglePlus.h"
 #import "MPManager.h"
 #import "XOGameViewController.h"
 #import "SoundManager.h"
@@ -25,6 +24,8 @@
 
 @implementation XOOnlineLobbyViewController
 
+#pragma mark - LifeCycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -35,6 +36,8 @@
 - (void) viewWillAppear:(BOOL)animated{
     [[GameManager sharedInstance] trackScreenWithName:LOBBY_SCREEN];
 }
+
+#pragma mark - UIActions
 
 - (IBAction)backButton:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
@@ -67,9 +70,6 @@
             [self.navigationController popViewControllerAnimated:YES];
         }
         break;
-        case 1:{
-            [[GPPSignIn sharedInstance] authenticate];
-        }
     }
     [[SoundManager sharedInstance] playClickSound];
 }
@@ -78,11 +78,9 @@
 
 - (void)readyToStartMultiPlayerGame
 {
-    // I can still sometimes receive this if we're in the middle of a game
     if (![[self.navigationController.viewControllers lastObject] isEqual:self]) {
         return;
     }
-    
     if (self.presentedViewController != nil) {
         [self dismissViewControllerAnimated:YES completion:^{
         }];
@@ -93,7 +91,6 @@
 
 - (void)showInviteViewController:(UIViewController *)vcToShow
 {
-    NSLog(@"Okay! Lobby is ready to show invite VC!");
     [self presentViewController:vcToShow animated:YES completion:nil];
 }
 

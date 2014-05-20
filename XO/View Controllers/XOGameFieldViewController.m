@@ -1,6 +1,6 @@
 //
-//  TTGameFieldViewController.m
-//  Tic tac toe
+//  XOGameFieldViewController.m
+//  XO
 //
 //  Created by Misha on 30.04.14.
 //  Copyright (c) 2014 mobilesoft365. All rights reserved.
@@ -11,13 +11,12 @@
 #import "XOGameModel.h"
 #import "MPManager.h"
 #import "GameManager.h"
-#import "XOGameModel.h"
 #import "SoundManager.h"
 
 @interface XOGameFieldViewController () <XOGameModelDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (nonatomic) BOOL color;
+
 @end
 
 @implementation XOGameFieldViewController

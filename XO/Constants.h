@@ -29,7 +29,7 @@
 #define LEAD_LEADERBOARD @"CgkI-PGy2McTEAIQBw"
 
 //Ad Mob ID
-
+#define START_AD_MOB_ID @"5374b9b8fcb9071100000000"
 #define GOOGLE_AD_MOB_ID @"ca-app-pub-8370463222730338/6953510008"
 
 //Google Analytics constants
@@ -51,8 +51,7 @@
 
 
 #pragma mark - Enums
-typedef enum
-{
+typedef enum{
     XOGameModeSingle,
     XOGameModeMultiplayer,
     XOGameModeOnline

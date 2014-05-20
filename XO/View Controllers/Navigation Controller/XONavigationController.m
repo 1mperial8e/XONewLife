@@ -12,134 +12,103 @@
 #import "SADWebView.h"
 
 @interface XONavigationController () <SADWebViewDelegate>
-{
-    SADWebView* webView;
-}
+
 @property (nonatomic, weak) IBOutlet ADVContainer *containerView;
-@property (nonatomic, strong) GADBannerView *banner;
 @property (nonatomic) BOOL advLoaded;
-//@property (nonatomic, strong) SADWebView *webView;
+@property (nonatomic, strong) SADWebView *webView;
 @end
 
 @implementation XONavigationController
-@synthesize banner;//, webView;
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     _containerView = (ADVContainer *)[self.visibleViewController.view viewWithTag:135];
-    
     _containerView.hidden = YES;
     self.delegate = self;
+    if (!_webView) {
+        _webView = [[SADWebView alloc]initWithId:START_AD_MOB_ID];
+        _webView.sadDelegate = self;
+    }
+    [self loadAd];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-- (void)adViewDidReceiveAd:(GADBannerView *)view
-{
-    
-    //_advLoaded = YES;
-    if (_containerView.hidden) {
-        [_containerView setHidden:NO animate:YES];
-    }
-}
 - (void)tick:(NSTimer *)timer
 {
-    [banner loadRequest:[GADRequest request]];
+    [self loadAd];
     [timer invalidate];
     timer = nil;
     NSLog(@"tryReload");
 }
-- (void)adView:(GADBannerView *)view didFailToReceiveAdWithError:(GADRequestError *)error
-{
-    [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(tick:) userInfo:nil repeats:NO];
-    //_advLoaded = NO;
-    [_containerView setHidden:YES animate:YES];
-    NSLog(@"Error")
-    ;
+
+- (void) loadAd{
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    if ([language isEqualToString:@"ru"] || [language isEqualToString:@"uk"]) {
+        [_webView loadAd:LANGUAGE_RU andPlaceId:@"default_ad"];
+    }
+    else{
+        [_webView loadAd:LANGUAGE_EN andPlaceId:@"default_ad"];
+    }
 }
+
 - (UIImage *) imageWithView:(UIView *)view
 {
     UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0.0);
     [view.layer renderInContext:UIGraphicsGetCurrentContext()];
-    
     UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
-    
     UIGraphicsEndImageContext();
-    
     return img;
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 #pragma mark - NavigationController Delegate
+
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    NSLog(@"WillShow");
-
-    /*_containerView = (ADVContainer *)[self.visibleViewController.view viewWithTag:135];
-    ((ADVContainer *)[self.visibleViewController.view viewWithTag:135]).backgroundColor = [UIColor colorWithPatternImage:[self imageWithView:banner]];
+    _containerView = (ADVContainer *)[self.visibleViewController.view viewWithTag:135];
+    ((ADVContainer *)[self.visibleViewController.view viewWithTag:135]).backgroundColor = [UIColor colorWithPatternImage:[self imageWithView:_webView]];
     if (_advLoaded) {
         _containerView = (ADVContainer *)[self.visibleViewController.view viewWithTag:135];
-        ((ADVContainer *)[self.visibleViewController.view viewWithTag:135]).backgroundColor = [UIColor colorWithPatternImage:[self imageWithView:banner]];
+       ((ADVContainer *)[self.visibleViewController.view viewWithTag:135]).backgroundColor = [UIColor colorWithPatternImage:[self imageWithView:_webView]];
         [_containerView setHidden:NO animate:YES];
     } else {
         _containerView.hidden = YES;
-    }*/
+    }
 }
+
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     _containerView = (ADVContainer *)[self.visibleViewController.view viewWithTag:135];
-   // [(ADVContainer *)[self.visibleViewController.view viewWithTag:135] addSubview:banner];
+    [(ADVContainer *)[self.visibleViewController.view viewWithTag:135] addSubview:_webView];
 }
+
 #pragma mark - SAD Delegate
+
 -(void)onReceivedAd
 {
+    _advLoaded=YES;
+    _webView.frame=CGRectMake(0, 0, self.view.bounds.size.width, 80);
     if (_containerView.hidden) {
+        [_containerView setSize:_webView.scrollView.contentSize.height];
         [_containerView setHidden:NO animate:YES];
     }
 }
--(void)onShowedAd
-{
-    
-}
+
 -(void)onError:(SADVIEW_ERROR)error
 {
-    //_advLoaded = YES;
+    NSLog(@"Error! %u", error);
+    [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(tick:) userInfo:nil repeats:NO];
     if (!_containerView.hidden) {
         [_containerView setHidden:YES animate:YES];
     }
+}
 
-}
--(void)onAdClicked
-{
-    
-}
 -(void)noAdFound
 {
-    //_advLoaded = YES;
+    _advLoaded=NO;
+    NSLog(@"Not Found");
     if (!_containerView.hidden) {
         [_containerView setHidden:YES animate:YES];
     }
-
 }
 
 @end

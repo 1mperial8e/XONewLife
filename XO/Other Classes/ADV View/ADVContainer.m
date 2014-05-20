@@ -35,12 +35,17 @@
 }
 
 #pragma mark - Custom Accsessors
+- (void)setSize:(float)size
+{
+    _size = size;
+    [self animatedSize];
+}
 - (void)setHidden:(BOOL)hidden
 {
     if (hidden) {
         self.heigth.constant = 0;
     } else {
-        self.heigth.constant = 50;
+        self.heigth.constant = _size;
     }
     _hidden = hidden;
     
@@ -61,16 +66,21 @@
     }
 }
 #pragma mark - Private Methods
+- (void)animatedSize
+{
+    [self setHidden:_hidden];
+    [UIView animateWithDuration:0.3 animations:^{
+        
+        [self.superview layoutIfNeeded];
+    }];
+}
 - (void)configureView
 {
     [self setBackgroundColor:[UIColor redColor]];
     //[self setClipsToBounds:YES];
     
 }
-- (void)tapreaction:(UITapGestureRecognizer *)tap
-{
-    [self setHidden:!_hidden animate:YES];
-}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

@@ -15,10 +15,12 @@
 #import "XOGameModel.h"
 #import "SoundManager.h"
 
-@interface XOStartViewController () <GPGAchievementControllerDelegate, GPGLeaderboardControllerDelegate, UIAlertViewDelegate>{
+
+@interface XOStartViewController () <GPGAchievementControllerDelegate, GPGLeaderboardControllerDelegate, UIAlertViewDelegate, GADInterstitialDelegate>{
     BOOL showAchievement;
     BOOL showLeaderboard;
     BOOL goToLobby;
+    BOOL animatedPush;
 }
 @property (nonatomic, weak) IBOutlet UIButton *single;
 @property (nonatomic, weak) IBOutlet UIButton *multi;
@@ -62,6 +64,8 @@
     showAchievement=NO;
     showLeaderboard=NO;
     goToLobby=NO;
+    animatedPush=YES;
+    [GameManager sharedInstance].interstitial_.delegate=self;
     
 }
 
@@ -69,44 +73,6 @@
     [self.navigationController.navigationBar setHidden:YES];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     [[GameManager sharedInstance] trackScreenWithName:START_SCREEN];
-}
-
-#pragma mark - WebView methods
-
-
--(void)onReceivedAd
-{
-    NSLog(@"SADView  onReceivedAd");
-    [[self.view viewWithTag:135] setHidden:NO];
-    [UIView animateWithDuration:0.3 animations:^{
-        
-        [[self.view viewWithTag:135].superview layoutIfNeeded];
-    }];
-
-}
-
--(void)onShowedAd
-{
-    NSLog(@"SADView  onShowedAd");
-}
-
-/*-(void)onError:(SADVIEW_ERROR)error
-{
-    NSLog(@"SADView error: %d", error);
-}*/
-
--(void)onAdClicked
-{
-    NSLog(@"SADView  onAdClicked");
-}
-
--(void)noAdFound
-{
-    NSLog(@"SADView  noAdFound");
-    [[self.view viewWithTag:135] setHidden:NO];
-    [UIView animateWithDuration:7 animations:^{
-        [[self.view viewWithTag:135].superview layoutIfNeeded];
-    }];
 }
 
 #pragma mark - UIActions
@@ -149,6 +115,8 @@
     [XOGameModel sharedInstance].player = XOPlayerFirst;
     [XOGameModel sharedInstance].me = XOPlayerFirst;
     [[SoundManager sharedInstance] playClickSound];
+    XOGameViewController *gameView=[[UIStoryboard storyboardWithName:@"iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"game"];
+    [self.navigationController pushViewController:gameView animated:animatedPush];
     [self resetBtnStatus];
 }
 
@@ -162,7 +130,7 @@
     [GameManager sharedInstance].secondPlayerVictory=0;
     [[SoundManager sharedInstance] playClickSound];
     XOGameViewController *gameView=[[UIStoryboard storyboardWithName:@"iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"game"];
-    [self.navigationController pushViewController:gameView animated:YES];
+    [self.navigationController pushViewController:gameView animated:animatedPush];
     [self resetBtnStatus];
 }
 
@@ -339,6 +307,7 @@
     NSLog(@"recieve ad");
 }
 
+
 - (void)interstitial:(GADInterstitial *)interstitial didFailToReceiveAdWithError:(GADRequestError *)error{
     NSLog(@"%@",error);
 }
@@ -359,7 +328,7 @@
     [XOGameModel sharedInstance].player = XOPlayerNone;
     [[SoundManager sharedInstance] playClickSound];
     XOOnlineLobbyViewController *lobby=[[UIStoryboard storyboardWithName:@"iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"lobby"];
-    [self.navigationController pushViewController:lobby animated:YES];
+    [self.navigationController pushViewController:lobby animated:animatedPush];
 }
 
 - (void) getDefaultSettings{

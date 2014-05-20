@@ -10,5 +10,6 @@
 
 @interface ADVContainer : UIView
 @property (nonatomic) BOOL hidden;
+@property (nonatomic) float size;
 - (void)setHidden:(BOOL)hidden animate:(BOOL)animate;
 @end

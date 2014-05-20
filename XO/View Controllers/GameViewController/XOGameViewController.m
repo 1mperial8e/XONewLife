@@ -19,7 +19,6 @@
     NSTimer *restartGameTimer;
     int time;
     float restart;
-    BOOL config;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *gameFieldContainerView;
@@ -37,6 +36,7 @@
 @property (weak, nonatomic) IBOutlet MGCicleProgress *progress;
 @property (weak, nonatomic) IBOutlet UIImageView *timer;
 @property (weak, nonatomic) IBOutlet MGCicleProgress *timerCircle;
+
 - (IBAction)back:(id)sender;
 - (IBAction)settings:(id)sender;
 
@@ -76,6 +76,21 @@
     [[GameManager sharedInstance].interstitial_ loadRequest:[GADRequest request]];
 }
 
+- (void) viewWillDisappear:(BOOL)animated{
+    if ([GameManager sharedInstance].mode == XOGameModeOnline){
+        [[MPManager sharedInstance].roomToTrack leave];
+    }
+    if ([stepTimer isValid]) {
+        [stepTimer invalidate];
+    }
+}
+
+- (void) dealloc{
+    [[XOGameModel sharedInstance] clear];
+    [self clearProgress];
+}
+
+#pragma mark - Other methods
 
 - (void)configGameField
 {
@@ -112,47 +127,18 @@
                                                                        multiplier:1.0
                                                                          constant:0]];
     [self addChildViewController:_gameFieldViewController];
-    config=TRUE;
-    
-}
-
-- (void) viewWillDisappear:(BOOL)animated{
-    if ([GameManager sharedInstance].mode == XOGameModeOnline){
-    [[MPManager sharedInstance].roomToTrack leave];
-    }
-    if ([stepTimer isValid]) {
-        [stepTimer invalidate];
-    }
-}
-
-- (void) dealloc{
-    [[XOGameModel sharedInstance] clear];
-    [self clearProgress];
-}
-
-- (IBAction)back:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-    [[SoundManager sharedInstance] playClickSound];
-    [self resetBtnStatus];
-}
-
-- (IBAction)settings:(id)sender {
-    XOSettingsViewController *settingsVew=[[UIStoryboard storyboardWithName:@"iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"settings"];
-    [self.navigationController pushViewController:settingsVew animated:YES];
-    [[SoundManager sharedInstance] playClickSound];
-    [self resetBtnStatus];
 }
 
 - (void) setPlayersInfo{
     if ([GameManager sharedInstance].mode == XOGameModeOnline){
-    [self.timerLabel setHidden:NO];
-    [self.timer setHidden:NO];
-    [self.timerCircle setHidden:NO];
-    [self.settingsButton setHidden:YES];
-    self.myName.text=[GameManager sharedInstance].googleUserName;
-    self.opponentName.text=[GameManager sharedInstance].opponentName;
-    self.myPhoto.image=[UIImage imageWithData:[NSData  dataWithContentsOfURL:[NSURL URLWithString:[GameManager sharedInstance].googleUserImage]]];
-    self.opponentPhoto.image=[UIImage imageWithData:[NSData  dataWithContentsOfURL:[GameManager sharedInstance].opponentImage]];
+        [self.timerLabel setHidden:NO];
+        [self.timer setHidden:NO];
+        [self.timerCircle setHidden:NO];
+        [self.settingsButton setHidden:YES];
+        self.myName.text=[GameManager sharedInstance].googleUserName;
+        self.opponentName.text=[GameManager sharedInstance].opponentName;
+        self.myPhoto.image=[UIImage imageWithData:[NSData  dataWithContentsOfURL:[NSURL URLWithString:[GameManager sharedInstance].googleUserImage]]];
+        self.opponentPhoto.image=[UIImage imageWithData:[NSData  dataWithContentsOfURL:[GameManager sharedInstance].opponentImage]];
     }
     else if ([GameManager sharedInstance].mode == XOGameModeMultiplayer){
         self.myName.text=[NSString stringWithFormat:NSLocalizedString(@"Player %i", nil), 1];
@@ -169,10 +155,10 @@
         self.myName.text=NSLocalizedString(@"Me", nil);
         self.opponentName.text=@"iPhone";
         if ([[GPGManager sharedInstance] isSignedIn]) {
-        self.myPhoto.image=[UIImage imageWithData:[NSData  dataWithContentsOfURL:[NSURL URLWithString:[GameManager sharedInstance].googleUserImage]]];
+            self.myPhoto.image=[UIImage imageWithData:[NSData  dataWithContentsOfURL:[NSURL URLWithString:[GameManager sharedInstance].googleUserImage]]];
         }
         else{
-        self.myPhoto.image=[UIImage imageNamed:@"user"];
+            self.myPhoto.image=[UIImage imageNamed:@"user"];
         }
         self.opponentPhoto.image=[UIImage imageNamed:@"apple"];
         [self nowTurn:XOPlayerFirst];
@@ -196,28 +182,54 @@
                 self.secondPlayerScore.text=[self textScore:[GameManager sharedInstance].progress.easyLooses];
             }
             if ([XOGameModel sharedInstance].aiGameMode == 1) {
-               
+                
             }
             if ([XOGameModel sharedInstance].aiGameMode == 2) {
                 self.firstPlayerScore.text=[self textScore:[GameManager sharedInstance].progress.hardVictory];
                 self.secondPlayerScore.text=[self textScore:[GameManager sharedInstance].progress.hardLooses];
             }
         }
-        break;
+            break;
         case XOGameModeMultiplayer:{
             self.firstPlayerScore.text=[self textScore:[GameManager sharedInstance].firstPlayerVictory];
             self.secondPlayerScore.text=[self textScore:[GameManager sharedInstance].secondPlayerVictory];
         }
-        break;
+            break;
         default:{
             self.firstPlayerScore.text=[self textScore:0];
             self.secondPlayerScore.text=[self textScore:0];
         }
-        break;
+            break;
     }
 }
 
-#pragma mark - buttonsLock
+- (void) changePhotos{
+    if (self.myPhoto.image==[UIImage imageNamed:@"zero_4"]){
+        self.myPhoto.image=[UIImage imageNamed:@"cross_1"];
+        self.opponentPhoto.image=[UIImage imageNamed:@"zero_4"];
+    }
+    else{
+        self.opponentPhoto.image=[UIImage imageNamed:@"cross_1"];
+        self.myPhoto.image=[UIImage imageNamed:@"zero_4"];
+    }
+}
+
+#pragma mark - UIActions
+
+- (IBAction)back:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+    [[SoundManager sharedInstance] playClickSound];
+    [self resetBtnStatus];
+}
+
+- (IBAction)settings:(id)sender {
+    XOSettingsViewController *settingsVew=[[UIStoryboard storyboardWithName:@"iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"settings"];
+    [self.navigationController pushViewController:settingsVew animated:YES];
+    [[SoundManager sharedInstance] playClickSound];
+    [self resetBtnStatus];
+}
+
+#pragma mark - Disable MultiTouch
 
 - (IBAction) pressed: (id) sender
 {
@@ -282,17 +294,6 @@
     NSString *strScore=[NSString new];
     strScore=[NSString stringWithFormat:@"%i",score];
     return strScore;
-}
-
-- (void) changePhotos{
-    if (self.myPhoto.image==[UIImage imageNamed:@"zero_4"]){
-        self.myPhoto.image=[UIImage imageNamed:@"cross_1"];
-        self.opponentPhoto.image=[UIImage imageNamed:@"zero_4"];
-    }
-    else{
-        self.opponentPhoto.image=[UIImage imageNamed:@"cross_1"];
-        self.myPhoto.image=[UIImage imageNamed:@"zero_4"];        
-    }
 }
 
 #pragma mark - Timer Methods
@@ -371,6 +372,7 @@
 }
 
 #pragma mark - playersTurnDelegate
+
 - (void) nowTurn:(XOPlayer)player{
     if (player == XOPlayerFirst) {
         self.myPhotoFrame.backgroundColor=[UIColor colorWithRed:(50.0/255.0) green:(190.0/255.0) blue:(70.0/255.0) alpha:0.65f];

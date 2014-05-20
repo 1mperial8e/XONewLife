@@ -39,6 +39,8 @@
 
 @implementation XOSettingsViewController
 
+#pragma mark - LifeCycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -64,6 +66,7 @@
     [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
+#pragma mark - UIActions
 
 - (IBAction)changeGameMode:(id)sender {
     [self changeSettings:@"mode"];
@@ -101,6 +104,8 @@
     [self changeSettings:@"googleAnalitics"];
     [[SoundManager sharedInstance] playClickSound];
 }
+
+#pragma mark - Other methods
 
 - (void)changeSettings:(NSString*)settings{
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
