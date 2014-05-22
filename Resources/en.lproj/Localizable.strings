@@ -1,7 +1,7 @@
 "Sign in" = "Log in";
 "Sign out" = "Log out";
 "You win!" = "You win!";
-"Your opponent win!" = "Your opponent win!";
+"You loose!" = "You lost!";
 "Continue game?" = "Continue game?";
 "Cancel"= "Cancel";
 "Continue"="Continue";

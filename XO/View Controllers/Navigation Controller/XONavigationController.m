@@ -10,6 +10,7 @@
 #import "ADVManager.h"
 #import "ADVContainer.h"
 #import "SADWebView.h"
+#import "XOStartViewController.h"
 
 @interface XONavigationController () <SADWebViewDelegate>
 
@@ -44,10 +45,10 @@
 - (void) loadAd{
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     if ([language isEqualToString:@"ru"] || [language isEqualToString:@"uk"]) {
-        [_webView loadAd:LANGUAGE_RU andPlaceId:@"default_ad"];
+        [_webView loadAd:LANGUAGE_RU];
     }
     else{
-        [_webView loadAd:LANGUAGE_EN andPlaceId:@"default_ad"];
+        [_webView loadAd:LANGUAGE_EN];
     }
 }
 
@@ -86,16 +87,18 @@
 -(void)onReceivedAd
 {
     _advLoaded=YES;
-    _webView.frame=CGRectMake(0, 0, self.view.bounds.size.width, 80);
+    _webView.frame=CGRectMake(0, 0, self.view.bounds.size.width, 120);
     if (_containerView.hidden) {
         [_containerView setSize:_webView.scrollView.contentSize.height];
         [_containerView setHidden:NO animate:YES];
     }
+    ((XOStartViewController*)self.visibleViewController).bottomMargin.constant=0;
 }
 
 -(void)onError:(SADVIEW_ERROR)error
 {
     NSLog(@"Error! %u", error);
+    ((XOStartViewController*)self.visibleViewController).bottomMargin.constant=12;
     [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(tick:) userInfo:nil repeats:NO];
     if (!_containerView.hidden) {
         [_containerView setHidden:YES animate:YES];
@@ -106,6 +109,7 @@
 {
     _advLoaded=NO;
     NSLog(@"Not Found");
+    ((XOStartViewController*)self.visibleViewController).bottomMargin.constant=12;
     if (!_containerView.hidden) {
         [_containerView setHidden:YES animate:YES];
     }

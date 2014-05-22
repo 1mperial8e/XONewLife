@@ -1,7 +1,7 @@
 "Sign in" = "Connexion";
 "Sign out" = "Déconnexion";
 "You win!" = "Vous gagnez!";
-"Your opponent win!" = "Votre adversaire gagnez!";
+"You loose!" = "Vous perdez!";
 "Continue game?" = "Continuer jeu?";
 "Cancel"= "Annuler";
 "Continue"="Continuer";

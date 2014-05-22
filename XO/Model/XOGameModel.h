@@ -63,6 +63,7 @@
 @property (nonatomic, weak) id <weHaveVictory> victoryDelegate;
 @property (nonatomic, weak) id <playersTurn> playersTurnDelegate;
 @property (nonatomic) NewGameMessage opponentNewGame;
+@property (nonatomic) NewGameMessage myNewGame;
 
 - (void)clear;
 - (void)setMoveForIndexPath:(NSIndexPath *)indexPath;

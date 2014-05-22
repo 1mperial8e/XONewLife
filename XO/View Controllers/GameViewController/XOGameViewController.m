@@ -143,8 +143,8 @@
     else if ([GameManager sharedInstance].mode == XOGameModeMultiplayer){
         self.myName.text=[NSString stringWithFormat:NSLocalizedString(@"Player %i", nil), 1];
         self.opponentName.text=[NSString stringWithFormat:NSLocalizedString(@"Player %i", nil), 2];
-        self.myPhoto.image=[UIImage imageNamed:@"cross_1"];
-        self.opponentPhoto.image=[UIImage imageNamed:@"zero_4"];
+        self.myPhoto.image=[UIImage imageNamed:@"xPlayer"];
+        self.opponentPhoto.image=[UIImage imageNamed:@"oPlayer"];
         [self nowTurn:XOPlayerFirst];
         [self.timerLabel setHidden:YES];
         [self.timer setHidden:YES];
@@ -204,13 +204,13 @@
 }
 
 - (void) changePhotos{
-    if (self.myPhoto.image==[UIImage imageNamed:@"zero_4"]){
-        self.myPhoto.image=[UIImage imageNamed:@"cross_1"];
-        self.opponentPhoto.image=[UIImage imageNamed:@"zero_4"];
+    if (self.myPhoto.image==[UIImage imageNamed:@"oPlayer"]){
+        self.myPhoto.image=[UIImage imageNamed:@"xPlayer"];
+        self.opponentPhoto.image=[UIImage imageNamed:@"oPlayer"];
     }
     else{
-        self.opponentPhoto.image=[UIImage imageNamed:@"cross_1"];
-        self.myPhoto.image=[UIImage imageNamed:@"zero_4"];
+        self.opponentPhoto.image=[UIImage imageNamed:@"xPlayer"];
+        self.myPhoto.image=[UIImage imageNamed:@"oPlayer"];
     }
 }
 
@@ -308,11 +308,13 @@
             if ([XOGameModel sharedInstance].player == [XOGameModel sharedInstance].me) {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"timeOut", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
+                [[MPManager sharedInstance] leaveRoom];
             }
             else{
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"timeOponent", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [[GameManager sharedInstance].progress updateProgress:XOGameModeOnline forMe:YES];
                 [alert show];
+                [[MPManager sharedInstance] leaveRoom];
             }
         }
         time=30;

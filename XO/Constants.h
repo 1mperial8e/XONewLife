@@ -20,7 +20,7 @@
 #define MULTIPLAYER_GAMES @"multiplayerGames"
 
 //Google Play Game Service constants
-#define CLIENT_ID @"672079329528-t081sk1p5kca2cpalfj1k2irn7l2ej26.apps.googleusercontent.com"
+#define CLIENT_ID @"168999148543.apps.googleusercontent.com"
 #define ACH_NEWBIE @"CgkI-PGy2McTEAIQAg"
 #define ACH_GOOD_PLAYER @"CgkI-PGy2McTEAIQAw"
 #define ACH_BEGINER @"CgkI-PGy2McTEAIQBA"

@@ -135,7 +135,6 @@
 }
 
 - (IBAction)playOnline:(id)sender {
-    [[GameManager sharedInstance].interstitial_ presentFromRootViewController:self];
     if (![[GPGManager sharedInstance] isSignedIn])
     {
         goToLobby=YES;
@@ -143,6 +142,7 @@
         [alert show];
     }
     else{
+        [[GameManager sharedInstance].interstitial_ presentFromRootViewController:self];
         [self goToLobbyScreen];
     }
     [self resetBtnStatus];

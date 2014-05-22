@@ -15,6 +15,8 @@
 
 @interface XOOnlineLobbyViewController () <UIAlertViewDelegate, MPLobbyDelegate>
 
+@property (nonatomic) BOOL alreadyFinish;
+
 - (IBAction)backButton:(id)sender;
 - (IBAction)checkInvites:(id)sender;
 - (IBAction)quickGame:(id)sender;
@@ -23,6 +25,8 @@
 @end
 
 @implementation XOOnlineLobbyViewController
+
+
 
 #pragma mark - LifeCycle
 
@@ -35,6 +39,11 @@
 
 - (void) viewWillAppear:(BOOL)animated{
     [[GameManager sharedInstance] trackScreenWithName:LOBBY_SCREEN];
+    
+}
+
+- (void) viewDidDisappear:(BOOL)animated{
+    _alreadyFinish=NO;
 }
 
 #pragma mark - UIActions
@@ -106,11 +115,14 @@
         [self.navigationController popViewControllerAnimated:YES];
     }
     else{
-        [XOGameModel sharedInstance].opponentNewGame=NewGameMessageNo;
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"End game!", ni
-l) message:NSLocalizedString(@"Opponent has left the game :-(", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Exit", nil) otherButtonTitles:nil, nil];
-        [[XOGameModel sharedInstance].timerDelegate stopTimer];
-        [alert show];
+        if (_alreadyFinish==NO){
+            _alreadyFinish=YES;
+            [[MPManager sharedInstance] leaveRoom];
+            [XOGameModel sharedInstance].opponentNewGame=NewGameMessageNo;
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"End game!", nil) message:NSLocalizedString(@"Opponent has left the game :-(", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Exit", nil) otherButtonTitles:nil, nil];
+            [[XOGameModel sharedInstance].timerDelegate stopTimer];
+            [alert show];
+            }
         }
     }
 }

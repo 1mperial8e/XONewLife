@@ -13,4 +13,6 @@
 
 @interface XOStartViewController : UIViewController <GPPSignInDelegate>
 
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *bottomMargin;
+
 @end

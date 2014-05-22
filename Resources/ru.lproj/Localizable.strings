@@ -2,7 +2,7 @@
 "Sign in" = "Войти";
 "Sign out" = "Выйти";
 "You win!" = "Вы выиграли!";
-"You opponent win!" = "Ваш оппонент выиграл!";
+"You loose!" = "Вы проиграли!";
 "Continue game?" = "Продолжить игру?";
 "Cancel"= "Завершить";
 "Continue"="Продолжить";

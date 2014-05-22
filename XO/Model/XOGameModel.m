@@ -64,6 +64,8 @@ static XOGameModel *_instance=Nil;
 
  - (void)newGame
 {
+    _myNewGame=NewGameMessageUnknown;
+    _opponentNewGame=NewGameMessageUnknown;
     _winner = XOPlayerNone;
     _me= _me*-1;
     _player = XOPlayerFirst;
@@ -127,7 +129,9 @@ static XOGameModel *_instance=Nil;
     }
     switch (opponentNewGame) {
         case NewGameMessageYes:
-            [self newGame];
+            if (_myNewGame==NewGameMessageYes) {
+                [self newGame];
+            }
             break;
         case NewGameMessageNo:
             if (_waitingForUser) {
@@ -177,7 +181,7 @@ static XOGameModel *_instance=Nil;
         case XOGameModeOnline:
             if (!_alertForNewGame) {
                 if (winner) {
-                    _alertForNewGame = [[XOAlertView alloc] initWithTitle:_winner==_me?NSLocalizedString(@"You win!", nil):NSLocalizedString(@"You opponent win!", nil)message:NSLocalizedString(@"Continue game?", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"Continue", nil), nil];
+                    _alertForNewGame = [[XOAlertView alloc] initWithTitle:_winner==_me?NSLocalizedString(@"You win!", nil):NSLocalizedString(@"You loose!", nil)message:NSLocalizedString(@"Continue game?", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"Continue", nil), nil];
                 } else {
                     _alertForNewGame = [[XOAlertView alloc] initWithTitle:NSLocalizedString(@"Draw game!", nil) message:NSLocalizedString(@"Continue game?", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"Continue", nil), nil];
                 }
@@ -221,13 +225,17 @@ static XOGameModel *_instance=Nil;
 {
     switch (buttonIndex) {
         case 1:
-            //[[MPManager sharedInstance].lobbyDelegate multiPlayerGameWasCanceled:YES];
+            _myNewGame=NewGameMessageYes;
             [[MPManager sharedInstance] sendPlayerMyMessage:@"yes"];
+            if (_opponentNewGame==NewGameMessageYes) {
+                [self newGame];
+            }
+            else{
             [self displayWaitOpponentView];
+            }
             break;
         case 2:
             [self newGame];
-            //[[MPManager sharedInstance] sendPlayerMyMessage:@"yes"];
             break;
         default:
             [[MPManager sharedInstance].lobbyDelegate multiPlayerGameWasCanceled:YES];

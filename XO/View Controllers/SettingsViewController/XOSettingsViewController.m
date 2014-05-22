@@ -26,6 +26,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *pushCheck;
 @property (weak, nonatomic) IBOutlet UIImageView *googleAnaliticsCheck;
 @property (weak, nonatomic) IBOutlet UIButton *gameMode;
+@property (weak, nonatomic) IBOutlet UIImageView *gameDifficulty;
+@property (weak, nonatomic) IBOutlet UILabel *easyMode;
+@property (weak, nonatomic) IBOutlet UILabel *hardMode;
 
 - (IBAction)changeGameMode:(id)sender;
 - (IBAction)signInOut:(id)sender;
@@ -46,13 +49,15 @@
     [super viewDidLoad];
     [self setControlState];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
+    [self.easyMode setText:NSLocalizedString(@"Easy", nil)];
+    [self.hardMode setText:NSLocalizedString(@"Hard", nil)];
 
 }
 
 - (void) viewWillAppear:(BOOL)animated{
     [[GameManager sharedInstance] trackScreenWithName:SETTINGS_SCREEN];
     if ([GameManager sharedInstance].mode==XOGameModeMultiplayer) {
-        [self.gameMode setHidden:YES];
+        [self hideGameModeButton];
     }
     else{
         [self.gameMode setHidden:NO];
@@ -106,6 +111,13 @@
 }
 
 #pragma mark - Other methods
+
+- (void) hideGameModeButton{
+    [self.gameMode setHidden:YES];
+    [self.gameDifficulty setHidden:YES];
+    [self.easyMode setHidden:YES];
+    [self.hardMode setHidden:YES];
+}
 
 - (void)changeSettings:(NSString*)settings{
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -176,10 +188,15 @@
         self.pushCheck.image=[UIImage imageNamed:@"unchecked"];
     }
     if ([XOGameModel sharedInstance].aiGameMode==0) {
-        [self.gameMode setTitle:NSLocalizedString(@"Easy", nil) forState:UIControlStateNormal];
+        [self.easyMode setHidden:NO];
+        [self.hardMode setHidden:YES];
+        [self.gameDifficulty setImage:[UIImage imageNamed:@"easyMode"]];
+        
     }
     else{
-        [self.gameMode setTitle:NSLocalizedString(@"Hard", nil) forState:UIControlStateNormal];
+        [self.hardMode setHidden:NO];
+        [self.easyMode setHidden:YES];
+        [self.gameDifficulty setImage:[UIImage imageNamed:@"hardMode"]];
     }
 }
 
