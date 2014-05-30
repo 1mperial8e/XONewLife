@@ -20,10 +20,8 @@ static GameManager* _instance=nil;
     @synchronized(self) {
     if (_instance==nil) {
         _instance=[[self alloc] init];
-        _instance.interstitial_ = [[GADInterstitial alloc] init];
-        _instance.interstitial_.adUnitID = GOOGLE_AD_MOB_ID;
+        [_instance loadFullScreenADV];
         _instance.tracker=[[GAI sharedInstance] trackerWithTrackingId:TRACK_ID];
-        [_instance.interstitial_ loadRequest:[GADRequest request]];
     }    
     return _instance;
     }
@@ -59,12 +57,14 @@ static GameManager* _instance=nil;
 //    else{
 //        [[UIApplication sharedApplication] unregisterForRemoteNotifications];
 //    }
+    [self loadFullScreenADV];
 }
 
 - (void)tryToBeFirst{
     int roll=arc4random()%365;
     self.myRoll=roll;
     [[MPManager sharedInstance] sendPlayerMyMessage:[NSString stringWithFormat:@"%i",roll]];
+    NSLog(@"ROLL SENT!");
 }
 
 - (void) trackScreenWithName:(NSString*)name{
@@ -72,6 +72,44 @@ static GameManager* _instance=nil;
         [_tracker send:[[[GAIDictionaryBuilder createAppView] set:name
                                                           forKey:kGAIScreenName] build]];
     }
+}
+
+- (void) loadFullScreenADV{
+    interstitial_=nil;
+    interstitial_ = [[GADInterstitial alloc] init];
+    interstitial_.adUnitID = GOOGLE_AD_MOB_ID;
+    [interstitial_ loadRequest:[GADRequest request]];
+}
+
+- (void) setInterstitialDelegate:(id)delegate{
+    interstitial_.delegate=delegate;
+}
+
+- (void) showFullScreenADVOnViewController:(UIViewController *)viewController{
+    if (interstitial_){
+        [interstitial_ presentFromRootViewController:viewController];
+    }
+}
+
+- (void)testInternetConnection
+{
+    internetReachableFoo = [MyReachability reachabilityWithHostname:@"www.google.com"];
+        internetReachableFoo.reachableBlock = ^(MyReachability*reach)
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"Internet!");
+        });
+    };
+    internetReachableFoo.unreachableBlock = ^(MyReachability*reach)
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if ([[GPGManager sharedInstance] isSignedIn]==YES) {
+                [[GPGManager sharedInstance] signOut];
+            }
+        });
+    };
+    
+    [internetReachableFoo startNotifier];
 }
 
 @end

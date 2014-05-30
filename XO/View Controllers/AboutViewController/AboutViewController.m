@@ -12,6 +12,9 @@
 
 @interface AboutViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextView *aboutTextView;
+
+
 - (IBAction)backButton:(id)sender;
 
 @end
@@ -22,6 +25,8 @@
 {
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
+    _aboutTextView.text = NSLocalizedString(@"About Text", nil);
+
 }
 
 - (void) viewWillAppear:(BOOL)animated{

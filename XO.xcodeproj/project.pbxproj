@@ -22,13 +22,12 @@
 		7FEAED2D1917D84E0065CC57 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FEAED2C1917D84E0065CC57 /* Images.xcassets */; };
 		7FF34694192253B500E4AEE1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7FF34696192253B500E4AEE1 /* Localizable.strings */; };
 		7FF3469D19225B2C00E4AEE1 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FF3469F19225B2C00E4AEE1 /* iPhone.storyboard */; };
-		7FF346B1192266C800E4AEE1 /* XOStartSequeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF346B0192266C800E4AEE1 /* XOStartSequeAnimation.m */; };
-		7FF346BA1923503500E4AEE1 /* MGCicleProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF346B91923503500E4AEE1 /* MGCicleProgress.m */; };
 		7FF346C5192383EB00E4AEE1 /* sound_win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7FF346C4192383EB00E4AEE1 /* sound_win.mp3 */; };
 		7FF346CA19239AFF00E4AEE1 /* sound_lose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7FF346C919239AFF00E4AEE1 /* sound_lose.mp3 */; };
 		7FF347EF1923C39300E4AEE1 /* ADVContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF347EE1923C39300E4AEE1 /* ADVContainer.m */; };
 		7FF96EA3191A4B5C00EDB431 /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7FF96EA2191A4B5C00EDB431 /* music.mp3 */; };
 		7FF96EA6191BF9A200EDB431 /* XOObjectiveMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF96EA5191BF9A200EDB431 /* XOObjectiveMatrix.m */; };
+		844DE5A4193496560058C751 /* MyReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 844DE5A2193495AE0058C751 /* MyReachability.m */; };
 		84742D8119197CF3007B868E /* XOGameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84742D8019197CF3007B868E /* XOGameModel.m */; };
 		8481FC441915273E00D9F0EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481FC431915273E00D9F0EB /* Foundation.framework */; };
 		8481FC461915273E00D9F0EB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481FC451915273E00D9F0EB /* CoreGraphics.framework */; };
@@ -55,6 +54,7 @@
 		84AAC889191AAB0E001C0B94 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AAC888191AAB0E001C0B94 /* SoundManager.m */; };
 		84AAC88D191D2120001C0B94 /* XOProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AAC88C191D2120001C0B94 /* XOProgress.m */; };
 		84AAC89019220AD4001C0B94 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AAC88F19220AD4001C0B94 /* AboutViewController.m */; };
+		84ACFE8C1938A8A600770C37 /* MGCicleProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ACFE8B1938A8A600770C37 /* MGCicleProgress.m */; };
 		84AD02D31925E9DB0036B05F /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AD02D21925E9DB0036B05F /* libsqlite3.0.dylib */; };
 		84AD034B1925EBC30036B05F /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F8495CE1924AD670022BC08 /* libGoogleAdMobAds.a */; };
 		84AD034F1925ECD00036B05F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AD034E1925ECD00036B05F /* libz.dylib */; };
@@ -120,10 +120,6 @@
 		7FF34695192253B500E4AEE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7FF3469E19225B2C00E4AEE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPhone.storyboard; sourceTree = "<group>"; };
 		7FF346A419225B7100E4AEE1 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
-		7FF346AF192266C800E4AEE1 /* XOStartSequeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XOStartSequeAnimation.h; path = Animations/XOStartSequeAnimation.h; sourceTree = "<group>"; };
-		7FF346B0192266C800E4AEE1 /* XOStartSequeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XOStartSequeAnimation.m; path = Animations/XOStartSequeAnimation.m; sourceTree = "<group>"; };
-		7FF346B81923503500E4AEE1 /* MGCicleProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGCicleProgress.h; sourceTree = "<group>"; };
-		7FF346B91923503500E4AEE1 /* MGCicleProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGCicleProgress.m; sourceTree = "<group>"; };
 		7FF346C219237FAA00E4AEE1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7FF346C4192383EB00E4AEE1 /* sound_win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_win.mp3; sourceTree = "<group>"; };
 		7FF346C919239AFF00E4AEE1 /* sound_lose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound_lose.mp3; sourceTree = "<group>"; };
@@ -132,6 +128,8 @@
 		7FF96EA2191A4B5C00EDB431 /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
 		7FF96EA4191BF9A200EDB431 /* XOObjectiveMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XOObjectiveMatrix.h; sourceTree = "<group>"; };
 		7FF96EA5191BF9A200EDB431 /* XOObjectiveMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOObjectiveMatrix.m; sourceTree = "<group>"; };
+		84166C8C19348996006A7130 /* MyReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyReachability.h; sourceTree = "<group>"; };
+		844DE5A2193495AE0058C751 /* MyReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyReachability.m; sourceTree = "<group>"; };
 		8454BD27192A05B4008906E0 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/iPhone.strings; sourceTree = "<group>"; };
 		8454BD28192A05B6008906E0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/iPhone.strings; sourceTree = "<group>"; };
 		8454BD2B192A05BE008906E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/iPhone.strings; sourceTree = "<group>"; };
@@ -191,6 +189,8 @@
 		84AAC88C191D2120001C0B94 /* XOProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOProgress.m; sourceTree = "<group>"; };
 		84AAC88E19220AD4001C0B94 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = AboutViewController/AboutViewController.h; sourceTree = "<group>"; };
 		84AAC88F19220AD4001C0B94 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = AboutViewController/AboutViewController.m; sourceTree = "<group>"; };
+		84ACFE8A1938A8A600770C37 /* MGCicleProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGCicleProgress.h; path = "Cycle Progress/MGCicleProgress.h"; sourceTree = "<group>"; };
+		84ACFE8B1938A8A600770C37 /* MGCicleProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGCicleProgress.m; path = "Cycle Progress/MGCicleProgress.m"; sourceTree = "<group>"; };
 		84AD02D21925E9DB0036B05F /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		84AD034C1925EBFE0036B05F /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAdMobAds.a; path = XO/Manager/GoogleAdMob/libGoogleAdMobAds.a; sourceTree = "<group>"; };
 		84AD034E1925ECD00036B05F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -329,26 +329,25 @@
 			name = libs;
 			sourceTree = "<group>";
 		};
-		7FF346B2192266CE00E4AEE1 /* Animations */ = {
+		84166C8B19348975006A7130 /* Reachability */ = {
 			isa = PBXGroup;
 			children = (
-				7FF346B81923503500E4AEE1 /* MGCicleProgress.h */,
-				7FF346B91923503500E4AEE1 /* MGCicleProgress.m */,
-				7FF346AF192266C800E4AEE1 /* XOStartSequeAnimation.h */,
-				7FF346B0192266C800E4AEE1 /* XOStartSequeAnimation.m */,
+				844DE5A2193495AE0058C751 /* MyReachability.m */,
+				84166C8C19348996006A7130 /* MyReachability.h */,
 			);
-			name = Animations;
+			path = Reachability;
 			sourceTree = "<group>";
 		};
 		84742D7919197C54007B868E /* Other Classes */ = {
 			isa = PBXGroup;
 			children = (
+				84166C8B19348975006A7130 /* Reachability */,
 				84B57EC4192B672F00D17B10 /* XOAlertView */,
 				84AAC88A191D210C001C0B94 /* Progress Structure */,
 				84742D7A19197C54007B868E /* Matrix */,
 				7F912D77191F633700675027 /* AI */,
-				7FF346B2192266CE00E4AEE1 /* Animations */,
 				7F8495971924A1C80022BC08 /* ADV Container */,
+				84ACFE8D1938A8AB00770C37 /* Cycle Progress */,
 			);
 			path = "Other Classes";
 			sourceTree = "<group>";
@@ -564,6 +563,15 @@
 			name = AboutViewController;
 			sourceTree = "<group>";
 		};
+		84ACFE8D1938A8AB00770C37 /* Cycle Progress */ = {
+			isa = PBXGroup;
+			children = (
+				84ACFE8A1938A8A600770C37 /* MGCicleProgress.h */,
+				84ACFE8B1938A8A600770C37 /* MGCicleProgress.m */,
+			);
+			name = "Cycle Progress";
+			sourceTree = "<group>";
+		};
 		84B57EC4192B672F00D17B10 /* XOAlertView */ = {
 			isa = PBXGroup;
 			children = (
@@ -756,20 +764,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				844DE5A4193496560058C751 /* MyReachability.m in Sources */,
 				8481FCA1191661A000D9F0EB /* GameManager.m in Sources */,
 				7FEAECD4191772A70065CC57 /* XOGameFieldFlowLayout.m in Sources */,
 				84AAC88D191D2120001C0B94 /* XOProgress.m in Sources */,
 				84AAC889191AAB0E001C0B94 /* SoundManager.m in Sources */,
+				84ACFE8C1938A8A600770C37 /* MGCicleProgress.m in Sources */,
 				7FF96EA6191BF9A200EDB431 /* XOObjectiveMatrix.m in Sources */,
 				8481FC9419152A2D00D9F0EB /* XOOnlineLobbyViewController.m in Sources */,
 				7F8495D51924C3970022BC08 /* XONavigationController.m in Sources */,
 				8481FC501915273E00D9F0EB /* main.m in Sources */,
 				8481FC9519152A2D00D9F0EB /* XOSettingsViewController.m in Sources */,
-				7FF346B1192266C800E4AEE1 /* XOStartSequeAnimation.m in Sources */,
 				8481FC9919152A2D00D9F0EB /* XOGameFieldViewController.m in Sources */,
 				8481FC9619152A2D00D9F0EB /* XOStartViewController.m in Sources */,
 				8481FC9319152A2D00D9F0EB /* MPManager.m in Sources */,
-				7FF346BA1923503500E4AEE1 /* MGCicleProgress.m in Sources */,
 				84AAC89019220AD4001C0B94 /* AboutViewController.m in Sources */,
 				7F912D76191F632F00675027 /* XOAI.m in Sources */,
 				7FEAECD7191783FB0065CC57 /* XOCollectionViewCell.m in Sources */,

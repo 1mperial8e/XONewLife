@@ -11,8 +11,15 @@
 
 @class GPGSignIn;
 
+@protocol  SignedInDelegate <NSObject>
+
+- (void) signedInGooglePlus;
+
+@end
+
 @interface XOStartViewController : UIViewController <GPPSignInDelegate>
 
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *bottomMargin;
+@property (nonatomic, weak) id<SignedInDelegate> signedIndelegate;
 
 @end

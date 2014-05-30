@@ -14,7 +14,7 @@
 #import "XOGameModel.h"
 #import "XOGameFieldViewController.h"
 
-@interface XOSettingsViewController ()
+@interface XOSettingsViewController () <SignedInDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *signInOut;
 @property (weak, nonatomic) IBOutlet UIButton *enableSound;
@@ -51,7 +51,7 @@
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
     [self.easyMode setText:NSLocalizedString(@"Easy", nil)];
     [self.hardMode setText:NSLocalizedString(@"Hard", nil)];
-
+    ((XOStartViewController*)[self.navigationController.viewControllers firstObject]).signedIndelegate=self;
 }
 
 - (void) viewWillAppear:(BOOL)animated{
@@ -62,6 +62,7 @@
     else{
         [self.gameMode setHidden:NO];
     }
+    [[GameManager sharedInstance] testInternetConnection];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -85,7 +86,6 @@
     }
     else{
         [[GPPSignIn sharedInstance] authenticate];
-        [self.signInOut setTitle:NSLocalizedString(@"Sign out", @"") forState:UIControlStateNormal];
     }
 }
 
@@ -111,6 +111,10 @@
 }
 
 #pragma mark - Other methods
+
+- (void) signedInGooglePlus{
+    [self.signInOut setTitle:NSLocalizedString(@"Sign out", @"") forState:UIControlStateNormal];
+}
 
 - (void) hideGameModeButton{
     [self.gameMode setHidden:YES];

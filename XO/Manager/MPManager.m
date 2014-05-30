@@ -109,6 +109,7 @@ static MPManager *_instance = nil;
     } else if (status == GPGRealTimeRoomStatusActive) {
     NSLog(@"RoomStatusActive! Game is ready to go");
     _roomToTrack = room;
+         [[GameManager sharedInstance] tryToBeFirst];
     // We may have a view controller up on screen if we're using the
     // invite UI
     [self.lobbyDelegate readyToStartMultiPlayerGame];
@@ -125,11 +126,10 @@ static MPManager *_instance = nil;
 - (void)room:(GPGRealTimeRoom *)room participant:(GPGRealTimeParticipant *)participant didChangeStatus:(GPGRealTimeParticipantStatus)status
 {
       NSString *statusString = @[ @"Invited", @"Joined", @"Declined", @"Left", @"Connection Made" ][status];
-    NSLog(@"Room %@ participant %@ (%@) status changed to %@", room.roomDescription, participant.displayName, participant.participantId, statusString);
-    if ([statusString isEqualToString:@"Joined"]){
+    if ([statusString isEqualToString:@"Connection Made"]){
         if (![[GameManager sharedInstance].googleUserName isEqualToString:participant.displayName]){
         [GameManager sharedInstance].opponentName=participant.displayName;
-        [GameManager sharedInstance].opponentImage=participant.avatarUrl;
+        [GameManager sharedInstance].opponentImage=participant.avatarUrl;        
         }
     }
     if ([statusString isEqualToString:@"Left"])
@@ -152,6 +152,7 @@ static MPManager *_instance = nil;
 {
     if (self.firstMessage==YES){
         NSString *roll= [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"MY ROLL - %i, opponent roll - %i", [GameManager sharedInstance].myRoll, [roll intValue]);
         if(_delegate && [_delegate respondsToSelector:@selector(whoTurnFirst:)])
         {
             self.firstMessage=NO;

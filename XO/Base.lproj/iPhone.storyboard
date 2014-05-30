@@ -222,7 +222,7 @@
                                 </connections>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.83432318240000003" green="0.83432318240000003" blue="0.83432318240000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.98823529409999999" green="0.85490196080000003" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Ki5-L3-vz6" firstAttribute="leading" secondItem="kgS-9g-IuX" secondAttribute="leading" id="1C7-H9-9PG"/>
                             <constraint firstItem="KNA-7C-R0M" firstAttribute="centerX" secondItem="qwp-72-13U" secondAttribute="centerX" id="1Hy-XH-WQa"/>
@@ -664,17 +664,40 @@
                                     <action selector="backButton:" destination="XKe-xM-hso" eventType="touchUpInside" id="m0f-Ke-kqH"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="About" translatesAutoresizingMaskIntoConstraints="NO" id="qbB-EU-ORx">
-                                <rect key="frame" x="40" y="134" width="240" height="299"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="About" translatesAutoresizingMaskIntoConstraints="NO" id="qbB-EU-ORx">
+                                <rect key="frame" x="15" y="68" width="290" height="480"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="290" id="mtW-DL-AWC"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="480" id="zae-aw-ODE"/>
+                                </constraints>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" maximumZoomScale="3" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVr-g9-N1M">
+                                <rect key="frame" x="29" y="76" width="265" height="463"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="265" id="9F4-vg-Uer"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="463" id="TOr-lZ-93x"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="xs9-Hl-7Id" firstAttribute="top" secondItem="KVr-g9-N1M" secondAttribute="bottom" constant="29" id="2iM-EA-97u"/>
+                            <constraint firstItem="qbB-EU-ORx" firstAttribute="top" secondItem="bsH-p2-BQ8" secondAttribute="bottom" constant="16" id="EgW-Kx-wAP"/>
+                            <constraint firstAttribute="trailing" secondItem="qbB-EU-ORx" secondAttribute="trailing" constant="15" id="JKV-AE-pdF"/>
+                            <constraint firstItem="KVr-g9-N1M" firstAttribute="top" secondItem="bsH-p2-BQ8" secondAttribute="bottom" constant="24" id="L0y-b3-Mef"/>
                             <constraint firstAttribute="trailing" secondItem="xNo-Va-F3N" secondAttribute="trailing" id="TJY-4p-Xhh"/>
                             <constraint firstItem="bsH-p2-BQ8" firstAttribute="leading" secondItem="5Xv-1I-SqX" secondAttribute="leading" id="ZTb-TO-dku"/>
+                            <constraint firstAttribute="trailing" secondItem="KVr-g9-N1M" secondAttribute="trailing" constant="26" id="evS-R3-l3s"/>
+                            <constraint firstItem="xs9-Hl-7Id" firstAttribute="top" secondItem="qbB-EU-ORx" secondAttribute="bottom" constant="20" id="gps-qa-3Vd"/>
+                            <constraint firstItem="KVr-g9-N1M" firstAttribute="leading" secondItem="5Xv-1I-SqX" secondAttribute="leading" constant="29" id="iEb-4D-tm6"/>
                             <constraint firstItem="xNo-Va-F3N" firstAttribute="leading" secondItem="5Xv-1I-SqX" secondAttribute="leading" id="lcf-TL-q2V"/>
                             <constraint firstItem="xNo-Va-F3N" firstAttribute="top" secondItem="fmj-tO-m0Z" secondAttribute="bottom" id="mBY-Bm-YUt"/>
+                            <constraint firstItem="qbB-EU-ORx" firstAttribute="leading" secondItem="5Xv-1I-SqX" secondAttribute="leading" constant="15" id="vMz-MA-Cae"/>
                             <constraint firstItem="bsH-p2-BQ8" firstAttribute="top" secondItem="fmj-tO-m0Z" secondAttribute="bottom" id="zfp-dR-0LA"/>
                         </constraints>
                     </view>
@@ -683,6 +706,9 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <connections>
+                        <outlet property="aboutTextView" destination="KVr-g9-N1M" id="PcU-2k-1rR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0CL-gI-SoI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -65,14 +65,14 @@
     showLeaderboard=NO;
     goToLobby=NO;
     animatedPush=YES;
-    [GameManager sharedInstance].interstitial_.delegate=self;
-    
+    [[GameManager sharedInstance] setInterstitialDelegate:self];
 }
 
 - (void) viewWillAppear:(BOOL)animated{
     [self.navigationController.navigationBar setHidden:YES];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     [[GameManager sharedInstance] trackScreenWithName:START_SCREEN];
+    [[GameManager sharedInstance] testInternetConnection];
 }
 
 #pragma mark - UIActions
@@ -104,7 +104,7 @@
 }
 
 - (IBAction)singlePlayer:(id)sender {
-    [[GameManager sharedInstance].interstitial_ presentFromRootViewController:self];
+    [[GameManager sharedInstance] showFullScreenADVOnViewController:self];
     [GameManager sharedInstance].mode=XOGameModeSingle;
     [XOGameModel sharedInstance].gameMode = XOGameModeSingle;
     if ([XOGameModel sharedInstance].aiGameMode == 0) {
@@ -121,7 +121,7 @@
 }
 
 - (IBAction)twoPlayers:(id)sender {
-    [[GameManager sharedInstance].interstitial_ presentFromRootViewController:self];
+    [[GameManager sharedInstance] showFullScreenADVOnViewController:self];
     [GameManager sharedInstance].mode=XOGameModeMultiplayer;
     [XOGameModel sharedInstance].gameMode = XOGameModeMultiplayer;
     [XOGameModel sharedInstance].me = XOPlayerNone;
@@ -142,7 +142,7 @@
         [alert show];
     }
     else{
-        [[GameManager sharedInstance].interstitial_ presentFromRootViewController:self];
+        [[GameManager sharedInstance] showFullScreenADVOnViewController:self];
         [self goToLobbyScreen];
     }
     [self resetBtnStatus];
@@ -272,6 +272,9 @@
 {
     if (error == nil && auth) {
         NSLog(@"Success signing in to Google! Auth object is %@", auth);
+        if ((_signedIndelegate) && ([_signedIndelegate respondsToSelector:@selector(signedInGooglePlus)])){
+        [self.signedIndelegate signedInGooglePlus];
+        }
         [[GameManager sharedInstance].progress canUnlockAchievement];
         [self startGoogleGamesSignIn];
         GTLPlusPerson *me=[GPPSignIn sharedInstance].googlePlusUser;

@@ -433,16 +433,14 @@ static XOGameModel *_instance=Nil;
         return;
     }
     else if (opponentRoll>[GameManager sharedInstance].myRoll) {
-        self.player=XOPlayerFirst;
-        if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowTurn:)])) {
-            //[_playersTurnDelegate nowTurn:XOPlayerFirst];
+        //self.player=XOPlayerFirst;
+        if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowMyTurn:)])) {
             [_playersTurnDelegate nowMyTurn:NO];
             self.me = XOPlayerSecond;
         }
     }
     else{
-        if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowTurn:)])) {
-            //[_playersTurnDelegate nowTurn:XOPlayerFirst];
+        if ((_playersTurnDelegate) && ([_playersTurnDelegate respondsToSelector:@selector(nowMyTurn:)])) {
             [_playersTurnDelegate nowMyTurn:YES];
             self.me = XOPlayerFirst;
         }

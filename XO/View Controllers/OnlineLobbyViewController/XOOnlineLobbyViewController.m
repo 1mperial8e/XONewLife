@@ -39,7 +39,7 @@
 
 - (void) viewWillAppear:(BOOL)animated{
     [[GameManager sharedInstance] trackScreenWithName:LOBBY_SCREEN];
-    
+    [[GameManager sharedInstance] testInternetConnection];    
 }
 
 - (void) viewDidDisappear:(BOOL)animated{
@@ -94,7 +94,7 @@
         [self dismissViewControllerAnimated:YES completion:^{
         }];
         XOGameViewController *gameView=[[UIStoryboard storyboardWithName:@"iPhone" bundle:Nil] instantiateViewControllerWithIdentifier:@"game"];
-        [self.navigationController pushViewController:gameView animated:YES];
+        [self.navigationController pushViewController:gameView animated:YES];       
     }
 }
 

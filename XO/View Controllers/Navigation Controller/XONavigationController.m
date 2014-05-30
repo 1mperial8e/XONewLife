@@ -92,13 +92,13 @@
         [_containerView setSize:_webView.scrollView.contentSize.height];
         [_containerView setHidden:NO animate:YES];
     }
-    ((XOStartViewController*)self.visibleViewController).bottomMargin.constant=0;
+    ((XOStartViewController*)[self.viewControllers firstObject]).bottomMargin.constant=0;
 }
 
 -(void)onError:(SADVIEW_ERROR)error
 {
     NSLog(@"Error! %u", error);
-    ((XOStartViewController*)self.visibleViewController).bottomMargin.constant=12;
+    ((XOStartViewController*)[self.viewControllers firstObject]).bottomMargin.constant=12;
     [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(tick:) userInfo:nil repeats:NO];
     if (!_containerView.hidden) {
         [_containerView setHidden:YES animate:YES];
@@ -109,7 +109,7 @@
 {
     _advLoaded=NO;
     NSLog(@"Not Found");
-    ((XOStartViewController*)self.visibleViewController).bottomMargin.constant=12;
+    ((XOStartViewController*)[self.viewControllers firstObject]).bottomMargin.constant=12;
     if (!_containerView.hidden) {
         [_containerView setHidden:YES animate:YES];
     }

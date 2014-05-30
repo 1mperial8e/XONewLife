@@ -55,8 +55,7 @@
     [XOGameModel sharedInstance].playersTurnDelegate = self;
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
     if ([GameManager sharedInstance].mode == XOGameModeOnline){
-        [[GameManager sharedInstance].progress loadData];
-        [[GameManager sharedInstance] tryToBeFirst];
+        [[GameManager sharedInstance].progress loadData];        
     }
     _progress.maxValue = 30;
     time=30;
@@ -66,14 +65,11 @@
                                              userInfo:nil
                                               repeats:YES];
     [MPManager sharedInstance].firstMessage = YES;
+    [self setPlayersInfo];
 }
 
 - (void) viewWillAppear:(BOOL)animated{
-    [self setPlayersInfo];
-    [GameManager sharedInstance].interstitial_=nil;
-    [GameManager sharedInstance].interstitial_ = [[GADInterstitial alloc] init];
-    [GameManager sharedInstance].interstitial_.adUnitID = GOOGLE_AD_MOB_ID;
-    [[GameManager sharedInstance].interstitial_ loadRequest:[GADRequest request]];
+    [[GameManager sharedInstance] loadFullScreenADV];
 }
 
 - (void) viewWillDisappear:(BOOL)animated{
@@ -325,6 +321,9 @@
     restart-=0.2f;
     if (restart<=0){
         [restartGameTimer invalidate];
+        if ([GameManager sharedInstance].mode==XOGameModeMultiplayer) {
+            [self changePhotos];
+        }
     }
 
 }
@@ -384,6 +383,7 @@
         self.myPhotoFrame.backgroundColor=[UIColor colorWithRed:(50.0/255.0) green:(25.0/255.0) blue:(0.0/255.0) alpha:1];
     }
 }
+
 - (void)nowMyTurn:(BOOL)myTurn
 {
     if (myTurn) {

@@ -12,9 +12,13 @@
 #import "GAIFields.h"
 #import "GAIDictionaryBuilder.h"
 #import "GADInterstitial.h"
+#import "MyReachability.h"
 
 
-@interface GameManager : NSObject
+@interface GameManager : NSObject{
+    GADInterstitial *interstitial_;
+    MyReachability *internetReachableFoo;
+}
 
 @property (nonatomic) BOOL sound;
 @property (nonatomic) BOOL music;
@@ -31,11 +35,14 @@
 @property (nonatomic) int myRoll;
 @property (nonatomic) BOOL iTurnFirst;
 @property (nonatomic) id<GAITracker> tracker;
-@property (nonatomic, strong) GADInterstitial *interstitial_;
 
 + (GameManager*)sharedInstance;
 - (void) setSettings;
 - (void) tryToBeFirst;
 - (void) trackScreenWithName:(NSString*)name;
+- (void) setInterstitialDelegate:(id)delegate;
+- (void) showFullScreenADVOnViewController:(UIViewController*)viewController;
+- (void) loadFullScreenADV;
+- (void)testInternetConnection;
 
 @end
