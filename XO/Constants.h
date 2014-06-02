@@ -20,13 +20,13 @@
 #define MULTIPLAYER_GAMES @"multiplayerGames"
 
 //Google Play Game Service constants
-#define CLIENT_ID @"111039763950-33mglh0vn072ji3u4hqj17kbtg2ttdr9.apps.googleusercontent.com"
-#define ACH_NEWBIE @"CgkI7qvx050DEAIQAg"
-#define ACH_GOOD_PLAYER @"CgkI7qvx050DEAIQBA"
-#define ACH_BEGINER @"CgkI7qvx050DEAIQBw"
-#define ACH_GAMER @"CgkI7qvx050DEAIQCA"
-#define ACH_FRIENDLY_GAMER @"CgkI7qvx050DEAIQCQ"
-#define LEAD_LEADERBOARD @"CgkI7qvx050DEAIQBg"
+#define CLIENT_ID @"457146035194-minb8h9v19vdm46jn8k4733cj305q3s3.apps.googleusercontent.com"
+#define ACH_NEWBIE @"CgkI-tebgKcNEAIQBA"
+#define ACH_GOOD_PLAYER @"CgkI-tebgKcNEAIQBQ"
+#define ACH_BEGINER @"CgkI-tebgKcNEAIQBg"
+#define ACH_GAMER @"CgkI-tebgKcNEAIQBw"
+#define ACH_FRIENDLY_GAMER @"CgkI-tebgKcNEAIQCA"
+#define LEAD_LEADERBOARD @"CgkI-tebgKcNEAIQAw"
 
 
 //Ad Mob ID
