@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 mobilez365. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface XOProgress : NSObject
 
 @property (nonatomic) int easyVictory;

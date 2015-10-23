@@ -31,7 +31,7 @@ static XOGameModel *_instance=Nil;
     if (self) {
         _gameColumns = [self gameColumns];
         _dimension = 3;
-        [MPManager sharedInstance].delegate = self;
+//        [MPManager sharedInstance].delegate = self;
     }
     return self;
 }
@@ -226,7 +226,7 @@ static XOGameModel *_instance=Nil;
     switch (buttonIndex) {
         case 1:
             _myNewGame=NewGameMessageYes;
-            [[MPManager sharedInstance] sendPlayerMyMessage:@"yes"];
+//            [[MPManager sharedInstance] sendPlayerMyMessage:@"yes"];
             if (_opponentNewGame==NewGameMessageYes) {
                 [self newGame];
             }
@@ -238,8 +238,8 @@ static XOGameModel *_instance=Nil;
             [self newGame];
             break;
         default:
-            [[MPManager sharedInstance].lobbyDelegate multiPlayerGameWasCanceled:YES];
-            [[MPManager sharedInstance] sendPlayerMyMessage:@"no"];
+//            [[MPManager sharedInstance].lobbyDelegate multiPlayerGameWasCanceled:YES];
+//            [[MPManager sharedInstance] sendPlayerMyMessage:@"no"];
             break;
     }
 }
@@ -258,7 +258,7 @@ static XOGameModel *_instance=Nil;
     {
         if (_waitingForUser) {
             [_waitingForUser dismissWithClickedButtonIndex:0 animated:YES];
-            [[MPManager sharedInstance].lobbyDelegate multiPlayerGameWasCanceled:NO];
+//            [[MPManager sharedInstance].lobbyDelegate multiPlayerGameWasCanceled:NO];
             _waitingForUser = nil;
         }
         [timer invalidate];
@@ -332,7 +332,7 @@ static XOGameModel *_instance=Nil;
                 [self didChangeValue:_me forIndexPath:indexPath];
                 [[SoundManager sharedInstance] playXOSoundFor:_me];
                 [self nowMyTurn:_player];
-                [[MPManager sharedInstance] sendPlayerMyMessage:[NSString stringWithFormat:@"%i%i", (int)indexPath.section, (int)indexPath.row]];
+//                [[MPManager sharedInstance] sendPlayerMyMessage:[NSString stringWithFormat:@"%i%i", (int)indexPath.section, (int)indexPath.row]];
             }
         }
     }
@@ -419,16 +419,16 @@ static XOGameModel *_instance=Nil;
 #pragma mark - Game Delegate
 - (void)didReceiveMessage:(NSString *)coords
 {
-    if (![MPManager sharedInstance].firstMessage) {
-    int section = [[coords substringToIndex:1] intValue];
-    int row = [[coords substringFromIndex:1] intValue];
-    [self setMoveForIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
-    }
+//    if (![MPManager sharedInstance].firstMessage) {
+//    int section = [[coords substringToIndex:1] intValue];
+//    int row = [[coords substringFromIndex:1] intValue];
+//    [self setMoveForIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
+//    }
 }
 
 - (void)whoTurnFirst:(int)opponentRoll{
     if (opponentRoll==[GameManager sharedInstance].myRoll) {
-        [MPManager sharedInstance].firstMessage=YES;
+//        [MPManager sharedInstance].firstMessage=YES;
         [[GameManager sharedInstance] tryToBeFirst];
         return;
     }

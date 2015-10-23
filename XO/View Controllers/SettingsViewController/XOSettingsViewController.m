@@ -80,9 +80,9 @@
 }
 
 - (IBAction)signInOut:(id)sender {
-    if ([[GPGManager sharedInstance] isSignedIn]){
+    if ([GPPSignIn sharedInstance].userID.length){
         [self.signInOut setTitle:NSLocalizedString(@"Sign in", @"") forState:UIControlStateNormal];
-        [[GPGManager sharedInstance] signOut];
+        [[GPPSignIn sharedInstance] signOut];
     }
     else{
         [[GPPSignIn sharedInstance] authenticate];
@@ -162,7 +162,7 @@
 }
 
 - (void) setControlState{
-    if ([[GPGManager sharedInstance] isSignedIn]) {
+    if ([[GPPSignIn sharedInstance] userID].length) {
         [self.signInOut setTitle:NSLocalizedString(@"Sign out", @"") forState:UIControlStateNormal];
     }
     else{

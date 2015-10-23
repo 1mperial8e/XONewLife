@@ -8,7 +8,7 @@
 
 #import "XOProgress.h"
 #import "GameManager.h"
-#import "MPManager.h"
+//#import "MPManager.h"
 #import "XOGameModel.h"
 
 @implementation XOProgress
@@ -36,12 +36,12 @@
             if (player==YES) {
                 self.myVictory++;
                 self.onlineVictory++;
-                [MPManager sharedInstance].myScore.value=(long long)self.onlineVictory;
-                [[MPManager sharedInstance].myScore submitScoreWithCompletionHandler:^(GPGScoreReport *report, NSError *error){
-                    if (error) {
-                        NSLog(@"%@",error);
-                    }                    
-                }];
+//                [MPManager sharedInstance].myScore.value=(long long)self.onlineVictory;
+//                [[MPManager sharedInstance].myScore submitScoreWithCompletionHandler:^(GPGScoreReport *report, NSError *error){
+//                    if (error) {
+//                        NSLog(@"%@",error);
+//                    }                    
+//                }];
                 [self saveData:[NSString stringWithFormat:@"%i", self.onlineVictory]];
             }
             else {
@@ -120,63 +120,63 @@
 }
 
 - (void) tryToUnlockAchievement:(NSString*)achievement{
-    GPGAchievement *unlockMe = [GPGAchievement achievementWithId:achievement];
-    [unlockMe unlockAchievementWithCompletionHandler:^(BOOL newlyUnlocked, NSError *error) {
-        if (error) {
-            NSLog(@"%@",error);
-        } else if (!newlyUnlocked) {
-            // Achievement was already unlocked
-        } else {
-            NSLog(@"Hooray! Achievement unlocked!");
-        }
-    }];    
+//    GPGAchievement *unlockMe = [GPGAchievement achievementWithId:achievement];
+//    [unlockMe unlockAchievementWithCompletionHandler:^(BOOL newlyUnlocked, NSError *error) {
+//        if (error) {
+//            NSLog(@"%@",error);
+//        } else if (!newlyUnlocked) {
+//            // Achievement was already unlocked
+//        } else {
+//            NSLog(@"Hooray! Achievement unlocked!");
+//        }
+//    }];    
 }
 
 #pragma mark - CloudSaving
 
 - (void)saveData:(NSString*)dataSTR{
-    GPGAppStateModel *model = [GPGManager sharedInstance].applicationModel.appState;
-    NSNumber *playerAvatarKey = [NSNumber numberWithInt:2];
-    NSData *data=[[NSData alloc] init];
-    data=[dataSTR dataUsingEncoding:NSUTF8StringEncoding];
-    [model setStateData:data forKey:playerAvatarKey];
-    [model updateForKey:playerAvatarKey completionHandler:^(GPGAppStateWriteStatus status, NSError *error) {
-        if (status == GPGAppStateWriteStatusSuccess) {
-            NSLog(@"Hooray! Cloud update is complete");
-            self.onlineVictory=[dataSTR integerValue];
-        }
-        else{
-            NSLog(@"error saving data! error %@",error);
-        }
-    } conflictHandler:^NSData *(NSNumber *key, NSData *localState, NSData *remoteState) {
-        // Uh oh. I need to resolve these two versions.
-        // localState = State you are attempting to upload
-        // remoteState = State currently saved in the cloud
-        NSData *resolvedState;
-        return resolvedState;
-    }];
+//    GPGAppStateModel *model = [GPGManager sharedInstance].applicationModel.appState;
+//    NSNumber *playerAvatarKey = [NSNumber numberWithInt:2];
+//    NSData *data=[[NSData alloc] init];
+//    data=[dataSTR dataUsingEncoding:NSUTF8StringEncoding];
+//    [model setStateData:data forKey:playerAvatarKey];
+//    [model updateForKey:playerAvatarKey completionHandler:^(GPGAppStateWriteStatus status, NSError *error) {
+//        if (status == GPGAppStateWriteStatusSuccess) {
+//            NSLog(@"Hooray! Cloud update is complete");
+//            self.onlineVictory=[dataSTR integerValue];
+//        }
+//        else{
+//            NSLog(@"error saving data! error %@",error);
+//        }
+//    } conflictHandler:^NSData *(NSNumber *key, NSData *localState, NSData *remoteState) {
+//        // Uh oh. I need to resolve these two versions.
+//        // localState = State you are attempting to upload
+//        // remoteState = State currently saved in the cloud
+//        NSData *resolvedState;
+//        return resolvedState;
+//    }];
 }
 
 - (void) loadData{
-    GPGAppStateModel *model = [GPGManager sharedInstance].applicationModel.appState;
-    NSNumber *playerAvatarKey = [NSNumber numberWithInt:2];
-    [model loadForKey:playerAvatarKey completionHandler:^(GPGAppStateLoadStatus status, NSError *error) {
-        if (status == GPGAppStateLoadStatusNotFound) {
-            self.onlineVictory=0;
-            [self saveData:[NSString stringWithFormat:@"%i", self.onlineVictory]];
-        } else if (status == GPGAppStateLoadStatusSuccess) {
-            NSString *data=[[NSString alloc] initWithData:[model stateDataForKey:playerAvatarKey] encoding:NSUTF8StringEncoding];
-            self.onlineVictory=[data integerValue];
-        } else if (status == GPGAppStateLoadStatusUnknownError) {
-            NSLog(@"error loading data! error %@",error);
-        }
-    } conflictHandler:^NSData *(NSNumber *key, NSData *localState, NSData *remoteState) {
-        // This call tells the application that the version in the cloud has
-        // changed since the last time it downloaded or saved state data.
-        // Typically, the correct resolution to this data conflict is to throw
-        // out the local state, and replace it with the state data from the cloud:
-        return remoteState;
-    }];
+//    GPGAppStateModel *model = [GPGManager sharedInstance].applicationModel.appState;
+//    NSNumber *playerAvatarKey = [NSNumber numberWithInt:2];
+//    [model loadForKey:playerAvatarKey completionHandler:^(GPGAppStateLoadStatus status, NSError *error) {
+//        if (status == GPGAppStateLoadStatusNotFound) {
+//            self.onlineVictory=0;
+//            [self saveData:[NSString stringWithFormat:@"%i", self.onlineVictory]];
+//        } else if (status == GPGAppStateLoadStatusSuccess) {
+//            NSString *data=[[NSString alloc] initWithData:[model stateDataForKey:playerAvatarKey] encoding:NSUTF8StringEncoding];
+//            self.onlineVictory=[data integerValue];
+//        } else if (status == GPGAppStateLoadStatusUnknownError) {
+//            NSLog(@"error loading data! error %@",error);
+//        }
+//    } conflictHandler:^NSData *(NSNumber *key, NSData *localState, NSData *remoteState) {
+//        // This call tells the application that the version in the cloud has
+//        // changed since the last time it downloaded or saved state data.
+//        // Typically, the correct resolution to this data conflict is to throw
+//        // out the local state, and replace it with the state data from the cloud:
+//        return remoteState;
+//    }];
 }
 
 @end

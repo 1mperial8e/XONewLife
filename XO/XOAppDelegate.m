@@ -7,14 +7,14 @@
 //
 
 #import "XOAppDelegate.h"
-#import "MPManager.h"
+//#import "MPManager.h"
 #import <GooglePlus/GooglePlus.h>
 
 @implementation XOAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [GPGManager sharedInstance].realTimeRoomDelegate = [MPManager sharedInstance];
+//    [GPGManager sharedInstance].realTimeRoomDelegate = [MPManager sharedInstance];
     return YES;
 }
 

@@ -13,7 +13,7 @@
 #import "XOGameModel.h"
 #import "GameManager.h"
 
-@interface XOOnlineLobbyViewController () <UIAlertViewDelegate, MPLobbyDelegate>
+@interface XOOnlineLobbyViewController () <UIAlertViewDelegate>
 
 @property (nonatomic) BOOL alreadyFinish;
 
@@ -33,7 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [MPManager sharedInstance].lobbyDelegate = self;
+//    [MPManager sharedInstance].lobbyDelegate = self;
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
 }
 
@@ -55,7 +55,7 @@
 
 - (IBAction)checkInvites:(id)sender {
     [[GameManager sharedInstance] trackScreenWithName:SHOW_INVITES_SCREEN];
-    [[MPManager sharedInstance] showIncomingInvitesScreen];
+//    [[MPManager sharedInstance] showIncomingInvitesScreen];
     [[SoundManager sharedInstance] playClickSound];
 }
 
@@ -67,7 +67,7 @@
 
 - (IBAction)inviteFriend:(id)sender {
     [[GameManager sharedInstance] trackScreenWithName:INVITE_FRIEND_SCREEN];
-    [[MPManager sharedInstance] startInvitationGameWithMinPlayers:2 maxPlayers:2];
+//    [[MPManager sharedInstance] startInvitationGameWithMinPlayers:2 maxPlayers:2];
     [[SoundManager sharedInstance] playClickSound];
 }
 
@@ -117,7 +117,7 @@
     else{
         if (_alreadyFinish==NO){
             _alreadyFinish=YES;
-            [[MPManager sharedInstance] leaveRoom];
+//            [[MPManager sharedInstance] leaveRoom];
             [XOGameModel sharedInstance].opponentNewGame=NewGameMessageNo;
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"End game!", nil) message:NSLocalizedString(@"Opponent has left the game :-(", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Exit", nil) otherButtonTitles:nil, nil];
             [[XOGameModel sharedInstance].timerDelegate stopTimer];
@@ -131,7 +131,7 @@
 
 - (void)startQuickMatchGameWithTotalPlayers:(int)totalPlayers
 {
-    [[MPManager sharedInstance] startQuickMatchGameWithTotalPlayers:totalPlayers];
+//    [[MPManager sharedInstance] startQuickMatchGameWithTotalPlayers:totalPlayers];
 }
 
 

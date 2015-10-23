@@ -7,7 +7,7 @@
 //
 
 #import "GameManager.h"
-#import "MPManager.h"
+//#import "MPManager.h"
 #import "SoundManager.h"
 #import "GAITrackedViewController.h"
 #import "XOGameModel.h"
@@ -63,7 +63,7 @@ static GameManager* _instance=nil;
 - (void)tryToBeFirst{
     int roll=arc4random()%365;
     self.myRoll=roll;
-    [[MPManager sharedInstance] sendPlayerMyMessage:[NSString stringWithFormat:@"%i",roll]];
+//    [[MPManager sharedInstance] sendPlayerMyMessage:[NSString stringWithFormat:@"%i",roll]];
     NSLog(@"ROLL SENT!");
 }
 
@@ -103,9 +103,9 @@ static GameManager* _instance=nil;
     internetReachableFoo.unreachableBlock = ^(MyReachability*reach)
     {
         dispatch_async(dispatch_get_main_queue(), ^{
-            if ([[GPGManager sharedInstance] isSignedIn]==YES) {
-                [[GPGManager sharedInstance] signOut];
-            }
+//            if ([[GPGManager sharedInstance] isSignedIn]==YES) {
+//                [[GPGManager sharedInstance] signOut];
+//            }
         });
     };
     

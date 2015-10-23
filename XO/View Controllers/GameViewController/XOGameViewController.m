@@ -9,7 +9,7 @@
 #import "XOGameViewController.h"
 #import "XOSettingsViewController.h"
 #import "GameManager.h"
-#import "MPManager.h"
+//#import "MPManager.h"
 #import "XOGameModel.h"
 #import "SoundManager.h"
 #import "MGCicleProgress.h"
@@ -64,7 +64,7 @@
                                              selector:@selector(onTick:)
                                              userInfo:nil
                                               repeats:YES];
-    [MPManager sharedInstance].firstMessage = YES;
+//    [MPManager sharedInstance].firstMessage = YES;
     [self setPlayersInfo];
 }
 
@@ -74,7 +74,7 @@
 
 - (void) viewWillDisappear:(BOOL)animated{
     if ([GameManager sharedInstance].mode == XOGameModeOnline){
-        [[MPManager sharedInstance].roomToTrack leave];
+//        [[MPManager sharedInstance].roomToTrack leave];
     }
     if ([stepTimer isValid]) {
         [stepTimer invalidate];
@@ -150,12 +150,12 @@
     else if ([GameManager sharedInstance].mode == XOGameModeSingle){
         self.myName.text=NSLocalizedString(@"Me", nil);
         self.opponentName.text=@"iPhone";
-        if ([[GPGManager sharedInstance] isSignedIn]) {
-            self.myPhoto.image=[UIImage imageWithData:[NSData  dataWithContentsOfURL:[NSURL URLWithString:[GameManager sharedInstance].googleUserImage]]];
-        }
-        else{
+//        if ([[GPGManager sharedInstance] isSignedIn]) {
+//            self.myPhoto.image=[UIImage imageWithData:[NSData  dataWithContentsOfURL:[NSURL URLWithString:[GameManager sharedInstance].googleUserImage]]];
+//        }
+//        else{
             self.myPhoto.image=[UIImage imageNamed:@"user"];
-        }
+//        }
         self.opponentPhoto.image=[UIImage imageNamed:@"apple"];
         [self nowTurn:XOPlayerFirst];
         [self.timerLabel setHidden:YES];
@@ -304,13 +304,13 @@
             if ([XOGameModel sharedInstance].player == [XOGameModel sharedInstance].me) {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"timeOut", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
-                [[MPManager sharedInstance] leaveRoom];
+//                [[MPManager sharedInstance] leaveRoom];
             }
             else{
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:NSLocalizedString(@"timeOponent", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [[GameManager sharedInstance].progress updateProgress:XOGameModeOnline forMe:YES];
                 [alert show];
-                [[MPManager sharedInstance] leaveRoom];
+//                [[MPManager sharedInstance] leaveRoom];
             }
         }
         time=30;

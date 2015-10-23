@@ -11,12 +11,11 @@
 #import "XOOnlineLobbyViewController.h"
 #import "XOSettingsViewController.h"
 #import "GameManager.h"
-#import "GTLPlusPerson.h"
 #import "XOGameModel.h"
 #import "SoundManager.h"
 
 
-@interface XOStartViewController () <GPGAchievementControllerDelegate, GPGLeaderboardControllerDelegate, UIAlertViewDelegate, GADInterstitialDelegate>{
+@interface XOStartViewController () <UIAlertViewDelegate, GADInterstitialDelegate>{
     BOOL showAchievement;
     BOOL showLeaderboard;
     BOOL goToLobby;
@@ -79,28 +78,28 @@
 
 - (IBAction)leaderboardButton:(id)sender{
     [[SoundManager sharedInstance] playClickSound];
-    if (![[GPGManager sharedInstance] isSignedIn]) {
-        showLeaderboard=YES;
-        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NoConnection", nil) message:NSLocalizedString(@"forLeader", nil)  delegate:self cancelButtonTitle:NSLocalizedString(@"CancelLogin", nil) otherButtonTitles:NSLocalizedString(@"Sign in", nil) , nil];
-        [alert show];
-    }
-    else{
-        [self showLeaderboard];
-    }
-    [self resetBtnStatus];
+//    if (![[GPGManager sharedInstance] isSignedIn]) {
+//        showLeaderboard=YES;
+//        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NoConnection", nil) message:NSLocalizedString(@"forLeader", nil)  delegate:self cancelButtonTitle:NSLocalizedString(@"CancelLogin", nil) otherButtonTitles:NSLocalizedString(@"Sign in", nil) , nil];
+//        [alert show];
+//    }
+//    else{
+//        [self showLeaderboard];
+//    }
+//    [self resetBtnStatus];
 }
 
 - (IBAction)achievementsButton:(id)sender{
     [[SoundManager sharedInstance] playClickSound];
-    if (![[GPGManager sharedInstance] isSignedIn]) {
-        showAchievement=YES;
-        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NoConnection", nil) message:NSLocalizedString(@"forAch", nil)  delegate:self cancelButtonTitle:NSLocalizedString(@"CancelLogin", nil) otherButtonTitles:NSLocalizedString(@"Sign in", nil) , nil];
-        [alert show];
-    }
-    else{
-        [self showAchievements];
-    }
-    [self resetBtnStatus];
+//    if (![[GPGManager sharedInstance] isSignedIn]) {
+//        showAchievement=YES;
+//        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NoConnection", nil) message:NSLocalizedString(@"forAch", nil)  delegate:self cancelButtonTitle:NSLocalizedString(@"CancelLogin", nil) otherButtonTitles:NSLocalizedString(@"Sign in", nil) , nil];
+//        [alert show];
+//    }
+//    else{
+//        [self showAchievements];
+//    }
+//    [self resetBtnStatus];
 }
 
 - (IBAction)singlePlayer:(id)sender {
@@ -135,16 +134,16 @@
 }
 
 - (IBAction)playOnline:(id)sender {
-    if (![[GPGManager sharedInstance] isSignedIn])
-    {
-        goToLobby=YES;
-        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NoConnection", nil) message:NSLocalizedString(@"forPlaying", nil)  delegate:self cancelButtonTitle:NSLocalizedString(@"CancelLogin", nil) otherButtonTitles:NSLocalizedString(@"Sign in", nil) , nil];
-        [alert show];
-    }
-    else{
-        [[GameManager sharedInstance] showFullScreenADVOnViewController:self];
-        [self goToLobbyScreen];
-    }
+//    if (![[GPGManager sharedInstance] isSignedIn])
+//    {
+//        goToLobby=YES;
+//        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NoConnection", nil) message:NSLocalizedString(@"forPlaying", nil)  delegate:self cancelButtonTitle:NSLocalizedString(@"CancelLogin", nil) otherButtonTitles:NSLocalizedString(@"Sign in", nil) , nil];
+//        [alert show];
+//    }
+//    else{
+//        [[GameManager sharedInstance] showFullScreenADVOnViewController:self];
+//        [self goToLobbyScreen];
+//    }
     [self resetBtnStatus];
 }
 
@@ -160,69 +159,69 @@
 
 - (IBAction) pressed: (id) sender
 {
-    if (sender == self.single)
-    {
-    	self.multi.enabled = false;
-    	self.online.enabled = false;
-        self.about.enabled = false;
-        self.leader.enabled = false;
-        self.ach.enabled = false;
-        self.prefs.enabled = false;
-    }
-    else if (sender == self.multi)
-    {
-    	self.single.enabled = false;
-    	self.online.enabled = false;
-        self.about.enabled = false;
-        self.leader.enabled = false;
-        self.ach.enabled = false;
-        self.prefs.enabled = false;
-    }
-    else if (sender == self.online)
-    {
-    	self.multi.enabled = false;
-    	self.single.enabled = false;
-        self.about.enabled = false;
-        self.leader.enabled = false;
-        self.ach.enabled = false;
-        self.prefs.enabled = false;
-    }
-    else if (sender == self.about)
-    {
-        self.multi.enabled = false;
-    	self.online.enabled = false;
-        self.single.enabled = false;
-        self.leader.enabled = false;
-        self.ach.enabled = false;
-        self.prefs.enabled = false;
-    }
-    else if (sender == self.leader)
-    {
-        self.multi.enabled = false;
-    	self.online.enabled = false;
-        self.single.enabled = false;
-        self.about.enabled = false;
-        self.ach.enabled = false;
-        self.prefs.enabled = false;
-    }
-    else if (sender == self.ach)
-    {
-        self.multi.enabled = false;
-    	self.online.enabled = false;
-        self.single.enabled = false;
-        self.about.enabled = false;
-        self.leader.enabled = false;
-        self.prefs.enabled = false;
-    }
-    else if (sender == self.prefs)
-    {
-        self.multi.enabled = false;
-    	self.online.enabled = false;
-        self.single.enabled = false;
-        self.about.enabled = false;
-        self.leader.enabled = false;
-        self.ach.enabled = false;
-    }
+//    if (sender == self.single)
+//    {
+//    	self.multi.enabled = false;
+//    	self.online.enabled = false;
+//        self.about.enabled = false;
+//        self.leader.enabled = false;
+//        self.ach.enabled = false;
+//        self.prefs.enabled = false;
+//    }
+//    else if (sender == self.multi)
+//    {
+//    	self.single.enabled = false;
+//    	self.online.enabled = false;
+//        self.about.enabled = false;
+//        self.leader.enabled = false;
+//        self.ach.enabled = false;
+//        self.prefs.enabled = false;
+//    }
+//    else if (sender == self.online)
+//    {
+//    	self.multi.enabled = false;
+//    	self.single.enabled = false;
+//        self.about.enabled = false;
+//        self.leader.enabled = false;
+//        self.ach.enabled = false;
+//        self.prefs.enabled = false;
+//    }
+//    else if (sender == self.about)
+//    {
+//        self.multi.enabled = false;
+//    	self.online.enabled = false;
+//        self.single.enabled = false;
+//        self.leader.enabled = false;
+//        self.ach.enabled = false;
+//        self.prefs.enabled = false;
+//    }
+//    else if (sender == self.leader)
+//    {
+//        self.multi.enabled = false;
+//    	self.online.enabled = false;
+//        self.single.enabled = false;
+//        self.about.enabled = false;
+//        self.ach.enabled = false;
+//        self.prefs.enabled = false;
+//    }
+//    else if (sender == self.ach)
+//    {
+//        self.multi.enabled = false;
+//    	self.online.enabled = false;
+//        self.single.enabled = false;
+//        self.about.enabled = false;
+//        self.leader.enabled = false;
+//        self.prefs.enabled = false;
+//    }
+//    else if (sender == self.prefs)
+//    {
+//        self.multi.enabled = false;
+//    	self.online.enabled = false;
+//        self.single.enabled = false;
+//        self.about.enabled = false;
+//        self.leader.enabled = false;
+//        self.ach.enabled = false;
+//    }
 }
 
 - (IBAction)touchUpOutside:(id)sender{
@@ -258,13 +257,13 @@
 }
 
 
-#pragma mark - GPGLeaderboardDelegate
-
-- (void) leaderboardViewControllerDidFinish:(GPGLeaderboardController *)viewController{
-    [self dismissViewControllerAnimated:YES completion:nil];
-    [[SoundManager sharedInstance] playClickSound];
-    showLeaderboard=NO;
-}
+//#pragma mark - GPGLeaderboardDelegate
+//
+//- (void) leaderboardViewControllerDidFinish:(GPGLeaderboardController *)viewController{
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//    [[SoundManager sharedInstance] playClickSound];
+//    showLeaderboard=NO;
+//}
 
 #pragma mark - GPPSignIn delegate
 
@@ -296,12 +295,12 @@
 
 -(void)startGoogleGamesSignIn
 {
-    [[GPGManager sharedInstance] signIn:[GPPSignIn sharedInstance] reauthorizeHandler:^(BOOL requiresKeychainWipe, NSError *error) {
-        if (requiresKeychainWipe) {
-            [[GPPSignIn sharedInstance] signOut];
-        }
-        [[GPPSignIn sharedInstance] authenticate];
-    }];
+//    [[GPGManager sharedInstance] signIn:[GPPSignIn sharedInstance] reauthorizeHandler:^(BOOL requiresKeychainWipe, NSError *error) {
+//        if (requiresKeychainWipe) {
+//            [[GPPSignIn sharedInstance] signOut];
+//        }
+//        [[GPPSignIn sharedInstance] authenticate];
+//    }];
 }
 
 #pragma mark - GADInterstitialDelegate
@@ -315,12 +314,12 @@
     NSLog(@"%@",error);
 }
 
-#pragma mark - AchievmentDelegate
-
-- (void)achievementViewControllerDidFinish: (GPGAchievementController *)viewController {
-    [self dismissViewControllerAnimated:YES completion:nil];
-    [[SoundManager sharedInstance] playClickSound];
-}
+//#pragma mark - AchievmentDelegate
+//
+//- (void)achievementViewControllerDidFinish: (GPGAchievementController *)viewController {
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//    [[SoundManager sharedInstance] playClickSound];
+//}
 
 #pragma mark - Other Methods
 
@@ -352,22 +351,22 @@
         [userDefaults synchronize];
     }
     [[GameManager sharedInstance] setSettings];
-    [MPManager sharedInstance].myScore=[[GPGScore alloc] initWithLeaderboardId:LEAD_LEADERBOARD];
+//    [MPManager sharedInstance].myScore=[[GPGScore alloc] initWithLeaderboardId:LEAD_LEADERBOARD];
 }
 
 - (void)showAchievements{
     [[GameManager sharedInstance] trackScreenWithName:ACHIEVEMENTS_SCREEN];
-    GPGAchievementController *achController = [[GPGAchievementController alloc] init];
-    achController.achievementDelegate = self;
-    [self presentViewController:achController animated:YES completion:nil];
+//    GPGAchievementController *achController = [[GPGAchievementController alloc] init];
+//    achController.achievementDelegate = self;
+//    [self presentViewController:achController animated:YES completion:nil];
 }
 
 - (void)showLeaderboard{
     [[GameManager sharedInstance] trackScreenWithName:LEADERBOARD_SCREEN];
-    GPGLeaderboardController *leadController=[[GPGLeaderboardController alloc] initWithLeaderboardId:LEAD_LEADERBOARD];
-    leadController.leaderboardDelegate=self;
-    leadController.timeScope=GPGLeaderboardTimeScopeThisWeek;
-    [self presentViewController:leadController animated:YES completion:nil];
+//    GPGLeaderboardController *leadController=[[GPGLeaderboardController alloc] initWithLeaderboardId:LEAD_LEADERBOARD];
+//    leadController.leaderboardDelegate=self;
+//    leadController.timeScope=GPGLeaderboardTimeScopeThisWeek;
+//    [self presentViewController:leadController animated:YES completion:nil];
 }
 
 @end

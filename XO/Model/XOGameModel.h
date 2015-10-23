@@ -16,7 +16,7 @@
 #import <Foundation/Foundation.h>
 #import "XOObjectiveMatrix.h"
 #import "XOGameFieldViewController.h"
-#import "MPManager.h"
+//#import "MPManager.h"
 #import "Constants.h"
 #pragma mark - Protocols
 @protocol XOGameModelDelegate <NSObject>
@@ -47,7 +47,7 @@
 - (void)nowMyTurn:(BOOL)myTurn;
 @end
 #pragma mark - XO Game Model Interface
-@interface XOGameModel : NSObject <XOGameFieldViewControllerDelegate, GameDelegate>
+@interface XOGameModel : NSObject <XOGameFieldViewControllerDelegate>
 @property (nonatomic, assign) int gameColumns;
 @property (nonatomic, strong) NSDate *endGameTime;
 @property (nonatomic) XOPlayer me;
