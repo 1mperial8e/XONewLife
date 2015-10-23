@@ -6,7 +6,7 @@
 ////  Copyright (c) 2014 Anatoliy Dalekorey. All rights reserved.
 ////
 //
-//#import "XOAppDelegate.h"
+//#import "AppDelegate.h"
 //#import "MPManager.h"
 //#import "GameManager.h"
 //#import "XOGameModel.h"
@@ -75,7 +75,7 @@
 //  GPGRealTimeRoomViewController *roomViewController =
 //  [[GPGRealTimeRoomViewController alloc] initWithRoomDataList:roomDataList];
 //  NSLog(@"I received an invite from our room...");
-//  if ( [((XOAppDelegate *)[UIApplication sharedApplication].delegate).window.rootViewController.presentedViewController
+//  if ( [((AppDelegate *)[UIApplication sharedApplication].delegate).window.rootViewController.presentedViewController
 //      isEqual:self.lobbyDelegate]) {
 //    NSLog(@"And it looks like our lobby delegate is on top right now");
 //    [self.lobbyDelegate showInviteViewController:roomViewController];

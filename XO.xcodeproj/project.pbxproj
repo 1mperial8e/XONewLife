@@ -76,6 +76,7 @@
 		4F655A561BDA7BAB00E6233A /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F655A081BDA7BAB00E6233A /* libGoogleAnalyticsServices.a */; };
 		4F655A571BDA7BAB00E6233A /* Readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4F655A091BDA7BAB00E6233A /* Readme.txt */; };
 		4F655AC61BDA7F4800E6233A /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F655AC51BDA7F4800E6233A /* libc++.tbd */; };
+		4F655ACC1BDAA85000E6233A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F655ACB1BDAA85000E6233A /* Launch Screen.storyboard */; };
 		7F8495A51924AAE90022BC08 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F8495A01924AAE90022BC08 /* AdSupport.framework */; };
 		7F8495A61924AAE90022BC08 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F8495A11924AAE90022BC08 /* CoreTelephony.framework */; };
 		7F8495A71924AAE90022BC08 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F8495A21924AAE90022BC08 /* MessageUI.framework */; };
@@ -103,8 +104,7 @@
 		8481FC481915273E00D9F0EB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481FC471915273E00D9F0EB /* UIKit.framework */; };
 		8481FC4E1915273E00D9F0EB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8481FC4C1915273E00D9F0EB /* InfoPlist.strings */; };
 		8481FC501915273E00D9F0EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC4F1915273E00D9F0EB /* main.m */; };
-		8481FC541915273E00D9F0EB /* XOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC531915273E00D9F0EB /* XOAppDelegate.m */; };
-		8481FC5A1915273E00D9F0EB /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8481FC581915273E00D9F0EB /* Main_iPad.storyboard */; };
+		8481FC541915273E00D9F0EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC531915273E00D9F0EB /* AppDelegate.m */; };
 		8481FC661915273E00D9F0EB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481FC651915273E00D9F0EB /* XCTest.framework */; };
 		8481FC671915273E00D9F0EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481FC431915273E00D9F0EB /* Foundation.framework */; };
 		8481FC681915273E00D9F0EB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481FC471915273E00D9F0EB /* UIKit.framework */; };
@@ -275,6 +275,7 @@
 		4F655A081BDA7BAB00E6233A /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
 		4F655A091BDA7BAB00E6233A /* Readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.txt; sourceTree = "<group>"; };
 		4F655AC51BDA7F4800E6233A /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		4F655ACB1BDAA85000E6233A /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		7F8495A01924AAE90022BC08 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		7F8495A11924AAE90022BC08 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		7F8495A21924AAE90022BC08 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -341,9 +342,8 @@
 		8481FC4D1915273E00D9F0EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8481FC4F1915273E00D9F0EB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8481FC511915273E00D9F0EB /* XO-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XO-Prefix.pch"; sourceTree = "<group>"; };
-		8481FC521915273E00D9F0EB /* XOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XOAppDelegate.h; sourceTree = "<group>"; };
-		8481FC531915273E00D9F0EB /* XOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XOAppDelegate.m; sourceTree = "<group>"; };
-		8481FC591915273E00D9F0EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		8481FC521915273E00D9F0EB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		8481FC531915273E00D9F0EB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		8481FC641915273E00D9F0EB /* XOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8481FC651915273E00D9F0EB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		8481FC6D1915273E00D9F0EB /* XOTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "XOTests-Info.plist"; sourceTree = "<group>"; };
@@ -363,15 +363,12 @@
 		8481FC9F191661A000D9F0EB /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
 		8481FCA0191661A000D9F0EB /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
 		8481FCA5191664D000D9F0EB /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		84A1A393192618E500184D18 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main_iPad.strings; sourceTree = "<group>"; };
 		84A1A394192618E500184D18 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84A1A395192618E500184D18 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		84A1A396192618E600184D18 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		84A1A398192618EB00184D18 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main_iPad.strings; sourceTree = "<group>"; };
 		84A1A399192618EB00184D18 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84A1A39A192618EB00184D18 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		84A1A39B192618EB00184D18 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		84A1A39D192618F000184D18 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main_iPad.strings; sourceTree = "<group>"; };
 		84A1A39E192618F000184D18 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84A1A39F192618F000184D18 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		84A1A3A0192618F000184D18 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -834,12 +831,12 @@
 				8481FC7D19152A2D00D9F0EB /* Managers */,
 				84742D7919197C54007B868E /* Other Classes */,
 				8481FC8019152A2D00D9F0EB /* View Controllers */,
-				8481FC521915273E00D9F0EB /* XOAppDelegate.h */,
-				8481FC531915273E00D9F0EB /* XOAppDelegate.m */,
+				8481FC521915273E00D9F0EB /* AppDelegate.h */,
+				8481FC531915273E00D9F0EB /* AppDelegate.m */,
 				7FF3469F19225B2C00E4AEE1 /* iPhone.storyboard */,
-				8481FC581915273E00D9F0EB /* Main_iPad.storyboard */,
 				8481FC4A1915273E00D9F0EB /* Supporting Files */,
 				8481FCA5191664D000D9F0EB /* Constants.h */,
+				4F655ACB1BDAA85000E6233A /* Launch Screen.storyboard */,
 			);
 			path = XO;
 			sourceTree = "<group>";
@@ -1170,7 +1167,6 @@
 				4F655A3D1BDA7BAB00E6233A /* Lion-1.jpg in Resources */,
 				4F655A491BDA7BAB00E6233A /* ScreenClosedTag.png in Resources */,
 				4F655A1E1BDA7BAB00E6233A /* Monkey-4.jpg in Resources */,
-				8481FC5A1915273E00D9F0EB /* Main_iPad.storyboard in Resources */,
 				4F655A371BDA7BAB00E6233A /* Cat-1.jpg in Resources */,
 				84AAC884191AAA92001C0B94 /* sound_goes_x.mp3 in Resources */,
 				4F655A4A1BDA7BAB00E6233A /* ScreenOpenTag.png in Resources */,
@@ -1191,6 +1187,7 @@
 				4F655A1A1BDA7BAB00E6233A /* Lion-4.jpg in Resources */,
 				4F655A101BDA7BAB00E6233A /* Bunny-1.jpg in Resources */,
 				4F655A361BDA7BAB00E6233A /* Bunny-3.jpg in Resources */,
+				4F655ACC1BDAA85000E6233A /* Launch Screen.storyboard in Resources */,
 				4F655A291BDA7BAB00E6233A /* Readme.txt in Resources */,
 				4F655A311BDA7BAB00E6233A /* CuteAnimals-Info.plist in Resources */,
 				4F655A0A1BDA7BAB00E6233A /* Changelog.txt in Resources */,
@@ -1256,7 +1253,7 @@
 				7F912D76191F632F00675027 /* XOAI.m in Sources */,
 				7FEAECD7191783FB0065CC57 /* XOCollectionViewCell.m in Sources */,
 				84B57ECA192B675D00D17B10 /* XOAlertView.m in Sources */,
-				8481FC541915273E00D9F0EB /* XOAppDelegate.m in Sources */,
+				8481FC541915273E00D9F0EB /* AppDelegate.m in Sources */,
 				7FEAECDA1917ADF80065CC57 /* XOGameViewController.m in Sources */,
 				7F8495D21924AD720022BC08 /* ADVManager.m in Sources */,
 				84742D8119197CF3007B868E /* XOGameModel.m in Sources */,
@@ -1320,17 +1317,6 @@
 				84A1A39F192618F000184D18 /* es */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		8481FC581915273E00D9F0EB /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8481FC591915273E00D9F0EB /* Base */,
-				84A1A393192618E500184D18 /* fr */,
-				84A1A398192618EB00184D18 /* de */,
-				84A1A39D192618F000184D18 /* es */,
-			);
-			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		8481FC6E1915273E00D9F0EB /* InfoPlist.strings */ = {
@@ -1430,7 +1416,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconXO;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Alexander Sokhanych (U5HL738569)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1441,7 +1426,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XO/XO-Prefix.pch";
 				INFOPLIST_FILE = "XO/XO-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/XO/Manager/GoogleAdMob",
@@ -1513,7 +1498,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconXO;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Alexander Sokhanych (U5HL738569)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1524,7 +1508,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XO/XO-Prefix.pch";
 				INFOPLIST_FILE = "XO/XO-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/XO/Manager/GoogleAdMob",

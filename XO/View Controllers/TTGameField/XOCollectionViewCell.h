@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 mobilez365. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface XOCollectionViewCell : UICollectionViewCell
-@property (nonatomic) int mode;
+
+@property (assign, nonatomic) NSInteger mode;
+
 @end

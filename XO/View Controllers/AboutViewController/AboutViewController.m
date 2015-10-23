@@ -21,19 +21,25 @@
 
 @implementation AboutViewController
 
+#pragma mark - Lifecycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
-    _aboutTextView.text = NSLocalizedString(@"About Text", nil);
-
+    self.aboutTextView.text = NSLocalizedString(@"About Text", nil);
 }
 
-- (void) viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     [[GameManager sharedInstance] trackScreenWithName:ABOUT_SCREEN];
 }
 
-- (IBAction)backButton:(id)sender {
+#pragma mark - Actions
+
+- (IBAction)backButton:(id)sender
+{
     [[SoundManager sharedInstance] playClickSound];
     [self.navigationController popViewControllerAnimated:YES];
 }

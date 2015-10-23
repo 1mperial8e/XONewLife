@@ -212,16 +212,17 @@
 
 #pragma mark - UIActions
 
-- (IBAction)back:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+- (IBAction)back:(id)sender
+{
     [[SoundManager sharedInstance] playClickSound];
-    [self resetBtnStatus];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)settings:(id)sender {
-    XOSettingsViewController *settingsVew=[[UIStoryboard storyboardWithName:@"iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"settings"];
-    [self.navigationController pushViewController:settingsVew animated:YES];
+- (IBAction)settings:(id)sender
+{
     [[SoundManager sharedInstance] playClickSound];
+    XOSettingsViewController *settingsVew = [[UIStoryboard storyboardWithName:@"iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"settings"];
+    [self.navigationController pushViewController:settingsVew animated:YES];
     [self resetBtnStatus];
 }
 
@@ -443,10 +444,9 @@
     restart=2.0f;
 }
 
-- (void) removeVector
+- (void)removeVector
 {
-    UIImageView *lineView = (UIImageView *)[_gameFieldContainerView viewWithTag:79];
-    [lineView removeFromSuperview];
+    [[self.gameFieldContainerView viewWithTag:79] removeFromSuperview];
 }
 
 @end
