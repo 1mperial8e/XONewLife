@@ -6,15 +6,6 @@
 //  Copyright (c) 2014 - present Thinkmobiles. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "XOProgress.h"
-#import "GAI.h"
-#import "GAIFields.h"
-#import "GAIDictionaryBuilder.h"
-#import "GADInterstitial.h"
-#import "MyReachability.h"
-
-
 @interface GameManager : NSObject{
     GADInterstitial *interstitial_;
     MyReachability *internetReachableFoo;
