@@ -1,6 +1,10 @@
 # Xcode
 .DS_Store
+<<<<<<< HEAD
 */build/*
+=======
+build/
+>>>>>>> 192c1e524b168cb3831bbee4461c9c130b12aa04
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -9,14 +13,24 @@
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
+<<<<<<< HEAD
+=======
+*.xcworkspace
+!default.xcworkspace
+>>>>>>> 192c1e524b168cb3831bbee4461c9c130b12aa04
 xcuserdata
 profile
 *.moved-aside
 DerivedData
 .idea/
+<<<<<<< HEAD
 *.hmap
 *.xccheckout
 *.xcuserstate
 
 #CocoaPods
 #Pods
+=======
+# Pods - for those of you who use CocoaPods
+Pods
+>>>>>>> 192c1e524b168cb3831bbee4461c9c130b12aa04
