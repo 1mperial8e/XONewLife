@@ -25,13 +25,13 @@
 		93061D471BDE855400F148E0 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93061D461BDE855400F148E0 /* GameManager.m */; };
 		93061D4B1BDE858800F148E0 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93061D4A1BDE858800F148E0 /* SoundManager.m */; };
 		93061D621BDE862B00F148E0 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93061D611BDE862B00F148E0 /* iPhone.storyboard */; };
-		93061D7A1BDE87DA00F148E0 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93061D6D1BDE87DA00F148E0 /* AboutViewController.m */; };
-		93061D7B1BDE87DA00F148E0 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93061D701BDE87DA00F148E0 /* BaseViewController.m */; };
-		93061D7C1BDE87DA00F148E0 /* XOGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93061D731BDE87DA00F148E0 /* XOGameViewController.m */; };
-		93061D7D1BDE87DA00F148E0 /* XOSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93061D761BDE87DA00F148E0 /* XOSettingsViewController.m */; };
-		93061D7E1BDE87DA00F148E0 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93061D791BDE87DA00F148E0 /* StartViewController.m */; };
 		93061D851BDE89C400F148E0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93061D821BDE89C400F148E0 /* Info.plist */; };
 		93061D861BDE89C400F148E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93061D831BDE89C400F148E0 /* main.m */; };
+		93061D971BDE8AF400F148E0 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93061D8A1BDE8AF400F148E0 /* AboutViewController.m */; };
+		93061D981BDE8AF400F148E0 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93061D8D1BDE8AF400F148E0 /* BaseViewController.m */; };
+		93061D991BDE8AF400F148E0 /* XOGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93061D901BDE8AF400F148E0 /* XOGameViewController.m */; };
+		93061D9A1BDE8AF400F148E0 /* XOSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93061D931BDE8AF400F148E0 /* XOSettingsViewController.m */; };
+		93061D9B1BDE8AF400F148E0 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93061D961BDE8AF400F148E0 /* StartViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,20 +64,20 @@
 		93061D491BDE858800F148E0 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
 		93061D4A1BDE858800F148E0 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
 		93061D611BDE862B00F148E0 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
-		93061D6C1BDE87DA00F148E0 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
-		93061D6D1BDE87DA00F148E0 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
-		93061D6F1BDE87DA00F148E0 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
-		93061D701BDE87DA00F148E0 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
-		93061D721BDE87DA00F148E0 /* XOGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XOGameViewController.h; sourceTree = "<group>"; };
-		93061D731BDE87DA00F148E0 /* XOGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOGameViewController.m; sourceTree = "<group>"; };
-		93061D751BDE87DA00F148E0 /* XOSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XOSettingsViewController.h; sourceTree = "<group>"; };
-		93061D761BDE87DA00F148E0 /* XOSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOSettingsViewController.m; sourceTree = "<group>"; };
-		93061D781BDE87DA00F148E0 /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
-		93061D791BDE87DA00F148E0 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 		93061D811BDE89C400F148E0 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		93061D821BDE89C400F148E0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93061D831BDE89C400F148E0 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		93061D841BDE89C400F148E0 /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
+		93061D891BDE8AF400F148E0 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		93061D8A1BDE8AF400F148E0 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		93061D8C1BDE8AF400F148E0 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		93061D8D1BDE8AF400F148E0 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		93061D8F1BDE8AF400F148E0 /* XOGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XOGameViewController.h; sourceTree = "<group>"; };
+		93061D901BDE8AF400F148E0 /* XOGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOGameViewController.m; sourceTree = "<group>"; };
+		93061D921BDE8AF400F148E0 /* XOSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XOSettingsViewController.h; sourceTree = "<group>"; };
+		93061D931BDE8AF400F148E0 /* XOSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XOSettingsViewController.m; sourceTree = "<group>"; };
+		93061D951BDE8AF400F148E0 /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
+		93061D961BDE8AF400F148E0 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,8 +143,8 @@
 		8481FC491915273E00D9F0EB /* XO */ = {
 			isa = PBXGroup;
 			children = (
+				93061D871BDE8AF400F148E0 /* ViewControllers */,
 				93061D2B1BDE84F200F148E0 /* Resources */,
-				93061D6A1BDE87DA00F148E0 /* ViewControllers */,
 				8481FC7D19152A2D00D9F0EB /* Managers */,
 				84742D7919197C54007B868E /* Other Classes */,
 				8481FC521915273E00D9F0EB /* AppDelegate.h */,
@@ -218,59 +218,59 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
-		93061D6A1BDE87DA00F148E0 /* ViewControllers */ = {
+		93061D871BDE8AF400F148E0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				93061D6B1BDE87DA00F148E0 /* AboutViewController */,
-				93061D6E1BDE87DA00F148E0 /* BaseViewController */,
-				93061D711BDE87DA00F148E0 /* GameViewController */,
-				93061D741BDE87DA00F148E0 /* SettingsViewController */,
-				93061D771BDE87DA00F148E0 /* StartViewController */,
+				93061D881BDE8AF400F148E0 /* AboutViewController */,
+				93061D8B1BDE8AF400F148E0 /* BaseViewController */,
+				93061D8E1BDE8AF400F148E0 /* GameViewController */,
+				93061D911BDE8AF400F148E0 /* SettingsViewController */,
+				93061D941BDE8AF400F148E0 /* StartViewController */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		93061D6B1BDE87DA00F148E0 /* AboutViewController */ = {
+		93061D881BDE8AF400F148E0 /* AboutViewController */ = {
 			isa = PBXGroup;
 			children = (
-				93061D6C1BDE87DA00F148E0 /* AboutViewController.h */,
-				93061D6D1BDE87DA00F148E0 /* AboutViewController.m */,
+				93061D891BDE8AF400F148E0 /* AboutViewController.h */,
+				93061D8A1BDE8AF400F148E0 /* AboutViewController.m */,
 			);
 			path = AboutViewController;
 			sourceTree = "<group>";
 		};
-		93061D6E1BDE87DA00F148E0 /* BaseViewController */ = {
+		93061D8B1BDE8AF400F148E0 /* BaseViewController */ = {
 			isa = PBXGroup;
 			children = (
-				93061D6F1BDE87DA00F148E0 /* BaseViewController.h */,
-				93061D701BDE87DA00F148E0 /* BaseViewController.m */,
+				93061D8C1BDE8AF400F148E0 /* BaseViewController.h */,
+				93061D8D1BDE8AF400F148E0 /* BaseViewController.m */,
 			);
 			path = BaseViewController;
 			sourceTree = "<group>";
 		};
-		93061D711BDE87DA00F148E0 /* GameViewController */ = {
+		93061D8E1BDE8AF400F148E0 /* GameViewController */ = {
 			isa = PBXGroup;
 			children = (
-				93061D721BDE87DA00F148E0 /* XOGameViewController.h */,
-				93061D731BDE87DA00F148E0 /* XOGameViewController.m */,
+				93061D8F1BDE8AF400F148E0 /* XOGameViewController.h */,
+				93061D901BDE8AF400F148E0 /* XOGameViewController.m */,
 			);
 			path = GameViewController;
 			sourceTree = "<group>";
 		};
-		93061D741BDE87DA00F148E0 /* SettingsViewController */ = {
+		93061D911BDE8AF400F148E0 /* SettingsViewController */ = {
 			isa = PBXGroup;
 			children = (
-				93061D751BDE87DA00F148E0 /* XOSettingsViewController.h */,
-				93061D761BDE87DA00F148E0 /* XOSettingsViewController.m */,
+				93061D921BDE8AF400F148E0 /* XOSettingsViewController.h */,
+				93061D931BDE8AF400F148E0 /* XOSettingsViewController.m */,
 			);
 			path = SettingsViewController;
 			sourceTree = "<group>";
 		};
-		93061D771BDE87DA00F148E0 /* StartViewController */ = {
+		93061D941BDE8AF400F148E0 /* StartViewController */ = {
 			isa = PBXGroup;
 			children = (
-				93061D781BDE87DA00F148E0 /* StartViewController.h */,
-				93061D791BDE87DA00F148E0 /* StartViewController.m */,
+				93061D951BDE8AF400F148E0 /* StartViewController.h */,
+				93061D961BDE8AF400F148E0 /* StartViewController.m */,
 			);
 			path = StartViewController;
 			sourceTree = "<group>";
@@ -361,15 +361,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93061D7A1BDE87DA00F148E0 /* AboutViewController.m in Sources */,
-				93061D7C1BDE87DA00F148E0 /* XOGameViewController.m in Sources */,
-				93061D7D1BDE87DA00F148E0 /* XOSettingsViewController.m in Sources */,
+				93061D971BDE8AF400F148E0 /* AboutViewController.m in Sources */,
+				93061D991BDE8AF400F148E0 /* XOGameViewController.m in Sources */,
+				93061D9A1BDE8AF400F148E0 /* XOSettingsViewController.m in Sources */,
 				93061D4B1BDE858800F148E0 /* SoundManager.m in Sources */,
 				7F912D76191F632F00675027 /* XOAI.m in Sources */,
 				8481FC541915273E00D9F0EB /* AppDelegate.m in Sources */,
-				93061D7E1BDE87DA00F148E0 /* StartViewController.m in Sources */,
-				93061D7B1BDE87DA00F148E0 /* BaseViewController.m in Sources */,
 				93061D861BDE89C400F148E0 /* main.m in Sources */,
+				93061D9B1BDE8AF400F148E0 /* StartViewController.m in Sources */,
+				93061D981BDE8AF400F148E0 /* BaseViewController.m in Sources */,
 				93061D471BDE855400F148E0 /* GameManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
