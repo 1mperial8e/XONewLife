@@ -10,10 +10,6 @@
 #import "StartViewController.h"
 #import "XOGameViewController.h"
 
-// Managers
-#import "GameManager.h"
-#import "SoundManager.h"
-
 // Models
 #import "XOGameModel.h"
 
