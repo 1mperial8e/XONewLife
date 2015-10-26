@@ -3,7 +3,7 @@
 //  XO
 //
 //  Created by Stas Volskyi on 04.05.14.
-//  Copyright (c) 2014 mobilez365. All rights reserved.
+//  Copyright (c) 2014 - present Thinkmobiles. All rights reserved.
 //
 
 #ifndef XO_Constants_h
@@ -19,15 +19,6 @@
 #define HARD_LOOSES @"hardLooses"
 #define MULTIPLAYER_GAMES @"multiplayerGames"
 
-//Google Play Game Service constants
-#define CLIENT_ID @"457146035194-minb8h9v19vdm46jn8k4733cj305q3s3.apps.googleusercontent.com"
-#define ACH_NEWBIE @"CgkI-tebgKcNEAIQBA"
-#define ACH_GOOD_PLAYER @"CgkI-tebgKcNEAIQBQ"
-#define ACH_BEGINER @"CgkI-tebgKcNEAIQBg"
-#define ACH_GAMER @"CgkI-tebgKcNEAIQBw"
-#define ACH_FRIENDLY_GAMER @"CgkI-tebgKcNEAIQCA"
-#define LEAD_LEADERBOARD @"CgkI-tebgKcNEAIQAw"
-
 
 //Ad Mob ID
 #define START_AD_MOB_ID @"5374b9b8fcb9071100000000"
@@ -35,18 +26,7 @@
 
 //Google Analytics constants
 #define TRACK_ID @"UA-51080238-1"
-#define MULTIPLAYER_SCREEN @"Two Players"
-#define SINGLE_SCREEN @"Single Player"
-#define ONLINE_SCREEN @"Game Online Screen"
-#define LOBBY_SCREEN @"Choose Online Game"
-#define SETTINGS_SCREEN @"Settings Screen"
-#define START_SCREEN @"Main Screen"
-#define ABOUT_SCREEN @"About Screen"
-#define LEADERBOARD_SCREEN @"Leader Board"
-#define ACHIEVEMENTS_SCREEN @"Achievements"
-#define QUICK_GAME_SCREEN @"Quick Game"
-#define INVITE_FRIEND_SCREEN @"Invite Friend"
-#define SHOW_INVITES_SCREEN @"Show Invites"
+
 
 #endif
 

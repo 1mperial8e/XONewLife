@@ -3,7 +3,7 @@
 ////  Test
 ////
 ////  Created by Stas Volskyi on 22.04.14.
-////  Copyright (c) 2014 Anatoliy Dalekorey. All rights reserved.
+////  Copyright (c) 2014 - present Anatoliy Dalekorey. All rights reserved.
 ////
 //
 //#import "AppDelegate.h"

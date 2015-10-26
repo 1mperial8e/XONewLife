@@ -3,7 +3,7 @@
 //  Words
 //
 //  Created by Misha on 14.05.14.
-//  Copyright (c) 2014 m2g. All rights reserved.
+//  Copyright (c) 2014 - present m2g. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

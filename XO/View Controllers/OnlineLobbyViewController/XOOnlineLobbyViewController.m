@@ -1,9 +1,9 @@
 //
 //  TTOnlineLobbyViewController.m
-//  Tic tac toe
+//  XO
 //
 //  Created by Stas Volskyi on 30.04.14.
-//  Copyright (c) 2014 mobilesoft365. All rights reserved.
+//  Copyright (c) 2014 - present Thinkmobiles. All rights reserved.
 //
 
 #import "XOOnlineLobbyViewController.h"

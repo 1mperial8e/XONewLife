@@ -1,20 +1,20 @@
 //
 //  TTSettengsViewController.m
-//  Tic tac toe
+//  XO
 //
 //  Created by Stas Volskyi on 30.04.14.
-//  Copyright (c) 2014 mobilesoft365. All rights reserved.
+//  Copyright (c) 2014 - present Thinkmobiles. All rights reserved.
 //
 
 #import "XOSettingsViewController.h"
-#import "XOStartViewController.h"
+#import "StartViewController.h"
 #import "XOGameViewController.h"
 #import "GameManager.h"
 #import "SoundManager.h"
 #import "XOGameModel.h"
 #import "XOGameFieldViewController.h"
 
-@interface XOSettingsViewController () <SignedInDelegate>
+@interface XOSettingsViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *signInOut;
 @property (weak, nonatomic) IBOutlet UIButton *enableSound;
@@ -51,7 +51,6 @@
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
     [self.easyMode setText:NSLocalizedString(@"Easy", nil)];
     [self.hardMode setText:NSLocalizedString(@"Hard", nil)];
-    ((XOStartViewController*)[self.navigationController.viewControllers firstObject]).signedIndelegate=self;
 }
 
 - (void) viewWillAppear:(BOOL)animated{
