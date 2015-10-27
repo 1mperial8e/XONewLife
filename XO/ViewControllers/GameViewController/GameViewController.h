@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 - present Thinkmobiles. All rights reserved.
 //
 
-#import "XOGameFieldViewController.h"
+#import "GameFieldViewController.h"
 
-@interface XOGameViewController : UIViewController
+@interface GameViewController : BaseViewController
 
 @property (weak, nonatomic) XOGameFieldViewController *gameFieldViewController;
 @end

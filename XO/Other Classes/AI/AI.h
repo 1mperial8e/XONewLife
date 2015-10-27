@@ -6,10 +6,9 @@
 //  Copyright (c) 2014 - present Thinkmobiles. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "XOObjectiveMatrix.h"
+//#import "ObjectiveMatrix.h"
 typedef NSIndexPath* (^CreateMove)(int i, int j);
-@interface XOAI : NSObject
+@interface AI : NSObject
 @property (nonatomic, copy) CreateMove createMove;
 - (NSIndexPath *)makeMove;
 - (void)moveWithTimer:(int)maxTime;

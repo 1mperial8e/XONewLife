@@ -6,6 +6,6 @@
 //  Copyright (c) 2014 - present Thinkmobiles. All rights reserved.
 //
 
-@interface AboutViewController : UIViewController
+@interface AboutViewController : BaseViewController
 
 @end

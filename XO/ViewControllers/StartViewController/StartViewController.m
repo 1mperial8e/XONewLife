@@ -8,14 +8,14 @@
 
 // Controllers
 #import "StartViewController.h"
-#import "XOGameViewController.h"
+#import "GameViewController.h"
 
 // Managers
 #import "GameManager.h"
 #import "SoundManager.h"
 
 // Models
-#import "XOGameModel.h"
+#import "GameModel.h"
 
 @interface StartViewController () <UIAlertViewDelegate>
 

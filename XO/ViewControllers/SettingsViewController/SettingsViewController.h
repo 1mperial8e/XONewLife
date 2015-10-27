@@ -5,9 +5,8 @@
 //  Created by Stas Volskyi on 30.04.14.
 //  Copyright (c) 2014 - present Thinkmobiles. All rights reserved.
 //
+#import "SwitchControlView.h"
 
-#import <UIKit/UIKit.h>
-
-@interface XOSettingsViewController : UIViewController
+@interface SettingsViewController : BaseViewController <SwitchControlViewDelegate>
 
 @end

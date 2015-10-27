@@ -7,41 +7,47 @@
 //
 
 #import "AboutViewController.h"
-#import "SoundManager.h"
-#import "GameManager.h"
 
 @interface AboutViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextView *aboutTextView;
 
-
-- (IBAction)backButton:(id)sender;
-
 @end
 
 @implementation AboutViewController
 
-#pragma mark - Lifecycle
+#pragma mark - LifeCycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
-    self.aboutTextView.text = NSLocalizedString(@"About Text", nil);
+    
+    [self displayInformationText];
+    self.navigationController.navigationBar.hidden = NO;
+    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style: UIBarButtonItemStylePlain target:self action:@selector(backButtonTapped:)];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewWillDisappear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
-    [[GameManager sharedInstance] trackScreenWithName:ABOUT_SCREEN];
+    [super viewWillDisappear:animated];
+    
+    self.navigationController.navigationBar.hidden = YES;
 }
 
-#pragma mark - Actions
+#pragma mark - IBActions
 
-- (IBAction)backButton:(id)sender
+- (void)backButtonTapped:(id)sender
 {
     [[SoundManager sharedInstance] playClickSound];
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - Private
+
+- (void)displayInformationText
+{
+    self.aboutTextView.text = NSLocalizedString(@"About Text", nil);
 }
 
 @end

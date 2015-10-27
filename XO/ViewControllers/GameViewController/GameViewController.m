@@ -6,15 +6,15 @@
 //  Copyright (c) 2014 - present Thinkmobiles. All rights reserved.
 //
 
-#import "XOGameViewController.h"
-#import "XOSettingsViewController.h"
+#import "GameViewController.h"
+#import "SettingsViewController.h"
 #import "GameManager.h"
 //#import "MPManager.h"
 #import "XOGameModel.h"
 #import "SoundManager.h"
 #import "MGCicleProgress.h"
 
-@interface XOGameViewController () <XOStepTimerDelegate, weHaveVictory, playersTurn, UIAlertViewDelegate, GADInterstitialDelegate>{
+@interface GameViewController () <StepTimerDelegate, weHaveVictory, playersTurn, UIAlertViewDelegate, GADInterstitialDelegate>{
     NSTimer *stepTimer;
     NSTimer *restartGameTimer;
     int time;

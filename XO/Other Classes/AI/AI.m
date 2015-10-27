@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 - present Thinkmobiles. All rights reserved.
 //
 
-#import "XOAI.h"
-#import "XOGameModel.h"
+#import "AI.h"
+#import "GameModel.h"
 #import "Constants.h"
-@interface XOAI ()
+@interface AI ()
 @end
-@implementation XOAI
+@implementation AI
 @synthesize createMove;
 - (id)init
 {
