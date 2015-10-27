@@ -17,9 +17,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    UIImage *backgroundImage = [UIImage imageNamed:@"background"];
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:backgroundImage]];
+
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    imageView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+    imageView.image = [UIImage imageNamed:@"background"];
+    [self.view insertSubview:imageView atIndex:0];
 }
 
 @end
