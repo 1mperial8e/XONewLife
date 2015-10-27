@@ -9,6 +9,7 @@
 // Controllers
 #import "StartViewController.h"
 #import "GameViewController.h"
+#import "XOGameViewController.h"
 
 // Models
 #import "GameModel.h"
