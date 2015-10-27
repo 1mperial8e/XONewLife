@@ -17,5 +17,6 @@
     #import "BaseViewController.h"
     #import "UIFont+AppFont.h"
     #import "UIColor+AppColor.h"
+    #import "Utils.h"
 #endif
 

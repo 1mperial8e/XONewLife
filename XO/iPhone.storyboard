@@ -170,6 +170,9 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" red="0.56470588239999997" green="0.015686274510000001" blue="0.1333333333" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="leaderBoardButtonTapped:" destination="YxK-UW-oVt" eventType="touchUpInside" id="vP1-Id-95s"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNA-7C-R0M">
                                         <rect key="frame" x="107" y="0.0" width="106" height="70"/>
@@ -179,6 +182,9 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" red="0.56470588239999997" green="0.015686274510000001" blue="0.1333333333" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="achivementsButtonTapped:" destination="YxK-UW-oVt" eventType="touchUpInside" id="omI-ZH-Hir"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mrb-50-4fV">
                                         <rect key="frame" x="213" y="0.0" width="106" height="70"/>
@@ -246,7 +252,7 @@
                         <outlet property="leaderboardButton" destination="u5v-08-xuZ" id="2k8-3I-Lza"/>
                         <outlet property="multiPlayerButton" destination="mCo-RS-3Ie" id="GDi-wP-Ybh"/>
                         <outlet property="onlinePlayButton" destination="b6A-R5-2a6" id="JuK-lt-Ilc"/>
-                        <outlet property="settingsButton" destination="Mrb-50-4fV" id="t04-fT-bt1"/>
+                        <outlet property="settingsButton" destination="Mrb-50-4fV" id="pV5-y4-1wY"/>
                         <outlet property="singlePlayerButton" destination="eXF-2A-saR" id="wDJ-CP-4kD"/>
                     </connections>
                 </viewController>
