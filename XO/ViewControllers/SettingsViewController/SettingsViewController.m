@@ -53,19 +53,23 @@ static NSString *const UnCheckedImageName = @"unchecked";
 
 - (IBAction)enableSound:(id)sender
 {
-    [self changeSettings:SoundSettingsKey];
+    [[SoundManager sharedInstance] turnSoundOn:![[NSUserDefaults standardUserDefaults] boolForKey:SoundSettingsKey]];
+    [self updateControlState];
 }
 
 - (IBAction)enableMusic:(id)sender
 {
-    [self changeSettings:MusicSettingsKey];
+    [[SoundManager sharedInstance] turnMusicOn:![[NSUserDefaults standardUserDefaults] boolForKey:MusicSettingsKey]];
+    [self updateControlState];
 }
 
 #pragma mark - SwitchControlViewDelegate
 
 - (void)switchControlDidTappedButton:(SoundButton *)button
 {
-    [self changeSettings:AIDifficultyKey];
+    [[NSUserDefaults standardUserDefaults] setBool:![[NSUserDefaults standardUserDefaults] boolForKey:AIDifficultyKey] forKey:AIDifficultyKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self updateControlState];
 }
 
 #pragma mark - Private
@@ -92,14 +96,6 @@ static NSString *const UnCheckedImageName = @"unchecked";
     [self.enableMusic setTitle:NSLocalizedString(@"settingViewController.Music", nil) forState:UIControlStateNormal];
     [self.enableSound setTitle:NSLocalizedString(@"settingViewController.Sound", nil) forState:UIControlStateNormal];
     self.title = NSLocalizedString(@"settingViewController.Title", nil);
-}
-
-- (void)changeSettings:(NSString*)settings
-{
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults integerForKey:settings] ? [userDefaults setInteger:0 forKey:settings] : [userDefaults setInteger:1 forKey:settings];
-    [userDefaults synchronize];
-    [self updateControlState];
 }
 
 - (void)updateControlState
