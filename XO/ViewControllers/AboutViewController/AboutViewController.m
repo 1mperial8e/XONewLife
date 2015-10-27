@@ -22,10 +22,8 @@
 {
     [super viewDidLoad];
     
-    [self displayInformationText];
+    [self localizeUI];
     self.navigationController.navigationBar.hidden = NO;
-    
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style: UIBarButtonItemStylePlain target:self action:@selector(backButtonTapped:)];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -35,19 +33,12 @@
     self.navigationController.navigationBar.hidden = YES;
 }
 
-#pragma mark - IBActions
-
-- (void)backButtonTapped:(id)sender
-{
-    [[SoundManager sharedInstance] playClickSound];
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 #pragma mark - Private
 
-- (void)displayInformationText
+- (void)localizeUI
 {
-    self.aboutTextView.text = NSLocalizedString(@"About Text", nil);
+    self.aboutTextView.text = NSLocalizedString(@"aboutViewController.AboutText", nil);
+    self.title = NSLocalizedString(@"aboutViewController.Title", nil);
 }
 
 @end

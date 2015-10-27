@@ -95,8 +95,8 @@
 //    }
 //    return nil;
 //}
-- (NSIndexPath *)checkForWin:(id)matrix player:(XOPlayer)aiSide
-{
+//- (NSIndexPath *)checkForWin:(id)matrix player:(XOPlayer)aiSide
+//{
 //    int size = [XOGameModel sharedInstance].dimension;
 //    int countInRowToWin = [XOGameModel sharedInstance].dimension;
 //    
@@ -220,7 +220,7 @@
 //        }
 //        }
     
-    return nil;
-}
+//    return nil;
+//}
 
 @end

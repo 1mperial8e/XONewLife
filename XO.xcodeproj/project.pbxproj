@@ -15,6 +15,8 @@
 		8481FC541915273E00D9F0EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC531915273E00D9F0EB /* AppDelegate.m */; };
 		84D667711917882A000DA569 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D667701917882A000DA569 /* AVFoundation.framework */; };
 		84D6677319178838000DA569 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D6677219178838000DA569 /* AudioToolbox.framework */; };
+		93003DCB1BDFD206009430B3 /* UIFont+AppFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 93003DCA1BDFD206009430B3 /* UIFont+AppFont.m */; };
+		93003DCF1BDFD2B6009430B3 /* UIColor+AppColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 93003DCE1BDFD2B6009430B3 /* UIColor+AppColor.m */; };
 		93061D3C1BDE84F200F148E0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93061D2C1BDE84F200F148E0 /* Localizable.strings */; };
 		93061D3D1BDE84F200F148E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93061D321BDE84F200F148E0 /* Images.xcassets */; };
 		93061D3E1BDE84F200F148E0 /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 93061D351BDE84F200F148E0 /* music.mp3 */; };
@@ -50,6 +52,10 @@
 		8481FC531915273E00D9F0EB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		84D667701917882A000DA569 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		84D6677219178838000DA569 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		93003DC91BDFD206009430B3 /* UIFont+AppFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+AppFont.h"; sourceTree = "<group>"; };
+		93003DCA1BDFD206009430B3 /* UIFont+AppFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+AppFont.m"; sourceTree = "<group>"; };
+		93003DCD1BDFD2B6009430B3 /* UIColor+AppColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+AppColor.h"; sourceTree = "<group>"; };
+		93003DCE1BDFD2B6009430B3 /* UIColor+AppColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AppColor.m"; sourceTree = "<group>"; };
 		93061D2D1BDE84F200F148E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		93061D2E1BDE84F200F148E0 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		93061D2F1BDE84F200F148E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -117,6 +123,7 @@
 		84742D7919197C54007B868E /* Other Classes */ = {
 			isa = PBXGroup;
 			children = (
+				93003DC71BDFD1DC009430B3 /* Categories */,
 				932A7A6B1BDEC265005A0E5F /* SoundButton */,
 				7F912D77191F633700675027 /* AI */,
 			);
@@ -176,6 +183,33 @@
 			);
 			name = Managers;
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		93003DC71BDFD1DC009430B3 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				93003DCC1BDFD2A7009430B3 /* UIColor+AppColor */,
+				93003DC81BDFD1F0009430B3 /* UIFont+AppFonts */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		93003DC81BDFD1F0009430B3 /* UIFont+AppFonts */ = {
+			isa = PBXGroup;
+			children = (
+				93003DC91BDFD206009430B3 /* UIFont+AppFont.h */,
+				93003DCA1BDFD206009430B3 /* UIFont+AppFont.m */,
+			);
+			path = "UIFont+AppFonts";
+			sourceTree = "<group>";
+		};
+		93003DCC1BDFD2A7009430B3 /* UIColor+AppColor */ = {
+			isa = PBXGroup;
+			children = (
+				93003DCD1BDFD2B6009430B3 /* UIColor+AppColor.h */,
+				93003DCE1BDFD2B6009430B3 /* UIColor+AppColor.m */,
+			);
+			path = "UIColor+AppColor";
 			sourceTree = "<group>";
 		};
 		93061D2B1BDE84F200F148E0 /* Resources */ = {
@@ -403,10 +437,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93003DCB1BDFD206009430B3 /* UIFont+AppFont.m in Sources */,
 				932A7A9B1BDEC48E005A0E5F /* SwitchControlView.m in Sources */,
 				93061D971BDE8AF400F148E0 /* AboutViewController.m in Sources */,
 				93061D991BDE8AF400F148E0 /* GameViewController.m in Sources */,
 				93061D9A1BDE8AF400F148E0 /* SettingsViewController.m in Sources */,
+				93003DCF1BDFD2B6009430B3 /* UIColor+AppColor.m in Sources */,
 				93061D4B1BDE858800F148E0 /* SoundManager.m in Sources */,
 				7F912D76191F632F00675027 /* AI.m in Sources */,
 				8481FC541915273E00D9F0EB /* AppDelegate.m in Sources */,

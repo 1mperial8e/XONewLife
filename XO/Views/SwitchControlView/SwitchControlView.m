@@ -95,6 +95,8 @@
         
         [elementButton setBackgroundImage:self.activeBackgroundImages[i] forState:UIControlStateSelected];
         [elementButton setBackgroundImage:self.inActiveBackgroundImages[i] forState:UIControlStateNormal];
+        
+        elementButton.titleLabel.font = [UIFont gilSansLightFontWithSize:20.f];
 
         elementButton.tag = i+1;
         

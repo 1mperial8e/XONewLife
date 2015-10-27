@@ -15,5 +15,7 @@
     #import "Constants.h"
     #import "SoundManager.h"
     #import "BaseViewController.h"
+    #import "UIFont+AppFont.h"
+    #import "UIColor+AppColor.h"
 #endif
 

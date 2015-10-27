@@ -40,13 +40,6 @@ static NSString *const UnCheckedImageName = @"unchecked";
     [self localizeUI];
     
     self.navigationController.navigationBar.hidden = NO;
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style: UIBarButtonItemStylePlain target:self action:@selector(backButtonTapped:)];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -58,26 +51,21 @@ static NSString *const UnCheckedImageName = @"unchecked";
 
 #pragma mark - UIActions
 
-- (void)backButtonTapped:(id)sender
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 - (IBAction)enableSound:(id)sender
 {
-    [self changeSettings:GAME_SOUND_SETTING_KEY];
+    [self changeSettings:SoundSettingsKey];
 }
 
 - (IBAction)enableMusic:(id)sender
 {
-    [self changeSettings:GAME_MUSIC_SETTING_KEY];
+    [self changeSettings:MusicSettingsKey];
 }
 
 #pragma mark - SwitchControlViewDelegate
 
 - (void)switchControlDidTappedButton:(SoundButton *)button
 {
-    [self changeSettings:GAME_MODE_SETTING_KEY];
+    [self changeSettings:AIDifficultyKey];
 }
 
 #pragma mark - Private
@@ -121,10 +109,10 @@ static NSString *const UnCheckedImageName = @"unchecked";
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 
-    self.soundCheck.image = [userDefaults integerForKey:GAME_SOUND_SETTING_KEY] ? checkedImage : unCheckedImage;
-    self.musicCheck.image = [userDefaults integerForKey:GAME_MUSIC_SETTING_KEY] ? checkedImage : unCheckedImage;
+    self.soundCheck.image = [userDefaults integerForKey:SoundSettingsKey] ? checkedImage : unCheckedImage;
+    self.musicCheck.image = [userDefaults integerForKey:MusicSettingsKey] ? checkedImage : unCheckedImage;
 
-    [self.difficultSwitchView selectElementWithTag:([userDefaults integerForKey:GAME_MODE_SETTING_KEY] + 1)];
+    [self.difficultSwitchView selectElementWithTag:([userDefaults integerForKey:AIDifficultyKey] + 1)];
 }
 
 @end
