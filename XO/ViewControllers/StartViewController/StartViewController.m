@@ -10,10 +10,6 @@
 #import "StartViewController.h"
 #import "GameViewController.h"
 
-// Managers
-#import "GameManager.h"
-#import "SoundManager.h"
-
 // Models
 #import "GameModel.h"
 
