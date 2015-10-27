@@ -8,7 +8,13 @@
 
 @interface SoundManager : NSObject
 
+@property (assign, nonatomic, readonly) BOOL isSoundOn;
+@property (assign, nonatomic, readonly) BOOL isMusicOn;
+
 + (instancetype)sharedInstance;
+
+- (void)turnSoundOn:(BOOL)on;
+- (void)turnMusicOn:(BOOL)on;
 
 - (void)playClickSound;
 
