@@ -23,12 +23,6 @@
 {
     self = [super initWithCoder:coder];
     if (self) {
-        NSArray *nibsArray = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil];
-        UIView *view = [nibsArray firstObject];
-        view.backgroundColor = [UIColor clearColor];
-        view.translatesAutoresizingMaskIntoConstraints = NO;
-        [self addSubview:view];
-        [self addConstraintsForView:view];
         [self prepareInitialParameters];
     }
     return self;

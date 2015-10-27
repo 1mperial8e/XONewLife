@@ -37,7 +37,6 @@
 		93061D9B1BDE8AF400F148E0 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93061D961BDE8AF400F148E0 /* StartViewController.m */; };
 		932A7A6E1BDEC278005A0E5F /* SoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 932A7A6D1BDEC278005A0E5F /* SoundButton.m */; };
 		932A7A9B1BDEC48E005A0E5F /* SwitchControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 932A7A991BDEC48E005A0E5F /* SwitchControlView.m */; };
-		932A7A9C1BDEC48E005A0E5F /* SwitchControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 932A7A9A1BDEC48E005A0E5F /* SwitchControlView.xib */; };
 		939F34971BDFDD7F009D12E2 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 939F34961BDFDD7F009D12E2 /* GameKit.framework */; };
 		939F34A31BE00457009D12E2 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 939F34A21BE00457009D12E2 /* Utils.m */; };
 		939F34A71BE00735009D12E2 /* GameAchivements.m in Sources */ = {isa = PBXBuildFile; fileRef = 939F34A61BE00735009D12E2 /* GameAchivements.m */; };
@@ -96,7 +95,6 @@
 		932A7A6D1BDEC278005A0E5F /* SoundButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundButton.m; sourceTree = "<group>"; };
 		932A7A981BDEC48E005A0E5F /* SwitchControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchControlView.h; sourceTree = "<group>"; };
 		932A7A991BDEC48E005A0E5F /* SwitchControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchControlView.m; sourceTree = "<group>"; };
-		932A7A9A1BDEC48E005A0E5F /* SwitchControlView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchControlView.xib; sourceTree = "<group>"; };
 		939F34961BDFDD7F009D12E2 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		939F34A11BE00457009D12E2 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		939F34A21BE00457009D12E2 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
@@ -356,7 +354,6 @@
 			children = (
 				932A7A981BDEC48E005A0E5F /* SwitchControlView.h */,
 				932A7A991BDEC48E005A0E5F /* SwitchControlView.m */,
-				932A7A9A1BDEC48E005A0E5F /* SwitchControlView.xib */,
 			);
 			path = SwitchControlView;
 			sourceTree = "<group>";
@@ -453,7 +450,6 @@
 				4F655ACC1BDAA85000E6233A /* Launch Screen.storyboard in Resources */,
 				93061D401BDE84F200F148E0 /* sound_goes_o.mp3 in Resources */,
 				93061D851BDE89C400F148E0 /* Info.plist in Resources */,
-				932A7A9C1BDEC48E005A0E5F /* SwitchControlView.xib in Resources */,
 				93061D431BDE84F200F148E0 /* sound_win.mp3 in Resources */,
 				93061D3D1BDE84F200F148E0 /* Images.xcassets in Resources */,
 				93061D421BDE84F200F148E0 /* sound_lose.mp3 in Resources */,
