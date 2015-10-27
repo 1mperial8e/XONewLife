@@ -10,4 +10,6 @@
 
 + (instancetype)sharedInstance;
 
+- (void)playClickSound;
+
 @end

@@ -22,4 +22,9 @@
     return sharedInstance;
 }
 
+- (void)playClickSound
+{
+    
+}
+
 @end

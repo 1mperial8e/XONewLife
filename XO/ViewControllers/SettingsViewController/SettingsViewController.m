@@ -42,11 +42,10 @@ static NSString *const UnCheckedImageName = @"unchecked";
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style: UIBarButtonItemStylePlain target:self action:@selector(backButtonTapped:)];
 }
 
-- (void) viewWillAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    [[GameManager sharedInstance] testInternetConnection];
 }
 
 #pragma mark - UIActions

@@ -522,48 +522,11 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = XO/SupportingFiles/Prefix.pch;
-				INFOPLIST_FILE = XO/Info.plist;
+				INFOPLIST_FILE = XO/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lc++",
-					"-framework",
-					AddressBook,
-					"-framework",
-					AssetsLibrary,
-					"-framework",
-					CoreData,
-					"-framework",
-					CoreGraphics,
-					"-framework",
-					CoreLocation,
-					"-framework",
-					CoreMotion,
-					"-framework",
-					CoreText,
-					"-framework",
-					Foundation,
-					"-framework",
-					GoogleOpenSource,
-					"-framework",
-					GooglePlus,
-					"-framework",
-					MediaPlayer,
-					"-framework",
-					QuartzCore,
-					"-framework",
-					Security,
-					"-framework",
-					SystemConfiguration,
-					"-framework",
-					UIKit,
-					"-framework",
-					AudioToolbox,
-					"-framework",
-					AVFoundation,
-				);
+				OTHER_LDFLAGS = "";
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mobilez365.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -583,48 +546,11 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = XO/SupportingFiles/Prefix.pch;
-				INFOPLIST_FILE = XO/Info.plist;
+				INFOPLIST_FILE = XO/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lc++",
-					"-framework",
-					AddressBook,
-					"-framework",
-					AssetsLibrary,
-					"-framework",
-					CoreData,
-					"-framework",
-					CoreGraphics,
-					"-framework",
-					CoreLocation,
-					"-framework",
-					CoreMotion,
-					"-framework",
-					CoreText,
-					"-framework",
-					Foundation,
-					"-framework",
-					GoogleOpenSource,
-					"-framework",
-					GooglePlus,
-					"-framework",
-					MediaPlayer,
-					"-framework",
-					QuartzCore,
-					"-framework",
-					Security,
-					"-framework",
-					SystemConfiguration,
-					"-framework",
-					UIKit,
-					"-framework",
-					AudioToolbox,
-					"-framework",
-					AVFoundation,
-				);
+				OTHER_LDFLAGS = "";
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mobilez365.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";

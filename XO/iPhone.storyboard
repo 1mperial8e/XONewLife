@@ -658,101 +658,86 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gwX-z3-Lfg">
                                 <rect key="frame" x="0.0" y="117" width="320" height="333"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EaM-GP-oNa" userLabel="Control - StackView">
-                                        <rect key="frame" x="55" y="47" width="210" height="240"/>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yW0-Gi-38B" userLabel="DifficultLevel - Switch Control View" customClass="SwitchControlView">
+                                        <rect key="frame" x="55" y="127" width="210" height="80"/>
+                                        <animations/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qzy-k3-Yi7" userLabel="Sound - UiView">
+                                        <rect key="frame" x="55" y="127" width="210" height="80"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yW0-Gi-38B" userLabel="DifficultLevel - Switch Control View" customClass="SwitchControlView">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ujd-6b-wt6" customClass="SoundButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="210" height="80"/>
                                                 <animations/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qzy-k3-Yi7" userLabel="Sound - UiView">
-                                                <rect key="frame" x="0.0" y="80" width="210" height="80"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ujd-6b-wt6" customClass="SoundButton">
-                                                        <rect key="frame" x="0.0" y="0.0" width="210" height="80"/>
-                                                        <animations/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                                        <inset key="contentEdgeInsets" minX="22" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        <state key="normal" title="Sound" backgroundImage="button1">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <color key="titleShadowColor" red="0.56470588239999997" green="0.015686274510000001" blue="0.1333333333" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="enableSound:" destination="yya-Jm-GhW" eventType="touchUpInside" id="j10-AD-zCi"/>
-                                                        </connections>
-                                                    </button>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked" translatesAutoresizingMaskIntoConstraints="NO" id="mIZ-xs-673">
-                                                        <rect key="frame" x="168" y="28" width="22" height="24"/>
-                                                        <animations/>
-                                                    </imageView>
-                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                <inset key="contentEdgeInsets" minX="22" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Sound" backgroundImage="button1">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleShadowColor" red="0.56470588239999997" green="0.015686274510000001" blue="0.1333333333" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="enableSound:" destination="yya-Jm-GhW" eventType="touchUpInside" id="j10-AD-zCi"/>
+                                                </connections>
+                                            </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="checked" translatesAutoresizingMaskIntoConstraints="NO" id="mIZ-xs-673">
+                                                <rect key="frame" x="168" y="28" width="22" height="24"/>
                                                 <animations/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstItem="mIZ-xs-673" firstAttribute="centerY" secondItem="Ujd-6b-wt6" secondAttribute="centerY" id="4OJ-pq-ofl"/>
-                                                    <constraint firstAttribute="bottom" secondItem="Ujd-6b-wt6" secondAttribute="bottom" id="J6f-tw-WP7"/>
-                                                    <constraint firstItem="Ujd-6b-wt6" firstAttribute="top" secondItem="Qzy-k3-Yi7" secondAttribute="top" id="NjY-Fp-pVx"/>
-                                                    <constraint firstItem="Ujd-6b-wt6" firstAttribute="leading" secondItem="Qzy-k3-Yi7" secondAttribute="leading" id="eyD-Zr-7oU"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Ujd-6b-wt6" secondAttribute="trailing" id="xmX-BK-PxU"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QuE-Kc-fce" userLabel="Music - UiView">
-                                                <rect key="frame" x="0.0" y="160" width="210" height="80"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37d-Ft-fD2" customClass="SoundButton">
-                                                        <rect key="frame" x="0.0" y="0.0" width="210" height="80"/>
-                                                        <animations/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                                        <inset key="contentEdgeInsets" minX="22" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        <state key="normal" title="Music" backgroundImage="button1">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <color key="titleShadowColor" red="0.56470588239999997" green="0.015686274510000001" blue="0.1333333333" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="enableMusic:" destination="yya-Jm-GhW" eventType="touchUpInside" id="NLw-qs-5jj"/>
-                                                        </connections>
-                                                    </button>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked" translatesAutoresizingMaskIntoConstraints="NO" id="4Qc-68-ap9">
-                                                        <rect key="frame" x="168" y="28" width="22" height="24"/>
-                                                        <animations/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="24" id="9dS-Cd-Obi"/>
-                                                            <constraint firstAttribute="width" constant="22" id="Yel-14-J9H"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                </subviews>
-                                                <animations/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="4Qc-68-ap9" secondAttribute="trailing" constant="20" id="AP7-yZ-XjU"/>
-                                                    <constraint firstAttribute="trailing" secondItem="37d-Ft-fD2" secondAttribute="trailing" id="S2w-P0-kkk"/>
-                                                    <constraint firstItem="37d-Ft-fD2" firstAttribute="top" secondItem="QuE-Kc-fce" secondAttribute="top" id="S7U-9n-PWM"/>
-                                                    <constraint firstItem="4Qc-68-ap9" firstAttribute="centerY" secondItem="37d-Ft-fD2" secondAttribute="centerY" id="iSU-Jj-pPd"/>
-                                                    <constraint firstItem="37d-Ft-fD2" firstAttribute="leading" secondItem="QuE-Kc-fce" secondAttribute="leading" id="ntF-Lu-qGP"/>
-                                                    <constraint firstAttribute="bottom" secondItem="37d-Ft-fD2" secondAttribute="bottom" id="zFC-tr-8jH"/>
-                                                </constraints>
-                                            </view>
+                                            </imageView>
                                         </subviews>
                                         <animations/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="210" id="6as-si-LR7"/>
-                                            <constraint firstItem="4Qc-68-ap9" firstAttribute="height" secondItem="mIZ-xs-673" secondAttribute="height" id="L2E-cW-ug9"/>
-                                            <constraint firstItem="4Qc-68-ap9" firstAttribute="width" secondItem="mIZ-xs-673" secondAttribute="width" id="cE9-LM-CsD"/>
-                                            <constraint firstAttribute="height" constant="240" id="e5L-2h-8Vu"/>
-                                            <constraint firstItem="4Qc-68-ap9" firstAttribute="centerX" secondItem="mIZ-xs-673" secondAttribute="centerX" id="fLi-d8-pEQ"/>
+                                            <constraint firstItem="mIZ-xs-673" firstAttribute="centerY" secondItem="Ujd-6b-wt6" secondAttribute="centerY" id="4OJ-pq-ofl"/>
+                                            <constraint firstAttribute="bottom" secondItem="Ujd-6b-wt6" secondAttribute="bottom" id="J6f-tw-WP7"/>
+                                            <constraint firstItem="Ujd-6b-wt6" firstAttribute="top" secondItem="Qzy-k3-Yi7" secondAttribute="top" id="NjY-Fp-pVx"/>
+                                            <constraint firstItem="Ujd-6b-wt6" firstAttribute="leading" secondItem="Qzy-k3-Yi7" secondAttribute="leading" id="eyD-Zr-7oU"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ujd-6b-wt6" secondAttribute="trailing" id="xmX-BK-PxU"/>
                                         </constraints>
-                                    </stackView>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QuE-Kc-fce" userLabel="Music - UiView">
+                                        <rect key="frame" x="55" y="127" width="210" height="80"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37d-Ft-fD2" customClass="SoundButton">
+                                                <rect key="frame" x="0.0" y="0.0" width="210" height="80"/>
+                                                <animations/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                <inset key="contentEdgeInsets" minX="22" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Music" backgroundImage="button1">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleShadowColor" red="0.56470588239999997" green="0.015686274510000001" blue="0.1333333333" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="enableMusic:" destination="yya-Jm-GhW" eventType="touchUpInside" id="NLw-qs-5jj"/>
+                                                </connections>
+                                            </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="checked" translatesAutoresizingMaskIntoConstraints="NO" id="4Qc-68-ap9">
+                                                <rect key="frame" x="168" y="28" width="22" height="24"/>
+                                                <animations/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="9dS-Cd-Obi"/>
+                                                    <constraint firstAttribute="width" constant="22" id="Yel-14-J9H"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <animations/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="4Qc-68-ap9" secondAttribute="trailing" constant="20" id="AP7-yZ-XjU"/>
+                                            <constraint firstAttribute="trailing" secondItem="37d-Ft-fD2" secondAttribute="trailing" id="S2w-P0-kkk"/>
+                                            <constraint firstItem="37d-Ft-fD2" firstAttribute="top" secondItem="QuE-Kc-fce" secondAttribute="top" id="S7U-9n-PWM"/>
+                                            <constraint firstItem="4Qc-68-ap9" firstAttribute="centerY" secondItem="37d-Ft-fD2" secondAttribute="centerY" id="iSU-Jj-pPd"/>
+                                            <constraint firstItem="37d-Ft-fD2" firstAttribute="leading" secondItem="QuE-Kc-fce" secondAttribute="leading" id="ntF-Lu-qGP"/>
+                                            <constraint firstAttribute="bottom" secondItem="37d-Ft-fD2" secondAttribute="bottom" id="zFC-tr-8jH"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="333" id="0Tx-do-h6v"/>
                                     <constraint firstAttribute="width" constant="320" id="lgD-lg-LbX"/>
-                                    <constraint firstItem="EaM-GP-oNa" firstAttribute="centerX" secondItem="gwX-z3-Lfg" secondAttribute="centerX" id="qNb-iu-PSo"/>
-                                    <constraint firstItem="EaM-GP-oNa" firstAttribute="centerY" secondItem="gwX-z3-Lfg" secondAttribute="centerY" id="u38-U0-Ldu"/>
                                 </constraints>
                             </view>
                         </subviews>
