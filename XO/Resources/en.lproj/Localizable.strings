@@ -47,7 +47,10 @@
 "startViewController.buttonTitle.Leaderboard" = "Leaderboard";
 "startViewController.buttonTitle.Setting" = "Setting";
 "startViewController.buttonTitle.About" = "About";
-"startViewController.buttonTitle.PlayOnline" = "PlayOnline";
+"startViewController.buttonTitle.PlayOnline" = "Play Online";
 "startViewController.buttonTitle.1Player" = "1 Player";
 "startViewController.buttonTitle.2Player" = "2 Players";
 
+//GameViewController
+
+"gameViewController.title" = "Tic Tac Toe";
