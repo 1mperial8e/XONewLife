@@ -25,7 +25,7 @@
     if (self) {
         NSArray *nibsArray = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil];
         UIView *view = [nibsArray firstObject];
-        
+        view.backgroundColor = [UIColor clearColor];
         view.translatesAutoresizingMaskIntoConstraints = NO;
         [self addSubview:view];
         [self addConstraintsForView:view];
@@ -81,7 +81,7 @@
         }
     }
     
-    CGRect buttonBoundsRect = CGRectMake(0, 0, self.frame.size.width / self.elementsCount, self.frame.size.height * 0.8f);
+    CGRect buttonBoundsRect = CGRectMake(0, 0, self.frame.size.width / self.elementsCount, self.frame.size.height);
     
     for (int i = 0; i < self.elementsCount; i++) {
         CGFloat buttonXPoint = i * buttonBoundsRect.size.width;

@@ -39,6 +39,7 @@ static NSString *const UnCheckedImageName = @"unchecked";
     [self prepareDifficultSwitch];
     [self localizeUI];
     
+    self.navigationController.navigationBar.hidden = NO;
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style: UIBarButtonItemStylePlain target:self action:@selector(backButtonTapped:)];
 }
 
@@ -46,6 +47,13 @@ static NSString *const UnCheckedImageName = @"unchecked";
 {
     [super viewWillAppear:animated];
     
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    self.navigationController.navigationBar.hidden = YES;
 }
 
 #pragma mark - UIActions
