@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F52581B1BE0D95E00957B07 /* KeychainStorageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F52581A1BE0D95E00957B07 /* KeychainStorageService.m */; };
-		4F5258211BE1124F00957B07 /* ScoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5258201BE1124F00957B07 /* ScoreModel.m */; };
 		4F655ACC1BDAA85000E6233A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F655ACB1BDAA85000E6233A /* Launch Screen.storyboard */; };
-		7F912D76191F632F00675027 /* AI.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F912D75191F632F00675027 /* AI.m */; };
 		7F972DEE1BDFC57300D2A77F /* Phosphate.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 7F972DED1BDFC57300D2A77F /* Phosphate.ttc */; };
 		8481FC441915273E00D9F0EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481FC431915273E00D9F0EB /* Foundation.framework */; };
 		8481FC481915273E00D9F0EB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481FC471915273E00D9F0EB /* UIKit.framework */; };
@@ -30,7 +27,6 @@
 		93061D471BDE855400F148E0 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93061D461BDE855400F148E0 /* GameManager.m */; };
 		93061D4B1BDE858800F148E0 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93061D4A1BDE858800F148E0 /* SoundManager.m */; };
 		93061D621BDE862B00F148E0 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93061D611BDE862B00F148E0 /* iPhone.storyboard */; };
-		93061D851BDE89C400F148E0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93061D821BDE89C400F148E0 /* Info.plist */; };
 		93061D861BDE89C400F148E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93061D831BDE89C400F148E0 /* main.m */; };
 		93061D971BDE8AF400F148E0 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93061D8A1BDE8AF400F148E0 /* AboutViewController.m */; };
 		93061D981BDE8AF400F148E0 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93061D8D1BDE8AF400F148E0 /* BaseViewController.m */; };
@@ -42,16 +38,13 @@
 		939F34971BDFDD7F009D12E2 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 939F34961BDFDD7F009D12E2 /* GameKit.framework */; };
 		939F34A31BE00457009D12E2 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 939F34A21BE00457009D12E2 /* Utils.m */; };
 		939F34A71BE00735009D12E2 /* GameAchivements.m in Sources */ = {isa = PBXBuildFile; fileRef = 939F34A61BE00735009D12E2 /* GameAchivements.m */; };
+		939F34CD1BE129E5009D12E2 /* AIPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 939F34CC1BE129E5009D12E2 /* AIPlayer.m */; };
+		939F34D71BE12B57009D12E2 /* KeychainStorageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 939F34D61BE12B57009D12E2 /* KeychainStorageService.m */; };
+		939F34DB1BE12B68009D12E2 /* ScoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 939F34DA1BE12B68009D12E2 /* ScoreModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4F5258191BE0D95E00957B07 /* KeychainStorageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainStorageService.h; sourceTree = "<group>"; };
-		4F52581A1BE0D95E00957B07 /* KeychainStorageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainStorageService.m; sourceTree = "<group>"; };
-		4F52581F1BE1124F00957B07 /* ScoreModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreModel.h; sourceTree = "<group>"; };
-		4F5258201BE1124F00957B07 /* ScoreModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreModel.m; sourceTree = "<group>"; };
 		4F655ACB1BDAA85000E6233A /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		7F912D74191F632F00675027 /* AI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AI.h; path = AI/AI.h; sourceTree = "<group>"; };
-		7F912D75191F632F00675027 /* AI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AI.m; path = AI/AI.m; sourceTree = "<group>"; };
 		7F972DED1BDFC57300D2A77F /* Phosphate.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Phosphate.ttc; sourceTree = "<group>"; };
 		8481FC401915273E00D9F0EB /* XO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8481FC431915273E00D9F0EB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -106,6 +99,12 @@
 		939F34A21BE00457009D12E2 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		939F34A51BE00735009D12E2 /* GameAchivements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameAchivements.h; sourceTree = "<group>"; };
 		939F34A61BE00735009D12E2 /* GameAchivements.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameAchivements.m; sourceTree = "<group>"; };
+		939F34CB1BE129E5009D12E2 /* AIPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPlayer.h; sourceTree = "<group>"; };
+		939F34CC1BE129E5009D12E2 /* AIPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPlayer.m; sourceTree = "<group>"; };
+		939F34D51BE12B57009D12E2 /* KeychainStorageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainStorageService.h; sourceTree = "<group>"; };
+		939F34D61BE12B57009D12E2 /* KeychainStorageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainStorageService.m; sourceTree = "<group>"; };
+		939F34D91BE12B68009D12E2 /* ScoreModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreModel.h; sourceTree = "<group>"; };
+		939F34DA1BE12B68009D12E2 /* ScoreModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,49 +123,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4F5258171BE0D93600957B07 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				4F5258181BE0D95000957B07 /* KeychainStorageService */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		4F5258181BE0D95000957B07 /* KeychainStorageService */ = {
-			isa = PBXGroup;
-			children = (
-				4F5258191BE0D95E00957B07 /* KeychainStorageService.h */,
-				4F52581A1BE0D95E00957B07 /* KeychainStorageService.m */,
-			);
-			path = KeychainStorageService;
-			sourceTree = "<group>";
-		};
-		4F52581D1BE1123200957B07 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				4F52581E1BE1123200957B07 /* ScoreModel */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		4F52581E1BE1123200957B07 /* ScoreModel */ = {
-			isa = PBXGroup;
-			children = (
-				4F52581F1BE1124F00957B07 /* ScoreModel.h */,
-				4F5258201BE1124F00957B07 /* ScoreModel.m */,
-			);
-			path = ScoreModel;
-			sourceTree = "<group>";
-		};
-		7F912D77191F633700675027 /* AI */ = {
-			isa = PBXGroup;
-			children = (
-				7F912D74191F632F00675027 /* AI.h */,
-				7F912D75191F632F00675027 /* AI.m */,
-			);
-			name = AI;
-			sourceTree = "<group>";
-		};
 		84742D7919197C54007B868E /* Other Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,7 +130,6 @@
 				939F34A01BE0044C009D12E2 /* Utils */,
 				93003DC71BDFD1DC009430B3 /* Categories */,
 				932A7A6B1BDEC265005A0E5F /* SoundButton */,
-				7F912D77191F633700675027 /* AI */,
 			);
 			path = "Other Classes";
 			sourceTree = "<group>";
@@ -211,12 +166,12 @@
 		8481FC491915273E00D9F0EB /* XO */ = {
 			isa = PBXGroup;
 			children = (
-				4F52581D1BE1123200957B07 /* Models */,
 				93061D2B1BDE84F200F148E0 /* Resources */,
-				4F5258171BE0D93600957B07 /* Services */,
+				939F34C51BE129D4009D12E2 /* Models */,
 				932A7A961BDEC476005A0E5F /* Views */,
 				93061D871BDE8AF400F148E0 /* ViewControllers */,
 				8481FC7D19152A2D00D9F0EB /* Managers */,
+				939F34D31BE12B57009D12E2 /* Services */,
 				84742D7919197C54007B868E /* Other Classes */,
 				8481FC521915273E00D9F0EB /* AppDelegate.h */,
 				8481FC531915273E00D9F0EB /* AppDelegate.m */,
@@ -418,6 +373,50 @@
 			path = GameAchivements;
 			sourceTree = "<group>";
 		};
+		939F34C51BE129D4009D12E2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				939F34D81BE12B68009D12E2 /* ScoreModel */,
+				939F34CA1BE129E5009D12E2 /* AI */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		939F34CA1BE129E5009D12E2 /* AI */ = {
+			isa = PBXGroup;
+			children = (
+				939F34CB1BE129E5009D12E2 /* AIPlayer.h */,
+				939F34CC1BE129E5009D12E2 /* AIPlayer.m */,
+			);
+			path = AI;
+			sourceTree = "<group>";
+		};
+		939F34D31BE12B57009D12E2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				939F34D41BE12B57009D12E2 /* KeychainStorageService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		939F34D41BE12B57009D12E2 /* KeychainStorageService */ = {
+			isa = PBXGroup;
+			children = (
+				939F34D51BE12B57009D12E2 /* KeychainStorageService.h */,
+				939F34D61BE12B57009D12E2 /* KeychainStorageService.m */,
+			);
+			path = KeychainStorageService;
+			sourceTree = "<group>";
+		};
+		939F34D81BE12B68009D12E2 /* ScoreModel */ = {
+			isa = PBXGroup;
+			children = (
+				939F34D91BE12B68009D12E2 /* ScoreModel.h */,
+				939F34DA1BE12B68009D12E2 /* ScoreModel.m */,
+			);
+			path = ScoreModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -491,7 +490,6 @@
 				93061D3F1BDE84F200F148E0 /* sound_click.mp3 in Resources */,
 				4F655ACC1BDAA85000E6233A /* Launch Screen.storyboard in Resources */,
 				93061D401BDE84F200F148E0 /* sound_goes_o.mp3 in Resources */,
-				93061D851BDE89C400F148E0 /* Info.plist in Resources */,
 				93061D431BDE84F200F148E0 /* sound_win.mp3 in Resources */,
 				93061D3D1BDE84F200F148E0 /* Images.xcassets in Resources */,
 				93061D421BDE84F200F148E0 /* sound_lose.mp3 in Resources */,
@@ -505,7 +503,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F5258211BE1124F00957B07 /* ScoreModel.m in Sources */,
+				939F34DB1BE12B68009D12E2 /* ScoreModel.m in Sources */,
 				93003DCB1BDFD206009430B3 /* UIFont+AppFont.m in Sources */,
 				939F34A71BE00735009D12E2 /* GameAchivements.m in Sources */,
 				932A7A9B1BDEC48E005A0E5F /* SwitchControlView.m in Sources */,
@@ -515,10 +513,10 @@
 				93061D9A1BDE8AF400F148E0 /* SettingsViewController.m in Sources */,
 				93003DCF1BDFD2B6009430B3 /* UIColor+AppColor.m in Sources */,
 				93061D4B1BDE858800F148E0 /* SoundManager.m in Sources */,
-				7F912D76191F632F00675027 /* AI.m in Sources */,
 				8481FC541915273E00D9F0EB /* AppDelegate.m in Sources */,
-				4F52581B1BE0D95E00957B07 /* KeychainStorageService.m in Sources */,
+				939F34CD1BE129E5009D12E2 /* AIPlayer.m in Sources */,
 				93061D861BDE89C400F148E0 /* main.m in Sources */,
+				939F34D71BE12B57009D12E2 /* KeychainStorageService.m in Sources */,
 				93061D9B1BDE8AF400F148E0 /* StartViewController.m in Sources */,
 				932A7A6E1BDEC278005A0E5F /* SoundButton.m in Sources */,
 				93061D981BDE8AF400F148E0 /* BaseViewController.m in Sources */,

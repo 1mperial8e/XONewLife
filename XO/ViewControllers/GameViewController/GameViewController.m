@@ -63,6 +63,7 @@ static NSString *const SettingButtonImageName = @"lightSettings";
 
 - (void)settingButtonPressed:(UIBarButtonItem *)sender
 {
+    [[SoundManager sharedInstance] playClickSound];
     SettingsViewController *settingViewController = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([SettingsViewController class])];
     [self.navigationController pushViewController:settingViewController animated:YES];
 }
