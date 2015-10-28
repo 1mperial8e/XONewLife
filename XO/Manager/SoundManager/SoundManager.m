@@ -7,6 +7,16 @@
 //
 
 #import "SoundManager.h"
+#import <AVFoundation/AVFoundation.h>
+
+static CGFloat const DefaultPlayerVolume = 0.6;
+
+@interface SoundManager ()
+
+@property (strong, nonatomic, nonnull) AVAudioPlayer *musicPlayer;
+@property (strong, nonatomic, nonnull) AVAudioPlayer *soundPlayer;
+
+@end
 
 @implementation SoundManager
 
@@ -19,6 +29,7 @@
     dispatch_once(&onceToken, ^{
         sharedInstance = [[self alloc] init];
         [sharedInstance loadSettings];
+        [sharedInstance initPlayers];
     });
     return sharedInstance;
 }
@@ -60,6 +71,22 @@
         _isMusicOn = YES;
         _isSoundOn = YES;
     }
+}
+
+- (void)initPlayers
+{
+    NSError *error;
+    
+    NSString *musicPath = [[NSBundle mainBundle] pathForResource:@"music" ofType:@"mp3"];
+    NSParameterAssert(musicPath);
+    NSURL *musicUrl = [NSURL fileURLWithPath:musicPath];
+    NSParameterAssert(musicUrl);
+
+    self.musicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:musicUrl error:&error];
+    NSAssert(error == nil, @"Sound manager error. Can't create music player");
+    
+    self.musicPlayer.volume = DefaultPlayerVolume;
+    [self.musicPlayer prepareToPlay];
 }
 
 @end
