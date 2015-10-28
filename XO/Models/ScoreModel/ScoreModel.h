@@ -3,7 +3,7 @@
 //  XO
 //
 //  Created by Stas Volskyi on 10/28/15.
-//  Copyright © 2015 Thinkmobiles. All rights reserved.
+//  Copyright (c) 2014 - present Thinkmobiles. All rights reserved.
 //
 
 @interface ScoreModel : NSObject
