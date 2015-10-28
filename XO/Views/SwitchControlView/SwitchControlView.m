@@ -23,12 +23,6 @@
 {
     self = [super initWithCoder:coder];
     if (self) {
-        NSArray *nibsArray = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil];
-        UIView *view = [nibsArray firstObject];
-        
-        view.translatesAutoresizingMaskIntoConstraints = NO;
-        [self addSubview:view];
-        [self addConstraintsForView:view];
         [self prepareInitialParameters];
     }
     return self;
@@ -81,7 +75,7 @@
         }
     }
     
-    CGRect buttonBoundsRect = CGRectMake(0, 0, self.frame.size.width / self.elementsCount, self.frame.size.height * 0.8f);
+    CGRect buttonBoundsRect = CGRectMake(0, 0, self.frame.size.width / self.elementsCount, self.frame.size.height);
     
     for (int i = 0; i < self.elementsCount; i++) {
         CGFloat buttonXPoint = i * buttonBoundsRect.size.width;
@@ -95,6 +89,8 @@
         
         [elementButton setBackgroundImage:self.activeBackgroundImages[i] forState:UIControlStateSelected];
         [elementButton setBackgroundImage:self.inActiveBackgroundImages[i] forState:UIControlStateNormal];
+        
+        elementButton.titleLabel.font = [UIFont gilSansLightFontWithSize:20.f];
 
         elementButton.tag = i+1;
         

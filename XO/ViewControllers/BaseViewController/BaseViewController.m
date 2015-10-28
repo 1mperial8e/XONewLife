@@ -22,6 +22,29 @@
     imageView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     imageView.image = [UIImage imageNamed:@"background"];
     [self.view insertSubview:imageView atIndex:0];
+    
+    [self prepareNavigationBar];
+}
+
+#pragma mark - IbActions
+
+- (void)backButtonTapped:(id)sender
+{
+    [[SoundManager sharedInstance] playClickSound];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - Private
+
+- (void)prepareNavigationBar
+{
+    [self.navigationController.navigationBar setTintColor:[UIColor appNavigationBarTextColor]];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{
+                                                                      NSFontAttributeName : [UIFont gilSansLightFontWithSize:24.f],
+                                                                      NSForegroundColorAttributeName : [UIColor appNavigationBarTextColor]
+                                                                      }];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationBarBackground"] forBarMetrics:UIBarMetricsDefault];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style: UIBarButtonItemStylePlain target:self action:@selector(backButtonTapped:)];
 }
 
 @end
