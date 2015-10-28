@@ -13,7 +13,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [SoundManager sharedInstance];
-    
+    [GameManager sharedInstance];
     return YES;
 }
 
