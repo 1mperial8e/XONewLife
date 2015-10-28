@@ -7,7 +7,6 @@
 //
 
 #import "SettingsViewController.h"
-#import "GameManager.h"
 
 //Views
 #import "SoundButton.h"
@@ -17,8 +16,9 @@ static NSString *const UnCheckedImageName = @"unchecked";
 
 @interface SettingsViewController ()
 
-@property (weak, nonatomic) IBOutlet SoundButton *enableSound;
-@property (weak, nonatomic) IBOutlet SoundButton *enableMusic;
+@property (weak, nonatomic) IBOutlet SoundButton *enableSoundButton;
+@property (weak, nonatomic) IBOutlet SoundButton *enableMusicButton;
+@property (weak, nonatomic) IBOutlet SoundButton *resetScoreButton;
 
 @property (weak, nonatomic) IBOutlet UIImageView *soundCheck;
 @property (weak, nonatomic) IBOutlet UIImageView *musicCheck;
@@ -44,16 +44,21 @@ static NSString *const UnCheckedImageName = @"unchecked";
 
 #pragma mark - UIActions
 
-- (IBAction)enableSound:(id)sender
+- (IBAction)enableSoundAction:(id)sender
 {
     [[SoundManager sharedInstance] turnSoundOn:![SoundManager sharedInstance].isSoundOn];
     [self updateControlState];
 }
 
-- (IBAction)enableMusic:(id)sender
+- (IBAction)enableMusicAction:(id)sender
 {
     [[SoundManager sharedInstance] turnMusicOn:![SoundManager sharedInstance].isMusicOn];
     [self updateControlState];
+}
+
+- (IBAction)resetScoreAction:(id)sender
+{
+    
 }
 
 #pragma mark - SwitchControlViewDelegate
@@ -86,8 +91,9 @@ static NSString *const UnCheckedImageName = @"unchecked";
 - (void)localizeUI
 {
     self.difficultSwitchView.elementsNames = @[NSLocalizedString(@"settingViewController.Easy", nil), NSLocalizedString(@"settingViewController.Hard", nil)];
-    [self.enableMusic setTitle:NSLocalizedString(@"settingViewController.Music", nil) forState:UIControlStateNormal];
-    [self.enableSound setTitle:NSLocalizedString(@"settingViewController.Sound", nil) forState:UIControlStateNormal];
+    [self.enableMusicButton setTitle:NSLocalizedString(@"settingViewController.Music", nil) forState:UIControlStateNormal];
+    [self.enableSoundButton setTitle:NSLocalizedString(@"settingViewController.Sound", nil) forState:UIControlStateNormal];
+    [self.resetScoreButton setTitle:NSLocalizedString(@"settingViewController.resetScore", nil) forState:UIControlStateNormal];
     self.title = NSLocalizedString(@"settingViewController.Title", nil);
 }
 
@@ -98,8 +104,8 @@ static NSString *const UnCheckedImageName = @"unchecked";
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 
-    self.soundCheck.image = [userDefaults integerForKey:SoundSettingsKey] ? checkedImage : unCheckedImage;
-    self.musicCheck.image = [userDefaults integerForKey:MusicSettingsKey] ? checkedImage : unCheckedImage;
+    self.soundCheck.image = [SoundManager sharedInstance].isSoundOn ? checkedImage : unCheckedImage;
+    self.musicCheck.image = [SoundManager sharedInstance].isMusicOn ? checkedImage : unCheckedImage;
 
     [self.difficultSwitchView selectElementWithTag:([userDefaults integerForKey:AIDifficultyKey] + 1)];
 }

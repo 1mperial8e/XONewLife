@@ -30,6 +30,7 @@
 "settingViewController.Music" = "Music";
 "settingViewController.Sound" = "Sound";
 "settingViewController.Title" = "Settings";
+"settingViewController.resetScore" = "Reset score";
 
 //AboutViewController
 

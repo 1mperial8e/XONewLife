@@ -33,6 +33,10 @@ static NSString *const DefaultScore = @"0:0";
     [KeychainStorageService saveScore:DefaultScore forAIMode:AIEasyDifficultyKey];
     [KeychainStorageService saveScore:DefaultScore forAIMode:AIMediumDifficultyKey];
     [KeychainStorageService saveScore:DefaultScore forAIMode:AIHardDifficultyKey];
+    
+    [self.easyModeScore updateWithScore:DefaultScore];
+    [self.mediumModeScore updateWithScore:DefaultScore];
+    [self.hardModeScore updateWithScore:DefaultScore];
 }
 
 - (void)updateScoreForMode:(AILevel)aiMode withVictory:(BOOL)aVictory

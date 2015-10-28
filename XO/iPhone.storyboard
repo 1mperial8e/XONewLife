@@ -696,35 +696,35 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gwX-z3-Lfg">
-                                <rect key="frame" x="0.0" y="117" width="320" height="333"/>
+                                <rect key="frame" x="0.0" y="85" width="320" height="398"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s0Y-cX-TMp" userLabel="Control">
-                                        <rect key="frame" x="56" y="42" width="209" height="250"/>
+                                        <rect key="frame" x="56" y="50" width="209" height="298"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yxm-5i-2zX" userLabel="DifficultLevel - Switch Control View" customClass="SwitchControlView">
-                                                <rect key="frame" x="0.0" y="0.0" width="209" height="84"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yxm-5i-2zX" userLabel="DifficultLevel - Switch Control View" customClass="SwitchControlView">
+                                                <rect key="frame" x="0.0" y="0.0" width="209" height="75"/>
                                                 <animations/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wHc-RB-XNr" userLabel="Sound - UiView">
-                                                <rect key="frame" x="0.0" y="84" width="209" height="83"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wHc-RB-XNr" userLabel="Sound - UiView">
+                                                <rect key="frame" x="0.0" y="75" width="209" height="74"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58e-xk-n7o" customClass="SoundButton">
-                                                        <rect key="frame" x="0.0" y="0.0" width="209" height="83"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58e-xk-n7o" customClass="SoundButton">
+                                                        <rect key="frame" x="0.0" y="0.0" width="209" height="74"/>
                                                         <animations/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="20"/>
                                                         <inset key="contentEdgeInsets" minX="22" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        <state key="normal" title="Sound" backgroundImage="button1">
+                                                        <state key="normal" title="Sound" backgroundImage="button2">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                             <color key="titleShadowColor" red="0.56470588239999997" green="0.015686274510000001" blue="0.1333333333" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="enableSound:" destination="yya-Jm-GhW" eventType="touchUpInside" id="a2Y-5r-Jcv"/>
+                                                            <action selector="enableSoundAction:" destination="yya-Jm-GhW" eventType="touchUpInside" id="QNN-2J-LYw"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="checked" translatesAutoresizingMaskIntoConstraints="NO" id="gkO-QX-vwk">
-                                                        <rect key="frame" x="167" y="30" width="22" height="24"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked" translatesAutoresizingMaskIntoConstraints="NO" id="gkO-QX-vwk">
+                                                        <rect key="frame" x="167" y="25" width="22" height="24"/>
                                                         <animations/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="22" id="bC4-AB-7nb"/>
@@ -744,24 +744,24 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aLP-2H-nIg" userLabel="Music - UiView">
-                                                <rect key="frame" x="0.0" y="167" width="209" height="83"/>
+                                                <rect key="frame" x="0.0" y="149" width="209" height="75"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGM-5c-sEK" customClass="SoundButton">
-                                                        <rect key="frame" x="0.0" y="0.0" width="209" height="83"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="209" height="75"/>
                                                         <animations/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="20"/>
                                                         <inset key="contentEdgeInsets" minX="22" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        <state key="normal" title="Music" backgroundImage="button1">
+                                                        <state key="normal" title="Music" backgroundImage="button3">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                             <color key="titleShadowColor" red="0.56470588239999997" green="0.015686274510000001" blue="0.1333333333" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="enableMusic:" destination="yya-Jm-GhW" eventType="touchUpInside" id="oHG-vW-diS"/>
+                                                            <action selector="enableMusicAction:" destination="yya-Jm-GhW" eventType="touchUpInside" id="09x-Uo-Qx7"/>
                                                         </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked" translatesAutoresizingMaskIntoConstraints="NO" id="Tr5-nX-Cjk">
-                                                        <rect key="frame" x="167" y="30" width="22" height="24"/>
+                                                        <rect key="frame" x="167" y="25" width="22" height="24"/>
                                                         <animations/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="cdA-DM-b4L"/>
@@ -780,21 +780,51 @@
                                                     <constraint firstItem="Tr5-nX-Cjk" firstAttribute="centerY" secondItem="GGM-5c-sEK" secondAttribute="centerY" id="ug3-ZW-JZX"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="egZ-jX-MTL" userLabel="ResetScore">
+                                                <rect key="frame" x="0.0" y="224" width="209" height="74"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cr3-aQ-rac" customClass="SoundButton">
+                                                        <rect key="frame" x="0.0" y="1" width="209" height="74"/>
+                                                        <animations/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="20"/>
+                                                        <state key="normal" title="Reset score" backgroundImage="button3">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="titleShadowColor" red="0.56470588239999997" green="0.015686274510000001" blue="0.1333333333" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="resetScoreAction:" destination="yya-Jm-GhW" eventType="touchUpInside" id="Yj9-cm-AqH"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <animations/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="cr3-aQ-rac" secondAttribute="bottom" id="6eE-rc-WiK"/>
+                                                    <constraint firstItem="cr3-aQ-rac" firstAttribute="top" secondItem="egZ-jX-MTL" secondAttribute="top" id="ET3-el-RWs"/>
+                                                    <constraint firstAttribute="trailing" secondItem="cr3-aQ-rac" secondAttribute="trailing" id="OJo-P8-5y7"/>
+                                                    <constraint firstItem="cr3-aQ-rac" firstAttribute="leading" secondItem="egZ-jX-MTL" secondAttribute="leading" id="aHY-OF-luJ"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="aLP-2H-nIg" firstAttribute="height" secondItem="yxm-5i-2zX" secondAttribute="height" id="0YM-ZB-Qpi"/>
+                                            <constraint firstItem="egZ-jX-MTL" firstAttribute="top" secondItem="aLP-2H-nIg" secondAttribute="bottom" id="0hx-oy-RP4"/>
                                             <constraint firstItem="wHc-RB-XNr" firstAttribute="height" secondItem="yxm-5i-2zX" secondAttribute="height" id="5qx-56-zh8"/>
+                                            <constraint firstItem="egZ-jX-MTL" firstAttribute="leading" secondItem="s0Y-cX-TMp" secondAttribute="leading" id="7rp-xV-9Xn"/>
                                             <constraint firstItem="wHc-RB-XNr" firstAttribute="leading" secondItem="s0Y-cX-TMp" secondAttribute="leading" id="CPp-t6-HfR"/>
+                                            <constraint firstItem="egZ-jX-MTL" firstAttribute="height" secondItem="yxm-5i-2zX" secondAttribute="height" id="Igl-6G-1Rf"/>
                                             <constraint firstItem="yxm-5i-2zX" firstAttribute="leading" secondItem="s0Y-cX-TMp" secondAttribute="leading" id="JM1-vt-rHi"/>
+                                            <constraint firstAttribute="bottom" secondItem="egZ-jX-MTL" secondAttribute="bottom" id="Jxb-56-RQ3"/>
                                             <constraint firstAttribute="trailing" secondItem="aLP-2H-nIg" secondAttribute="trailing" id="XLy-yE-Lhj"/>
                                             <constraint firstAttribute="trailing" secondItem="wHc-RB-XNr" secondAttribute="trailing" id="Y6G-Du-NMw"/>
                                             <constraint firstItem="wHc-RB-XNr" firstAttribute="top" secondItem="yxm-5i-2zX" secondAttribute="bottom" id="bBA-6Q-iWK"/>
                                             <constraint firstItem="aLP-2H-nIg" firstAttribute="leading" secondItem="s0Y-cX-TMp" secondAttribute="leading" id="dyQ-vy-EKf"/>
+                                            <constraint firstAttribute="trailing" secondItem="egZ-jX-MTL" secondAttribute="trailing" id="faW-Qw-nRn"/>
                                             <constraint firstItem="aLP-2H-nIg" firstAttribute="top" secondItem="wHc-RB-XNr" secondAttribute="bottom" id="gd4-Fl-Ozu"/>
                                             <constraint firstItem="yxm-5i-2zX" firstAttribute="top" secondItem="s0Y-cX-TMp" secondAttribute="top" id="mzS-tq-IIQ"/>
-                                            <constraint firstAttribute="bottom" secondItem="aLP-2H-nIg" secondAttribute="bottom" id="xQI-Ki-2j9"/>
                                             <constraint firstAttribute="trailing" secondItem="yxm-5i-2zX" secondAttribute="trailing" id="zFP-kv-EGp"/>
                                         </constraints>
                                     </view>
@@ -802,7 +832,6 @@
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="333" id="0Tx-do-h6v"/>
                                     <constraint firstItem="s0Y-cX-TMp" firstAttribute="width" secondItem="gwX-z3-Lfg" secondAttribute="width" multiplier="0.65" constant="1" id="11V-Oa-flc"/>
                                     <constraint firstItem="s0Y-cX-TMp" firstAttribute="centerX" secondItem="gwX-z3-Lfg" secondAttribute="centerX" id="1FF-s1-NZu"/>
                                     <constraint firstItem="s0Y-cX-TMp" firstAttribute="height" secondItem="gwX-z3-Lfg" secondAttribute="height" multiplier="0.75" id="5vl-B1-NsZ"/>
@@ -816,6 +845,7 @@
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="gwX-z3-Lfg" secondAttribute="centerY" id="AS7-ip-fcS"/>
                             <constraint firstAttribute="centerX" secondItem="gwX-z3-Lfg" secondAttribute="centerX" id="BVz-6k-dEH"/>
+                            <constraint firstItem="gwX-z3-Lfg" firstAttribute="height" secondItem="8BV-X5-1be" secondAttribute="height" multiplier="0.7" id="DVw-Dh-PWK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="79h-Mt-2Do"/>
@@ -825,9 +855,10 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="difficultSwitchView" destination="yxm-5i-2zX" id="SiB-vS-4hf"/>
-                        <outlet property="enableMusic" destination="GGM-5c-sEK" id="cum-c3-5mw"/>
-                        <outlet property="enableSound" destination="58e-xk-n7o" id="xQu-mO-MOc"/>
+                        <outlet property="enableMusicButton" destination="GGM-5c-sEK" id="fTZ-EY-3tv"/>
+                        <outlet property="enableSoundButton" destination="58e-xk-n7o" id="HSZ-Dw-35x"/>
                         <outlet property="musicCheck" destination="Tr5-nX-Cjk" id="f9X-23-VrP"/>
+                        <outlet property="resetScoreButton" destination="cr3-aQ-rac" id="TtW-hj-GNH"/>
                         <outlet property="soundCheck" destination="gkO-QX-vwk" id="DcZ-mh-4W2"/>
                     </connections>
                 </viewController>
