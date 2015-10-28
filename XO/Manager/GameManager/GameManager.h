@@ -6,8 +6,17 @@
 //  Copyright (c) 2014 - present Thinkmobiles. All rights reserved.
 //
 
+#import "ScoreModel.h"
+
 @interface GameManager : NSObject
 
-+ (instancetype)sharedInstance;
+@property (strong, nonatomic, nonnull) ScoreModel *easyModeScore;
+@property (strong, nonatomic, nonnull) ScoreModel *mediumModeScore;
+@property (strong, nonatomic, nonnull) ScoreModel *hardModeScore;
+
++ (nonnull instancetype)sharedInstance;
+
+- (void)resetLocalScore;
+- (void)updateScoreForMode:(AILevel)aiMode withVictory:(BOOL)aVictory;
 
 @end

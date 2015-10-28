@@ -27,5 +27,9 @@
     return [UIFont fontWithName:@"GillSans-Light" size:size];
 }
 
++ (UIFont *)gilSansRegularFontWithSize:(CGFloat)size
+{
+    return [UIFont fontWithName:@"GillSans" size:size];
+}
 
 @end

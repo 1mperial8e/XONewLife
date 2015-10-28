@@ -43,16 +43,6 @@
 
 #pragma mark - Actions
 
-- (IBAction)settings:(id)sender
-{
-    [[SoundManager sharedInstance] playClickSound];
-}
-
-- (IBAction)aboutButton:(id)sender
-{
-    [[SoundManager sharedInstance] playClickSound];
-}
-
 - (IBAction)achivementsButtonTapped:(id)sender
 {
     GameAchivements *gameAchivements = [[GameAchivements alloc] init];

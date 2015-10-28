@@ -6,9 +6,15 @@
 //  Copyright (c) 2014 - present Thinkmobiles. All rights reserved.
 //
 
+// MARK: userdefaults
 static NSString *const AIDifficultyKey = @"AIDifficultyKey";
 static NSString *const MusicSettingsKey = @"MusicSettingsKey";
 static NSString *const SoundSettingsKey = @"SoundSettingsKey";
+
+// MARK: keychain
+static NSString *const AIEasyDifficultyKey = @"AIEasyDifficultyKey";
+static NSString *const AIMediumDifficultyKey = @"AIMediumDifficultyKey";
+static NSString *const AIHardDifficultyKey = @"AIHardDifficultyKey";
 
 #pragma mark - Enums
 

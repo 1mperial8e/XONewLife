@@ -12,5 +12,6 @@
 + (UIFont *)phosphateInlineFontWithSize:(CGFloat)size;
 
 + (UIFont *)gilSansLightFontWithSize:(CGFloat)size;
++ (UIFont *)gilSansRegularFontWithSize:(CGFloat)size;
 
 @end

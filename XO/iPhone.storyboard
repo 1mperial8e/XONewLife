@@ -67,7 +67,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="83u-OG-HvW" userLabel="Buttons Container">
                                 <rect key="frame" x="20" y="20" width="280" height="222"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXF-2A-saR">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXF-2A-saR" customClass="SoundButton">
                                         <rect key="frame" x="101" y="20" width="78" height="38"/>
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -80,7 +80,7 @@
                                             <segue destination="Ehd-WW-Mg5" kind="push" id="LAq-iW-aQF"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCo-RS-3Ie">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCo-RS-3Ie" customClass="SoundButton">
                                         <rect key="frame" x="95" y="68" width="90" height="38"/>
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -90,7 +90,7 @@
                                             <color key="titleShadowColor" red="0.56470588239999997" green="0.015686274510000001" blue="0.1333333333" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6A-R5-2a6">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6A-R5-2a6" customClass="SoundButton">
                                         <rect key="frame" x="82" y="116" width="117" height="38"/>
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -100,7 +100,7 @@
                                             <color key="titleShadowColor" red="0.56470588239999997" green="0.015686274510000001" blue="0.1333333333" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxp-Sb-ING">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxp-Sb-ING" customClass="SoundButton">
                                         <rect key="frame" x="108" y="164" width="64" height="38"/>
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -110,7 +110,6 @@
                                             <color key="titleShadowColor" red="0.56470588239999997" green="0.015686274510000001" blue="0.1333333333" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="aboutButton:" destination="YxK-UW-oVt" eventType="touchUpInside" id="e6o-wx-sLA"/>
                                             <segue destination="XKe-xM-hso" kind="push" id="glZ-fi-5wb"/>
                                         </connections>
                                     </button>
@@ -156,7 +155,7 @@
                                             <constraint firstAttribute="width" constant="36" id="uYF-ot-WqN"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5v-08-xuZ">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5v-08-xuZ" customClass="SoundButton">
                                         <rect key="frame" x="1" y="0.0" width="106" height="70"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="13"/>
@@ -168,7 +167,7 @@
                                             <action selector="leaderBoardButtonTapped:" destination="YxK-UW-oVt" eventType="touchUpInside" id="vP1-Id-95s"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNA-7C-R0M">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNA-7C-R0M" customClass="SoundButton">
                                         <rect key="frame" x="107" y="0.0" width="106" height="70"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="13"/>
@@ -180,7 +179,7 @@
                                             <action selector="achivementsButtonTapped:" destination="YxK-UW-oVt" eventType="touchUpInside" id="omI-ZH-Hir"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mrb-50-4fV">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mrb-50-4fV" customClass="SoundButton">
                                         <rect key="frame" x="213" y="0.0" width="106" height="70"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="13"/>
@@ -241,7 +240,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
-                        <outlet property="aboutButton" destination="pxp-Sb-ING" id="NqE-wx-YJ5"/>
+                        <outlet property="aboutButton" destination="pxp-Sb-ING" id="M1a-NP-hsc"/>
                         <outlet property="achivementsButton" destination="KNA-7C-R0M" id="GyG-jo-1Fi"/>
                         <outlet property="leaderboardButton" destination="u5v-08-xuZ" id="2k8-3I-Lza"/>
                         <outlet property="multiPlayerButton" destination="mCo-RS-3Ie" id="GDi-wP-Ybh"/>
@@ -702,15 +701,15 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s0Y-cX-TMp" userLabel="Control">
                                         <rect key="frame" x="56" y="42" width="209" height="250"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yxm-5i-2zX" userLabel="DifficultLevel - Switch Control View" customClass="SwitchControlView">
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yxm-5i-2zX" userLabel="DifficultLevel - Switch Control View" customClass="SwitchControlView">
                                                 <rect key="frame" x="0.0" y="0.0" width="209" height="84"/>
                                                 <animations/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wHc-RB-XNr" userLabel="Sound - UiView">
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wHc-RB-XNr" userLabel="Sound - UiView">
                                                 <rect key="frame" x="0.0" y="84" width="209" height="83"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58e-xk-n7o" customClass="SoundButton">
+                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58e-xk-n7o" customClass="SoundButton">
                                                         <rect key="frame" x="0.0" y="0.0" width="209" height="83"/>
                                                         <animations/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -724,7 +723,7 @@
                                                             <action selector="enableSound:" destination="yya-Jm-GhW" eventType="touchUpInside" id="a2Y-5r-Jcv"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked" translatesAutoresizingMaskIntoConstraints="NO" id="gkO-QX-vwk">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="checked" translatesAutoresizingMaskIntoConstraints="NO" id="gkO-QX-vwk">
                                                         <rect key="frame" x="167" y="30" width="22" height="24"/>
                                                         <animations/>
                                                         <constraints>
@@ -748,7 +747,7 @@
                                                 <rect key="frame" x="0.0" y="167" width="209" height="83"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGM-5c-sEK" customClass="SoundButton">
-                                                        <rect key="frame" x="0.0" y="0.0" width="209" height="84"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="209" height="83"/>
                                                         <animations/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="20"/>

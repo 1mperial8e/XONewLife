@@ -20,6 +20,10 @@
 "timeOut"="Time is out";
 "timeOponent"="Time is out. Opponent has left the game";
 
+// Common
+
+"common.back" = "Back";
+
 //SettingViewController
 "settingViewController.Easy" = "Easy";
 "settingViewController.Hard" = "Hard";
