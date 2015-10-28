@@ -38,13 +38,25 @@
 
 - (void)prepareNavigationBar
 {
+    NSMutableDictionary *textAttributes = [@{NSFontAttributeName : [UIFont gilSansLightFontWithSize:26.f],
+                                             NSForegroundColorAttributeName : [UIColor appNavigationBarTextColor]} mutableCopy];
+    
     [self.navigationController.navigationBar setTintColor:[UIColor appNavigationBarTextColor]];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{
-                                                                      NSFontAttributeName : [UIFont gilSansLightFontWithSize:24.f],
-                                                                      NSForegroundColorAttributeName : [UIColor appNavigationBarTextColor]
-                                                                      }];
+    [self.navigationController.navigationBar setTitleTextAttributes:textAttributes];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationBarBackground"] forBarMetrics:UIBarMetricsDefault];
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style: UIBarButtonItemStylePlain target:self action:@selector(backButtonTapped:)];
+    self.navigationItem.hidesBackButton = YES;
+    
+    NSString *localizedBack = NSLocalizedString(@"common.back", nil);
+    [textAttributes setValue:[UIFont gilSansRegularFontWithSize:20.f] forKey:NSFontAttributeName];
+    CGSize textSize = [localizedBack sizeWithAttributes:textAttributes];
+    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, textSize.width + 10, CGRectGetHeight(self.navigationController.navigationBar.frame))];
+    NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:localizedBack
+                                                                         attributes:textAttributes];
+    [backButton setAttributedTitle:attributedText forState:UIControlStateNormal];
+    [backButton addTarget:self action:@selector(backButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    
+    self.navigationItem.leftBarButtonItem = backItem;
 }
 
 @end

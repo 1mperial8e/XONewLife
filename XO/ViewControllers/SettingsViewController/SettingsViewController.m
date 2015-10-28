@@ -42,13 +42,6 @@ static NSString *const UnCheckedImageName = @"unchecked";
     self.navigationController.navigationBar.hidden = NO;
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    
-    self.navigationController.navigationBar.hidden = YES;
-}
-
 #pragma mark - UIActions
 
 - (IBAction)enableSound:(id)sender
