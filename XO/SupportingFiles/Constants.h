@@ -19,7 +19,7 @@ typedef NS_ENUM(NSInteger, GameMode){
 };
 
 typedef NS_ENUM(NSInteger, Player){
-    PlayerNone,
+    PlayerNone = 0,
     PlayerFirst,
     PlayerSecond
 };

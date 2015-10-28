@@ -377,7 +377,7 @@
                                         <rect key="frame" x="8" y="0.0" width="96" height="125"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Xd-bV-7Dx" userLabel="Background - UIView">
-                                                <rect key="frame" x="11.5" y="11.5" width="72" height="72.5"/>
+                                                <rect key="frame" x="12" y="12" width="72" height="72"/>
                                                 <animations/>
                                                 <color key="backgroundColor" red="0.1965880102" green="0.098721546709999997" blue="0.0004065940448" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -385,7 +385,7 @@
                                                 </constraints>
                                             </view>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Njc-29-WPx">
-                                                <rect key="frame" x="19" y="19" width="57.5" height="57.5"/>
+                                                <rect key="frame" x="19" y="19" width="58" height="58"/>
                                                 <animations/>
                                                 <color key="backgroundColor" red="0.99566078186035156" green="0.80041199922561646" blue="0.60967189073562622" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -429,8 +429,8 @@
                                                     <constraint firstAttribute="height" constant="40" id="5gJ-AD-LcM"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="46.5" translatesAutoresizingMaskIntoConstraints="NO" id="jIk-yL-0xQ">
-                                                <rect key="frame" x="0.0" y="85" width="48.5" height="40"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="46.5" translatesAutoresizingMaskIntoConstraints="NO" id="jIk-yL-0xQ">
+                                                <rect key="frame" x="0.0" y="85" width="49" height="40"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" name="Phosphate-Inline" family="Phosphate" pointSize="30"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -444,7 +444,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dLU-3k-UKZ" userLabel="Timer - UIView">
-                                                <rect key="frame" x="11.5" y="1.5" width="72" height="72"/>
+                                                <rect key="frame" x="12" y="2" width="72" height="72"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timer" translatesAutoresizingMaskIntoConstraints="NO" id="xf1-il-Wrp">
                                                         <rect key="frame" x="4" y="4" width="64" height="64"/>
@@ -508,8 +508,8 @@
                                                 <color key="textColor" red="0.9882352941176471" green="0.85490196078431369" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZZV-Y1-OYe" userLabel="Bakground - View">
-                                                <rect key="frame" x="12.5" y="11.5" width="72" height="72"/>
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZZV-Y1-OYe" userLabel="Bakground - View">
+                                                <rect key="frame" x="13" y="12" width="72" height="72"/>
                                                 <animations/>
                                                 <color key="backgroundColor" red="0.1965880102" green="0.098721546709999997" blue="0.0004065940448" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -517,7 +517,7 @@
                                                 </constraints>
                                             </view>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QWB-5A-0yn">
-                                                <rect key="frame" x="19.5" y="19" width="57.5" height="57"/>
+                                                <rect key="frame" x="20" y="19" width="57" height="57"/>
                                                 <animations/>
                                                 <color key="backgroundColor" red="0.99566078186035156" green="0.80041199922561646" blue="0.60967189073562622" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>

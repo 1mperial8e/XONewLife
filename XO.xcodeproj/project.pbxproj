@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4F655ACC1BDAA85000E6233A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F655ACB1BDAA85000E6233A /* Launch Screen.storyboard */; };
-		7F912D76191F632F00675027 /* AI.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F912D75191F632F00675027 /* AI.m */; };
 		7F972DEE1BDFC57300D2A77F /* Phosphate.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 7F972DED1BDFC57300D2A77F /* Phosphate.ttc */; };
 		8481FC441915273E00D9F0EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481FC431915273E00D9F0EB /* Foundation.framework */; };
 		8481FC481915273E00D9F0EB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481FC471915273E00D9F0EB /* UIKit.framework */; };
@@ -40,12 +39,11 @@
 		939F34971BDFDD7F009D12E2 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 939F34961BDFDD7F009D12E2 /* GameKit.framework */; };
 		939F34A31BE00457009D12E2 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 939F34A21BE00457009D12E2 /* Utils.m */; };
 		939F34A71BE00735009D12E2 /* GameAchivements.m in Sources */ = {isa = PBXBuildFile; fileRef = 939F34A61BE00735009D12E2 /* GameAchivements.m */; };
+		939F34C41BE126EA009D12E2 /* AIPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 939F34C31BE126EA009D12E2 /* AIPlayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4F655ACB1BDAA85000E6233A /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		7F912D74191F632F00675027 /* AI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AI.h; path = AI/AI.h; sourceTree = "<group>"; };
-		7F912D75191F632F00675027 /* AI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AI.m; path = AI/AI.m; sourceTree = "<group>"; };
 		7F972DED1BDFC57300D2A77F /* Phosphate.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Phosphate.ttc; sourceTree = "<group>"; };
 		8481FC401915273E00D9F0EB /* XO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8481FC431915273E00D9F0EB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -100,6 +98,8 @@
 		939F34A21BE00457009D12E2 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		939F34A51BE00735009D12E2 /* GameAchivements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameAchivements.h; sourceTree = "<group>"; };
 		939F34A61BE00735009D12E2 /* GameAchivements.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameAchivements.m; sourceTree = "<group>"; };
+		939F34C21BE126EA009D12E2 /* AIPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPlayer.h; sourceTree = "<group>"; };
+		939F34C31BE126EA009D12E2 /* AIPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPlayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,15 +118,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7F912D77191F633700675027 /* AI */ = {
-			isa = PBXGroup;
-			children = (
-				7F912D74191F632F00675027 /* AI.h */,
-				7F912D75191F632F00675027 /* AI.m */,
-			);
-			name = AI;
-			sourceTree = "<group>";
-		};
 		84742D7919197C54007B868E /* Other Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,7 +125,7 @@
 				939F34A01BE0044C009D12E2 /* Utils */,
 				93003DC71BDFD1DC009430B3 /* Categories */,
 				932A7A6B1BDEC265005A0E5F /* SoundButton */,
-				7F912D77191F633700675027 /* AI */,
+				939F34C11BE126EA009D12E2 /* AI */,
 			);
 			path = "Other Classes";
 			sourceTree = "<group>";
@@ -376,6 +367,15 @@
 			path = GameAchivements;
 			sourceTree = "<group>";
 		};
+		939F34C11BE126EA009D12E2 /* AI */ = {
+			isa = PBXGroup;
+			children = (
+				939F34C21BE126EA009D12E2 /* AIPlayer.h */,
+				939F34C31BE126EA009D12E2 /* AIPlayer.m */,
+			);
+			path = AI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -471,8 +471,8 @@
 				93061D991BDE8AF400F148E0 /* GameViewController.m in Sources */,
 				93061D9A1BDE8AF400F148E0 /* SettingsViewController.m in Sources */,
 				93003DCF1BDFD2B6009430B3 /* UIColor+AppColor.m in Sources */,
+				939F34C41BE126EA009D12E2 /* AIPlayer.m in Sources */,
 				93061D4B1BDE858800F148E0 /* SoundManager.m in Sources */,
-				7F912D76191F632F00675027 /* AI.m in Sources */,
 				8481FC541915273E00D9F0EB /* AppDelegate.m in Sources */,
 				93061D861BDE89C400F148E0 /* main.m in Sources */,
 				93061D9B1BDE8AF400F148E0 /* StartViewController.m in Sources */,
