@@ -16,6 +16,9 @@
 - (void)turnSoundOn:(BOOL)on;
 - (void)turnMusicOn:(BOOL)on;
 
+// MARK: Play methods
 - (void)playClickSound;
+- (void)playXTurnSound;
+- (void)playOTurnSound;
 
 @end

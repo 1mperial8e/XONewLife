@@ -53,13 +53,13 @@ static NSString *const UnCheckedImageName = @"unchecked";
 
 - (IBAction)enableSound:(id)sender
 {
-    [[SoundManager sharedInstance] turnSoundOn:![[NSUserDefaults standardUserDefaults] boolForKey:SoundSettingsKey]];
+    [[SoundManager sharedInstance] turnSoundOn:![SoundManager sharedInstance].isSoundOn];
     [self updateControlState];
 }
 
 - (IBAction)enableMusic:(id)sender
 {
-    [[SoundManager sharedInstance] turnMusicOn:![[NSUserDefaults standardUserDefaults] boolForKey:MusicSettingsKey]];
+    [[SoundManager sharedInstance] turnMusicOn:![SoundManager sharedInstance].isMusicOn];
     [self updateControlState];
 }
 
