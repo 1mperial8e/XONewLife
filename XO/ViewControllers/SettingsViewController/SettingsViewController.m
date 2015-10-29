@@ -76,7 +76,7 @@ static NSString *const UnCheckedImageName = @"unchecked";
 {
     self.difficultSwitchView.elementsCount = 2;
     self.difficultSwitchView.delegate = self;
-    self.difficultSwitchView.activeElementTintColor = [UIColor blackColor];
+    self.difficultSwitchView.activeElementTintColor = [UIColor appButtonTextColor];
     self.difficultSwitchView.inActiveElementTintColor = [UIColor lightGrayColor];
     self.difficultSwitchView.activeBackgroundImages = @[
                                                         [UIImage imageNamed:@"left_Active"],

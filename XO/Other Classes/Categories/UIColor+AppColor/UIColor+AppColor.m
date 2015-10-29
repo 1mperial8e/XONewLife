@@ -17,6 +17,11 @@
     return [UIColor colorWithRealRed:250 green:209 blue:166 alpha:1.0f];
 }
 
++ (UIColor *)appButtonTextColor
+{
+    return [UIColor colorWithRealRed:68 green:28 blue:0 alpha:1.0f];
+}
+
 #pragma mark - Private
 
 + (UIColor *)colorWithRealRed:(int)red green:(int)green blue:(int)blue alpha:(float)alpha
