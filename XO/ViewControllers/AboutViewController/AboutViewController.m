@@ -23,14 +23,12 @@
     [super viewDidLoad];
     
     [self localizeUI];
-    self.navigationController.navigationBar.hidden = NO;
 }
 
-- (void)viewWillDisappear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillDisappear:animated];
-    
-    self.navigationController.navigationBar.hidden = YES;
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 #pragma mark - Private

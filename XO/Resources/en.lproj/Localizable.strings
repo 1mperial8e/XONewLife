@@ -31,6 +31,9 @@
 "settingViewController.Sound" = "Sound";
 "settingViewController.Title" = "Settings";
 "settingViewController.resetScore" = "Reset score";
+"settingViewController.areYouSure" = "Are you sure?";
+"settingViewController.yesSure" = "Yes, I'm sure";
+"settingViewController.notSure" = "No, I'm not";
 
 //AboutViewController
 

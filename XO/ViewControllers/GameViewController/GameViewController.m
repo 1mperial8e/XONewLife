@@ -49,14 +49,7 @@ static NSString *const SettingButtonImageName = @"lightSettings";
 {
     [super viewWillAppear:animated];
     
-    self.navigationController.navigationBar.hidden = NO;
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    
-    self.navigationController.navigationBar.hidden = YES;
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 #pragma mark - IBAction

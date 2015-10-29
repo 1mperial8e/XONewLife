@@ -38,7 +38,7 @@ typedef NS_ENUM(NSInteger, VectorType){
 };
 
 typedef NS_ENUM(NSInteger, AILevel){
-    AILevelEasy,
+    AILevelEasy = 1,
     AILevelMedium,
     AILevelHard
 };
