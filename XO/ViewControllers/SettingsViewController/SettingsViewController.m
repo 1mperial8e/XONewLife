@@ -11,17 +11,14 @@
 //Views
 #import "SoundButton.h"
 
-static NSString *const CheckedImageName = @"checked";
-static NSString *const UnCheckedImageName = @"unchecked";
-
 @interface SettingsViewController ()
 
 @property (weak, nonatomic) IBOutlet SoundButton *enableSoundButton;
 @property (weak, nonatomic) IBOutlet SoundButton *enableMusicButton;
 @property (weak, nonatomic) IBOutlet SoundButton *resetScoreButton;
 
-@property (weak, nonatomic) IBOutlet UIImageView *soundCheck;
-@property (weak, nonatomic) IBOutlet UIImageView *musicCheck;
+@property (weak, nonatomic) IBOutlet UIImageView *soundCheckImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *musicCheckImageView;
 
 @property (weak, nonatomic) IBOutlet SwitchControlView *difficultSwitchView;
 
@@ -104,11 +101,11 @@ static NSString *const UnCheckedImageName = @"unchecked";
 
 - (void)updateControlState
 {
-    UIImage *checkedImage = [UIImage imageNamed:CheckedImageName];
-    UIImage *unCheckedImage = [UIImage imageNamed:UnCheckedImageName];
-    
-    self.soundCheck.image = [SoundManager sharedInstance].isSoundOn ? checkedImage : unCheckedImage;
-    self.musicCheck.image = [SoundManager sharedInstance].isMusicOn ? checkedImage : unCheckedImage;
+    __weak typeof(self) weakSelf = self;
+    [UIView animateWithDuration:0.2f animations:^{
+        weakSelf.soundCheckImageView.alpha = [SoundManager sharedInstance].isSoundOn;
+        weakSelf.musicCheckImageView.alpha = [SoundManager sharedInstance].isMusicOn;
+    }];
 
     [self.difficultSwitchView selectElementWithTag:[GameManager sharedInstance].aiLevel];
 }

@@ -22,6 +22,7 @@
 {
     [super viewDidLoad];
     
+    self.aboutTextView.font = [UIFont adigianaFontWithSize:18.0f];
     [self localizeUI];
 }
 

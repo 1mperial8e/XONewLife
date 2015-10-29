@@ -23,6 +23,7 @@
             <string>Adigiana2</string>
             <string>Adigiana2</string>
             <string>Adigiana2</string>
+            <string>Adigiana2</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -386,14 +387,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UGf-7l-s36" userLabel="FirstPlayer - UiView">
                                         <rect key="frame" x="8" y="0.0" width="96" height="125"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Xd-bV-7Dx" userLabel="Background - UIView">
-                                                <rect key="frame" x="12" y="12" width="72" height="72"/>
-                                                <animations/>
-                                                <color key="backgroundColor" red="0.1965880102" green="0.098721546709999997" blue="0.0004065940448" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="1Xd-bV-7Dx" secondAttribute="height" multiplier="1:1" id="7TQ-KF-KDS"/>
-                                                </constraints>
-                                            </view>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Njc-29-WPx">
                                                 <rect key="frame" x="19" y="19" width="58" height="58"/>
                                                 <animations/>
@@ -402,7 +395,7 @@
                                                     <constraint firstAttribute="width" secondItem="Njc-29-WPx" secondAttribute="height" multiplier="1:1" id="46L-gh-pQ7"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payer 1" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="85" translatesAutoresizingMaskIntoConstraints="NO" id="FYN-Ii-4fX">
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payer 1" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" preferredMaxLayoutWidth="85" translatesAutoresizingMaskIntoConstraints="NO" id="FYN-Ii-4fX">
                                                 <rect key="frame" x="0.0" y="100" width="96" height="25"/>
                                                 <animations/>
                                                 <color key="backgroundColor" red="0.22708067602040816" green="0.11403419537820175" blue="0.00046966063933040172" alpha="1" colorSpace="calibratedRGB"/>
@@ -418,15 +411,12 @@
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="1Xd-bV-7Dx" firstAttribute="centerY" secondItem="UGf-7l-s36" secondAttribute="centerY" constant="-15" id="4bq-8a-XkC"/>
-                                            <constraint firstItem="1Xd-bV-7Dx" firstAttribute="width" secondItem="UGf-7l-s36" secondAttribute="width" multiplier="0.75" id="ElH-ky-sYH"/>
                                             <constraint firstAttribute="bottom" secondItem="FYN-Ii-4fX" secondAttribute="bottom" id="MCQ-G7-cSp"/>
                                             <constraint firstItem="Njc-29-WPx" firstAttribute="centerX" secondItem="UGf-7l-s36" secondAttribute="centerX" id="QGA-qL-gEN"/>
                                             <constraint firstItem="FYN-Ii-4fX" firstAttribute="leading" secondItem="UGf-7l-s36" secondAttribute="leading" id="baq-dX-iGO"/>
                                             <constraint firstAttribute="trailing" secondItem="FYN-Ii-4fX" secondAttribute="trailing" id="i9e-Rl-5e5"/>
                                             <constraint firstItem="Njc-29-WPx" firstAttribute="centerY" secondItem="UGf-7l-s36" secondAttribute="centerY" constant="-15" id="pT4-ZH-Njr"/>
                                             <constraint firstItem="Njc-29-WPx" firstAttribute="width" secondItem="UGf-7l-s36" secondAttribute="width" multiplier="0.6" id="uBI-hu-PAy"/>
-                                            <constraint firstItem="1Xd-bV-7Dx" firstAttribute="centerX" secondItem="UGf-7l-s36" secondAttribute="centerX" id="yIo-ry-X7F"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j9J-7e-Eo5" userLabel="GameScore - UIView">
@@ -506,7 +496,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DNO-wl-Zsx" userLabel="SecondPlayer - UiView">
                                         <rect key="frame" x="216" y="0.0" width="96" height="125"/>
                                         <subviews>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payer 2" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="85" translatesAutoresizingMaskIntoConstraints="NO" id="qna-UE-joM">
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payer 2" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" preferredMaxLayoutWidth="85" translatesAutoresizingMaskIntoConstraints="NO" id="qna-UE-joM">
                                                 <rect key="frame" x="0.0" y="100" width="96" height="25"/>
                                                 <animations/>
                                                 <color key="backgroundColor" red="0.1965880102" green="0.098721546709999997" blue="0.0004065940448" alpha="1" colorSpace="calibratedRGB"/>
@@ -518,14 +508,6 @@
                                                 <color key="textColor" red="0.9882352941176471" green="0.85490196078431369" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZZV-Y1-OYe" userLabel="Bakground - View">
-                                                <rect key="frame" x="12" y="12" width="72" height="72"/>
-                                                <animations/>
-                                                <color key="backgroundColor" red="0.1965880102" green="0.098721546709999997" blue="0.0004065940448" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="ZZV-Y1-OYe" secondAttribute="height" multiplier="1:1" id="ARc-T5-xck"/>
-                                                </constraints>
-                                            </view>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QWB-5A-0yn">
                                                 <rect key="frame" x="20" y="19" width="57" height="57"/>
                                                 <animations/>
@@ -540,9 +522,6 @@
                                         <constraints>
                                             <constraint firstItem="QWB-5A-0yn" firstAttribute="centerX" secondItem="DNO-wl-Zsx" secondAttribute="centerX" id="3Fu-HB-2rW"/>
                                             <constraint firstItem="QWB-5A-0yn" firstAttribute="width" secondItem="DNO-wl-Zsx" secondAttribute="width" multiplier="0.6" id="Da4-aM-MKf"/>
-                                            <constraint firstItem="ZZV-Y1-OYe" firstAttribute="centerY" secondItem="DNO-wl-Zsx" secondAttribute="centerY" constant="-15" id="Gsu-UE-IJf"/>
-                                            <constraint firstItem="ZZV-Y1-OYe" firstAttribute="width" secondItem="DNO-wl-Zsx" secondAttribute="width" multiplier="0.75" id="H8h-IE-zSG"/>
-                                            <constraint firstItem="ZZV-Y1-OYe" firstAttribute="centerX" secondItem="DNO-wl-Zsx" secondAttribute="centerX" id="L2F-Tp-Atq"/>
                                             <constraint firstItem="qna-UE-joM" firstAttribute="leading" secondItem="DNO-wl-Zsx" secondAttribute="leading" id="LtX-AX-Nht"/>
                                             <constraint firstAttribute="bottom" secondItem="qna-UE-joM" secondAttribute="bottom" id="WxS-h8-NTg"/>
                                             <constraint firstItem="QWB-5A-0yn" firstAttribute="centerY" secondItem="DNO-wl-Zsx" secondAttribute="centerY" constant="-15" id="dDQ-Lj-YND"/>
@@ -580,7 +559,7 @@
                                                 <animations/>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="thm-ej-W6q" userLabel="Game Field Container - View">
-                                                <rect key="frame" x="40" y="30" width="240" height="239"/>
+                                                <rect key="frame" x="30" y="30" width="255" height="234"/>
                                                 <animations/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
@@ -594,9 +573,9 @@
                                             <constraint firstItem="nJO-pD-n75" firstAttribute="top" secondItem="LHd-Es-oyP" secondAttribute="top" constant="8" id="OoE-nf-Rri"/>
                                             <constraint firstAttribute="height" constant="299" id="XEK-at-aUZ"/>
                                             <constraint firstAttribute="bottom" secondItem="nJO-pD-n75" secondAttribute="bottom" constant="8" id="hRr-On-DPU"/>
-                                            <constraint firstAttribute="bottom" secondItem="thm-ej-W6q" secondAttribute="bottom" constant="30" id="kxK-R6-P2N"/>
-                                            <constraint firstAttribute="trailing" secondItem="thm-ej-W6q" secondAttribute="trailing" constant="40" id="lRP-ZC-4Fj"/>
-                                            <constraint firstItem="thm-ej-W6q" firstAttribute="leading" secondItem="LHd-Es-oyP" secondAttribute="leading" constant="40" id="rPV-u7-sMX"/>
+                                            <constraint firstAttribute="bottom" secondItem="thm-ej-W6q" secondAttribute="bottom" constant="35" id="kxK-R6-P2N"/>
+                                            <constraint firstAttribute="trailing" secondItem="thm-ej-W6q" secondAttribute="trailing" constant="35" id="lRP-ZC-4Fj"/>
+                                            <constraint firstItem="thm-ej-W6q" firstAttribute="leading" secondItem="LHd-Es-oyP" secondAttribute="leading" constant="30" id="rPV-u7-sMX"/>
                                             <constraint firstItem="thm-ej-W6q" firstAttribute="top" secondItem="LHd-Es-oyP" secondAttribute="top" constant="30" id="xCm-0p-YAM"/>
                                         </constraints>
                                     </view>
@@ -664,7 +643,7 @@
                                 <rect key="frame" x="32" y="64" width="256" height="464"/>
                                 <animations/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Adigiana2" family="Adigiana 2" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -721,7 +700,7 @@
                                                 <rect key="frame" x="0.0" y="75" width="209" height="74"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58e-xk-n7o" customClass="SoundButton">
-                                                        <rect key="frame" x="0.0" y="0.0" width="209" height="75"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="209" height="74"/>
                                                         <animations/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="Adigiana2" family="Adigiana 2" pointSize="24"/>
@@ -733,8 +712,16 @@
                                                             <action selector="enableSoundAction:" destination="yya-Jm-GhW" eventType="touchUpInside" id="QNN-2J-LYw"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked" translatesAutoresizingMaskIntoConstraints="NO" id="gkO-QX-vwk">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unchecked" translatesAutoresizingMaskIntoConstraints="NO" id="nO8-vH-ToA">
                                                         <rect key="frame" x="167" y="26" width="22" height="24"/>
+                                                        <animations/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="jZd-qj-hz1"/>
+                                                            <constraint firstAttribute="width" constant="22" id="y1e-8j-QZ5"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked" translatesAutoresizingMaskIntoConstraints="NO" id="gkO-QX-vwk">
+                                                        <rect key="frame" x="167" y="25" width="22" height="24"/>
                                                         <animations/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="22" id="bC4-AB-7nb"/>
@@ -749,8 +736,10 @@
                                                     <constraint firstAttribute="trailing" secondItem="58e-xk-n7o" secondAttribute="trailing" id="BWi-zU-SLt"/>
                                                     <constraint firstAttribute="trailing" secondItem="gkO-QX-vwk" secondAttribute="trailing" constant="20" id="Kor-Og-Dn0"/>
                                                     <constraint firstItem="58e-xk-n7o" firstAttribute="top" secondItem="wHc-RB-XNr" secondAttribute="top" id="Ut0-0A-IdW"/>
+                                                    <constraint firstItem="gkO-QX-vwk" firstAttribute="centerY" secondItem="nO8-vH-ToA" secondAttribute="centerY" constant="-1" id="gHW-iQ-Ogz"/>
                                                     <constraint firstItem="gkO-QX-vwk" firstAttribute="centerY" secondItem="58e-xk-n7o" secondAttribute="centerY" id="hC7-fa-XJQ"/>
                                                     <constraint firstAttribute="bottom" secondItem="58e-xk-n7o" secondAttribute="bottom" id="hcE-Q5-1eP"/>
+                                                    <constraint firstItem="gkO-QX-vwk" firstAttribute="centerX" secondItem="nO8-vH-ToA" secondAttribute="centerX" id="mRc-Mn-PW7"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aLP-2H-nIg" userLabel="Music - UiView">
@@ -769,6 +758,14 @@
                                                             <action selector="enableMusicAction:" destination="yya-Jm-GhW" eventType="touchUpInside" id="09x-Uo-Qx7"/>
                                                         </connections>
                                                     </button>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unchecked" translatesAutoresizingMaskIntoConstraints="NO" id="h5V-YU-AlY">
+                                                        <rect key="frame" x="167" y="26" width="22" height="24"/>
+                                                        <animations/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="24" id="LnA-40-xHb"/>
+                                                            <constraint firstAttribute="width" constant="22" id="kLz-xC-4fE"/>
+                                                        </constraints>
+                                                    </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked" translatesAutoresizingMaskIntoConstraints="NO" id="Tr5-nX-Cjk">
                                                         <rect key="frame" x="167" y="25" width="22" height="24"/>
                                                         <animations/>
@@ -781,19 +778,21 @@
                                                 <animations/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
+                                                    <constraint firstItem="Tr5-nX-Cjk" firstAttribute="centerX" secondItem="h5V-YU-AlY" secondAttribute="centerX" id="2yt-r9-omr"/>
                                                     <constraint firstItem="GGM-5c-sEK" firstAttribute="top" secondItem="aLP-2H-nIg" secondAttribute="top" id="FlG-OS-mYb"/>
                                                     <constraint firstAttribute="trailing" secondItem="GGM-5c-sEK" secondAttribute="trailing" id="jKe-6L-vbt"/>
                                                     <constraint firstAttribute="bottom" secondItem="GGM-5c-sEK" secondAttribute="bottom" id="keg-RL-icV"/>
                                                     <constraint firstAttribute="trailing" secondItem="Tr5-nX-Cjk" secondAttribute="trailing" constant="20" id="qHv-Tf-RvE"/>
                                                     <constraint firstItem="GGM-5c-sEK" firstAttribute="leading" secondItem="aLP-2H-nIg" secondAttribute="leading" id="qyw-8O-Ybb"/>
                                                     <constraint firstItem="Tr5-nX-Cjk" firstAttribute="centerY" secondItem="GGM-5c-sEK" secondAttribute="centerY" id="ug3-ZW-JZX"/>
+                                                    <constraint firstItem="Tr5-nX-Cjk" firstAttribute="centerY" secondItem="h5V-YU-AlY" secondAttribute="centerY" constant="-1" id="w78-52-mAH"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="egZ-jX-MTL" userLabel="ResetScore">
                                                 <rect key="frame" x="0.0" y="224" width="209" height="74"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cr3-aQ-rac" customClass="SoundButton">
-                                                        <rect key="frame" x="0.0" y="0.0" width="209" height="75"/>
+                                                        <rect key="frame" x="0.0" y="1" width="209" height="74"/>
                                                         <animations/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="Adigiana2" family="Adigiana 2" pointSize="24"/>
@@ -865,9 +864,9 @@
                         <outlet property="difficultSwitchView" destination="yxm-5i-2zX" id="SiB-vS-4hf"/>
                         <outlet property="enableMusicButton" destination="GGM-5c-sEK" id="fTZ-EY-3tv"/>
                         <outlet property="enableSoundButton" destination="58e-xk-n7o" id="HSZ-Dw-35x"/>
-                        <outlet property="musicCheck" destination="Tr5-nX-Cjk" id="f9X-23-VrP"/>
+                        <outlet property="musicCheckImageView" destination="Tr5-nX-Cjk" id="dUh-HY-Ze9"/>
                         <outlet property="resetScoreButton" destination="cr3-aQ-rac" id="TtW-hj-GNH"/>
-                        <outlet property="soundCheck" destination="gkO-QX-vwk" id="DcZ-mh-4W2"/>
+                        <outlet property="soundCheckImageView" destination="gkO-QX-vwk" id="orV-OS-gCw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jlv-Dk-zF2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -889,5 +888,6 @@
         <image name="startPaper_bottom" width="320" height="211"/>
         <image name="startPaper_top" width="320" height="301"/>
         <image name="timer" width="83" height="83"/>
+        <image name="unchecked" width="25" height="25"/>
     </resources>
 </document>
