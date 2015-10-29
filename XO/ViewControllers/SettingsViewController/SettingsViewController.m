@@ -58,7 +58,12 @@ static NSString *const UnCheckedImageName = @"unchecked";
 
 - (IBAction)resetScoreAction:(id)sender
 {
-    AlertViewController *alertVC = [[AlertViewController alloc] initWithTitle:nil message:nil cancelButtonTitle:@"Cancel"];
+    AlertViewController *alertVC = [[AlertViewController alloc] initWithTitle:@"This is title"
+                                                                      message:@"Here is some message that must be written in 2 lines"
+                                                            cancelButtonTitle:@"Cancel"];
+    [alertVC addButtonWithTitle:@"Ok" completionHandler:^{
+        NSLog(@"Ok tapped");
+    }];
     [self presentViewController:alertVC animated:YES completion:nil];
 }
 
