@@ -19,5 +19,6 @@
     #import "UIFont+AppFont.h"
     #import "UIColor+AppColor.h"
     #import "Utils.h"
+    #import "AlertViewController.h"
 #endif
 

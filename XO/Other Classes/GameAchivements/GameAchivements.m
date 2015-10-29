@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 - present Thinkmobiles. All rights reserved.
 //
 
-//ViewControllers
 #import "GameAchivements.h"
 
 static CGFloat const BannerDispayingDuratin = 2.0;
