@@ -51,10 +51,10 @@
 "startViewController.buttonTitle.Achivements" = "Achivements";
 "startViewController.buttonTitle.Leaderboard" = "Leaderboard";
 "startViewController.buttonTitle.Setting" = "Setting";
-"startViewController.buttonTitle.About" = "About";
-"startViewController.buttonTitle.PlayOnline" = "Play Online";
-"startViewController.buttonTitle.1Player" = "1 Player";
-"startViewController.buttonTitle.2Player" = "2 Players";
+"startViewController.buttonTitle.About" = "ABOUT";
+"startViewController.buttonTitle.PlayOnline" = "PLAY ONLINE";
+"startViewController.buttonTitle.1Player" = "1 PLAYER";
+"startViewController.buttonTitle.2Player" = "2 PLYERS";
 
 //GameViewController
 

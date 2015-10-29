@@ -7,14 +7,22 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="Phosphate.ttc">
-            <string>Phosphate-Inline</string>
-            <string>Phosphate-Inline</string>
-            <string>Phosphate-Inline</string>
-            <string>Phosphate-Inline</string>
-            <string>Phosphate-Inline</string>
-            <string>Phosphate-Inline</string>
-            <string>Phosphate-Inline</string>
+        <mutableArray key="Adigiana_Ultra.ttf">
+            <string>Adigiana2</string>
+            <string>Adigiana2</string>
+            <string>Adigiana2</string>
+            <string>Adigiana2</string>
+            <string>Adigiana2</string>
+            <string>Adigiana2</string>
+            <string>Adigiana2</string>
+            <string>Adigiana2</string>
+            <string>Adigiana2</string>
+            <string>Adigiana2</string>
+            <string>Adigiana2</string>
+            <string>Adigiana2</string>
+            <string>Adigiana2</string>
+            <string>Adigiana2</string>
+            <string>Adigiana2</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -68,46 +76,46 @@
                                 <rect key="frame" x="20" y="20" width="280" height="222"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXF-2A-saR" customClass="SoundButton">
-                                        <rect key="frame" x="101" y="20" width="78" height="38"/>
+                                        <rect key="frame" x="95" y="20" width="90" height="38"/>
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="Phosphate-Inline" family="Phosphate" pointSize="21"/>
+                                        <fontDescription key="fontDescription" name="Adigiana2" family="Adigiana 2" pointSize="24"/>
                                         <state key="normal" title="1 PLAYER">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" red="0.56470588239999997" green="0.015686274510000001" blue="0.1333333333" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
+                                            <color key="titleColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="Ehd-WW-Mg5" kind="push" id="LAq-iW-aQF"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCo-RS-3Ie" customClass="SoundButton">
-                                        <rect key="frame" x="95" y="68" width="90" height="38"/>
+                                        <rect key="frame" x="85" y="68" width="111" height="38"/>
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="Phosphate-Inline" family="Phosphate" pointSize="21"/>
+                                        <fontDescription key="fontDescription" name="Adigiana2" family="Adigiana 2" pointSize="24"/>
                                         <state key="normal" title="2 PLAYERS">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" red="0.56470588239999997" green="0.015686274510000001" blue="0.1333333333" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
+                                            <color key="titleColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6A-R5-2a6" customClass="SoundButton">
-                                        <rect key="frame" x="82" y="116" width="117" height="38"/>
+                                        <rect key="frame" x="74" y="116" width="132" height="38"/>
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="Phosphate-Inline" family="Phosphate" pointSize="21"/>
+                                        <fontDescription key="fontDescription" name="Adigiana2" family="Adigiana 2" pointSize="24"/>
                                         <state key="normal" title="PLAY ONLINE">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" red="0.56470588239999997" green="0.015686274510000001" blue="0.1333333333" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
+                                            <color key="titleColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxp-Sb-ING" customClass="SoundButton">
-                                        <rect key="frame" x="108" y="164" width="64" height="38"/>
+                                        <rect key="frame" x="106" y="164" width="69" height="38"/>
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="Phosphate-Inline" family="Phosphate" pointSize="21"/>
+                                        <fontDescription key="fontDescription" name="Adigiana2" family="Adigiana 2" pointSize="24"/>
                                         <state key="normal" title="ABOUT">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" red="0.56470588239999997" green="0.015686274510000001" blue="0.1333333333" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
+                                            <color key="titleColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="XKe-xM-hso" kind="push" id="glZ-fi-5wb"/>
@@ -158,10 +166,11 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5v-08-xuZ" customClass="SoundButton">
                                         <rect key="frame" x="1" y="0.0" width="106" height="70"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="Adigiana2" family="Adigiana 2" pointSize="15"/>
+                                        <color key="tintColor" red="0.17254901959999999" green="0.086274509799999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Leaderboard">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" red="0.56470588239999997" green="0.015686274510000001" blue="0.1333333333" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
+                                            <color key="titleColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="leaderBoardButtonTapped:" destination="YxK-UW-oVt" eventType="touchUpInside" id="vP1-Id-95s"/>
@@ -170,10 +179,11 @@
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNA-7C-R0M" customClass="SoundButton">
                                         <rect key="frame" x="107" y="0.0" width="106" height="70"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="Adigiana2" family="Adigiana 2" pointSize="15"/>
+                                        <color key="tintColor" red="0.17254901959999999" green="0.086274509799999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Achivements">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" red="0.56470588239999997" green="0.015686274510000001" blue="0.1333333333" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
+                                            <color key="titleColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="achivementsButtonTapped:" destination="YxK-UW-oVt" eventType="touchUpInside" id="omI-ZH-Hir"/>
@@ -182,10 +192,11 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mrb-50-4fV" customClass="SoundButton">
                                         <rect key="frame" x="213" y="0.0" width="106" height="70"/>
                                         <animations/>
-                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="13"/>
+                                        <fontDescription key="fontDescription" name="Adigiana2" family="Adigiana 2" pointSize="15"/>
+                                        <color key="tintColor" red="0.17254901959999999" green="0.086274509799999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Settings">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" red="0.56470588239999997" green="0.015686274510000001" blue="0.1333333333" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
+                                            <color key="titleColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="yya-Jm-GhW" kind="push" id="pAB-zW-fXD"/>
@@ -399,7 +410,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="dRu-bd-8kp"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
+                                                <fontDescription key="fontDescription" name="Adigiana2" family="Adigiana 2" pointSize="16"/>
                                                 <color key="textColor" red="0.9882352941176471" green="0.85490196078431369" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -428,17 +439,17 @@
                                                     <constraint firstAttribute="height" constant="40" id="5gJ-AD-LcM"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="46.5" translatesAutoresizingMaskIntoConstraints="NO" id="jIk-yL-0xQ">
-                                                <rect key="frame" x="0.0" y="85" width="49" height="40"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="46.5" translatesAutoresizingMaskIntoConstraints="NO" id="jIk-yL-0xQ">
+                                                <rect key="frame" x="0.0" y="85" width="48" height="40"/>
                                                 <animations/>
-                                                <fontDescription key="fontDescription" name="Phosphate-Inline" family="Phosphate" pointSize="30"/>
+                                                <fontDescription key="fontDescription" name="Adigiana2" family="Adigiana 2" pointSize="24"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="46.5" translatesAutoresizingMaskIntoConstraints="NO" id="aOX-D2-lMj">
                                                 <rect key="frame" x="48" y="85" width="48" height="40"/>
                                                 <animations/>
-                                                <fontDescription key="fontDescription" name="Phosphate-Inline" family="Phosphate" pointSize="29"/>
+                                                <fontDescription key="fontDescription" name="Adigiana2" family="Adigiana 2" pointSize="24"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -453,7 +464,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
                                                         <animations/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        <fontDescription key="fontDescription" name="Phosphate-Inline" family="Phosphate" pointSize="28"/>
+                                                        <fontDescription key="fontDescription" name="Adigiana2" family="Adigiana 2" pointSize="28"/>
                                                         <color key="textColor" red="0.20392156862745098" green="0.094117647058823528" blue="0.023529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -503,12 +514,12 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="v7p-ka-8Iv"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
+                                                <fontDescription key="fontDescription" name="Adigiana2" family="Adigiana 2" pointSize="16"/>
                                                 <color key="textColor" red="0.9882352941176471" green="0.85490196078431369" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZZV-Y1-OYe" userLabel="Bakground - View">
-                                                <rect key="frame" x="13" y="12" width="72" height="72"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZZV-Y1-OYe" userLabel="Bakground - View">
+                                                <rect key="frame" x="12" y="12" width="72" height="72"/>
                                                 <animations/>
                                                 <color key="backgroundColor" red="0.1965880102" green="0.098721546709999997" blue="0.0004065940448" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -710,21 +721,20 @@
                                                 <rect key="frame" x="0.0" y="75" width="209" height="74"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58e-xk-n7o" customClass="SoundButton">
-                                                        <rect key="frame" x="0.0" y="0.0" width="209" height="74"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="209" height="75"/>
                                                         <animations/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="20"/>
+                                                        <fontDescription key="fontDescription" name="Adigiana2" family="Adigiana 2" pointSize="24"/>
                                                         <inset key="contentEdgeInsets" minX="22" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <state key="normal" title="Sound" backgroundImage="button2">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <color key="titleShadowColor" red="0.56470588239999997" green="0.015686274510000001" blue="0.1333333333" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
+                                                            <color key="titleColor" red="0.2666666667" green="0.10980392160000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="enableSoundAction:" destination="yya-Jm-GhW" eventType="touchUpInside" id="QNN-2J-LYw"/>
                                                         </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked" translatesAutoresizingMaskIntoConstraints="NO" id="gkO-QX-vwk">
-                                                        <rect key="frame" x="167" y="25" width="22" height="24"/>
+                                                        <rect key="frame" x="167" y="26" width="22" height="24"/>
                                                         <animations/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="22" id="bC4-AB-7nb"/>
@@ -750,11 +760,10 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="209" height="75"/>
                                                         <animations/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="20"/>
+                                                        <fontDescription key="fontDescription" name="Adigiana2" family="Adigiana 2" pointSize="24"/>
                                                         <inset key="contentEdgeInsets" minX="22" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <state key="normal" title="Music" backgroundImage="button3">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <color key="titleShadowColor" red="0.56470588239999997" green="0.015686274510000001" blue="0.1333333333" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
+                                                            <color key="titleColor" red="0.2666666667" green="0.10980392160000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="enableMusicAction:" destination="yya-Jm-GhW" eventType="touchUpInside" id="09x-Uo-Qx7"/>
@@ -784,13 +793,12 @@
                                                 <rect key="frame" x="0.0" y="224" width="209" height="74"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cr3-aQ-rac" customClass="SoundButton">
-                                                        <rect key="frame" x="0.0" y="1" width="209" height="74"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="209" height="75"/>
                                                         <animations/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="20"/>
+                                                        <fontDescription key="fontDescription" name="Adigiana2" family="Adigiana 2" pointSize="24"/>
                                                         <state key="normal" title="Reset score" backgroundImage="button3">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <color key="titleShadowColor" red="0.56470588239999997" green="0.015686274510000001" blue="0.1333333333" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
+                                                            <color key="titleColor" red="0.26666666666666666" green="0.10980392156862745" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="resetScoreAction:" destination="yya-Jm-GhW" eventType="touchUpInside" id="Yj9-cm-AqH"/>

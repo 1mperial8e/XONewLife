@@ -8,10 +8,9 @@
 
 @interface UIFont (AppFont)
 
-+ (UIFont *)phosphateSolidFontWithSize:(CGFloat)size;
-+ (UIFont *)phosphateInlineFontWithSize:(CGFloat)size;
-
 + (UIFont *)gilSansLightFontWithSize:(CGFloat)size;
 + (UIFont *)gilSansRegularFontWithSize:(CGFloat)size;
+
++ (UIFont *)adigianaFontWithSize:(CGFloat)size;
 
 @end

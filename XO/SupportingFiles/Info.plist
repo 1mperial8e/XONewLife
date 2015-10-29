@@ -41,7 +41,7 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Phosphate.ttc</string>
+		<string>Adigiana_Ultra.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>Launch Screen</string>

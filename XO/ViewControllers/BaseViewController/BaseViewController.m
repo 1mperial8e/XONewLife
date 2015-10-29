@@ -38,7 +38,7 @@
 
 - (void)prepareNavigationBar
 {
-    NSMutableDictionary *textAttributes = [@{NSFontAttributeName : [UIFont gilSansLightFontWithSize:26.f],
+    NSMutableDictionary *textAttributes = [@{NSFontAttributeName : [UIFont adigianaFontWithSize:26.f],
                                              NSForegroundColorAttributeName : [UIColor appNavigationBarTextColor]} mutableCopy];
     
     [self.navigationController.navigationBar setTintColor:[UIColor appNavigationBarTextColor]];
@@ -47,7 +47,7 @@
     self.navigationItem.hidesBackButton = YES;
     
     NSString *localizedBack = NSLocalizedString(@"common.back", nil);
-    [textAttributes setValue:[UIFont gilSansRegularFontWithSize:20.f] forKey:NSFontAttributeName];
+    [textAttributes setValue:[UIFont adigianaFontWithSize:20.f] forKey:NSFontAttributeName];
     CGSize textSize = [localizedBack sizeWithAttributes:textAttributes];
     UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, textSize.width + 10, CGRectGetHeight(self.navigationController.navigationBar.frame))];
     NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:localizedBack

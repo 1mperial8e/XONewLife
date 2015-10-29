@@ -9,5 +9,6 @@
 @interface UIColor (AppColor)
 
 + (UIColor *)appNavigationBarTextColor;
++ (UIColor *)appButtonTextColor;
 
 @end

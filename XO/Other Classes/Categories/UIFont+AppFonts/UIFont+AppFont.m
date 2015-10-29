@@ -12,16 +12,6 @@
 
 #pragma mark - Public
 
-+ (UIFont *)phosphateSolidFontWithSize:(CGFloat)size
-{
-    return [UIFont fontWithName:@"Phosphate-Solid" size:size];
-}
-
-+ (UIFont *)phosphateInlineFontWithSize:(CGFloat)size
-{
-    return [UIFont fontWithName:@"Phosphate-Inline" size:size];
-}
-
 + (UIFont *)gilSansLightFontWithSize:(CGFloat)size
 {
     return [UIFont fontWithName:@"GillSans-Light" size:size];
@@ -30,6 +20,11 @@
 + (UIFont *)gilSansRegularFontWithSize:(CGFloat)size
 {
     return [UIFont fontWithName:@"GillSans" size:size];
+}
+
++ (UIFont *)adigianaFontWithSize:(CGFloat)size
+{
+    return [UIFont fontWithName:@"Adigiana2" size:size];
 }
 
 @end
