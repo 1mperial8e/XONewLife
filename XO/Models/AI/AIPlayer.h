@@ -1,9 +1,9 @@
 //
-//  AIPlayer
-//  AIPlayer
+//  AIPlayer.h
+//  XO
 //
 //  Created by Kirill Gorbushko on 28.10.15.
-//  Copyright © 2015 thinkmobiles. All rights reserved.
+//  Copyright (c) 2014 - present Thinkmobiles. All rights reserved.
 //
 
 typedef NS_ENUM(NSUInteger, AIDifficultLevel) {

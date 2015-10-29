@@ -1,9 +1,9 @@
 //
 //  SwitchControlView.m
-//  
+//  XO
 //
 //  Created by Kirill Gorbushko on 15.10.15.
-//  Copyright © 2015 Kirill Gorbushko. All rights reserved.
+//  Copyright (c) 2014 - present Thinkmobiles. All rights reserved.
 //
 
 #import "SwitchControlView.h"

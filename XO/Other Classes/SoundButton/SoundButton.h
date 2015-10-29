@@ -3,7 +3,7 @@
 //  XO
 //
 //  Created by Kirill Gorbushko on 26.10.15.
-//  Copyright © 2015 Thinkmobiles. All rights reserved.
+//  Copyright (c) 2014 - present Thinkmobiles. All rights reserved.
 //
 
 @interface SoundButton : UIButton
