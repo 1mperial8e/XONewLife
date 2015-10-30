@@ -35,6 +35,7 @@
 		93061D9A1BDE8AF400F148E0 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93061D931BDE8AF400F148E0 /* SettingsViewController.m */; };
 		93061D9B1BDE8AF400F148E0 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93061D961BDE8AF400F148E0 /* StartViewController.m */; };
 		932A7A9B1BDEC48E005A0E5F /* SwitchControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 932A7A991BDEC48E005A0E5F /* SwitchControlView.m */; };
+		93453C4A1BE3704A002F08DB /* BLEService.m in Sources */ = {isa = PBXBuildFile; fileRef = 93453C491BE3704A002F08DB /* BLEService.m */; };
 		939F34971BDFDD7F009D12E2 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 939F34961BDFDD7F009D12E2 /* GameKit.framework */; };
 		939F34A31BE00457009D12E2 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 939F34A21BE00457009D12E2 /* Utils.m */; };
 		939F34A71BE00735009D12E2 /* GameAchivements.m in Sources */ = {isa = PBXBuildFile; fileRef = 939F34A61BE00735009D12E2 /* GameAchivements.m */; };
@@ -96,6 +97,8 @@
 		93061D961BDE8AF400F148E0 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 		932A7A981BDEC48E005A0E5F /* SwitchControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchControlView.h; sourceTree = "<group>"; };
 		932A7A991BDEC48E005A0E5F /* SwitchControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchControlView.m; sourceTree = "<group>"; };
+		93453C481BE3704A002F08DB /* BLEService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEService.h; sourceTree = "<group>"; };
+		93453C491BE3704A002F08DB /* BLEService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEService.m; sourceTree = "<group>"; };
 		939F34961BDFDD7F009D12E2 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		939F34A11BE00457009D12E2 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		939F34A21BE00457009D12E2 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
@@ -368,6 +371,15 @@
 			path = SwitchControlView;
 			sourceTree = "<group>";
 		};
+		93453C471BE3702F002F08DB /* BLEService */ = {
+			isa = PBXGroup;
+			children = (
+				93453C481BE3704A002F08DB /* BLEService.h */,
+				93453C491BE3704A002F08DB /* BLEService.m */,
+			);
+			path = BLEService;
+			sourceTree = "<group>";
+		};
 		939F34A01BE0044C009D12E2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,6 +419,7 @@
 		939F34D31BE12B57009D12E2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				93453C471BE3702F002F08DB /* BLEService */,
 				939F34D41BE12B57009D12E2 /* KeychainStorageService */,
 			);
 			path = Services;
@@ -524,6 +537,7 @@
 				4F2921B21BE20F2A00FF65C6 /* AlertViewController.m in Sources */,
 				939F34A31BE00457009D12E2 /* Utils.m in Sources */,
 				93061D991BDE8AF400F148E0 /* GameViewController.m in Sources */,
+				93453C4A1BE3704A002F08DB /* BLEService.m in Sources */,
 				93061D9A1BDE8AF400F148E0 /* SettingsViewController.m in Sources */,
 				93003DCF1BDFD2B6009430B3 /* UIColor+AppColor.m in Sources */,
 				93061D4B1BDE858800F148E0 /* SoundManager.m in Sources */,
