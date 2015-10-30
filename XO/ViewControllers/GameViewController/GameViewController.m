@@ -65,19 +65,8 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
     
     [self configureNavigationItem];
     [self localizeUI];
-    
-    
-    if (self.gameMode == GameModeMultiplayer) {
-        self.multiplayer = [[BaseGameModel alloc] init];
-        self.multiplayer.delegate = self;
-    } else if (self.gameMode == GameModeSingle) {
-        self.singlePlayer = [[GameModelSinglePlayer alloc] initWithPlayerOneSign:PlayerFirst AISign:PlayerSecond difficultLevel:[GameManager sharedInstance].aiLevel];
-        self.singlePlayer.delegate = self;
-        self.singlePlayer.activePlayer = PlayerSecond;
-    }
-    
-    
-    
+ 
+    [self setupGameModel];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -187,26 +176,28 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
     self.collectionView.userInteractionEnabled = YES;
 }
 
-#pragma mark - Animatins
+#pragma mark - PrepareGameModel
+
+- (void)setupGameModel
+{
+    if (self.gameMode == GameModeMultiplayer) {
+        self.multiplayer = [[BaseGameModel alloc] init];
+        self.multiplayer.delegate = self;
+    } else if (self.gameMode == GameModeSingle) {
+        self.singlePlayer = [[GameModelSinglePlayer alloc] initWithPlayerOneSign:PlayerFirst AISign:PlayerSecond difficultLevel:[GameManager sharedInstance].aiLevel];
+        self.singlePlayer.delegate = self;
+        self.singlePlayer.activePlayer = PlayerSecond;
+    }
+}
+
+#pragma mark - VictoryVectorDrawing
 
 - (void)animateWinWithVictoryVector:(VictoryVectorType)victoryVector
 {
-    NSString *imageName;
-    if (victoryVector == VectorTypeDiagonalRight) {
-        imageName = VictoryImageNameRight;
-    } else if (victoryVector == VectorTypeDiagonalLeft) {
-        imageName = VictoryImageNameLeft;
-    } else if (victoryVector < 3) {
-        imageName = VictoryImageNameHorizontal;
-    } else {
-        imageName = VictoryImageNameVertical;
-    };
-
-    
     CALayer *imageLayer = [CALayer layer];
     imageLayer.frame = CGRectMake(self.collectionView.bounds.origin.x, self.collectionView.bounds.origin.y, self.collectionView.bounds.size.width, self.collectionView.bounds.size.height);
     imageLayer.backgroundColor = [UIColor clearColor].CGColor;
-    UIImage *content = [[UIImage imageNamed:imageName] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImage *content = [[UIImage imageNamed:[self imageNameForVector:victoryVector]] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     imageLayer.contents = (__bridge id __nullable)(content).CGImage;
     imageLayer.contentsGravity = kCAGravityResizeAspect;
     
@@ -214,7 +205,7 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
     self.victoryLineLayer.frame = imageLayer.frame;
     self.victoryLineLayer.backgroundColor = [UIColor redColor].CGColor;
     self.victoryLineLayer.mask = imageLayer;
-    self.victoryLineLayer.position = self.collectionView.center;
+    self.victoryLineLayer.position = [self centerForVictoryVector:victoryVector];
     
     [self.collectionView.layer addSublayer:self.victoryLineLayer];
     [self performSelector:@selector(cleanUpCollectionView) withObject:nil afterDelay:3.f];
@@ -225,6 +216,38 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
     self.collectionView.userInteractionEnabled = YES;
     [self.victoryLineLayer removeFromSuperlayer];
     [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
+}
+
+- (CGPoint)centerForVictoryVector:(VictoryVectorType)victoryVector
+{
+    CGFloat xOffset = 0;
+    CGFloat yOffset = 0;
+    if (victoryVector == VectorTypeHorisontalZero) {
+        yOffset = - self.gameFieldContainerView.bounds.size.height / 3;
+    } else if (victoryVector == VectorTypeHorisontalSecond) {
+        yOffset = self.gameFieldContainerView.bounds.size.height / 3;
+    } else if (victoryVector == VectorTypeVerticalZero) {
+        xOffset = - self.gameFieldContainerView.bounds.size.width / 3;
+    } else if (victoryVector == VectorTypeVerticalZero) {
+        xOffset = - self.gameFieldContainerView.bounds.size.width / 3;
+    }
+    CGPoint center = CGPointMake(self.collectionView.center.x + xOffset, self.collectionView.center.y + yOffset);
+    return center;
+}
+
+- (NSString *)imageNameForVector:(VictoryVectorType)victoryVector
+{
+    NSString *imageName;
+    if (victoryVector == VectorTypeDiagonalRight) {
+        imageName = VictoryImageNameRight;
+    } else if (victoryVector == VectorTypeDiagonalLeft) {
+        imageName = VictoryImageNameLeft;
+    } else if (victoryVector < 3) {
+        imageName = VictoryImageNameHorizontal;
+    } else {
+        imageName = VictoryImageNameVertical;
+    }
+    return imageName;
 }
 
 #pragma mark - Players avatars
