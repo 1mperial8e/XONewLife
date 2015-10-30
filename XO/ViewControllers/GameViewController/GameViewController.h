@@ -8,4 +8,6 @@
 
 @interface GameViewController : BaseViewController
 
+@property (assign, nonatomic) GameMode gameMode;
+
 @end

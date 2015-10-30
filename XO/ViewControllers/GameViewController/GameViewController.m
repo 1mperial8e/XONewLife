@@ -34,8 +34,6 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
 
 @property (weak, nonatomic) IBOutlet UIView *gameFieldContainerView;
 
-@property BOOL selected;
-
 @end
 
 @implementation GameViewController
@@ -76,25 +74,17 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
 
 - (void)configureNavigationItem
 {
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:SettingButtonImageName]
-                                                                              style:UIBarButtonItemStylePlain
-                                                                             target:self
-                                                                             action:@selector(settingButtonPressed:)];
+    if (self.gameMode != GameModeOnline) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:SettingButtonImageName]
+                                                                                  style:UIBarButtonItemStylePlain
+                                                                                 target:self
+                                                                                 action:@selector(settingButtonPressed:)];
+    }
 }
 
 - (void)localizeUI
 {
     self.title = NSLocalizedString(@"gameViewController.title", nil);
-}
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    if (self.selected) {
-        [self secondPlayerStep];
-    } else {
-        [self firstPlayerStep];
-    }
-    self.selected = !self.selected;
 }
 
 #pragma mark - Players avatars

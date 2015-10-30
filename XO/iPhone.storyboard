@@ -76,19 +76,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="83u-OG-HvW" userLabel="Buttons Container">
                                 <rect key="frame" x="20" y="20" width="280" height="222"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXF-2A-saR" customClass="SoundButton">
-                                        <rect key="frame" x="95" y="20" width="90" height="38"/>
-                                        <animations/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="Adigiana2" family="Adigiana 2" pointSize="24"/>
-                                        <state key="normal" title="1 PLAYER">
-                                            <color key="titleColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="Ehd-WW-Mg5" kind="push" id="LAq-iW-aQF"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCo-RS-3Ie" customClass="SoundButton">
                                         <rect key="frame" x="85" y="68" width="111" height="38"/>
                                         <animations/>
@@ -98,6 +85,9 @@
                                             <color key="titleColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="Ehd-WW-Mg5" kind="push" identifier="multiplayer" id="cNd-cu-T5o"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6A-R5-2a6" customClass="SoundButton">
                                         <rect key="frame" x="74" y="116" width="132" height="38"/>
@@ -120,6 +110,19 @@
                                         </state>
                                         <connections>
                                             <segue destination="XKe-xM-hso" kind="push" id="glZ-fi-5wb"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXF-2A-saR" customClass="SoundButton">
+                                        <rect key="frame" x="95" y="20" width="90" height="38"/>
+                                        <animations/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Adigiana2" family="Adigiana 2" pointSize="24"/>
+                                        <state key="normal" title="1 PLAYER">
+                                            <color key="titleColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Ehd-WW-Mg5" kind="push" identifier="singlePlayer" id="LAq-iW-aQF"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -890,4 +893,7 @@
         <image name="timer" width="83" height="83"/>
         <image name="unchecked" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="cNd-cu-T5o"/>
+    </inferredMetricsTieBreakers>
 </document>

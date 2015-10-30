@@ -55,6 +55,19 @@
     [gameAchivements showLeaderboardAndAchivements:YES presenterViewController:self];
 }
 
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"singlePlayer"]) {
+        GameViewController *gameVC = (GameViewController *)segue.destinationViewController;
+        gameVC.gameMode = GameModeSingle;
+    } else if ([segue.identifier isEqualToString:@"multiplayer"]) {
+        GameViewController *gameVC = (GameViewController *)segue.destinationViewController;
+        gameVC.gameMode = GameModeMultiplayer;
+    }
+}
+
 #pragma mark - Private
 
 - (void)localizeUI
