@@ -14,9 +14,12 @@
 @property (strong, nonatomic, nonnull) ScoreModel *mediumModeScore;
 @property (strong, nonatomic, nonnull) ScoreModel *hardModeScore;
 
+@property (assign, nonatomic, readonly) AILevel aiLevel;
+
 + (nonnull instancetype)sharedInstance;
 
 - (void)resetLocalScore;
 - (void)updateScoreForMode:(AILevel)aiMode withVictory:(BOOL)aVictory;
+- (void)aiLevelChanged:(AILevel)newAILevel;
 
 @end

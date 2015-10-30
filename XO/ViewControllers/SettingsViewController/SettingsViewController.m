@@ -11,17 +11,14 @@
 //Views
 #import "SoundButton.h"
 
-static NSString *const CheckedImageName = @"checked";
-static NSString *const UnCheckedImageName = @"unchecked";
-
 @interface SettingsViewController ()
 
 @property (weak, nonatomic) IBOutlet SoundButton *enableSoundButton;
 @property (weak, nonatomic) IBOutlet SoundButton *enableMusicButton;
 @property (weak, nonatomic) IBOutlet SoundButton *resetScoreButton;
 
-@property (weak, nonatomic) IBOutlet UIImageView *soundCheck;
-@property (weak, nonatomic) IBOutlet UIImageView *musicCheck;
+@property (weak, nonatomic) IBOutlet UIImageView *soundCheckImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *musicCheckImageView;
 
 @property (weak, nonatomic) IBOutlet SwitchControlView *difficultSwitchView;
 
@@ -39,7 +36,7 @@ static NSString *const UnCheckedImageName = @"unchecked";
     [self prepareDifficultSwitch];
     [self localizeUI];
     
-    self.navigationController.navigationBar.hidden = NO;
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 #pragma mark - UIActions
@@ -58,15 +55,20 @@ static NSString *const UnCheckedImageName = @"unchecked";
 
 - (IBAction)resetScoreAction:(id)sender
 {
-    
+    AlertViewController *alertVC = [[AlertViewController alloc] initWithTitle:NSLocalizedString(@"settingViewController.areYouSure", nil)
+                                                                      message:nil
+                                                            cancelButtonTitle:NSLocalizedString(@"settingViewController.notSure", nil)];
+    [alertVC addButtonWithTitle:NSLocalizedString(@"settingViewController.yesSure", nil) completionHandler:^{
+        [[GameManager sharedInstance] resetLocalScore];
+    }];
+    [self presentViewController:alertVC animated:YES completion:nil];
 }
 
 #pragma mark - SwitchControlViewDelegate
 
 - (void)switchControlDidTappedButton:(SoundButton *)button
 {
-    [[NSUserDefaults standardUserDefaults] setBool:![[NSUserDefaults standardUserDefaults] boolForKey:AIDifficultyKey] forKey:AIDifficultyKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[GameManager sharedInstance] aiLevelChanged:(AILevel)button.tag];
     [self updateControlState];
 }
 
@@ -99,15 +101,13 @@ static NSString *const UnCheckedImageName = @"unchecked";
 
 - (void)updateControlState
 {
-    UIImage *checkedImage = [UIImage imageNamed:CheckedImageName];
-    UIImage *unCheckedImage = [UIImage imageNamed:UnCheckedImageName];
-    
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    __weak typeof(self) weakSelf = self;
+    [UIView animateWithDuration:0.2f animations:^{
+        weakSelf.soundCheckImageView.alpha = [SoundManager sharedInstance].isSoundOn;
+        weakSelf.musicCheckImageView.alpha = [SoundManager sharedInstance].isMusicOn;
+    }];
 
-    self.soundCheck.image = [SoundManager sharedInstance].isSoundOn ? checkedImage : unCheckedImage;
-    self.musicCheck.image = [SoundManager sharedInstance].isMusicOn ? checkedImage : unCheckedImage;
-
-    [self.difficultSwitchView selectElementWithTag:([userDefaults integerForKey:AIDifficultyKey] + 1)];
+    [self.difficultSwitchView selectElementWithTag:[GameManager sharedInstance].aiLevel];
 }
 
 @end

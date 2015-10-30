@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F2921AE1BE20E8F00FF65C6 /* SoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F2921AD1BE20E8F00FF65C6 /* SoundButton.m */; };
+		4F2921B21BE20F2A00FF65C6 /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F2921B11BE20F2A00FF65C6 /* AlertViewController.m */; };
 		4F655ACC1BDAA85000E6233A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F655ACB1BDAA85000E6233A /* Launch Screen.storyboard */; };
 		8481FC441915273E00D9F0EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481FC431915273E00D9F0EB /* Foundation.framework */; };
 		8481FC481915273E00D9F0EB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481FC471915273E00D9F0EB /* UIKit.framework */; };
@@ -32,7 +34,6 @@
 		93061D991BDE8AF400F148E0 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93061D901BDE8AF400F148E0 /* GameViewController.m */; };
 		93061D9A1BDE8AF400F148E0 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93061D931BDE8AF400F148E0 /* SettingsViewController.m */; };
 		93061D9B1BDE8AF400F148E0 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93061D961BDE8AF400F148E0 /* StartViewController.m */; };
-		932A7A6E1BDEC278005A0E5F /* SoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 932A7A6D1BDEC278005A0E5F /* SoundButton.m */; };
 		932A7A9B1BDEC48E005A0E5F /* SwitchControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 932A7A991BDEC48E005A0E5F /* SwitchControlView.m */; };
 		93453C4A1BE3704A002F08DB /* BLEService.m in Sources */ = {isa = PBXBuildFile; fileRef = 93453C491BE3704A002F08DB /* BLEService.m */; };
 		939F34971BDFDD7F009D12E2 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 939F34961BDFDD7F009D12E2 /* GameKit.framework */; };
@@ -45,6 +46,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F2921AC1BE20E8F00FF65C6 /* SoundButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundButton.h; sourceTree = "<group>"; };
+		4F2921AD1BE20E8F00FF65C6 /* SoundButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundButton.m; sourceTree = "<group>"; };
+		4F2921B01BE20F2A00FF65C6 /* AlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewController.h; sourceTree = "<group>"; };
+		4F2921B11BE20F2A00FF65C6 /* AlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewController.m; sourceTree = "<group>"; };
 		4F655ACB1BDAA85000E6233A /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		8481FC401915273E00D9F0EB /* XO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8481FC431915273E00D9F0EB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -90,8 +95,6 @@
 		93061D931BDE8AF400F148E0 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		93061D951BDE8AF400F148E0 /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
 		93061D961BDE8AF400F148E0 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
-		932A7A6C1BDEC278005A0E5F /* SoundButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundButton.h; sourceTree = "<group>"; };
-		932A7A6D1BDEC278005A0E5F /* SoundButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundButton.m; sourceTree = "<group>"; };
 		932A7A981BDEC48E005A0E5F /* SwitchControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchControlView.h; sourceTree = "<group>"; };
 		932A7A991BDEC48E005A0E5F /* SwitchControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchControlView.m; sourceTree = "<group>"; };
 		93453C481BE3704A002F08DB /* BLEService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEService.h; sourceTree = "<group>"; };
@@ -126,13 +129,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F2921AB1BE20E8F00FF65C6 /* SoundButton */ = {
+			isa = PBXGroup;
+			children = (
+				4F2921AC1BE20E8F00FF65C6 /* SoundButton.h */,
+				4F2921AD1BE20E8F00FF65C6 /* SoundButton.m */,
+			);
+			path = SoundButton;
+			sourceTree = "<group>";
+		};
+		4F2921AF1BE20EAF00FF65C6 /* AlertController */ = {
+			isa = PBXGroup;
+			children = (
+				4F2921B01BE20F2A00FF65C6 /* AlertViewController.h */,
+				4F2921B11BE20F2A00FF65C6 /* AlertViewController.m */,
+			);
+			path = AlertController;
+			sourceTree = "<group>";
+		};
 		84742D7919197C54007B868E /* Other Classes */ = {
 			isa = PBXGroup;
 			children = (
 				939F34A41BE00735009D12E2 /* GameAchivements */,
 				939F34A01BE0044C009D12E2 /* Utils */,
 				93003DC71BDFD1DC009430B3 /* Categories */,
-				932A7A6B1BDEC265005A0E5F /* SoundButton */,
 			);
 			path = "Other Classes";
 			sourceTree = "<group>";
@@ -332,18 +352,11 @@
 			path = StartViewController;
 			sourceTree = "<group>";
 		};
-		932A7A6B1BDEC265005A0E5F /* SoundButton */ = {
-			isa = PBXGroup;
-			children = (
-				932A7A6C1BDEC278005A0E5F /* SoundButton.h */,
-				932A7A6D1BDEC278005A0E5F /* SoundButton.m */,
-			);
-			path = SoundButton;
-			sourceTree = "<group>";
-		};
 		932A7A961BDEC476005A0E5F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4F2921AF1BE20EAF00FF65C6 /* AlertController */,
+				4F2921AB1BE20E8F00FF65C6 /* SoundButton */,
 				932A7A971BDEC481005A0E5F /* SwitchControlView */,
 			);
 			path = Views;
@@ -521,6 +534,7 @@
 				939F34A71BE00735009D12E2 /* GameAchivements.m in Sources */,
 				932A7A9B1BDEC48E005A0E5F /* SwitchControlView.m in Sources */,
 				93061D971BDE8AF400F148E0 /* AboutViewController.m in Sources */,
+				4F2921B21BE20F2A00FF65C6 /* AlertViewController.m in Sources */,
 				939F34A31BE00457009D12E2 /* Utils.m in Sources */,
 				93061D991BDE8AF400F148E0 /* GameViewController.m in Sources */,
 				93453C4A1BE3704A002F08DB /* BLEService.m in Sources */,
@@ -532,7 +546,7 @@
 				93061D861BDE89C400F148E0 /* main.m in Sources */,
 				939F34D71BE12B57009D12E2 /* KeychainStorageService.m in Sources */,
 				93061D9B1BDE8AF400F148E0 /* StartViewController.m in Sources */,
-				932A7A6E1BDEC278005A0E5F /* SoundButton.m in Sources */,
+				4F2921AE1BE20E8F00FF65C6 /* SoundButton.m in Sources */,
 				93061D981BDE8AF400F148E0 /* BaseViewController.m in Sources */,
 				93061D471BDE855400F148E0 /* GameManager.m in Sources */,
 			);

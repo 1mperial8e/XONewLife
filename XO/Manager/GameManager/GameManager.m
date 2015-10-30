@@ -22,6 +22,7 @@ static NSString *const DefaultScore = @"0:0";
     dispatch_once(&onceToken, ^{
         sharedInstance = [[self alloc] init];
         [sharedInstance loadLocalScore];
+        [sharedInstance loadAISettings];
     });
     return sharedInstance;
 }
@@ -75,6 +76,26 @@ static NSString *const DefaultScore = @"0:0";
     _easyModeScore = [ScoreModel modelWithScore:easyScore];
     _mediumModeScore = [ScoreModel modelWithScore:mediumScore];
     _hardModeScore = [ScoreModel modelWithScore:hardScore];
+}
+
+#pragma mark - AI
+
+- (void)aiLevelChanged:(AILevel)newAILevel
+{
+    _aiLevel = newAILevel;
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@(newAILevel) forKey:AIDifficultyKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)loadAISettings
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if (![userDefaults objectForKey:AIDifficultyKey]) {
+        [userDefaults setObject:@(AILevelMedium) forKey:AIDifficultyKey];
+        [userDefaults synchronize];
+    }
+    _aiLevel = [userDefaults integerForKey:AIDifficultyKey];
 }
 
 @end

@@ -8,4 +8,7 @@
 
 @interface SoundButton : UIButton
 
+@property (weak, nonatomic, nullable) id target;
+@property (assign, nonatomic, nullable) SEL selector;
+
 @end

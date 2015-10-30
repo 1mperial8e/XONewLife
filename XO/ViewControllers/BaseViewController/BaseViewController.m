@@ -21,6 +21,7 @@
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     imageView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     imageView.image = [UIImage imageNamed:@"background"];
+    NSParameterAssert(imageView.image);
     [self.view insertSubview:imageView atIndex:0];
     
     [self prepareNavigationBar];
