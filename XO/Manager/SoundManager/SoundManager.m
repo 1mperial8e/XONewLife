@@ -18,6 +18,8 @@ static CGFloat const DefaultPlayerVolume = 0.6F;
 @property (strong, nonatomic, nonnull) AVAudioPlayer *clickSoundPlayer;
 @property (strong, nonatomic, nonnull) AVAudioPlayer *xTurnSoundPlayer;
 @property (strong, nonatomic, nonnull) AVAudioPlayer *oTurnSoundPlayer;
+@property (strong, nonatomic, nonnull) AVAudioPlayer *victorySoundPlayer;
+@property (strong, nonatomic, nonnull) AVAudioPlayer *looseSoundPlayer;
 
 @end
 
@@ -81,6 +83,20 @@ static CGFloat const DefaultPlayerVolume = 0.6F;
     }
 }
 
+- (void)playWinSound
+{
+    if (self.isSoundOn) {
+        [self.victorySoundPlayer play];
+    }
+}
+
+- (void)playLooseSound
+{
+    if (self.isSoundOn) {
+        [self.looseSoundPlayer play];
+    }
+}
+
 #pragma mark - Private
 
 - (void)loadSettings
@@ -107,6 +123,8 @@ static CGFloat const DefaultPlayerVolume = 0.6F;
     [self createClickPlayer];
     [self createXTurnPlayer];
     [self createOTurnPlayer];
+    [self createVictoryPlayer];
+    [self createLoosePlayer];
     
     if (self.isMusicOn) {
         [self.musicPlayer play];
@@ -168,6 +186,34 @@ static CGFloat const DefaultPlayerVolume = 0.6F;
     
     self.oTurnSoundPlayer.volume = DefaultPlayerVolume;
     [self.oTurnSoundPlayer prepareToPlay];
+}
+
+- (void)createVictoryPlayer
+{
+    NSError *error;
+    NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"sound_win" ofType:@"mp3"];
+    NSParameterAssert(soundPath);
+    NSURL *soundUrl = [NSURL fileURLWithPath:soundPath];
+    
+    self.victorySoundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundUrl error:&error];
+    NSAssert(error == nil, @"Sound manager error. Can't create oTurn sound player");
+    
+    self.victorySoundPlayer.volume = DefaultPlayerVolume;
+    [self.victorySoundPlayer prepareToPlay];
+}
+
+- (void)createLoosePlayer
+{
+    NSError *error;
+    NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"sound_lose" ofType:@"mp3"];
+    NSParameterAssert(soundPath);
+    NSURL *soundUrl = [NSURL fileURLWithPath:soundPath];
+    
+    self.looseSoundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundUrl error:&error];
+    NSAssert(error == nil, @"Sound manager error. Can't create oTurn sound player");
+    
+    self.looseSoundPlayer.volume = DefaultPlayerVolume;
+    [self.looseSoundPlayer prepareToPlay];
 }
 
 @end

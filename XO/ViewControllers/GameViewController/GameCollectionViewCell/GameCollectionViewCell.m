@@ -47,6 +47,12 @@ static NSString *const zeroIconPattern = @"zero_";
     UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%i", pattern, imageNumber]];
     NSParameterAssert(image);
     self.imageView.image = image;
+    
+    if (isCross) {
+        [[SoundManager sharedInstance] playXTurnSound];
+    } else {
+        [[SoundManager sharedInstance] playOTurnSound];
+    }
 }
 
 - (BOOL)isEmpty

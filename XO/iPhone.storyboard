@@ -673,6 +673,7 @@
                         <outlet property="secondPlayerScoreLabel" destination="aOX-D2-lMj" id="SF8-Wq-8FF"/>
                         <outlet property="timerImageView" destination="xf1-il-Wrp" id="ElG-x8-s2u"/>
                         <outlet property="timerLabel" destination="gxM-D7-TB0" id="4Jo-38-34A"/>
+                        <outlet property="timerView" destination="dLU-3k-UKZ" id="gVE-3Q-vZW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a6u-6e-1vV" userLabel="First Responder" sceneMemberID="firstResponder"/>

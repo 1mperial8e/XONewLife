@@ -46,14 +46,18 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
 
 @property (weak, nonatomic) IBOutlet UIView *gameScoreView;
 @property (weak, nonatomic) IBOutlet UIView *gameFieldContainerView;
+@property (weak, nonatomic) IBOutlet UIView *timerView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
+// MARK: Multiplayer
 @property (strong, nonatomic) BaseGameModel *multiplayer;
+@property (strong, nonatomic) ScoreModel *multiplayerScore;
+@property (assign, nonatomic) BOOL multiplayerChangedPlace;
+
 @property (strong, nonatomic) GameModelSinglePlayer *singlePlayer;
 
 @property (strong, nonatomic) CAShapeLayer *victoryLineLayer;
 
-@property (assign, nonatomic) BOOL multiplayerChangedPlace;
 
 @end
 
@@ -67,17 +71,11 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
     
     [self configureNavigationItem];
     [self localizeUI];
-    [self setupPlayersAvatars];
-
-    if (self.gameMode == GameModeMultiplayer) {
-        self.multiplayer = [[BaseGameModel alloc] init];
-        self.multiplayer.delegate = self;
-        self.multiplayerChangedPlace = NO;
-        [self updateMultiplayerAvatars];
-    } else if (self.gameMode == GameModeSingle) {
-        self.singlePlayer = [[GameModelSinglePlayer alloc] initWithPlayerOneSign:PlayerFirst AISign:PlayerSecond difficultLevel:[GameManager sharedInstance].aiLevel];
-        self.singlePlayer.delegate = self;
-        self.singlePlayer.activePlayer = PlayerSecond;
+ 
+    [self setupGameModel];
+    
+    if (self.gameMode == GameModeMultiplayer || self.gameMode == GameModeSingle) {
+        self.timerView.hidden = YES;
     }
 }
 
@@ -168,7 +166,15 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
             } else {
                 [self secondPlayerStep];
             }
+        } else {
+            [[SoundManager sharedInstance] playWinSound];
+            [self.multiplayerScore updateWithNewVictory:(playerID == PlayerFirst)];
+            [self updateMultiplayerScore];
         }
+    }
+    
+    if (self.singlePlayer) {
+        [selectedCell fillWithCross:(self.singlePlayer.activePlayer == PlayerFirst)];
     }
 
     if (vector != VectorTypeNone) {
@@ -207,6 +213,11 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
     if (self.gameMode == GameModeMultiplayer) {
         self.multiplayer = [[BaseGameModel alloc] init];
         self.multiplayer.delegate = self;
+        self.multiplayerChangedPlace = YES;
+        
+        self.multiplayerScore = [ScoreModel modelWithScore:@"0:0"];
+        [self updateMultiplayerAvatars];
+        [self updateMultiplayerScore];
     } else if (self.gameMode == GameModeSingle) {
         self.singlePlayer = [[GameModelSinglePlayer alloc] initWithPlayerOneSign:PlayerFirst AISign:PlayerSecond difficultLevel:[GameManager sharedInstance].aiLevel];
         self.singlePlayer.delegate = self;
@@ -378,8 +389,13 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
 
 - (void)updateMultiplayerAvatars
 {
+    self.multiplayerChangedPlace = !self.multiplayerChangedPlace;
+    if (self.multiplayerChangedPlace) {
+        self.multiplayer.activePlayer = PlayerSecond;
+    } else {
+        self.multiplayer.activePlayer = PlayerFirst;
+    }
     BOOL firstPlayerIsCross = self.multiplayer.activePlayer == PlayerFirst;
-    self.multiplayerChangedPlace = !firstPlayerIsCross;
     
     UIImage *crossPlayerImage = [UIImage imageNamed:@"xPlayer"];
     UIImage *zeroPlayerImage = [UIImage imageNamed:@"oPlayer"];
@@ -392,6 +408,14 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
     } else {
         [self secondPlayerStep];
     }
+}
+
+#pragma mark - Score
+
+- (void)updateMultiplayerScore
+{
+    self.firstPlayerScoreLabel.text = [NSString stringWithFormat:@"%li", self.multiplayerScore.wins];
+    self.secondPlayerScoreLabel.text = [NSString stringWithFormat:@"%li", self.multiplayerScore.looses];
 }
 
 @end

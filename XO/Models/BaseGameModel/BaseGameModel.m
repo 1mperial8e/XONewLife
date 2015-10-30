@@ -24,11 +24,9 @@
 
 - (instancetype)initWithPlayerOneSign:(Player)playerOne playerTwoSign:(Player)playerTwo
 {
-    self = [super init];
+    self = [self init];
     if (self) {
-        self.victoryType = VectorTypeNone;
         self.activePlayer = PlayerFirst;
-        
         self.playerOneSign = playerOne;
         self.playerTwoSign = playerTwo;
     }

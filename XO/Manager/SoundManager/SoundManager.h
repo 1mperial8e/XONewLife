@@ -20,5 +20,7 @@
 - (void)playClickSound;
 - (void)playXTurnSound;
 - (void)playOTurnSound;
+- (void)playWinSound;
+- (void)playLooseSound;
 
 @end
