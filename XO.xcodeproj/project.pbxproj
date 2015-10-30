@@ -10,6 +10,7 @@
 		4F2921AE1BE20E8F00FF65C6 /* SoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F2921AD1BE20E8F00FF65C6 /* SoundButton.m */; };
 		4F2921B21BE20F2A00FF65C6 /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F2921B11BE20F2A00FF65C6 /* AlertViewController.m */; };
 		4F655ACC1BDAA85000E6233A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F655ACB1BDAA85000E6233A /* Launch Screen.storyboard */; };
+		4F6B20C01BE37AB100315C1A /* GameCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B20BF1BE37AB100315C1A /* GameCollectionViewCell.m */; };
 		8481FC441915273E00D9F0EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481FC431915273E00D9F0EB /* Foundation.framework */; };
 		8481FC481915273E00D9F0EB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8481FC471915273E00D9F0EB /* UIKit.framework */; };
 		8481FC541915273E00D9F0EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8481FC531915273E00D9F0EB /* AppDelegate.m */; };
@@ -51,6 +52,8 @@
 		4F2921B01BE20F2A00FF65C6 /* AlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewController.h; sourceTree = "<group>"; };
 		4F2921B11BE20F2A00FF65C6 /* AlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewController.m; sourceTree = "<group>"; };
 		4F655ACB1BDAA85000E6233A /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		4F6B20BE1BE37AB100315C1A /* GameCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCollectionViewCell.h; sourceTree = "<group>"; };
+		4F6B20BF1BE37AB100315C1A /* GameCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCollectionViewCell.m; sourceTree = "<group>"; };
 		8481FC401915273E00D9F0EB /* XO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8481FC431915273E00D9F0EB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8481FC471915273E00D9F0EB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -145,6 +148,15 @@
 				4F2921B11BE20F2A00FF65C6 /* AlertViewController.m */,
 			);
 			path = AlertController;
+			sourceTree = "<group>";
+		};
+		4F6B20BD1BE37A9700315C1A /* GameCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				4F6B20BE1BE37AB100315C1A /* GameCollectionViewCell.h */,
+				4F6B20BF1BE37AB100315C1A /* GameCollectionViewCell.m */,
+			);
+			path = GameCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		84742D7919197C54007B868E /* Other Classes */ = {
@@ -328,6 +340,7 @@
 		93061D8E1BDE8AF400F148E0 /* GameViewController */ = {
 			isa = PBXGroup;
 			children = (
+				4F6B20BD1BE37A9700315C1A /* GameCollectionViewCell */,
 				93061D8F1BDE8AF400F148E0 /* GameViewController.h */,
 				93061D901BDE8AF400F148E0 /* GameViewController.m */,
 			);
@@ -547,6 +560,7 @@
 				939F34D71BE12B57009D12E2 /* KeychainStorageService.m in Sources */,
 				93061D9B1BDE8AF400F148E0 /* StartViewController.m in Sources */,
 				4F2921AE1BE20E8F00FF65C6 /* SoundButton.m in Sources */,
+				4F6B20C01BE37AB100315C1A /* GameCollectionViewCell.m in Sources */,
 				93061D981BDE8AF400F148E0 /* BaseViewController.m in Sources */,
 				93061D471BDE855400F148E0 /* GameManager.m in Sources */,
 			);

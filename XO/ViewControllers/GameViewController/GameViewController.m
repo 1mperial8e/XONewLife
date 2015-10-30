@@ -14,11 +14,14 @@
 #import "GameManager.h"
 #import "SoundManager.h"
 
+// Views
+#import "GameCollectionViewCell.h"
+
 static NSString *const SettingButtonImageName = @"lightSettings";
 
 static CGFloat const PlayerImageAnimationTime = 0.30;
 
-@interface GameViewController ()
+@interface GameViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UILabel *firstplayerNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *secondPlayerNameLabel;
@@ -85,6 +88,34 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
 - (void)localizeUI
 {
     self.title = NSLocalizedString(@"gameViewController.title", nil);
+}
+
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 9; // 3x3 field
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:GameCollectionViewCell.ID forIndexPath:indexPath];
+    return cell;
+}
+
+#pragma mark - UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+#pragma mark - UICollectionViewDelegateFlowLayout
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat itemWidth = CGRectGetWidth(self.gameFieldContainerView.bounds) / 3 - 1;
+    return CGSizeMake(itemWidth, itemWidth * 0.8);
 }
 
 #pragma mark - Players avatars
