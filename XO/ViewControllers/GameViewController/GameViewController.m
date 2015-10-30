@@ -228,8 +228,8 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
         yOffset = self.gameFieldContainerView.bounds.size.height / 3;
     } else if (victoryVector == VectorTypeVerticalZero) {
         xOffset = - self.gameFieldContainerView.bounds.size.width / 3;
-    } else if (victoryVector == VectorTypeVerticalZero) {
-        xOffset = - self.gameFieldContainerView.bounds.size.width / 3;
+    } else if (victoryVector == VectorTypeVerticalSecond) {
+        xOffset = self.gameFieldContainerView.bounds.size.width / 3;
     }
     CGPoint center = CGPointMake(self.collectionView.center.x + xOffset, self.collectionView.center.y + yOffset);
     return center;
