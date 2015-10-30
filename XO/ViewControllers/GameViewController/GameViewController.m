@@ -53,6 +53,8 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
 
 @property (strong, nonatomic) CAShapeLayer *victoryLineLayer;
 
+@property (assign, nonatomic) BOOL multiplayerChangedPlace;
+
 @end
 
 @implementation GameViewController
@@ -65,19 +67,18 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
     
     [self configureNavigationItem];
     [self localizeUI];
-    
-    
+    [self setupPlayersAvatars];
+
     if (self.gameMode == GameModeMultiplayer) {
         self.multiplayer = [[BaseGameModel alloc] init];
         self.multiplayer.delegate = self;
+        self.multiplayerChangedPlace = NO;
+        [self updateMultiplayerAvatars];
     } else if (self.gameMode == GameModeSingle) {
         self.singlePlayer = [[GameModelSinglePlayer alloc] initWithPlayerOneSign:PlayerFirst AISign:PlayerSecond difficultLevel:[GameManager sharedInstance].aiLevel];
         self.singlePlayer.delegate = self;
         self.singlePlayer.activePlayer = PlayerSecond;
     }
-    
-    
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -156,9 +157,21 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
 - (void)gameModelDidConfirmGameTurnAtIndexPath:(NSIndexPath *)indexPath forPlayer:(Player)playerID victoryTurn:(VictoryVectorType)vector
 {
     GameCollectionViewCell *selectedCell = (GameCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
-    [selectedCell fillWithCross:playerID == PlayerFirst];
+    if (self.multiplayer) {
+        BOOL fillWithCross = (playerID == PlayerFirst);
+        fillWithCross = self.multiplayerChangedPlace ? !fillWithCross : fillWithCross;
+        [selectedCell fillWithCross:fillWithCross];
+        
+        if (vector == VectorTypeNone) {
+            if (playerID == PlayerSecond) {
+                [self firstPlayerStep];
+            } else {
+                [self secondPlayerStep];
+            }
+        }
+    }
 
-    if (vector >= 0) {
+    if (vector != VectorTypeNone) {
         NSLog(@"Win player %i", (int)playerID);
         self.collectionView.userInteractionEnabled = NO;
         [self animateWinWithVictoryVector:vector];
@@ -217,7 +230,7 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
     self.victoryLineLayer.position = self.collectionView.center;
     
     [self.collectionView.layer addSublayer:self.victoryLineLayer];
-    [self performSelector:@selector(cleanUpCollectionView) withObject:nil afterDelay:3.f];
+    [self performSelector:@selector(cleanUpCollectionView) withObject:nil afterDelay:2.f];
 }
 
 - (void)cleanUpCollectionView
@@ -225,15 +238,16 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
     self.collectionView.userInteractionEnabled = YES;
     [self.victoryLineLayer removeFromSuperlayer];
     [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
+    
+    if (self.multiplayer) {
+        [self updateMultiplayerAvatars];
+    }
 }
 
 #pragma mark - Players avatars
 
-- (void)updatePlayersAvatars
+- (void)setupPlayersAvatars
 {
-    self.firstPlayerImageView.layer.cornerRadius = CGRectGetMidX(self.firstPlayerImageView.bounds);
-    self.secondPlayerImageView.layer.cornerRadius = CGRectGetMidX(self.secondPlayerImageView.bounds);
-    
     self.firstPlayerImageView.layer.masksToBounds = YES;
     self.secondPlayerImageView.layer.masksToBounds = YES;
     
@@ -244,16 +258,22 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
     self.secondPlayerImageView.layer.borderColor = [UIColor appButtonTextColor].CGColor;
 }
 
+- (void)updatePlayersAvatars
+{
+    self.firstPlayerImageView.layer.cornerRadius = CGRectGetMidX(self.firstPlayerImageView.bounds);
+    self.secondPlayerImageView.layer.cornerRadius = CGRectGetMidX(self.secondPlayerImageView.bounds);
+}
+
 - (void)firstPlayerStep
 {
     CAAnimationGroup *firstPlayerAnim = [CAAnimationGroup animation];
     firstPlayerAnim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
     firstPlayerAnim.duration = PlayerImageAnimationTime;
     firstPlayerAnim.animations = @[[self widthAnimFromValue:self.firstPlayerImageView.layer.borderWidth toValue:5.],
-                                   [self colorAnimFromValue:self.firstPlayerImageView.layer.borderColor toValue:[UIColor greenColor].CGColor]];
+                                   [self colorAnimFromValue:self.firstPlayerImageView.layer.borderColor toValue:[UIColor activePlayerColor].CGColor]];
     [self.firstPlayerImageView.layer addAnimation:firstPlayerAnim forKey:nil];
     self.firstPlayerImageView.layer.borderWidth = 5.;
-    self.firstPlayerImageView.layer.borderColor = [UIColor greenColor].CGColor;
+    self.firstPlayerImageView.layer.borderColor = [UIColor activePlayerColor].CGColor;
     
     CAAnimationGroup *secondPlayerAnim = [CAAnimationGroup animation];
     secondPlayerAnim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
@@ -280,10 +300,10 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
     secondPlayerAnim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
     secondPlayerAnim.duration = PlayerImageAnimationTime;
     secondPlayerAnim.animations = @[[self widthAnimFromValue:self.secondPlayerImageView.layer.borderWidth toValue:5.],
-                                    [self colorAnimFromValue:self.secondPlayerImageView.layer.borderColor toValue:[UIColor greenColor].CGColor]];
+                                    [self colorAnimFromValue:self.secondPlayerImageView.layer.borderColor toValue:[UIColor activePlayerColor].CGColor]];
     [self.secondPlayerImageView.layer addAnimation:secondPlayerAnim forKey:nil];
     self.secondPlayerImageView.layer.borderWidth = 5.;
-    self.secondPlayerImageView.layer.borderColor = [UIColor greenColor].CGColor;
+    self.secondPlayerImageView.layer.borderColor = [UIColor activePlayerColor].CGColor;
 }
 
 - (CABasicAnimation *)widthAnimFromValue:(CGFloat)fromValue toValue:(CGFloat)toValue
@@ -320,6 +340,24 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
     burstAnim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
     burstAnim.removedOnCompletion = YES;
     return burstAnim;
+}
+
+- (void)updateMultiplayerAvatars
+{
+    BOOL firstPlayerIsCross = self.multiplayer.activePlayer == PlayerFirst;
+    self.multiplayerChangedPlace = !firstPlayerIsCross;
+    
+    UIImage *crossPlayerImage = [UIImage imageNamed:@"xPlayer"];
+    UIImage *zeroPlayerImage = [UIImage imageNamed:@"oPlayer"];
+    
+    self.firstPlayerImageView.image = firstPlayerIsCross ? crossPlayerImage : zeroPlayerImage;
+    self.secondPlayerImageView.image = firstPlayerIsCross ? zeroPlayerImage : crossPlayerImage;
+    
+    if (firstPlayerIsCross) {
+        [self firstPlayerStep];
+    } else {
+        [self secondPlayerStep];
+    }
 }
 
 @end

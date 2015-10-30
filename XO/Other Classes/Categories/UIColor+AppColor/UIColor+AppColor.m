@@ -22,6 +22,11 @@
     return [UIColor colorWithRealRed:68 green:28 blue:0 alpha:1.0f];
 }
 
++ (UIColor *)activePlayerColor
+{
+    return [UIColor colorWithRealRed:0 green:128 blue:64 alpha:1.0f];
+}
+
 #pragma mark - Private
 
 + (UIColor *)colorWithRealRed:(int)red green:(int)green blue:(int)blue alpha:(float)alpha

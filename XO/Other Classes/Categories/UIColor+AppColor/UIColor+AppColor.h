@@ -10,5 +10,6 @@
 
 + (UIColor *)appNavigationBarTextColor;
 + (UIColor *)appButtonTextColor;
++ (UIColor *)activePlayerColor;
 
 @end
