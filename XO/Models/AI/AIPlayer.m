@@ -20,7 +20,7 @@ typedef NS_ENUM(NSUInteger, AIStrategy) {
 
 @interface AIPlayer()
 
-@property (assign, nonatomic) AIDifficultLevel difLevel;
+@property (assign, nonatomic) AILevel difLevel;
 @property (assign, nonatomic) AIStrategy strategy;
 @property (assign, nonatomic) GameMatrix gameMatrix;
 
@@ -34,7 +34,7 @@ typedef NS_ENUM(NSUInteger, AIStrategy) {
 
 #pragma mark - LifeCycle
 
-- (instancetype)initWithAISign:(int)aiSign playerSign:(int)playerSign difficultLevel:(AIDifficultLevel)difficultLevel
+- (instancetype)initWithAISign:(int)aiSign playerSign:(int)playerSign difficultLevel:(AILevel)difficultLevel
 {
     self = [self init];
     if (self) {
@@ -66,7 +66,7 @@ typedef NS_ENUM(NSUInteger, AIStrategy) {
     memcpy(&_gameMatrix.stateMatrix, &inputMat.stateMatrix, sizeof(_gameMatrix.stateMatrix));
         
     switch (self.difLevel) {
-        case AIDifficultLevelEasy: {
+        case AILevelEasy: {
             if (self.AIFirstTurn) {
                 [self performAIRandomFirstTurn];
             } else if (![self makeWinOrBlockTurn:YES]) {
@@ -74,7 +74,7 @@ typedef NS_ENUM(NSUInteger, AIStrategy) {
             }
             break;
         }
-        case AIDifficultLevelMedium: {
+        case AILevelMedium: {
             if (self.AIFirstTurn) {
                 [self performAIRandomFirstTurn];
             } else {
@@ -89,7 +89,7 @@ typedef NS_ENUM(NSUInteger, AIStrategy) {
             }
             break;
         }
-        case AIDifficultLevelHard: {
+        case AILevelHard: {
             if (self.AIFirstTurn) {
                 [self makeAICleverFirstTurn];
             } else {
