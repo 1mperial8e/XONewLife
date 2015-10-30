@@ -37,6 +37,8 @@
 		93061D9B1BDE8AF400F148E0 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93061D961BDE8AF400F148E0 /* StartViewController.m */; };
 		932A7A9B1BDEC48E005A0E5F /* SwitchControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 932A7A991BDEC48E005A0E5F /* SwitchControlView.m */; };
 		93453C4A1BE3704A002F08DB /* BLEService.m in Sources */ = {isa = PBXBuildFile; fileRef = 93453C491BE3704A002F08DB /* BLEService.m */; };
+		93453C521BE38EB5002F08DB /* BaseGameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93453C511BE38EB5002F08DB /* BaseGameModel.m */; };
+		93453C5A1BE39B9E002F08DB /* GameModelSinglePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 93453C591BE39B9E002F08DB /* GameModelSinglePlayer.m */; };
 		939F34971BDFDD7F009D12E2 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 939F34961BDFDD7F009D12E2 /* GameKit.framework */; };
 		939F34A31BE00457009D12E2 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 939F34A21BE00457009D12E2 /* Utils.m */; };
 		939F34A71BE00735009D12E2 /* GameAchivements.m in Sources */ = {isa = PBXBuildFile; fileRef = 939F34A61BE00735009D12E2 /* GameAchivements.m */; };
@@ -102,6 +104,10 @@
 		932A7A991BDEC48E005A0E5F /* SwitchControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchControlView.m; sourceTree = "<group>"; };
 		93453C481BE3704A002F08DB /* BLEService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEService.h; sourceTree = "<group>"; };
 		93453C491BE3704A002F08DB /* BLEService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLEService.m; sourceTree = "<group>"; };
+		93453C501BE38EB5002F08DB /* BaseGameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseGameModel.h; sourceTree = "<group>"; };
+		93453C511BE38EB5002F08DB /* BaseGameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseGameModel.m; sourceTree = "<group>"; };
+		93453C581BE39B9E002F08DB /* GameModelSinglePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameModelSinglePlayer.h; sourceTree = "<group>"; };
+		93453C591BE39B9E002F08DB /* GameModelSinglePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameModelSinglePlayer.m; sourceTree = "<group>"; };
 		939F34961BDFDD7F009D12E2 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		939F34A11BE00457009D12E2 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		939F34A21BE00457009D12E2 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
@@ -393,6 +399,24 @@
 			path = BLEService;
 			sourceTree = "<group>";
 		};
+		93453C4F1BE38EAA002F08DB /* BaseGameModel */ = {
+			isa = PBXGroup;
+			children = (
+				93453C501BE38EB5002F08DB /* BaseGameModel.h */,
+				93453C511BE38EB5002F08DB /* BaseGameModel.m */,
+			);
+			path = BaseGameModel;
+			sourceTree = "<group>";
+		};
+		93453C571BE39B91002F08DB /* GameModelSinglePlayer */ = {
+			isa = PBXGroup;
+			children = (
+				93453C581BE39B9E002F08DB /* GameModelSinglePlayer.h */,
+				93453C591BE39B9E002F08DB /* GameModelSinglePlayer.m */,
+			);
+			path = GameModelSinglePlayer;
+			sourceTree = "<group>";
+		};
 		939F34A01BE0044C009D12E2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -414,6 +438,8 @@
 		939F34C51BE129D4009D12E2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				93453C571BE39B91002F08DB /* GameModelSinglePlayer */,
+				93453C4F1BE38EAA002F08DB /* BaseGameModel */,
 				939F34D81BE12B68009D12E2 /* ScoreModel */,
 				939F34CA1BE129E5009D12E2 /* AI */,
 			);
@@ -561,6 +587,8 @@
 				93061D9B1BDE8AF400F148E0 /* StartViewController.m in Sources */,
 				4F2921AE1BE20E8F00FF65C6 /* SoundButton.m in Sources */,
 				4F6B20C01BE37AB100315C1A /* GameCollectionViewCell.m in Sources */,
+				93453C5A1BE39B9E002F08DB /* GameModelSinglePlayer.m in Sources */,
+				93453C521BE38EB5002F08DB /* BaseGameModel.m in Sources */,
 				93061D981BDE8AF400F148E0 /* BaseViewController.m in Sources */,
 				93061D471BDE855400F148E0 /* GameManager.m in Sources */,
 			);

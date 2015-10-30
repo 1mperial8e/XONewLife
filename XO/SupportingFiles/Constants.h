@@ -26,13 +26,18 @@ typedef NS_ENUM(NSInteger, GameMode){
 
 typedef NS_ENUM(NSInteger, Player){
     PlayerNone = 0,
-    PlayerFirst,
-    PlayerSecond
+    PlayerFirst = 1,
+    PlayerSecond = 2
 };
 
-typedef NS_ENUM(NSInteger, VectorType){
-    VectorTypeHorisontal,
-    VectorTypeVertical,
+typedef NS_ENUM(NSInteger, VictoryVectorType){
+    VectorTypeNone = -1,
+    VectorTypeHorisontalZero,
+    VectorTypeHorisontalFirst,
+    VectorTypeHorisontalSecond,
+    VectorTypeVerticalZero,
+    VectorTypeVerticalFirst,
+    VectorTypeVerticalSecond,
     VectorTypeDiagonalLeft,
     VectorTypeDiagonalRight
 };
