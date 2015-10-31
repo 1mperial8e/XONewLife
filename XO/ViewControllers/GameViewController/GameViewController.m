@@ -174,11 +174,13 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
     }
     
     if (self.singlePlayer) {
-        [selectedCell fillWithCross:(self.singlePlayer.activePlayer == PlayerFirst)];
+        [selectedCell fillWithCross:(self.singlePlayer.playerOneSign == playerID)];
     }
 
     if (vector != VectorTypeNone) {
+#ifdef DEBUG
         NSLog(@"Win player %i", (int)playerID);
+#endif
         self.collectionView.userInteractionEnabled = NO;
         [self animateWinWithVictoryVector:vector];
     }

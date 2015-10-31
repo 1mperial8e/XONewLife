@@ -55,6 +55,12 @@ typedef NS_ENUM(NSUInteger, AIStrategy) {
     return YES;
 }
 
+- (void)updateAiSingTo:(int)ai player:(int)player
+{
+    self.AISign = ai;
+    self.playerSign = player;
+}
+
 #pragma mark - Public
 
 - (GameMatrix)makeAITurnWithMat:(GameMatrix)inputMat

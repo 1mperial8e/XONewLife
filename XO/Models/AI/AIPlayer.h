@@ -21,4 +21,6 @@ typedef struct {
 - (instancetype)initWithAISign:(int)aiSign playerSign:(int)playerSign difficultLevel:(AILevel)difficultLevel;
 - (GameMatrix)makeAITurnWithMat:(GameMatrix)inputMat;
 
+- (void)updateAiSingTo:(int)ai player:(int)player;
+
 @end
