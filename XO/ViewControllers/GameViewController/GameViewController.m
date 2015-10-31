@@ -40,6 +40,7 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
 
 @property (weak, nonatomic) IBOutlet UIImageView *firstPlayerImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *secondPlayerImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *playgroundImageView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *timerImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *gameScoreImageView;
@@ -194,7 +195,6 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
 
 - (void)gameModelDidFinishGameWithPatResult
 {
-    NSLog(@"Pat");
     [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
 }
 
@@ -232,7 +232,7 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
 - (void)animateWinWithVictoryVector:(VictoryVectorType)victoryVector
 {
     CALayer *imageLayer = [CALayer layer];
-    imageLayer.frame = CGRectMake(self.collectionView.bounds.origin.x, self.collectionView.bounds.origin.y, self.collectionView.bounds.size.width, self.collectionView.bounds.size.height);
+    imageLayer.frame = CGRectMake(self.playgroundImageView.bounds.origin.x, self.playgroundImageView.bounds.origin.y, self.playgroundImageView.bounds.size.width, self.playgroundImageView.bounds.size.height);
     imageLayer.backgroundColor = [UIColor clearColor].CGColor;
     UIImage *content = [[UIImage imageNamed:[self imageNameForVector:victoryVector]] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     imageLayer.contents = (__bridge id __nullable)(content).CGImage;

@@ -56,6 +56,8 @@
         }
         self.activePlayer = self.activePlayer == PlayerFirst ? PlayerSecond : PlayerFirst;
         
+        self.playerTurnVictoryState = self.victoryType;
+        
         if (isVictoryTurn) {
             [self resetGame];
         }

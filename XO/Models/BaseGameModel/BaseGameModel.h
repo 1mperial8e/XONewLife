@@ -33,6 +33,7 @@
 @property (assign, nonatomic) int playerTwoSign; //or AI
 
 @property (assign, nonatomic) VictoryVectorType victoryType;
+@property (assign, nonatomic) VictoryVectorType playerTurnVictoryState; //for singlePlayer
 
 - (instancetype)initWithPlayerOneSign:(Player)playerOne playerTwoSign:(Player)playerTwo;
 

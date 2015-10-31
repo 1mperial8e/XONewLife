@@ -12,9 +12,6 @@
 
 @property (strong, nonatomic) AIPlayer *AIPlayer;
 
-@property (assign, nonatomic) int initialAISign;
-@property (assign, nonatomic) int initialPlayerSign;
-
 @end
 
 @implementation GameModelSinglePlayer
@@ -36,12 +33,15 @@
     if (self.activeGame.stateMatrix[i][j] == EmptySign) {
         [super performTurnWithIndexPath:indexPath];
         
-        if (self.victoryType < 0) {
+        if (self.playerTurnVictoryState == VectorTypeNone) {
             int delay = arc4random_uniform(2) + 1;
             if (self.delegate && [self.delegate respondsToSelector:@selector(gameModelWillStartAITurnAfterDelay:)]) {
                 [self.delegate gameModelWillStartAITurnAfterDelay:delay];
             }
             [self performSelector:@selector(performAITurn) withObject:nil afterDelay:delay];
+        } else {
+            self.activePlayer = self.activePlayer == PlayerFirst ? PlayerSecond : PlayerFirst;
+            [self updateSignsForPlayers];
         }
     } else {
         if (self.delegate && [self.delegate respondsToSelector:@selector(gameModelDidFailMakeTurnAtIndexPath:forPlayer:)]) {
@@ -87,13 +87,8 @@
         if (self.delegate && [self.delegate respondsToSelector:@selector(gameModelDidEndAITurn)]) {
             [self.delegate gameModelDidEndAITurn];
         }
-    }
-    
-    if (currentState >= 0) {
-        self.playerOneSign += self.playerTwoSign;
-        self.playerTwoSign = self.playerOneSign - self.playerTwoSign;
-        self.playerOneSign -= self.playerTwoSign;
-        [self.AIPlayer updateAiSingTo:self.playerTwoSign player:self.playerOneSign];
+    } else {
+        [self updateSignsForPlayers];
     }
 }
 
@@ -109,6 +104,15 @@
         }
     }
     return aiSelectedIndexPath;
+}
+
+- (void)updateSignsForPlayers
+{
+    self.playerOneSign += self.playerTwoSign;
+    self.playerTwoSign = self.playerOneSign - self.playerTwoSign;
+    self.playerOneSign -= self.playerTwoSign;
+
+    [self.AIPlayer updateAiSingTo:self.playerTwoSign player:self.playerOneSign];
 }
 
 @end

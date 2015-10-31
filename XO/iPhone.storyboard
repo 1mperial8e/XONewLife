@@ -668,6 +668,7 @@
                         <outlet property="gameFieldContainerView" destination="thm-ej-W6q" id="BM9-MV-ApI"/>
                         <outlet property="gameScoreImageView" destination="h6r-nO-6bw" id="isE-i6-nwT"/>
                         <outlet property="gameScoreView" destination="j9J-7e-Eo5" id="Lwd-vr-2ZS"/>
+                        <outlet property="playgroundImageView" destination="nJO-pD-n75" id="EdY-dc-Qr9"/>
                         <outlet property="secondPlayerImageView" destination="QWB-5A-0yn" id="fQK-9V-3ww"/>
                         <outlet property="secondPlayerNameLabel" destination="qna-UE-joM" id="azj-4V-QM5"/>
                         <outlet property="secondPlayerScoreLabel" destination="aOX-D2-lMj" id="SF8-Wq-8FF"/>
@@ -753,10 +754,10 @@
                                                 <animations/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wHc-RB-XNr" userLabel="Sound - UiView">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wHc-RB-XNr" userLabel="Sound - UiView">
                                                 <rect key="frame" x="0.0" y="74" width="209" height="75"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58e-xk-n7o" customClass="SoundButton">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58e-xk-n7o" customClass="SoundButton">
                                                         <rect key="frame" x="0.0" y="0.0" width="209" height="75"/>
                                                         <animations/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -769,7 +770,7 @@
                                                             <action selector="enableSoundAction:" destination="yya-Jm-GhW" eventType="touchUpInside" id="QNN-2J-LYw"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="unchecked" translatesAutoresizingMaskIntoConstraints="NO" id="nO8-vH-ToA">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unchecked" translatesAutoresizingMaskIntoConstraints="NO" id="nO8-vH-ToA">
                                                         <rect key="frame" x="167" y="26" width="22" height="24"/>
                                                         <animations/>
                                                         <constraints>
@@ -777,7 +778,7 @@
                                                             <constraint firstAttribute="width" constant="22" id="y1e-8j-QZ5"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="checked" translatesAutoresizingMaskIntoConstraints="NO" id="gkO-QX-vwk">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked" translatesAutoresizingMaskIntoConstraints="NO" id="gkO-QX-vwk">
                                                         <rect key="frame" x="167" y="25" width="22" height="24"/>
                                                         <animations/>
                                                         <constraints>
@@ -845,10 +846,10 @@
                                                     <constraint firstItem="Tr5-nX-Cjk" firstAttribute="centerY" secondItem="h5V-YU-AlY" secondAttribute="centerY" constant="-1" id="w78-52-mAH"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="egZ-jX-MTL" userLabel="ResetScore">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="egZ-jX-MTL" userLabel="ResetScore">
                                                 <rect key="frame" x="0.0" y="223" width="209" height="75"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cr3-aQ-rac" customClass="SoundButton">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cr3-aQ-rac" customClass="SoundButton">
                                                         <rect key="frame" x="0.0" y="0.0" width="209" height="75"/>
                                                         <animations/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
