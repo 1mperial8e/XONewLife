@@ -19,6 +19,46 @@
 "forLeader"="Для перегляду рейтингу потрібно увійти за допомогою google+";
 "timeOut"="Час вийшов";
 "timeOponent"="Час вийшов. Опонент покинув гру";
-"Easy" = "Легкий";
-"Hard" = "Складний";
-"About Text" = "Х\\О це наступний крок в розвитку класичної гри хрестики нолики для iOS. Завантажуй поки вона ще безкоштовна!\n   Гра для двох гравців. на полі в 3х3 клітинки гравці ставлять O чи X кожен хід. Гравець, який розмістив три відповідних знака в горизонтальному, вертикальному чи діагональному ряду виграє партію.\n   Ви можете грати з своїми друзями, запрошувати їх до гри або змагатися з випадковими гравцями онлайн, випробувавши свої здібності й ставши одним з найкращих гравців світу. Також ви можете грати проти телефону який має два рівні складності легкий та важкий, або з своїм другом на одному пристрої.\n   Годі викидати папір. Скачайте гру хрестики нолики одразу на ваш смартфон безкоштовно.\n   Х\\О це найкраща гра для дітей та дорослих, хлопчиків та дівчат. Також відома як хрестики нолики, логічна гра, головоломка. Зазвичай її плутають з крестики нулики, x, o, xx, oo, xxx, ooo, xo, xoxo, xoxoxo";
+
+// Common
+
+"common.back" = " Назад";
+
+//SettingViewController
+"settingViewController.Easy" = "Легко";
+"settingViewController.Hard" = "Складно";
+"settingViewController.Music" = "Музика";
+"settingViewController.Sound" = "Звуки";
+"settingViewController.Title" = "Налаштування";
+"settingViewController.resetScore" = "Скинути рахунок";
+"settingViewController.areYouSure" = "Ви впевненi?";
+"settingViewController.yesSure" = "Так";
+"settingViewController.notSure" = "Нi";
+
+//AboutViewController
+
+"aboutViewController.Title" = "Про гру";
+"aboutViewController.AboutText" = "Х\\О це наступний крок в розвитку класичної гри хрестики нолики для iOS. Завантажуй поки вона ще безкоштовна!\n   Гра для двох гравців. на полі в 3х3 клітинки гравці ставлять O чи X кожен хід. Гравець, який розмістив три відповідних знака в горизонтальному, вертикальному чи діагональному ряду виграє партію.\n   Ви можете грати з своїми друзями, запрошувати їх до гри або змагатися з випадковими гравцями онлайн, випробувавши свої здібності й ставши одним з найкращих гравців світу. Також ви можете грати проти телефону який має два рівні складності легкий та важкий, або з своїм другом на одному пристрої.\n   Годі викидати папір. Скачайте гру хрестики нолики одразу на ваш смартфон безкоштовно.\n   Х\\О це найкраща гра для дітей та дорослих, хлопчиків та дівчат. Також відома як хрестики нолики, логічна гра, головоломка. Зазвичай її плутають з крестики нулики, x, o, xx, oo, xxx, ooo, xo, xoxo, xoxoxo";
+
+//GameAchivement
+
+"gameAchivement.bannerTitle" = "Розблокаване нове досягнення!";
+
+//Utils
+
+"utils.buttonTitle.OK" = "Так";
+"utils.buttonTitle.Cancel" = "Нi";
+
+//StartViewController
+
+"startViewController.buttonTitle.Achivements" = "Досягнення";
+"startViewController.buttonTitle.Leaderboard" = "Таблиця лiдерiв";
+"startViewController.buttonTitle.Setting" = "Налаштування";
+"startViewController.buttonTitle.About" = "ПРО ГРУ";
+"startViewController.buttonTitle.PlayOnline" = "МЕРЕЖЕВА ГРА";
+"startViewController.buttonTitle.1Player" = "1 ГРАВЕЦЬ";
+"startViewController.buttonTitle.2Player" = "2 ГРАВЦI";
+
+//GameViewController
+
+"gameViewController.title" = "Tic Tac Toe";
