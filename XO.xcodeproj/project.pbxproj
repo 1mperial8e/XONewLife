@@ -39,6 +39,7 @@
 		93453C4A1BE3704A002F08DB /* BLEService.m in Sources */ = {isa = PBXBuildFile; fileRef = 93453C491BE3704A002F08DB /* BLEService.m */; };
 		93453C521BE38EB5002F08DB /* BaseGameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93453C511BE38EB5002F08DB /* BaseGameModel.m */; };
 		93453C5A1BE39B9E002F08DB /* GameModelSinglePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 93453C591BE39B9E002F08DB /* GameModelSinglePlayer.m */; };
+		935B32931BE7850E006EFADF /* error.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 935B32921BE7850E006EFADF /* error.mp3 */; };
 		939F34971BDFDD7F009D12E2 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 939F34961BDFDD7F009D12E2 /* GameKit.framework */; };
 		939F34A31BE00457009D12E2 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 939F34A21BE00457009D12E2 /* Utils.m */; };
 		939F34A71BE00735009D12E2 /* GameAchivements.m in Sources */ = {isa = PBXBuildFile; fileRef = 939F34A61BE00735009D12E2 /* GameAchivements.m */; };
@@ -108,6 +109,7 @@
 		93453C511BE38EB5002F08DB /* BaseGameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseGameModel.m; sourceTree = "<group>"; };
 		93453C581BE39B9E002F08DB /* GameModelSinglePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameModelSinglePlayer.h; sourceTree = "<group>"; };
 		93453C591BE39B9E002F08DB /* GameModelSinglePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameModelSinglePlayer.m; sourceTree = "<group>"; };
+		935B32921BE7850E006EFADF /* error.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = error.mp3; sourceTree = "<group>"; };
 		939F34961BDFDD7F009D12E2 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		939F34A11BE00457009D12E2 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		939F34A21BE00457009D12E2 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 		93061D341BDE84F200F148E0 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				935B32921BE7850E006EFADF /* error.mp3 */,
 				93061D351BDE84F200F148E0 /* music.mp3 */,
 				93061D361BDE84F200F148E0 /* sound_click.mp3 */,
 				93061D371BDE84F200F148E0 /* sound_goes_o.mp3 */,
@@ -552,6 +555,7 @@
 				939F34E91BE1F606009D12E2 /* Adigiana_Ultra.ttf in Resources */,
 				93061D3E1BDE84F200F148E0 /* music.mp3 in Resources */,
 				93061D3C1BDE84F200F148E0 /* Localizable.strings in Resources */,
+				935B32931BE7850E006EFADF /* error.mp3 in Resources */,
 				93061D3F1BDE84F200F148E0 /* sound_click.mp3 in Resources */,
 				4F655ACC1BDAA85000E6233A /* Launch Screen.storyboard in Resources */,
 				93061D401BDE84F200F148E0 /* sound_goes_o.mp3 in Resources */,

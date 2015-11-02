@@ -20,6 +20,7 @@ static CGFloat const DefaultPlayerVolume = 0.6F;
 @property (strong, nonatomic, nonnull) AVAudioPlayer *oTurnSoundPlayer;
 @property (strong, nonatomic, nonnull) AVAudioPlayer *victorySoundPlayer;
 @property (strong, nonatomic, nonnull) AVAudioPlayer *looseSoundPlayer;
+@property (strong, nonatomic, nonnull) AVAudioPlayer *errorSoundPlayer;
 
 @end
 
@@ -97,6 +98,13 @@ static CGFloat const DefaultPlayerVolume = 0.6F;
     }
 }
 
+- (void)playIncorrectTurnSound
+{
+    if (self.isSoundOn) {
+        [self.errorSoundPlayer play];
+    }
+}
+
 #pragma mark - Private
 
 - (void)loadSettings
@@ -125,6 +133,7 @@ static CGFloat const DefaultPlayerVolume = 0.6F;
     self.oTurnSoundPlayer = [self createMusicPlayerWithMusicName:@"sound_goes_o"];
     self.victorySoundPlayer = [self createMusicPlayerWithMusicName:@"sound_win"];
     self.looseSoundPlayer = [self createMusicPlayerWithMusicName:@"sound_lose"];
+    self.errorSoundPlayer = [self createMusicPlayerWithMusicName:@"error"];
     
     self.musicPlayer.numberOfLoops = MAXFLOAT;
     if (self.isMusicOn) {

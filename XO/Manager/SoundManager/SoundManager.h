@@ -22,5 +22,6 @@
 - (void)playOTurnSound;
 - (void)playWinSound;
 - (void)playLooseSound;
+- (void)playIncorrectTurnSound;
 
 @end

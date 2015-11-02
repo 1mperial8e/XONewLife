@@ -169,6 +169,7 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
 
 - (void)gameModelDidFailMakeTurnAtIndexPath:(NSIndexPath *)indexPath forPlayer:(Player)playerID
 {
+    [[SoundManager sharedInstance] playIncorrectTurnSound];
     GameCollectionViewCell *selectedCell = (GameCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
     [selectedCell.layer addAnimation:[self burstAnimWithStartPosition:selectedCell.layer.position] forKey:nil];
 }
