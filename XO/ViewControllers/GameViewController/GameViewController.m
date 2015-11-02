@@ -351,6 +351,45 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
     self.secondPlayerImageView.layer.cornerRadius = CGRectGetMidX(self.secondPlayerImageView.bounds);
 }
 
+- (void)updateMultiplayerAvatars
+{
+    self.multiplayerChangedPlace = !self.multiplayerChangedPlace;
+    if (self.multiplayerChangedPlace) {
+        self.multiplayer.activePlayer = PlayerSecond;
+    } else {
+        self.multiplayer.activePlayer = PlayerFirst;
+    }
+    BOOL firstPlayerIsCross = self.multiplayer.activePlayer == PlayerFirst;
+    
+    UIImage *crossPlayerImage = [UIImage imageNamed:@"xPlayer"];
+    UIImage *zeroPlayerImage = [UIImage imageNamed:@"oPlayer"];
+    
+    self.firstPlayerImageView.image = firstPlayerIsCross ? crossPlayerImage : zeroPlayerImage;
+    self.secondPlayerImageView.image = firstPlayerIsCross ? zeroPlayerImage : crossPlayerImage;
+    
+    if (firstPlayerIsCross) {
+        [self firstPlayerStep];
+    } else {
+        [self secondPlayerStep];
+    }
+}
+
+- (void)updateSinglePlayerAvatars
+{
+    UIImage *playerAvatar = [UIImage imageNamed:@"user"];
+    UIImage *aiAvatar = [UIImage imageNamed:@"ai_1"];
+    
+    BOOL playerPosition = self.singlePlayer.playerOneSign == PlayerFirst;
+    self.firstPlayerImageView.image = playerPosition ? playerAvatar : aiAvatar;
+    self.secondPlayerImageView.image = playerPosition ? aiAvatar : playerAvatar;
+    
+    if (playerPosition) {
+        [self firstPlayerStep];
+    } else {
+        [self secondPlayerStep];
+    }
+}
+
 - (void)firstPlayerStep
 {
     CAAnimationGroup *firstPlayerAnim = [CAAnimationGroup animation];
@@ -413,6 +452,8 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
     return colorAnim;
 }
 
+#pragma mark - Animation
+
 - (CAKeyframeAnimation *)burstAnimWithStartPosition:(CGPoint)position
 {
     CAKeyframeAnimation *burstAnim = [CAKeyframeAnimation animationWithKeyPath:@"position"];
@@ -427,45 +468,6 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
     burstAnim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
     burstAnim.removedOnCompletion = YES;
     return burstAnim;
-}
-
-- (void)updateMultiplayerAvatars
-{
-    self.multiplayerChangedPlace = !self.multiplayerChangedPlace;
-    if (self.multiplayerChangedPlace) {
-        self.multiplayer.activePlayer = PlayerSecond;
-    } else {
-        self.multiplayer.activePlayer = PlayerFirst;
-    }
-    BOOL firstPlayerIsCross = self.multiplayer.activePlayer == PlayerFirst;
-    
-    UIImage *crossPlayerImage = [UIImage imageNamed:@"xPlayer"];
-    UIImage *zeroPlayerImage = [UIImage imageNamed:@"oPlayer"];
-    
-    self.firstPlayerImageView.image = firstPlayerIsCross ? crossPlayerImage : zeroPlayerImage;
-    self.secondPlayerImageView.image = firstPlayerIsCross ? zeroPlayerImage : crossPlayerImage;
-    
-    if (firstPlayerIsCross) {
-        [self firstPlayerStep];
-    } else {
-        [self secondPlayerStep];
-    }
-}
-
-- (void)updateSinglePlayerAvatars
-{
-    UIImage *playerAvatar = [UIImage imageNamed:@"user"];
-    UIImage *aiAvatar = [UIImage imageNamed:@"ai_1"];
-    
-    BOOL playerPosition = self.singlePlayer.playerOneSign == PlayerFirst;
-    self.firstPlayerImageView.image = playerPosition ? playerAvatar : aiAvatar;
-    self.secondPlayerImageView.image = playerPosition ? aiAvatar : playerAvatar;
-
-    if (playerPosition) {
-        [self firstPlayerStep];
-    } else {
-        [self secondPlayerStep];
-    }
 }
 
 #pragma mark - Score
