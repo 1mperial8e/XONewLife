@@ -61,7 +61,6 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
 
 @property (strong, nonatomic) CAShapeLayer *victoryLineLayer;
 
-
 @end
 
 @implementation GameViewController
@@ -185,8 +184,8 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
 
 - (void)multyPlayerTurnAtIndexPath:(NSIndexPath *)indexPath forPlayer:(Player)playerID victoryTurn:(VictoryVectorType)vector
 {
-    GameCollectionViewCell *selectedCell = (GameCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
     if (self.multiplayer) {
+        GameCollectionViewCell *selectedCell = (GameCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
         BOOL fillWithCross = (playerID == PlayerFirst);
         fillWithCross = self.multiplayerChangedPlace ? !fillWithCross : fillWithCross;
         [selectedCell fillWithCross:fillWithCross];
@@ -207,8 +206,8 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
 
 - (void)singlePlayerTurnAtIndexPath:(NSIndexPath *)indexPath forPlayer:(Player)playerID victoryTurn:(VictoryVectorType)vector
 {
-    GameCollectionViewCell *selectedCell = (GameCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
     if (self.singlePlayer) {
+        GameCollectionViewCell *selectedCell = (GameCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
         [selectedCell fillWithCross:(self.singlePlayer.playerOneSign == playerID)];
         
         if (vector == VectorTypeNone) {
