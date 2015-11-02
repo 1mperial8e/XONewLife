@@ -747,18 +747,18 @@
                                 <rect key="frame" x="0.0" y="85" width="320" height="398"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s0Y-cX-TMp" userLabel="Control">
-                                        <rect key="frame" x="56" y="50" width="209" height="298"/>
+                                        <rect key="frame" x="24" y="50" width="273" height="298"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yxm-5i-2zX" userLabel="DifficultLevel - Switch Control View" customClass="SwitchControlView">
-                                                <rect key="frame" x="0.0" y="0.0" width="209" height="75"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="273" height="75"/>
                                                 <animations/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wHc-RB-XNr" userLabel="Sound - UiView">
-                                                <rect key="frame" x="0.0" y="74" width="209" height="75"/>
+                                                <rect key="frame" x="0.0" y="75" width="273" height="74"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58e-xk-n7o" customClass="SoundButton">
-                                                        <rect key="frame" x="0.0" y="0.0" width="209" height="75"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="273" height="75"/>
                                                         <animations/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="Adigiana2" family="Adigiana 2" pointSize="24"/>
@@ -771,7 +771,7 @@
                                                         </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unchecked" translatesAutoresizingMaskIntoConstraints="NO" id="nO8-vH-ToA">
-                                                        <rect key="frame" x="167" y="26" width="22" height="24"/>
+                                                        <rect key="frame" x="231" y="26" width="22" height="24"/>
                                                         <animations/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="jZd-qj-hz1"/>
@@ -779,7 +779,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked" translatesAutoresizingMaskIntoConstraints="NO" id="gkO-QX-vwk">
-                                                        <rect key="frame" x="167" y="25" width="22" height="24"/>
+                                                        <rect key="frame" x="231" y="25" width="22" height="24"/>
                                                         <animations/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="22" id="bC4-AB-7nb"/>
@@ -801,10 +801,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aLP-2H-nIg" userLabel="Music - UiView">
-                                                <rect key="frame" x="0.0" y="149" width="209" height="75"/>
+                                                <rect key="frame" x="0.0" y="149" width="273" height="75"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGM-5c-sEK" customClass="SoundButton">
-                                                        <rect key="frame" x="0.0" y="0.0" width="209" height="75"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="273" height="75"/>
                                                         <animations/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="Adigiana2" family="Adigiana 2" pointSize="24"/>
@@ -817,7 +817,7 @@
                                                         </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unchecked" translatesAutoresizingMaskIntoConstraints="NO" id="h5V-YU-AlY">
-                                                        <rect key="frame" x="167" y="26" width="22" height="24"/>
+                                                        <rect key="frame" x="231" y="26" width="22" height="24"/>
                                                         <animations/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="LnA-40-xHb"/>
@@ -825,7 +825,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked" translatesAutoresizingMaskIntoConstraints="NO" id="Tr5-nX-Cjk">
-                                                        <rect key="frame" x="167" y="25" width="22" height="24"/>
+                                                        <rect key="frame" x="231" y="25" width="22" height="24"/>
                                                         <animations/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="cdA-DM-b4L"/>
@@ -847,10 +847,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="egZ-jX-MTL" userLabel="ResetScore">
-                                                <rect key="frame" x="0.0" y="223" width="209" height="75"/>
+                                                <rect key="frame" x="0.0" y="224" width="273" height="74"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cr3-aQ-rac" customClass="SoundButton">
-                                                        <rect key="frame" x="0.0" y="0.0" width="209" height="75"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="273" height="75"/>
                                                         <animations/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="Adigiana2" family="Adigiana 2" pointSize="24"/>
@@ -897,7 +897,7 @@
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="s0Y-cX-TMp" firstAttribute="width" secondItem="gwX-z3-Lfg" secondAttribute="width" multiplier="0.65" constant="1" id="11V-Oa-flc"/>
+                                    <constraint firstItem="s0Y-cX-TMp" firstAttribute="width" secondItem="gwX-z3-Lfg" secondAttribute="width" multiplier="0.85" constant="1" id="11V-Oa-flc"/>
                                     <constraint firstItem="s0Y-cX-TMp" firstAttribute="centerX" secondItem="gwX-z3-Lfg" secondAttribute="centerX" id="1FF-s1-NZu"/>
                                     <constraint firstItem="s0Y-cX-TMp" firstAttribute="height" secondItem="gwX-z3-Lfg" secondAttribute="height" multiplier="0.75" id="5vl-B1-NsZ"/>
                                     <constraint firstItem="s0Y-cX-TMp" firstAttribute="centerY" secondItem="gwX-z3-Lfg" secondAttribute="centerY" id="fGR-HW-rGC"/>

@@ -98,6 +98,12 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
 {
     [[SoundManager sharedInstance] playClickSound];
     SettingsViewController *settingViewController = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([SettingsViewController class])];
+    __weak typeof(self) weakSelf = self;
+    settingViewController.didChangeAIMode = ^() {
+        [weakSelf setupGameModel];
+        [weakSelf updatePlayersAvatars];
+        [weakSelf.collectionView reloadData];
+    };
     [self.navigationController pushViewController:settingViewController animated:YES];
 }
 
@@ -164,6 +170,7 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
 
 - (void)gameModelDidFailMakeTurnAtIndexPath:(NSIndexPath *)indexPath forPlayer:(Player)playerID
 {
+    [[SoundManager sharedInstance] playIncorrectTurnSound];
     GameCollectionViewCell *selectedCell = (GameCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
     [selectedCell.layer addAnimation:[self burstAnimWithStartPosition:selectedCell.layer.position] forKey:nil];
 }
@@ -298,17 +305,13 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
     } else if (self.singlePlayer) {
         [[GameManager sharedInstance] updateScoreForMode:[GameManager sharedInstance].aiLevel withVictory:self.winner == PlayerSecond];
         [self updateSinglePlayerScore];
-//        self.winner == PlayerSecond ? [self secondPlayerStep] :
-//        [self firstPlayerStep];
         
-        int nextStepForAI = arc4random_uniform(1);
-        if (nextStepForAI) {
+        if (self.winner == PlayerSecond) {
             [self secondPlayerStep];
             [self.singlePlayer performAITurn];
         } else {
             [self firstPlayerStep];
         }
-        
         self.winner = PlayerNone;
     }
 }

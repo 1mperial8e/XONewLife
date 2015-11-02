@@ -23,6 +23,7 @@
 
 //SettingViewController
 "settingViewController.Easy" = "Easy";
+"settingViewController.Medium" = "Medium";
 "settingViewController.Hard" = "Hard";
 "settingViewController.Music" = "Music";
 "settingViewController.Sound" = "Sound";
@@ -31,6 +32,8 @@
 "settingViewController.areYouSure" = "Are you sure?";
 "settingViewController.yesSure" = "Yes, I'm sure";
 "settingViewController.notSure" = "No, I'm not";
+"settingViewController.aiLevelChangeNoticeTitle" = " Difficult level change";
+"settingViewController.currentGameWillBeLost" = "Current Game will be lost.\nContinue?";
 
 //AboutViewController
 
