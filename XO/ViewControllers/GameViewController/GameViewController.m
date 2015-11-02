@@ -32,6 +32,7 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
 
 @interface GameViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, GameModelDelegate>
 
+// MARK: UI
 @property (weak, nonatomic) IBOutlet UILabel *firstplayerNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *secondPlayerNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
@@ -55,7 +56,7 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
 @property (strong, nonatomic) ScoreModel *multiplayerScore;
 @property (assign, nonatomic) BOOL multiplayerChangedPlace;
 
-//SinglePlayer
+// MARK: SinglePlayer
 @property (strong, nonatomic) GameModelSinglePlayer *singlePlayer;
 @property (assign, nonatomic) Player winner;
 
