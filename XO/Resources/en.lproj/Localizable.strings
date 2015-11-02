@@ -23,6 +23,7 @@
 
 //SettingViewController
 "settingViewController.Easy" = "Easy";
+"settingViewController.Medium" = "Medium";
 "settingViewController.Hard" = "Hard";
 "settingViewController.Music" = "Music";
 "settingViewController.Sound" = "Sound";

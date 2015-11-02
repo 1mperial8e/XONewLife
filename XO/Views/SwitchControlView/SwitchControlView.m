@@ -83,6 +83,8 @@
         SoundButton *elementButton = [[SoundButton alloc] initWithFrame:CGRectMake(buttonXPoint, 0, buttonBoundsRect.size.width, buttonBoundsRect.size.height)];
         [elementButton setTitle:self.elementsNames[i] forState:UIControlStateNormal];
         
+        elementButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+        
         [elementButton setTitleColor:self.activeElementTintColor forState:UIControlStateSelected];
         [elementButton setTitleColor:self.inActiveElementTintColor forState:UIControlStateNormal];
         [elementButton addTarget:self action:@selector(didPressElement:) forControlEvents:UIControlEventTouchDown];

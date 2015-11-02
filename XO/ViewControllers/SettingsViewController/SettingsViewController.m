@@ -96,23 +96,25 @@
 
 - (void)prepareDifficultSwitch
 {
-    self.difficultSwitchView.elementsCount = 2;
+    self.difficultSwitchView.elementsCount = 3;
     self.difficultSwitchView.delegate = self;
     self.difficultSwitchView.activeElementTintColor = [UIColor appButtonTextColor];
     self.difficultSwitchView.inActiveElementTintColor = [UIColor lightGrayColor];
     self.difficultSwitchView.activeBackgroundImages = @[
-                                                        [UIImage imageNamed:@"left_Active"],
-                                                        [UIImage imageNamed:@"right_Active"]
+                                                        [UIImage imageNamed:@"left_button"],
+                                                        [UIImage imageNamed:@"center_button"],
+                                                        [UIImage imageNamed:@"right_button"]
                                                         ];
     self.difficultSwitchView.inActiveBackgroundImages = @[
-                                                          [UIImage imageNamed:@"left_inActive"],
-                                                          [UIImage imageNamed:@"right_inActive"]
+                                                          [UIImage imageNamed:@"left_button_inactive"],
+                                                          [UIImage imageNamed:@"center_button_inactive"],
+                                                          [UIImage imageNamed:@"right_button_inactive"]
                                                           ];
 }
 
 - (void)localizeUI
 {
-    self.difficultSwitchView.elementsNames = @[NSLocalizedString(@"settingViewController.Easy", nil), NSLocalizedString(@"settingViewController.Hard", nil)];
+    self.difficultSwitchView.elementsNames = @[NSLocalizedString(@"settingViewController.Easy", nil), NSLocalizedString(@"settingViewController.Medium", nil), NSLocalizedString(@"settingViewController.Hard", nil)];
     [self.enableMusicButton setTitle:NSLocalizedString(@"settingViewController.Music", nil) forState:UIControlStateNormal];
     [self.enableSoundButton setTitle:NSLocalizedString(@"settingViewController.Sound", nil) forState:UIControlStateNormal];
     [self.resetScoreButton setTitle:NSLocalizedString(@"settingViewController.resetScore", nil) forState:UIControlStateNormal];

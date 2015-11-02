@@ -26,6 +26,7 @@
 
 //SettingViewController
 "settingViewController.Easy" = "Легко";
+"settingViewController.Medium" = "Помiрно";
 "settingViewController.Hard" = "Складно";
 "settingViewController.Music" = "Музика";
 "settingViewController.Sound" = "Звуки";
