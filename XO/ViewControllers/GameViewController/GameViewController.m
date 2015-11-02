@@ -73,9 +73,9 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
     
     [self setupPlayersAvatars];
     [self configureNavigationItem];
-    [self localizeUI];
  
     [self setupGameModel];
+    [self localizeUI];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -115,6 +115,8 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
 - (void)localizeUI
 {
     self.title = NSLocalizedString(@"gameViewController.title", nil);
+    self.secondPlayerNameLabel.text = self.singlePlayer ? NSLocalizedString(@"gameViewController.secondPlayer.AI", nil) : NSLocalizedString(@"gameViewController.secondPlayer", nil);
+    self.firstplayerNameLabel.text = NSLocalizedString(@"gameViewController.firstPlayer", nil);
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -211,7 +213,7 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
         [selectedCell fillWithCross:(self.singlePlayer.playerOneSign == playerID)];
         
         if (vector == VectorTypeNone) {
-            if (playerID == self.singlePlayer.playerOneSign) {
+            if (playerID == PlayerFirst) {
                 [self firstPlayerStep];
             } else {
                 [self secondPlayerStep];
@@ -293,8 +295,19 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
     if (self.multiplayer) {
         [self updateMultiplayerAvatars];
     } else if (self.singlePlayer) {
-        [[GameManager sharedInstance] updateScoreForMode:[GameManager sharedInstance].aiLevel withVictory:self.winner];
+        [[GameManager sharedInstance] updateScoreForMode:[GameManager sharedInstance].aiLevel withVictory:self.winner == PlayerSecond];
         [self updateSinglePlayerScore];
+//        self.winner == PlayerSecond ? [self secondPlayerStep] :
+//        [self firstPlayerStep];
+        
+        int nextStepForAI = arc4random_uniform(1);
+        if (nextStepForAI) {
+            [self secondPlayerStep];
+            [self.singlePlayer performAITurn];
+        } else {
+            [self firstPlayerStep];
+        }
+        
         self.winner = PlayerNone;
     }
 }

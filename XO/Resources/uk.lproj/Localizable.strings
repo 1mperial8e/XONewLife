@@ -62,3 +62,6 @@
 //GameViewController
 
 "gameViewController.title" = "Tic Tac Toe";
+"gameViewController.firstPlayer" = "1 Гравець";
+"gameViewController.secondPlayer" = "2 Гравець";
+"gameViewController.secondPlayer.AI" = "Телефон";
