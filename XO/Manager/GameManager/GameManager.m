@@ -78,6 +78,24 @@ static NSString *const DefaultScore = @"0:0";
     _hardModeScore = [ScoreModel modelWithScore:hardScore];
 }
 
+- (ScoreModel *)currentScoreModel
+{
+    switch (self.aiLevel) {
+        case AILevelEasy: {
+            return self.easyModeScore;
+            break;
+        }
+        case AILevelMedium: {
+            return self.mediumModeScore;
+            break;
+        }
+        case AILevelHard: {
+            return self.hardModeScore;
+            break;
+        }
+    }
+}
+
 #pragma mark - AI
 
 - (void)aiLevelChanged:(AILevel)newAILevel

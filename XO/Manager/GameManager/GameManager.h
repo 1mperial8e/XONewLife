@@ -21,5 +21,6 @@
 - (void)resetLocalScore;
 - (void)updateScoreForMode:(AILevel)aiMode withVictory:(BOOL)aVictory;
 - (void)aiLevelChanged:(AILevel)newAILevel;
+- (nonnull ScoreModel *)currentScoreModel;
 
 @end
