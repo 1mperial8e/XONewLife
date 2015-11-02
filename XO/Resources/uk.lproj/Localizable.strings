@@ -34,6 +34,8 @@
 "settingViewController.areYouSure" = "Ви впевненi?";
 "settingViewController.yesSure" = "Так";
 "settingViewController.notSure" = "Нi";
+"settingViewController.aiLevelChangeNoticeTitle" = "Зміна рівня складності";
+"settingViewController.currentGameWillBeLost" = "Поточна гра буде втрачена.\nПродовжити?";
 
 //AboutViewController
 

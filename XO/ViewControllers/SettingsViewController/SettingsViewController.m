@@ -68,7 +68,27 @@
 
 - (void)switchControlDidTappedButton:(SoundButton *)button
 {
-    [[GameManager sharedInstance] aiLevelChanged:(AILevel)button.tag];
+    __weak typeof(self) weakSelf = self;
+    void (^ChangeAILevel)() = ^(){
+        [[GameManager sharedInstance] aiLevelChanged:(AILevel)button.tag];
+        [weakSelf updateControlState];
+    };
+    
+    if (self.navigationController.viewControllers.count > 2) {
+        AlertViewController *alertVC = [[AlertViewController alloc] initWithTitle:NSLocalizedString(@"settingViewController.aiLevelChangeNoticeTitle", nil)
+                                                                          message:NSLocalizedString(@"settingViewController.currentGameWillBeLost", nil)
+                                                                cancelButtonTitle:NSLocalizedString(@"settingViewController.notSure", nil)];
+        [alertVC addButtonWithTitle:NSLocalizedString(@"settingViewController.yesSure", nil) completionHandler:^{
+            ChangeAILevel();
+            if (weakSelf.didChangeAIMode) {
+                weakSelf.didChangeAIMode();
+            }
+        }];
+
+        [self presentViewController:alertVC animated:YES completion:nil];
+    } else {
+        ChangeAILevel();
+    }
     [self updateControlState];
 }
 
