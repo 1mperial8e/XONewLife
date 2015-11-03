@@ -58,7 +58,7 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
 
 // MARK: SinglePlayer
 @property (strong, nonatomic) GameModelSinglePlayer *singlePlayer;
-@property (assign, nonatomic) Player winner;
+@property (assign, nonatomic) BOOL singleplayerChangedPlace;
 
 @property (strong, nonatomic) CAShapeLayer *victoryLineLayer;
 
@@ -99,11 +99,16 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
     [[SoundManager sharedInstance] playClickSound];
     SettingsViewController *settingViewController = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([SettingsViewController class])];
     __weak typeof(self) weakSelf = self;
-    settingViewController.didChangeAIMode = ^() {
-        [weakSelf setupGameModel];
-        [weakSelf updatePlayersAvatars];
-        [weakSelf.collectionView reloadData];
-    };
+    if (self.gameMode == GameModeSingle) {
+        settingViewController.didChangeAIMode = ^(){
+            [weakSelf setupGameModel];
+            [weakSelf updatePlayersAvatars];
+            [weakSelf.collectionView reloadData];
+        };
+        settingViewController.didResetScore = ^(){
+            [weakSelf updateSinglePlayerScore];
+        };
+    }
     [self.navigationController pushViewController:settingViewController animated:YES];
 }
 
@@ -146,6 +151,7 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
     if (self.gameMode == GameModeMultiplayer) {
         [self.multiplayer performTurnWithIndexPath:indexPath];
     } else if (self.gameMode == GameModeSingle) {
+        self.collectionView.userInteractionEnabled = NO;
         [self.singlePlayer performTurnWithIndexPath:indexPath];
     }
 }
@@ -162,9 +168,11 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
 
 - (void)gameModelDidConfirmGameTurnAtIndexPath:(NSIndexPath *)indexPath forPlayer:(Player)playerID victoryTurn:(VictoryVectorType)vector
 {
-    [self singlePlayerTurnAtIndexPath:indexPath forPlayer:playerID victoryTurn:vector];
-    [self multyPlayerTurnAtIndexPath:indexPath forPlayer:playerID victoryTurn:vector];
-    
+    if (self.gameMode == GameModeSingle) {
+        [self singlePlayerTurnAtIndexPath:indexPath forPlayer:playerID victoryTurn:vector];
+    } else if (self.gameMode == GameModeMultiplayer) {
+        [self multiPlayerTurnAtIndexPath:indexPath forPlayer:playerID victoryTurn:vector];
+    }
     [self animateVictoryIfNeededPlayer:playerID victoryTurn:vector];
 }
 
@@ -173,26 +181,12 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
     [[SoundManager sharedInstance] playIncorrectTurnSound];
     GameCollectionViewCell *selectedCell = (GameCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
     [selectedCell.layer addAnimation:[self burstAnimWithStartPosition:selectedCell.layer.position] forKey:nil];
-}
-
-- (void)gameModelDidFinishGameWithPatResult
-{
-    [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
-}
-
-- (void)gameModelWillStartAITurnAfterDelay:(int)delay
-{
-    self.collectionView.userInteractionEnabled = NO;
-}
-
-- (void)gameModelDidEndAITurn
-{
     self.collectionView.userInteractionEnabled = YES;
 }
 
 #pragma mark - Turns Logic
 
-- (void)multyPlayerTurnAtIndexPath:(NSIndexPath *)indexPath forPlayer:(Player)playerID victoryTurn:(VictoryVectorType)vector
+- (void)multiPlayerTurnAtIndexPath:(NSIndexPath *)indexPath forPlayer:(Player)playerID victoryTurn:(VictoryVectorType)vector
 {
     if (self.multiplayer) {
         GameCollectionViewCell *selectedCell = (GameCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
@@ -200,7 +194,9 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
         fillWithCross = self.multiplayerChangedPlace ? !fillWithCross : fillWithCross;
         [selectedCell fillWithCross:fillWithCross];
         
-        if (vector == VectorTypeNone) {
+        if (vector == VectorTypePat) {
+            // Pat game
+        } else if (vector == VectorTypeNone) {
             if (playerID == PlayerSecond) {
                 [self firstPlayerStep];
             } else {
@@ -218,17 +214,29 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
 {
     if (self.singlePlayer) {
         GameCollectionViewCell *selectedCell = (GameCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
-        [selectedCell fillWithCross:(self.singlePlayer.playerOneSign == playerID)];
+        BOOL fillWithCross = (playerID == PlayerFirst);
+        fillWithCross = self.singleplayerChangedPlace ? !fillWithCross : fillWithCross;
+        [selectedCell fillWithCross:fillWithCross];
         
-        if (vector == VectorTypeNone) {
-            if (playerID == PlayerFirst) {
+        if (vector == VectorTypePat) {
+            // Pat game
+            self.singleplayerChangedPlace = !self.singleplayerChangedPlace;
+        } else if (vector == VectorTypeNone) {
+            if (playerID == PlayerSecond) {
+                self.collectionView.userInteractionEnabled = YES;
                 [self firstPlayerStep];
             } else {
                 [self secondPlayerStep];
             }
         } else {
-            self.winner = playerID;
-            [[SoundManager sharedInstance] playWinSound];
+            self.singleplayerChangedPlace = !self.singleplayerChangedPlace;
+            [[GameManager sharedInstance] updateScoreForMode:[GameManager sharedInstance].aiLevel withVictory:playerID == PlayerFirst];
+            if (playerID == PlayerFirst) {
+                [[SoundManager sharedInstance] playWinSound];
+            } else {
+                [[SoundManager sharedInstance] playLooseSound];
+            }
+            [self updateSinglePlayerScore];
         }
     }
 }
@@ -251,11 +259,10 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
         [self updateMultiplayerScore];
         
     } else if (self.gameMode == GameModeSingle) {
-        self.winner = PlayerNone;
-        
         self.singlePlayer = [[GameModelSinglePlayer alloc] initWithPlayerOneSign:PlayerFirst AISign:PlayerSecond difficultLevel:[GameManager sharedInstance].aiLevel];
         self.singlePlayer.delegate = self;
-        self.singlePlayer.activePlayer = PlayerSecond;
+        self.singleplayerChangedPlace = NO;
+        self.collectionView.userInteractionEnabled = YES;
         
         [self updateSinglePlayerScore];
         [self updateSinglePlayerAvatars];
@@ -267,11 +274,14 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
 - (void)animateVictoryIfNeededPlayer:(Player)playerID victoryTurn:(VictoryVectorType)vector
 {
     if (vector != VectorTypeNone) {
-#ifdef DEBUG
-        NSLog(@"Win player %i", (int)playerID);
-#endif
         self.collectionView.userInteractionEnabled = NO;
-        [self animateWinWithVictoryVector:vector];
+        if (vector == VectorTypePat) {
+            DLog(@"Win pat");
+            [self performSelector:@selector(cleanUpCollectionView) withObject:nil afterDelay:2.f];
+        } else {
+            DLog(@"Win player %i", (int)playerID);
+            [self animateWinWithVictoryVector:vector];
+        }
     }
 }
 
@@ -296,23 +306,22 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
 
 - (void)cleanUpCollectionView
 {
-    self.collectionView.userInteractionEnabled = YES;
     [self.victoryLineLayer removeFromSuperlayer];
     [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
     
     if (self.multiplayer) {
+        self.collectionView.userInteractionEnabled = YES;
         [self updateMultiplayerAvatars];
     } else if (self.singlePlayer) {
-        [[GameManager sharedInstance] updateScoreForMode:[GameManager sharedInstance].aiLevel withVictory:self.winner == PlayerSecond];
-        [self updateSinglePlayerScore];
-        
-        if (self.winner == PlayerSecond) {
+        if (self.singleplayerChangedPlace) {
+            self.singlePlayer.activePlayer = PlayerSecond;
             [self secondPlayerStep];
-            [self.singlePlayer performAITurn];
+            [self.singlePlayer performSelector:@selector(performAITurn) withObject:nil afterDelay:1];
         } else {
+            self.collectionView.userInteractionEnabled = YES;
+            self.singlePlayer.activePlayer = PlayerFirst;
             [self firstPlayerStep];
         }
-        self.winner = PlayerNone;
     }
 }
 
@@ -393,14 +402,12 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
 
 - (void)updateSinglePlayerAvatars
 {
-    UIImage *playerAvatar = [UIImage imageNamed:@"user"];
-    UIImage *aiAvatar = [UIImage imageNamed:@"ai_1"];
-    
-    BOOL playerPosition = self.singlePlayer.playerOneSign == PlayerFirst;
-    self.firstPlayerImageView.image = playerPosition ? playerAvatar : aiAvatar;
-    self.secondPlayerImageView.image = playerPosition ? aiAvatar : playerAvatar;
-    
-    if (playerPosition) {
+    self.firstPlayerImageView.image = [UIImage imageNamed:@"user"];
+    self.secondPlayerImageView.image = [UIImage imageNamed:@"ai_1"];
+
+    BOOL firstPlayerIsCross = self.singlePlayer.activePlayer == PlayerFirst;
+
+    if (firstPlayerIsCross) {
         [self firstPlayerStep];
     } else {
         [self secondPlayerStep];

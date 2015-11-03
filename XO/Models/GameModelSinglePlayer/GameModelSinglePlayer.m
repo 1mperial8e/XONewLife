@@ -21,33 +21,32 @@
 - (instancetype)initWithPlayerOneSign:(Player)playerOne AISign:(Player)AISign difficultLevel:(AILevel)defficultLevel
 {
     self = [super initWithPlayerOneSign:playerOne playerTwoSign:AISign];
-    self.AIPlayer = [[AIPlayer alloc] initWithAISign:AISign playerSign:playerOne difficultLevel:defficultLevel];
+    if (self) {
+        self.AIPlayer = [[AIPlayer alloc] initWithAISign:AISign playerSign:playerOne difficultLevel:defficultLevel];
+    }
     return self;
 }
 
-- (void)performTurnWithIndexPath:(NSIndexPath *)indexPath
+- (VictoryVectorType)performTurnWithIndexPath:(NSIndexPath *)indexPath
 {
     int i = (int)indexPath.row / 3;
     int j = (int)indexPath.row % 3;
     
+    VictoryVectorType victoryVector = VectorTypeNone;
     if (self.activeGame.stateMatrix[i][j] == EmptySign) {
-        [super performTurnWithIndexPath:indexPath];
+        victoryVector = [super performTurnWithIndexPath:indexPath];
         
-        if (self.playerTurnVictoryState == VectorTypeNone) {
-            int delay = arc4random_uniform(2) + 1;
-            if (self.delegate && [self.delegate respondsToSelector:@selector(gameModelWillStartAITurnAfterDelay:)]) {
-                [self.delegate gameModelWillStartAITurnAfterDelay:delay];
-            }
-            [self performSelector:@selector(performAITurn) withObject:nil afterDelay:delay];
-        } else {
-            self.activePlayer = self.activePlayer == PlayerFirst ? PlayerSecond : PlayerFirst;
+        if (victoryVector != VectorTypeNone) {
             [self updateSignsForPlayers];
+        } else {
+            [self performSelector:@selector(performAITurn) withObject:nil afterDelay:1];
         }
     } else {
         if (self.delegate && [self.delegate respondsToSelector:@selector(gameModelDidFailMakeTurnAtIndexPath:forPlayer:)]) {
             [self.delegate gameModelDidFailMakeTurnAtIndexPath:indexPath forPlayer:self.activePlayer];
         }
     }
+    return victoryVector;
 }
 
 #pragma mark - Private
@@ -56,38 +55,24 @@
 {
     GameMatrix previousMatrix = self.activeGame;
     self.activeGame = [self.AIPlayer makeAITurnWithMat:self.activeGame];
-#ifdef DEBUG
-    NSLog(@"AI:");
+    DLog(@"AI:");
     LogMat(self.activeGame.stateMatrix);
-#endif
     
     BOOL isVictoryTurn = [self isGameFinished];
     BOOL isPatGame = !isVictoryTurn && ![self canPerfromTurn];
     
     NSIndexPath *aiSelectedIndexPath = [self modifiedIndexInOriginalMatrix:previousMatrix modifiedMatrix:self.activeGame];
-    
+    if (isPatGame) {
+        self.victoryType = VectorTypePat;
+    }
     if (self.delegate && [self.delegate respondsToSelector:@selector(gameModelDidConfirmGameTurnAtIndexPath:forPlayer:victoryTurn:)]) {
         [self.delegate gameModelDidConfirmGameTurnAtIndexPath:aiSelectedIndexPath forPlayer:self.activePlayer victoryTurn:self.victoryType];
     }
-    self.activePlayer = self.activePlayer == PlayerFirst ? PlayerSecond : PlayerFirst;
+
+    self.activePlayer = (self.activePlayer == PlayerFirst) ? PlayerSecond : PlayerFirst;
     
-    VictoryVectorType currentState = self.victoryType;
-    
-    if (isVictoryTurn) {
+    if (isVictoryTurn || isPatGame) {
         [self resetGame];
-    }
-    if (isPatGame) {
-        if (self.delegate && [self.delegate respondsToSelector:@selector(gameModelDidFinishGameWithPatResult)]) {
-            [self.delegate gameModelDidFinishGameWithPatResult];
-            [self resetGame];
-        }
-    }
-    
-    if (currentState == VectorTypeNone) {
-        if (self.delegate && [self.delegate respondsToSelector:@selector(gameModelDidEndAITurn)]) {
-            [self.delegate gameModelDidEndAITurn];
-        }
-    } else {
         [self updateSignsForPlayers];
     }
 }

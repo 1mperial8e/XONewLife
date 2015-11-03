@@ -35,49 +35,44 @@
 
 #pragma mark - Public
 
-- (void)performTurnWithIndexPath:(NSIndexPath *)indexPath;
+- (VictoryVectorType)performTurnWithIndexPath:(NSIndexPath *)indexPath;
 {
     int i = (int)indexPath.row / 3;
     int j = (int)indexPath.row % 3;
+    
+    VictoryVectorType vector = VectorTypeNone;
     
     if (self.activeGame.stateMatrix[i][j] == EmptySign) {
         int activeSign = [self activeSign];
         _activeGame.stateMatrix[i][j] = activeSign;
 
-#ifdef DEBUG
-        NSLog(@"User:");
+        DLog(@"User:");
         LogMat(self.activeGame.stateMatrix);
-#endif
         BOOL isVictoryTurn = [self isGameFinished];
         BOOL isPatGame = !isVictoryTurn && ![self canPerfromTurn];
-        
+        if (isPatGame) {
+            self.victoryType = VectorTypePat;
+        }
+        vector = self.victoryType;
         if (self.delegate && [self.delegate respondsToSelector:@selector(gameModelDidConfirmGameTurnAtIndexPath:forPlayer:victoryTurn:)]) {
             [self.delegate gameModelDidConfirmGameTurnAtIndexPath:indexPath forPlayer:self.activePlayer victoryTurn:self.victoryType];
         }
         self.activePlayer = self.activePlayer == PlayerFirst ? PlayerSecond : PlayerFirst;
-        
-        self.playerTurnVictoryState = self.victoryType;
-        
-        if (isVictoryTurn) {
+                
+        if (isVictoryTurn || isPatGame) {
             [self resetGame];
         }
-        if (isPatGame) {
-            if (self.delegate && [self.delegate respondsToSelector:@selector(gameModelDidFinishGameWithPatResult)]) {
-                [self.delegate gameModelDidFinishGameWithPatResult];
-                [self resetGame];
-            }
-        }
-        
     } else {
         if (self.delegate && [self.delegate respondsToSelector:@selector(gameModelDidFailMakeTurnAtIndexPath:forPlayer:)]) {
             [self.delegate gameModelDidFailMakeTurnAtIndexPath:indexPath forPlayer:self.activePlayer];
         }
     }
+    return vector;
 }
 
 - (int)activeSign
 {
-    return self.activePlayer == PlayerFirst ? self.playerTwoSign : self.playerOneSign;
+    return self.activePlayer == PlayerFirst ? self.playerOneSign : self.playerTwoSign;
 }
 
 - (void)resetGame
@@ -98,7 +93,7 @@
 - (BOOL)isGameFinished
 {
     BOOL isGameFinished = NO;
-    int activeSign = self.activePlayer == PlayerFirst ? self.playerTwoSign : self.playerOneSign;
+    int activeSign = self.activePlayer == PlayerFirst ? self.playerOneSign : self.playerTwoSign;
     
     for (int i = 0; i < 3; i++) {
         if (_activeGame.stateMatrix[i][0] == activeSign &&

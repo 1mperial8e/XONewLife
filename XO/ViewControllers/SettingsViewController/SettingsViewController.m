@@ -58,8 +58,12 @@
     AlertViewController *alertVC = [[AlertViewController alloc] initWithTitle:NSLocalizedString(@"settingViewController.areYouSure", nil)
                                                                       message:nil
                                                             cancelButtonTitle:NSLocalizedString(@"settingViewController.notSure", nil)];
+    __weak typeof(self) weakSelf = self;
     [alertVC addButtonWithTitle:NSLocalizedString(@"settingViewController.yesSure", nil) completionHandler:^{
         [[GameManager sharedInstance] resetLocalScore];
+        if (weakSelf.didResetScore) {
+            weakSelf.didResetScore();
+        }
     }];
     [self presentViewController:alertVC animated:YES completion:nil];
 }
@@ -74,7 +78,7 @@
         [weakSelf updateControlState];
     };
     
-    if (self.navigationController.viewControllers.count > 2) {
+    if (self.didChangeAIMode) {
         AlertViewController *alertVC = [[AlertViewController alloc] initWithTitle:NSLocalizedString(@"settingViewController.aiLevelChangeNoticeTitle", nil)
                                                                           message:NSLocalizedString(@"settingViewController.currentGameWillBeLost", nil)
                                                                 cancelButtonTitle:NSLocalizedString(@"settingViewController.notSure", nil)];

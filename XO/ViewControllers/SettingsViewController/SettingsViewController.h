@@ -10,5 +10,6 @@
 @interface SettingsViewController : BaseViewController <SwitchControlViewDelegate>
 
 @property (strong, nonatomic) void (^didChangeAIMode)();
+@property (strong, nonatomic) void (^didResetScore)();
 
 @end

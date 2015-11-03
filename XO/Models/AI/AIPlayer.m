@@ -57,6 +57,7 @@ typedef NS_ENUM(NSUInteger, AIStrategy) {
 
 - (void)updateAiSingTo:(int)ai player:(int)player
 {
+    self.strategy = AIStrategyUndefined;
     self.AISign = ai;
     self.playerSign = player;
 }
@@ -245,7 +246,7 @@ typedef NS_ENUM(NSUInteger, AIStrategy) {
     _gameMatrix.stateMatrix[iIndex][jIndex] = self.AISign;
 }
 
-#pragma mark - RandomTurnsLogic
+#pragma mark - RandomTurDLogic
 
 - (void)performAIRandomFirstTurn
 {

@@ -14,11 +14,6 @@
 @required
 - (void)gameModelDidConfirmGameTurnAtIndexPath:(NSIndexPath *)indexPath forPlayer:(Player)playerID victoryTurn:(VictoryVectorType)vector;
 - (void)gameModelDidFailMakeTurnAtIndexPath:(NSIndexPath *)indexPath forPlayer:(Player)playerID;
-- (void)gameModelDidFinishGameWithPatResult;
-
-@optional
-- (void)gameModelWillStartAITurnAfterDelay:(int)delay;
-- (void)gameModelDidEndAITurn;
 
 @end
 
@@ -33,7 +28,6 @@
 @property (assign, nonatomic) int playerTwoSign; //or AI
 
 @property (assign, nonatomic) VictoryVectorType victoryType;
-@property (assign, nonatomic) VictoryVectorType playerTurnVictoryState; //for singlePlayer
 
 - (instancetype)initWithPlayerOneSign:(Player)playerOne playerTwoSign:(Player)playerTwo;
 
@@ -44,6 +38,6 @@
 - (void)putSign:(int)sign atI:(int)i atJ:(int)j;
 - (void)resetGame;
 
-- (void)performTurnWithIndexPath:(NSIndexPath *)indexPath;
+- (VictoryVectorType)performTurnWithIndexPath:(NSIndexPath *)indexPath;
 
 @end

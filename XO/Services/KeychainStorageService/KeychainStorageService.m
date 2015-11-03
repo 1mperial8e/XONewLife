@@ -25,13 +25,13 @@
         attributesToUpdate[(__bridge id)kSecAttrLabel] = score;
         OSStatus status = SecItemUpdate((__bridge CFDictionaryRef)keychainItem, (__bridge CFDictionaryRef)attributesToUpdate);
         if (status) {
-            NSLog(@"Score update error. Code: %d", (int)status);
+            DLog(@"Score update error. Code: %d", (int)status);
         }
     } else {
         keychainItem[(__bridge id)kSecAttrLabel] = score;
         OSStatus status = SecItemAdd((__bridge CFDictionaryRef)keychainItem, NULL);
         if (status) {
-            NSLog(@"Score save error. Code: %d", (int)status);
+            DLog(@"Score save error. Code: %d", (int)status);
         }
     }
 }
@@ -49,7 +49,7 @@
     CFDictionaryRef result = nil;
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)keychainItem, (CFTypeRef *)&result);
     if (status) {
-        NSLog(@"Score get error. Code: %d", (int)status);
+        DLog(@"Score get error. Code: %d", (int)status);
     } else {
         NSDictionary *resultDict = (__bridge_transfer NSDictionary *)result;
         score = resultDict[(__bridge id)kSecAttrLabel];

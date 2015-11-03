@@ -697,7 +697,7 @@
                                 <rect key="frame" x="16" y="52" width="288" height="496"/>
                                 <animations/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" maximumZoomScale="3" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVr-g9-N1M" userLabel="About - UITextView">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" maximumZoomScale="3" editable="NO" text="ncnbcnbcnb" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVr-g9-N1M" userLabel="About - UITextView">
                                 <rect key="frame" x="32" y="64" width="256" height="464"/>
                                 <animations/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -757,7 +757,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wHc-RB-XNr" userLabel="Sound - UiView">
                                                 <rect key="frame" x="0.0" y="75" width="273" height="74"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58e-xk-n7o" customClass="SoundButton">
+                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58e-xk-n7o" customClass="SoundButton">
                                                         <rect key="frame" x="0.0" y="0.0" width="273" height="75"/>
                                                         <animations/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -770,7 +770,7 @@
                                                             <action selector="enableSoundAction:" destination="yya-Jm-GhW" eventType="touchUpInside" id="QNN-2J-LYw"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unchecked" translatesAutoresizingMaskIntoConstraints="NO" id="nO8-vH-ToA">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="unchecked" translatesAutoresizingMaskIntoConstraints="NO" id="nO8-vH-ToA">
                                                         <rect key="frame" x="231" y="26" width="22" height="24"/>
                                                         <animations/>
                                                         <constraints>
@@ -778,7 +778,7 @@
                                                             <constraint firstAttribute="width" constant="22" id="y1e-8j-QZ5"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked" translatesAutoresizingMaskIntoConstraints="NO" id="gkO-QX-vwk">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="checked" translatesAutoresizingMaskIntoConstraints="NO" id="gkO-QX-vwk">
                                                         <rect key="frame" x="231" y="25" width="22" height="24"/>
                                                         <animations/>
                                                         <constraints>
@@ -849,7 +849,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="egZ-jX-MTL" userLabel="ResetScore">
                                                 <rect key="frame" x="0.0" y="224" width="273" height="74"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cr3-aQ-rac" customClass="SoundButton">
+                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cr3-aQ-rac" customClass="SoundButton">
                                                         <rect key="frame" x="0.0" y="0.0" width="273" height="75"/>
                                                         <animations/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

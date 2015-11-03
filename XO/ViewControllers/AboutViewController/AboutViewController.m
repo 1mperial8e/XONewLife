@@ -21,8 +21,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.aboutTextView.font = [UIFont adigianaFontWithSize:18.0f];
     [self localizeUI];
 }
 
@@ -36,7 +34,8 @@
 
 - (void)localizeUI
 {
-    self.aboutTextView.text = NSLocalizedString(@"aboutViewController.AboutText", nil);
+    self.aboutTextView.attributedText = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"aboutViewController.AboutText", nil)
+                                                                        attributes:@{NSFontAttributeName : [UIFont adigianaFontWithSize:18.0f]}];
     self.title = NSLocalizedString(@"aboutViewController.Title", nil);
 }
 

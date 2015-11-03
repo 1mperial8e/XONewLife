@@ -11,8 +11,6 @@
 @interface GameModelSinglePlayer : BaseGameModel
 
 - (instancetype)initWithPlayerOneSign:(Player)playerOne AISign:(Player)AISign difficultLevel:(AILevel)defficultLevel;
-
-- (void)performTurnWithIndexPath:(NSIndexPath *)indexPath;
 - (void)performAITurn;
 
 @end

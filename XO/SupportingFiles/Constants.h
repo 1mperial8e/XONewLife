@@ -6,6 +6,12 @@
 //  Copyright (c) 2014 - present Thinkmobiles. All rights reserved.
 //
 
+#ifdef DEBUG
+    #define DLog(format, ...) NSLog(format, ##__VA_ARGS__)
+#else
+    #define DLog(...)
+#endif
+
 // MARK: userdefaults
 static NSString *const AIDifficultyKey = @"AIDifficultyKey";
 static NSString *const MusicSettingsKey = @"MusicSettingsKey";
@@ -16,8 +22,7 @@ static NSString *const AIEasyDifficultyKey = @"AIEasyDifficultyKey";
 static NSString *const AIMediumDifficultyKey = @"AIMediumDifficultyKey";
 static NSString *const AIHardDifficultyKey = @"AIHardDifficultyKey";
 
-#pragma mark - Enums
-
+// MARL: Enums
 typedef NS_ENUM(NSInteger, GameMode){
     GameModeSingle,
     GameModeMultiplayer,
@@ -39,7 +44,8 @@ typedef NS_ENUM(NSInteger, VictoryVectorType){
     VectorTypeVerticalFirst,
     VectorTypeVerticalSecond,
     VectorTypeDiagonalLeft,
-    VectorTypeDiagonalRight
+    VectorTypeDiagonalRight,
+    VectorTypePat
 };
 
 typedef NS_ENUM(NSInteger, AILevel){

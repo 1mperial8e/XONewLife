@@ -190,9 +190,7 @@ static NSString *const CBUUIDNotifierCharacteristicCodeString = @"E1B9FBBE-8EBA-
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(nullable NSError *)error
 {
     for (CBService *service in peripheral.services) {
-#ifdef DEBUG
-        NSLog(@"Discovered service %@", service);
-#endif
+        DLog(@"Discovered service %@", service);
         [peripheral discoverCharacteristics:@[[CBUUID UUIDWithString:CBUUIDNotifierCharacteristicCodeString],
                                               [CBUUID UUIDWithString:CBUUIDWriteableCharacteristicCodeString]
                                               ] forService:service];
@@ -213,10 +211,8 @@ static NSString *const CBUUIDNotifierCharacteristicCodeString = @"E1B9FBBE-8EBA-
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
 {
     if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:CBUUIDNotifierCharacteristicCodeString]]) {
-#ifdef DEBUG
         NSString *dataString = [[NSString alloc] initWithData:characteristic.value encoding:NSUTF8StringEncoding];
-        NSLog(@"Received from peripheral - %@", dataString);
-#endif
+        DLog(@"Received from peripheral - %@", dataString);
         if (self.delegate && [self.delegate respondsToSelector:@selector(BLEServiceDidReceiveData:peripheral:service:)]) {
             [self.delegate BLEServiceDidReceiveData:characteristic.value peripheral:peripheral service:self];
         }
@@ -231,9 +227,7 @@ static NSString *const CBUUIDNotifierCharacteristicCodeString = @"E1B9FBBE-8EBA-
     }
     
     if (characteristic.isNotifying) {
-#ifdef DEBUG
-        NSLog(@"Notification began on %@", characteristic);
-#endif
+        DLog(@"Notification began on %@", characteristic);
     } else {
         [self.centalRoleManager cancelPeripheralConnection:peripheral];
     }
@@ -243,10 +237,8 @@ static NSString *const CBUUIDNotifierCharacteristicCodeString = @"E1B9FBBE-8EBA-
 {
     for (CBATTRequest *request in requests) {
         if ([request.characteristic.UUID isEqual:[CBUUID UUIDWithString:CBUUIDWriteableCharacteristicCodeString]]) {
-#ifdef DEBUG
             NSString *dataString = [[NSString alloc] initWithData:request.value encoding:NSUTF8StringEncoding];
-            NSLog(@"Received from manager - %@", dataString);
-#endif
+            DLog(@"Received from manager - %@", dataString);
             if (self.delegate && [self.delegate respondsToSelector:@selector(BLEServiceDidReceiveData:peripheral:service:)]) {
                 [self.delegate BLEServiceDidReceiveData:request.value peripheral:nil service:self];
             }
