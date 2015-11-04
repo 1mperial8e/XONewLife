@@ -39,6 +39,9 @@
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
+    // Will clean BLE services when back from lobby
+    [[GameManager sharedInstance] cleanBLEServices];
 }
 
 #pragma mark - Actions

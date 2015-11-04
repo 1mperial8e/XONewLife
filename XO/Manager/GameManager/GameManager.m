@@ -7,7 +7,10 @@
 //
 
 #import "GameManager.h"
+
+// Services
 #import "KeychainStorageService.h"
+#import "BLEService.h"
 
 static NSString *const DefaultScore = @"0:0";
 
@@ -25,6 +28,16 @@ static NSString *const DefaultScore = @"0:0";
         [sharedInstance loadAISettings];
     });
     return sharedInstance;
+}
+
+#pragma mark - BLE
+
+- (void)cleanBLEServices
+{
+    [self.managerService stopScanning];
+    [self.peripheralService stopAdvertisement];
+    self.managerService = nil;
+    self.peripheralService = nil;
 }
 
 #pragma mark - Score
