@@ -8,4 +8,6 @@
 
 @interface BaseViewController : UIViewController
 
+- (void)backButtonTapped:(id)sender;
+
 @end

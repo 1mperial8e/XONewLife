@@ -10,4 +10,9 @@
 
 @property (assign, nonatomic) GameMode gameMode;
 
+@property (copy, nonatomic) NSString *userName;
+@property (copy, nonatomic) NSString *opponentName;
+
+@property (assign, nonatomic) BOOL isHost;
+
 @end

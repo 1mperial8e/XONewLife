@@ -22,7 +22,7 @@
                                 <animations/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xo" translatesAutoresizingMaskIntoConstraints="NO" id="Iwy-4X-6vM">
-                                <rect key="frame" x="220" y="225" width="161" height="150"/>
+                                <rect key="frame" x="220" y="185" width="161" height="150"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="161" id="blu-Tr-usi"/>
@@ -33,7 +33,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Iwy-4X-6vM" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="5lQ-cB-xM7"/>
+                            <constraint firstItem="Iwy-4X-6vM" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-40" id="5lQ-cB-xM7"/>
                             <constraint firstItem="AaF-Lb-pd0" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="F9G-qw-o4X"/>
                             <constraint firstItem="Iwy-4X-6vM" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="QM1-eR-ehM"/>
                             <constraint firstAttribute="trailing" secondItem="AaF-Lb-pd0" secondAttribute="trailing" id="W7U-Rx-bne"/>

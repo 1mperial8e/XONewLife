@@ -194,6 +194,7 @@ static NSString *const CBUUIDNotifierCharacteristicCodeString = @"E1B9FBBE-8EBA-
         [peripheral discoverCharacteristics:@[[CBUUID UUIDWithString:CBUUIDNotifierCharacteristicCodeString],
                                               [CBUUID UUIDWithString:CBUUIDWriteableCharacteristicCodeString]
                                               ] forService:service];
+        
     }
 }
 
@@ -205,6 +206,9 @@ static NSString *const CBUUIDNotifierCharacteristicCodeString = @"E1B9FBBE-8EBA-
         } else if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:CBUUIDWriteableCharacteristicCodeString]]) {
             [peripheral setNotifyValue:YES forCharacteristic:characteristic];
         }
+    }
+    if (self.delegate && [self.delegate respondsToSelector:@selector(BLEServiceDidDiscoveredServiceForPeripheral:error:)]) {
+        [self.delegate BLEServiceDidDiscoveredServiceForPeripheral:peripheral error:error];
     }
 }
 

@@ -14,6 +14,9 @@
 #import "GameManager.h"
 #import "SoundManager.h"
 
+// Services
+#import "BLEService.h"
+
 // Views
 #import "GameCollectionViewCell.h"
 
@@ -30,7 +33,7 @@ static NSString *const VictoryImageNameVertical = @"vertical";
 
 static CGFloat const PlayerImageAnimationTime = 0.30;
 
-@interface GameViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, GameModelDelegate>
+@interface GameViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, GameModelDelegate, BLEServiceDelegate>
 
 // MARK: UI
 @property (weak, nonatomic) IBOutlet UILabel *firstplayerNameLabel;
@@ -112,6 +115,16 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
     [self.navigationController pushViewController:settingViewController animated:YES];
 }
 
+- (void)backButtonTapped:(id)sender
+{
+    if (self.gameMode == GameModeOnline) {
+        [[SoundManager sharedInstance] playClickSound];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    } else {
+        [super backButtonTapped:sender];
+    }
+}
+
 #pragma mark - UI
 
 - (void)configureNavigationItem
@@ -127,8 +140,29 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
 - (void)localizeUI
 {
     self.title = NSLocalizedString(@"gameViewController.title", nil);
-    self.secondPlayerNameLabel.text = self.singlePlayer ? NSLocalizedString(@"gameViewController.secondPlayer.AI", nil) : NSLocalizedString(@"gameViewController.secondPlayer", nil);
-    self.firstplayerNameLabel.text = NSLocalizedString(@"gameViewController.firstPlayer", nil);
+    switch (self.gameMode) {
+        case GameModeSingle: {
+            self.firstplayerNameLabel.text = NSLocalizedString(@"gameViewController.firstPlayer", nil);
+            self.secondPlayerNameLabel.text = NSLocalizedString(@"gameViewController.secondPlayer.AI", nil);
+            break;
+        }
+        case GameModeMultiplayer: {
+            self.firstplayerNameLabel.text = NSLocalizedString(@"gameViewController.firstPlayer", nil);
+            self.secondPlayerNameLabel.text = NSLocalizedString(@"gameViewController.secondPlayer", nil);
+            break;
+        }
+        case GameModeOnline: {
+            if (self.isHost) {
+                self.firstplayerNameLabel.text = self.userName;
+                self.secondPlayerNameLabel.text = self.opponentName;
+            } else {
+                self.secondPlayerNameLabel.text = self.userName;
+                self.firstplayerNameLabel.text = self.opponentName;
+            }
+
+            break;
+        }
+    }
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -248,16 +282,16 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
     if (self.gameMode == GameModeMultiplayer || self.gameMode == GameModeSingle) {
         self.timerView.hidden = YES;
     }
-    
-    if (self.gameMode == GameModeMultiplayer) {
+    if (self.gameMode == GameModeMultiplayer || self.gameMode == GameModeOnline) {
         self.multiplayer = [[BaseGameModel alloc] init];
         self.multiplayer.delegate = self;
+        if (self.gameMode == GameModeOnline) {
+            [self setupBLE];
+        }
         self.multiplayerChangedPlace = YES;
-        
         self.multiplayerScore = [ScoreModel modelWithScore:@"0:0"];
         [self updateMultiplayerAvatars];
         [self updateMultiplayerScore];
-        
     } else if (self.gameMode == GameModeSingle) {
         self.singlePlayer = [[GameModelSinglePlayer alloc] initWithPlayerOneSign:PlayerFirst AISign:PlayerSecond difficultLevel:[GameManager sharedInstance].aiLevel];
         self.singlePlayer.delegate = self;
@@ -269,6 +303,19 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
     }
 }
 
+- (void)setupBLE
+{
+    if (self.isHost) {
+        [GameManager sharedInstance].managerService.delegate = self;
+        [[GameManager sharedInstance].peripheralService stopAdvertisement];
+        [GameManager sharedInstance].peripheralService = nil;
+    } else {
+        [GameManager sharedInstance].peripheralService.delegate = self;
+        [[GameManager sharedInstance].managerService stopScanning];
+        [GameManager sharedInstance].managerService = nil;
+    }
+}
+
 #pragma mark - VictoryVectorDrawing
 
 - (void)animateVictoryIfNeededPlayer:(Player)playerID victoryTurn:(VictoryVectorType)vector
@@ -276,7 +323,7 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
     if (vector != VectorTypeNone) {
         self.collectionView.userInteractionEnabled = NO;
         if (vector == VectorTypePat) {
-            DLog(@"Win pat");
+            DLog(@"Pat");
             [self performSelector:@selector(cleanUpCollectionView) withObject:nil afterDelay:2.f];
         } else {
             DLog(@"Win player %i", (int)playerID);
@@ -355,6 +402,21 @@ static CGFloat const PlayerImageAnimationTime = 0.30;
         imageName = VictoryImageNameVertical;
     }
     return imageName;
+}
+
+#pragma mark - BLEServiceDelegate
+
+- (void)BLEServiceDidDisconnect:(CBPeripheral *)peripheral
+{
+    AlertViewController *alert = [[AlertViewController alloc] initWithTitle:nil
+                                                                    message:NSLocalizedString(@"gameViewController.opponentLeftTheGame", nil)
+                                                                      style:AlertControllerStyleAlertView
+                                                          cancelButtonTitle:nil];
+    __weak typeof(self) weakSelf = self;
+    [alert addButtonWithTitle:NSLocalizedString(@"common.ok", nil) completionHandler:^{
+        [weakSelf.navigationController popToRootViewControllerAnimated:YES];
+    }];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark - Players avatars

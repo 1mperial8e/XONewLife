@@ -24,15 +24,13 @@ typedef NS_ENUM(NSUInteger, BLEState) {
 
 @protocol BLEServiceDelegate <NSObject>
 
-@required
+@optional
 /** Avaliable for type BLETypeManager
     Avaliable for type BLETypePeripheral
  
  @param peripheral nil for BLETypeManager
  */
 - (void)BLEServiceDidReceiveData:(nullable NSData *)data peripheral:(nullable CBPeripheral *)peripheral service:(nonnull BLEService *)BLEService;
-
-@optional
 
 /** Avaliable for type BLETypeManager
     Avaliable for type BLETypePeripheral */
@@ -62,6 +60,9 @@ typedef NS_ENUM(NSUInteger, BLEState) {
 
 /** Avaliable for type BLETypeManager */
 - (void)BLEServiceDidConnect:(nonnull CBPeripheral *)peripheral;
+
+/** Avaliable for type BLETypeManager */
+- (void)BLEServiceDidDiscoveredServiceForPeripheral:(nonnull CBPeripheral *)peripheral error:(nullable NSError *)error;
 
 /** Avaliable for type BLETypeManager */
 - (void)BLEServiceDidDisconnect:(nonnull CBPeripheral *)peripheral;
